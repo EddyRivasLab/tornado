@@ -1,0 +1,373 @@
+Script started on Tue 06 Dec 2005 12:21:41 PM CST
+[rlang@woodworm mile_3]$ ./run-errors.sh
+===========================================================================
+ERROR CASE 0a generic lexical error
+S --> SS
+S --> Sa
+S -> aS
+S --> aSb
+S --> e
+no emission scores were specified
+
+new left hand side is: S
+RHS #9: 2 atoms, nonterm + nonterm < S S >
+
+new left hand side is: S
+
+FATAL: grampiler lexical error: -
+
+---------------------------------------------------------------------------
+ERROR CASE 0b generic parse error
+S --> SS Sa | aS | aSa' | e
+no emission scores were specified
+
+new left hand side is: S
+RHS #9: 2 atoms, nonterm + nonterm < S S >
+
+FATAL: grampiler syntax error
+
+===========================================================================
+ERROR CASE 1a
+S --> e  |  a  |  a P^1  |  S a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #2: 1 atoms, singlet < a >
+
+FATAL: grampiler error in ensure_nonstacking_nt(), nonterminal P has stacking annotation in incorrect context
+
+---------------------------------------------------------------------------
+ERROR CASE 1b
+S --> e  |  a  |  a P^1 b  |  S a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #2: 1 atoms, singlet < a >
+
+FATAL: grampiler error in ensure_nonstacking_nt(), nonterminal P has stacking annotation in incorrect context
+
+===========================================================================
+ERROR CASE 2
+S --> e  |  a  |  a R  |  S a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #2: 1 atoms, singlet < a >
+RHS #5: 2 atoms, singlet + nonterm < a R >
+RHS #7: 2 atoms, nonterm + singlet < S a >
+found 1 rules with 4 right hand sides
+the nonterminals are: SR
+S is rewritten 4 times
+
+FATAL: grampiler error in ensure_nonterms_have_rules(), R not used as a left-hand-side
+
+===========================================================================
+ERROR CASE 3
+S --> e  |  a  |  a S  |  S a  |  a S a  |  a S a S  |  S a S a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #2: 1 atoms, singlet < a >
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < S a >
+RHS #11: 2 atoms, pair + nonterm < a S a >
+RHS #18: 3 atoms, pair + nonterm + nonterm < a S a S >
+RHS #25: 3 atoms, nonterm + pair + nonterm < S a S a >
+
+FATAL: grampiler error parsing rules: max number of production rules exceeded for S
+
+===========================================================================
+ERROR CASE 4
+S --> e  |  J a
+J --> a S  |  L a
+K --> a L  |  N a
+L --> a S a  |  a K a S
+M --> S a S a  |  Q a
+N --> a S  |  M a
+P --> a P  |  L a
+Q --> a S a  |  a R a S
+R --> S a S a  |  Q a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #7: 2 atoms, nonterm + singlet < J a >
+
+new left hand side is: J
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < L a >
+
+new left hand side is: K
+RHS #5: 2 atoms, singlet + nonterm < a L >
+RHS #7: 2 atoms, nonterm + singlet < N a >
+
+new left hand side is: L
+RHS #11: 2 atoms, pair + nonterm < a S a >
+RHS #18: 3 atoms, pair + nonterm + nonterm < a K a S >
+
+new left hand side is: M
+RHS #25: 3 atoms, nonterm + pair + nonterm < S a S a >
+RHS #7: 2 atoms, nonterm + singlet < Q a >
+
+new left hand side is: N
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < M a >
+
+new left hand side is: P
+RHS #5: 2 atoms, singlet + nonterm < a P >
+RHS #7: 2 atoms, nonterm + singlet < L a >
+
+new left hand side is: Q
+RHS #11: 2 atoms, pair + nonterm < a S a >
+RHS #18: 3 atoms, pair + nonterm + nonterm < a R a S >
+
+FATAL: grampiler error in nonterm_index_of(), max number of nonterms exceeded
+
+===========================================================================
+ERROR CASE 5a
+S --> e  |  J a
+J --> a S  |  L a
+K --> a L  |  a N^1 a'
+L --> a S a  |  a K a S
+M --> S a S a  |  Q a
+N --> a S  |  M a
+P --> a P  |  L a
+Q --> a S a  |  a R a S
+R --> S a S a  |  Q a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #7: 2 atoms, nonterm + singlet < J a >
+
+new left hand side is: J
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < L a >
+
+new left hand side is: K
+RHS #5: 2 atoms, singlet + nonterm < a L >
+N^1 carries a stacking annotation
+RHS #10: 2 atoms, pair + stacking_nt < a N^1 a' >
+
+new left hand side is: L
+RHS #11: 2 atoms, pair + nonterm < a S a >
+RHS #18: 3 atoms, pair + nonterm + nonterm < a K a S >
+
+new left hand side is: M
+RHS #25: 3 atoms, nonterm + pair + nonterm < S a S a >
+RHS #7: 2 atoms, nonterm + singlet < Q a >
+
+FATAL: grampiler error in nonterm_index_of(), nonterminal N used both with and without a stacking annotation
+
+---------------------------------------------------------------------------
+ERROR CASE 5b
+S --> e  |  J a
+J --> a S  |  L a
+K --> a L  |  N a
+L --> a S a  |  a K a S
+M --> S a S a  |  Q a
+N^1 --> a S  |  M a
+P --> a P  |  L a
+Q --> a S a  |  a R a S
+R --> S a S a  |  Q a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #7: 2 atoms, nonterm + singlet < J a >
+
+new left hand side is: J
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < L a >
+
+new left hand side is: K
+RHS #5: 2 atoms, singlet + nonterm < a L >
+RHS #7: 2 atoms, nonterm + singlet < N a >
+
+new left hand side is: L
+RHS #11: 2 atoms, pair + nonterm < a S a >
+RHS #18: 3 atoms, pair + nonterm + nonterm < a K a S >
+
+new left hand side is: M
+RHS #25: 3 atoms, nonterm + pair + nonterm < S a S a >
+RHS #7: 2 atoms, nonterm + singlet < Q a >
+
+FATAL: grampiler error in nonterm_index_of(), nonterminal N used both with and without a stacking annotation
+
+===========================================================================
+ERROR CASE 6
+S --> e  |  J a
+J --> a S  |  L a
+K^1 --> a L  |  N a
+L --> a S a  |  a K^2 a' S
+M --> S a S a  |  Q a
+N --> a S  |  M a
+P --> a P  |  L a
+Q --> a S a  |  a R a S
+R --> S a S a  |  Q a
+no emission scores were specified
+
+new left hand side is: S
+RHS #1: 1 atoms, empty string < e >
+RHS #7: 2 atoms, nonterm + singlet < J a >
+
+new left hand side is: J
+RHS #5: 2 atoms, singlet + nonterm < a S >
+RHS #7: 2 atoms, nonterm + singlet < L a >
+K^1 carries a stacking annotation
+
+new left hand side is: K^1
+RHS #5: 2 atoms, singlet + nonterm < a L >
+RHS #7: 2 atoms, nonterm + singlet < N a >
+
+new left hand side is: L
+RHS #11: 2 atoms, pair + nonterm < a S a >
+
+FATAL: grampiler error in nonterm_index_of(), nonterminal K used with conflicting stack annotations
+
+===========================================================================
+ERROR CASE 7
+edist : 1 : 0 : s1
+edist : 1 : 0 : s1
+
+S --> aSa' | aS | Sa | SS | e
+adding named edist 's1' emitting 1 depending on 0
+
+FATAL: grampiler error in add_declared_edist(), edist name s1 previously declared
+
+===========================================================================
+ERROR CASE 8
+S --> aSa' d1  |  aS  |  Sa  |  SS  |  e
+no emission scores were specified
+
+new left hand side is: S
+
+FATAL: grampiler error in find_named_edist(), edist_info_list is empty
+
+===========================================================================
+ERROR CASE 9
+edist : 1 : 0 : s1
+
+S --> aSa'  |  aS d1  |  Sa  |  SS  |  e
+adding named edist 's1' emitting 1 depending on 0
+no emission scores were specified
+
+new left hand side is: S
+RHS #11: 2 atoms, pair + nonterm < a S a' >
+
+FATAL: grampiler error in find_named_edist(), edist 'd1' not found
+
+===========================================================================
+ERROR CASE 10a
+edist : 1 : 0 : s1
+edist : 2 : 0 : p1
+edist : 2 : 2 : p2
+
+S --> a S a' p1  |  aS p1  |  Sa  |  SS  |  e
+
+P^1 --> a P^1 a' p2
+adding named edist 's1' emitting 1 depending on 0
+adding named edist 'p1' emitting 2 depending on 0
+adding named edist 'p2' emitting 2 depending on 2
+no emission scores were specified
+
+new left hand side is: S
+RHS #14: 2 atoms, pair + nonterm + edist < a S a' p1 >
+
+FATAL: grampiler error in find_named_edist(), edist 'p1' emits 2 depending on 0, but atom emits 1 depending on at least 0
+
+---------------------------------------------------------------------------
+ERROR CASE 10b
+edist : 1 : 0 : s1
+edist : 2 : 0 : p1
+edist : 2 : 2 : p2
+
+S --> a S a' s1  |  aS s1  |  Sa  |  SS  |  e
+
+P^1 --> a P^1 a' p2
+adding named edist 's1' emitting 1 depending on 0
+adding named edist 'p1' emitting 2 depending on 0
+adding named edist 'p2' emitting 2 depending on 2
+no emission scores were specified
+
+new left hand side is: S
+
+FATAL: grampiler error in find_named_edist(), edist 's1' emits 1 depending on 0, but atom emits 2 depending on at least 0
+
+---------------------------------------------------------------------------
+ERROR CASE 10c
+edist : 1 : 0 : s1
+edist : 1 : 1 : s2
+edist : 2 : 0 : p1
+edist : 2 : 2 : p2
+
+S --> a S a' p2  |  aS s1  |  Sa  s2  |  SS  |  e
+
+P^1 --> a P^1 a' p1
+adding named edist 's1' emitting 1 depending on 0
+adding named edist 's2' emitting 1 depending on 1
+adding named edist 'p1' emitting 2 depending on 0
+adding named edist 'p2' emitting 2 depending on 2
+no emission scores were specified
+
+new left hand side is: S
+RHS #14: 2 atoms, pair + nonterm + edist < a S a' p2 >
+RHS #6: 2 atoms, singlet + nonterm + edist < a S s1 >
+RHS #8: 2 atoms, nonterm + singlet + edist < S a s2 >
+RHS #9: 2 atoms, nonterm + nonterm < S S >
+RHS #1: 1 atoms, empty string < e >
+P^1 carries a stacking annotation
+
+new left hand side is: P^1
+
+FATAL: grampiler error in find_named_edist(), edist 'p1' emits 2 depending on 0, but atom emits 2 depending on at least 2
+
+===========================================================================
+ERROR CASE 11a
+A = 1
+
+S --> SS | Sa | aS | aSa' | e
+base score detected: A = 1
+
+FATAL: Singlet score specified without an accompanying default
+---------------------------------------------------------------------------
+ERROR CASE 11b
+AU = 1
+
+S --> SS | Sa | aS | aSa' | e
+base pair score detected: AU = 1
+
+FATAL: Base pair score specified without an accompanying default
+---------------------------------------------------------------------------
+ERROR CASE 11c
+AU_AU = 1
+
+S --> SS | Sa | aS | aSa' | e
+stacked pair score detected: AU_AU = 1
+
+FATAL: Stack pair score specified without an accompanying default
+===========================================================================
+ERROR CASE 12
+edist : 2 : 2 : p1
+edist : 2 : 2 : p2
+
+S --> SS | Sa | aS | aSa' p1 p2 | e
+adding named edist 'p1' emitting 2 depending on 2
+adding named edist 'p2' emitting 2 depending on 2
+no emission scores were specified
+
+new left hand side is: S
+RHS #9: 2 atoms, nonterm + nonterm < S S >
+RHS #7: 2 atoms, nonterm + singlet < S a >
+RHS #5: 2 atoms, singlet + nonterm < a S >
+
+FATAL: grampiler error, rule for base pair emission has too many edist keys:
+		S a S a' p1 p2
+[rlang@woodworm mile_3]$ exit
+exit
+
+Script done on Tue 06 Dec 2005 12:21:50 PM CST

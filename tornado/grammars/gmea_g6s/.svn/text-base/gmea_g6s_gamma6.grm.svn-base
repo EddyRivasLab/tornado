@@ -1,0 +1,22 @@
+# gmea-G6s
+#
+
+# param definitions
+def : p-gamma     :  6.0
+def : p-pair      :  log(2*p-gamma)
+
+# tdist
+tdist : 2 : t-S
+td = 0
+
+tdist : 2 : t-L
+td = 0
+0  = p-pair    # basepair
+
+tdist : 2 : t-F
+td = 0
+0  = p-pair    # basepair
+
+S --> t-S L S | L
+L --> t-L a:i&j         F(i+1,j-1) | a:i
+F --> t-F a:i&j:i-1&j+1 F(i+1,j-1) | L S

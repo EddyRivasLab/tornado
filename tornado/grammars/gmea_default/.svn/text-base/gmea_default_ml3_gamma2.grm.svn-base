@@ -1,0 +1,15 @@
+# G1
+# Nussinov-like
+# ambiguous 
+#
+
+# param definitions
+def : p-gamma     : 2.0
+def : p-pair      : log(2*p-gamma)
+
+# tdist
+tdist : 5 : t-S
+td = 0
+0  = p-pair   # basepair
+
+S --> t-S aSa' | aS | Sa | SS | abc

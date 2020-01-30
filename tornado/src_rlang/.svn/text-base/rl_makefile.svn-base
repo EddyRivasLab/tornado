@@ -1,0 +1,38 @@
+
+CC       = gcc
+CFLAGS   = -g -Wall
+LIBS     = -leasel -lm
+LFLAGS   = -L /nfs/wol2/people/eddy/src/easel
+IFLAGS   = -I /nfs/wol2/people/eddy/src/easel
+
+OBJS     = m3_top.o grammar_io.o grammar.o util.o
+
+grampiler:	lex.yy.c y.tab.c grammar_io.o grammar.o util.o
+		${CC} ${CFLAGS} ${LFLAGS} lex.yy.c y.tab.c -o grampiler grammar_io.o grammar.o util.o ${LIBS}
+
+lex.yy.c:	grampiler.lex
+		lex grampiler.lex
+
+y.tab.c:	grampiler.y
+		yacc -d grampiler.y
+
+m3:		${OBJS}
+		${CC} ${CFLAGS} ${LFLAGS} -o m3 ${OBJS} ${LIBS}
+
+m3_top.o:	m3_top.c grammar_io.h grammar.h util.h
+		${CC} ${CFLAGS} ${IFLAGS} -c m3_top.c
+
+grammar_io.o:	grammar_io.h grammar_io.c
+		${CC} ${CFLAGS} -c grammar_io.c
+
+grammar.o:	grammar.h grammar.c
+		${CC} ${CFLAGS} ${IFLAGS} -c grammar.c
+
+util.o:		util.h util.c
+		${CC} ${CFLAGS} ${IFLAGS} -c util.c
+
+clean:
+		rm m3 grampiler lex.yy.c y.tab.c *.o *~
+
+tags:
+		etags Makefile *.c *.h

@@ -1,0 +1,5 @@
+# G4
+# G Mitchison
+# unambiguous
+S --> aS | P | e
+P --> Pa | aSa' | PaSa'

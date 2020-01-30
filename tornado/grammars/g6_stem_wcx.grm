@@ -1,0 +1,81 @@
+# G6_stem_wcx
+#
+# G6_stem_wcx difference with G6_stem_wc:
+#                 forces wccomp also for stacking edists 
+#           
+# G6_stem_wc, difference with G6_stem:
+#                 edists are forced to follow wc complementarity (AU/UA/CG/GC/GU/UC)
+#                 except stacking edists.
+#
+# Pfold (B Kundsen + J Hein)
+# unambiguous
+# min 2 nt loop; no epsilon string
+# with a stem length distribution
+
+
+########################################################### 
+# param definitions
+########################################################### 
+def : p-BIGINT     :  999999
+def : p-D_FIT_HELIX_LENGTH : 30
+def : p-D_MAX_HELIX_LENGTH : 3000
+
+########################################################### 
+# emission distributions 
+########################################################### 
+#---------------------
+# singlet emission
+#---------------------
+edist : 1 : 0 : 0 : e1 
+
+#-------------------
+# basepair emission 
+#-------------------
+edist : 2 : 0 : 1 : _WW_ : wccomp : e1  
+
+#---------------------
+# stacked stem bp [e1]
+#---------------------
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  0 : silent #AA
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  1 : silent #AC
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  2 : silent #AG
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  3          #AU
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  4 : silent #CA
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  5 : silent #CC
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  6          #CG
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  7 : silent #CU
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  8 : silent #GA 
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 :  9          #GC
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 10 : silent #GG
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 11          #GU
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 12          #UA
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 13 : silent #UC
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 14          #UG
+NN = -p-BIGINT 
+edist : 2 : 2 : 1 : _WW_ : wccomp : e1 : 15 : silent #UU
+NN = -p-BIGINT 
+
+########################################################### 
+# length distributions
+########################################################### 
+ldist : 1 : p-D_FIT_HELIX_LENGTH : p-D_MAX_HELIX_LENGTH : l1 # stem ldist
+
+S --> LS | L
+L --> F | a e1
+F --> d...(i,k-1)...d'(l+1,j) l1 e1_2_0 e1_2_2 M(k,l)
+M --> LS 
+

@@ -1,0 +1,40 @@
+ER, Fri Nov 30 09:01:01 EST 2012
+
+
+ate: Fri, 30 Nov 2012 05:00:47 -0500
+From: Haruka YONEMOTO <yonemoto_haruka@cb.k.u-tokyo.ac.jp>
+To: Elena Rivas <rivase@janelia.hhmi.org>
+Subject: Bug Report for TORNADO
+Parts/Attachments:
+   1.1   OK     34 lines  Text (charset: ISO-8859-1)
+   1.2 Shown   ~29 lines  Text (charset: ISO-8859-1)
+   2     OK    ~10 KB     Text
+   3     OK    ~18 KB     Text
+----------------------------------------
+
+Dear Dr. Rivas,
+
+I'm Haruka, a graduate student, who previously reported the bug for TORNADO.  Thank you for your quick response and fixing bugs at that time.
+
+I hesitated to email such things, but today I would like to tell you that I got an error message in using "grm-train". The following lines are the command line I used
+and the error message after the execution:
+
+--------------------
+./grm-train --count --bwe --TEL basic_grammar.grm input.txt output.txt fc_file.txt
+assign_count_disegment_atom(): wrong boundaries l=388
+---------------------
+
+This error occurs at line 643 in the file "grm_parsetree.c" but I couldn't find the causes of this error. This function is actually hugely related to our analysis
+which we nearly finishes for staring to write our manuscript. I would be very happy if you have the time to fix the error.
+
+The files used for the function are attached, I hope that they would help the improvement of your software package...
+
+Thank you very much in advance,
+Yours sincerely,
+Haruka.
+-----------------------
+Haruka YONEMOTO
+Department of Computational Biology, Graduate School of Frontier Sciences, The University of Tokyo
+Email : yonemoto_haruka@cb.k.u-tokyo.ac.jp 
+
+------------------------------------------------------------------------------------------

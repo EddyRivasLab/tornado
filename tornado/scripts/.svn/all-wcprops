@@ -1,0 +1,281 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/eddylab/eddys/tornado/!svn/ver/1224/trunk/scripts
+END
+compare_sto1_to_sto2.pl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/eddylab/eddys/tornado/!svn/ver/974/trunk/scripts/compare_sto1_to_sto2.pl
+END
+compaRNA2sto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/965/trunk/scripts/compaRNA2sto.pl
+END
+ViennaRNA_parse_bulges.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/eddylab/eddys/tornado/!svn/ver/931/trunk/scripts/ViennaRNA_parse_bulges.pl
+END
+mixed80_select.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eddylab/eddys/tornado/!svn/ver/487/trunk/scripts/mixed80_select.pl
+END
+trna14152split.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eddylab/eddys/tornado/!svn/ver/346/trunk/scripts/trna14152split.pl
+END
+stombaugh_nar2009_to_stofiles.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/eddylab/eddys/tornado/!svn/ver/1169/trunk/scripts/stombaugh_nar2009_to_stofiles.pl
+END
+stombaugh_widmann_to_stofiles.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/eddylab/eddys/tornado/!svn/ver/1169/trunk/scripts/stombaugh_widmann_to_stofiles.pl
+END
+widmann_curated_alignments_to_mysto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/eddylab/eddys/tornado/!svn/ver/1159/trunk/scripts/widmann_curated_alignments_to_mysto.pl
+END
+00README
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/858/trunk/scripts/00README
+END
+run-viennarna.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eddylab/eddys/tornado/!svn/ver/1041/trunk/scripts/run-viennarna.pl
+END
+Simfold_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/Simfold_sh.pl
+END
+trna14152sto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/346/trunk/scripts/trna14152sto.pl
+END
+remove_similar_sequences.pl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/eddylab/eddys/tornado/!svn/ver/1166/trunk/scripts/remove_similar_sequences.pl
+END
+run-contextfold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/eddylab/eddys/tornado/!svn/ver/1046/trunk/scripts/run-contextfold.pl
+END
+rnastructure_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/rnastructure_sh.pl
+END
+rfam_training_set.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/eddylab/eddys/tornado/!svn/ver/993/trunk/scripts/rfam_training_set.pl
+END
+run-contrafold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/1041/trunk/scripts/run-contrafold.pl
+END
+remove_sto1_from_sto2.pl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/eddylab/eddys/tornado/!svn/ver/944/trunk/scripts/remove_sto1_from_sto2.pl
+END
+plot_mc.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/977/trunk/scripts/plot_mc.pl
+END
+run-simfold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/eddylab/eddys/tornado/!svn/ver/946/trunk/scripts/run-simfold.pl
+END
+run-maxexpect.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eddylab/eddys/tornado/!svn/ver/1027/trunk/scripts/run-maxexpect.pl
+END
+ViennaRNA_parse_intloops.pl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/eddylab/eddys/tornado/!svn/ver/1023/trunk/scripts/ViennaRNA_parse_intloops.pl
+END
+create_boostrapsto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/create_boostrapsto.pl
+END
+run-mfold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/948/trunk/scripts/run-mfold.pl
+END
+plot_auc.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1224/trunk/scripts/plot_auc.pl
+END
+train-contrafold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/eddylab/eddys/tornado/!svn/ver/308/trunk/scripts/train-contrafold.pl
+END
+plot_pdf.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/345/trunk/scripts/plot_pdf.pl
+END
+plot_from_grammar.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/eddylab/eddys/tornado/!svn/ver/644/trunk/scripts/plot_from_grammar.pl
+END
+process_tornado_fold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/eddylab/eddys/tornado/!svn/ver/1217/trunk/scripts/process_tornado_fold.pl
+END
+viennarna_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/viennarna_sh.pl
+END
+stkfile_split.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/eddylab/eddys/tornado/!svn/ver/332/trunk/scripts/stkfile_split.pl
+END
+prune_sto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/1027/trunk/scripts/prune_sto.pl
+END
+RNAstructure_parse_data_tables.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/eddylab/eddys/tornado/!svn/ver/858/trunk/scripts/RNAstructure_parse_data_tables.pl
+END
+FUNCS.pm
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1170/trunk/scripts/FUNCS.pm
+END
+GRAMMAR_test_template.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/eddylab/eddys/tornado/!svn/ver/1221/trunk/scripts/GRAMMAR_test_template.pl
+END
+contextfold_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/1051/trunk/scripts/contextfold_sh.pl
+END
+contrafold_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/contrafold_sh.pl
+END
+mathewsdb2sto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/eddylab/eddys/tornado/!svn/ver/965/trunk/scripts/mathewsdb2sto.pl
+END
+ViennaRNA_parse_energypar.pl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/eddylab/eddys/tornado/!svn/ver/914/trunk/scripts/ViennaRNA_parse_energypar.pl
+END
+mfold_sh.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/989/trunk/scripts/mfold_sh.pl
+END
+fileinfo.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/993/trunk/scripts/fileinfo.pl
+END
+histogram_length.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/eddylab/eddys/tornado/!svn/ver/1081/trunk/scripts/histogram_length.pl
+END
+sto_extract_random.pl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/eddylab/eddys/tornado/!svn/ver/1027/trunk/scripts/sto_extract_random.pl
+END
+CG2sto.pl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/941/trunk/scripts/CG2sto.pl
+END
+cwr_training_set.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/eddylab/eddys/tornado/!svn/ver/487/trunk/scripts/cwr_training_set.pl
+END
+train-contextfold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eddylab/eddys/tornado/!svn/ver/1051/trunk/scripts/train-contextfold.pl
+END

@@ -1,0 +1,37 @@
+# vienna_dangles.grm
+#
+# viennaRNA grammar 
+# unambiguous (?)
+# with context 
+# with dangles
+
+ldist : 0 : 4000 : l1 # hairpinloop's ldist
+ldist : 1 : 4000 : l2 # bulges' ldist
+ldist : 2 : 4000 : l3 # internal loops' ldist
+ldist : 0 : 4000 : l4 # multiloops' ldist
+
+ldist : 0 : 4000 : l5 # hairpinloop's ldist   / 2 dangles 
+ldist : 1 : 4000 : l6 # bulges' ldist         / 2 dangles
+ldist : 2 : 4000 : l7 # internal loops' ldist / 4 dangles
+ldist : 0 : 4000 : l8 # multiloops' ldist     / 2 dangles
+
+W --> aW | a P^{-1}
+W --> a V^{-1,1} a' W | P^{1} a W 
+W --> e
+
+V^{-1,1} --> a V^{-1,1} a'                                     # stacked pairs
+V^{-1,1} --> m...m                   l1 | a m...m b        l5  # hairpin loops
+V^{-1,1} --> m...m a V^{-1,1} a'     l2 | a m...m b P^{-1} l6  # left bulges 
+V^{-1,1} --> a V^{-1,1} a' m...m     l2 | P^{1} a m...m b  l6  # right bulges
+V^{-1,1} --> d... a V^{-1,1} a' ...d l3 | a d... D ...d b  l7  # internal loops 
+V^{-1,1} --> M R                                               # multiloops
+
+M --> a V^{-1,1} a' | m...m a V^{-1,1} a' l4 | a m...m b P^{-1} l8
+M --> M a V^{-1,1} a' | M a
+
+R --> R a | P^{1} a
+R --> a V^{-1,1} a' 
+
+P^{-1} --> a V^{-1,1} a'
+P^{1}  --> a V^{-1,1} a'
+D      --> b a V^{-1,1} a' c

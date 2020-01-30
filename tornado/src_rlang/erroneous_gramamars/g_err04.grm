@@ -1,0 +1,9 @@
+S --> e  |  J a
+J --> a S  |  L a
+K --> a L  |  N a
+L --> a S a  |  a K a S
+M --> S a S a  |  Q a
+N --> a S  |  M a
+P --> a P  |  L a
+Q --> a S a  |  a R a S
+R --> S a S a  |  Q a

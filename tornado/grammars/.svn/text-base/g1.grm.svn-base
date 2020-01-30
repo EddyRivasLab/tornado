@@ -1,0 +1,11 @@
+# G1
+# Nussinov-like
+# ambiguous 
+#
+# aS and Sa transitions are tied
+
+# tdist
+tdist : 5 : t-S
+tie : 2 : 3      # indices: 0..4
+
+S --> t-S   aSa' | aS | Sa | SS | e

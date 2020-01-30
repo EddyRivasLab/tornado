@@ -1,0 +1,26 @@
+# G6
+# Pfold (B Kundsen + J Hein)
+# unambiguous
+# min 2 nt loop; no epsilon string
+
+########################################################### 
+# emission distributions 
+########################################################### 
+# singlet emission
+#---------------------
+edist : 1 : 0 : 0 : e1 : 0
+N = 0
+
+# basepair emission WC_C
+edist : 2 : 0 : 1 : _WW_ : e1 : 0
+NN = -99999999
+AU = 1
+CG = 1
+GC = 1
+UA = 1
+GU = 1
+UG = 1
+
+S --> L(i,k) S(k+1,j)  | L(i,j)
+L --> a:i&j e1 F(i+1,j-1) | a:i e1
+F --> a:i&j e1 F(i+1,j-1) | L(i,k) S(k+1,j)

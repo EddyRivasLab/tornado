@@ -1,0 +1,9 @@
+# G7_minstem1
+# G3 + stacking
+#  min_loop = 1 nt ; min_stem = 1 pair
+
+S        --> aP^{-1,1}a' |  aL  |  Ra  |  LS
+L        --> aP^{-1,1}a' |  aL
+R        --> R a  |  e
+P^{-1,1} --> aP^{-1,1}a' | Q
+Q        --> aL  |  Ra  |  LS

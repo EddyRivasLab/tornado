@@ -1,0 +1,222 @@
+time src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts grammars/g6_stem_loop_s1_l0_allld6.grm  foo.sto foo_mea_allld6.sto
+
+time src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.sqlstats --countfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.counts grammars/g6s.grm  foo.sto foo_mea_g6s.sto
+
+time src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem/dirichlet60_noConus_notRNA14152of2_g6_stem.counts grammars/g6_stem.grm  foo.sto foo_mea_g6_stem.sto
+
+time src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6/dirichlet60_noConus_notRNA14152of2_g6.counts grammars/g6.grm  foo.sto foo_mea_g6.sto
+
+~/src/easel/miniapps/esl-compstruct foo.sto foo_mea_allld6.sto
+
+time src/grm-fold --psa -s 100 --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts grammars/g6_stem_loop_s1_l0_allld6.grm  foo.sto foo_psa_allld6.sto
+
+time src/grm-fold --psa -s 100 --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.sqlstats --countfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.counts grammars/g6s.grm  foo.sto foo_psa_g6s.sto
+
+time src/grm-fold --psa -s 100 --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem/dirichlet60_noConus_notRNA14152of2_g6_stem.counts grammars/g6_stem.grm  foo.sto foo_psa_g6_stem.sto
+
+time src/grm-fold --psa -s 100000 --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6/dirichlet60_noConus_notRNA14152of2_g6.counts grammars/g6.grm  foo.sto foo_psa_g6.sto
+
+~/src/easel/miniapps/esl-compstruct foo.sto foo_psa_allld6.sto
+
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts -v grammars/g6_stem_loop_s1_l0_allld6.grm  foo1.sto foo1_mea_allld6.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.sqlstats --countfile notebook/milestone6/g6s/dirichlet60_noConus_notRNA14152of2_g6s.counts -v grammars/g6s.grm  foo1.sto foo1_mea_g6s.sto
+
+src/grm-fold --psa -s 100000 --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts -v grammars/g6_stem_loop_s1_l0_allld6.grm  foo1.sto foo1_psa_allld6.sto
+
+src/grm-parse  --bck grammars/g6.grm 
+src/grm-parse  --bck grammars/g6s.grm 
+src/grm-parse  --bck grammars/g6_stem.grm 
+src/grm-parse  --bck grammars/g6_stem_loop_s1_l0_allld6.grm 
+src/grm-parse  --bck grammars/g6_stem_loop_s1_l0_allld6_v1.grm 
+
+
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/conus_g6_stem_loop_s1_l0_allld6_v1.counts grammars/g6_stem_loop_s1_l0_allld6_v1.grm  foo.sto foo_mea_allld6_v1.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6_v1.counts grammars/g6_stem_loop_s1_l0_allld6_v1.grm  foo.sto foo_mea_allld6_v1.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts grammars/g6_stem_loop_s1_l0_allld6.grm  foo.sto foo_mea_allld6.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6_v1.counts grammars/g6_stem_loop_s1_l0_allld6_v1.grm  foo1.sto foo1_mea_allld6_v1.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-3/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6_v0-3.counts grammars/g6_stem_loop_s1_l0_allld6_v0-3.grm  foo1.sto foo1_mea_allld6_v0-3.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-4/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6_v0-4.counts grammars/g6_stem_loop_s1_l0_allld6_v0-4.grm  foo1.sto foo1_mea_allld6_v0-4.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-1/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6_v0-1.counts grammars/g6_stem_loop_s1_l0_allld6_v0-1.grm  foo1.sto foo1_mea_allld6_v0-1.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/dirichlet60_noConus_notRNA14152of2_g6_stem_loop_s1_l0_allld6.counts grammars/g6_stem_loop_s1_l0_allld6.grm  foo1.sto foo1_mea_allld6.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm --countfile notebook/milestone6/g6/dirichlet60_noConus_notRNA14152of2_g6.counts grammars/g6.grm  foo1.sto foo1_mea_g6.sto
+
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm  --mixdchletfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/conus_q1_g6_stem_loop_s1_l0_allld6.dirichlet --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/conus_g6_stem_loop_s1_l0_allld6.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6/conus_g6_stem_loop_s1_l0_allld6.counts --paramsavefile foo1_allld6.param grammars/g6_stem_loop_s1_l0_allld6.grm  foo1.sto foo1_allld6.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm  --mixdchletfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/conus_q1_g6_stem_loop_s1_l0_allld6_v1.dirichlet --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/conus_g6_stem_loop_s1_l0_allld6_v1.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v1/conus_g6_stem_loop_s1_l0_allld6_v1.counts grammars/g6_stem_loop_s1_l0_allld6_v1.grm  data/conus/rnabench.stk  foo.sto
+
+src/grm-fold --gpostfile grammars/gmea_default/gmea_default_gamma1.grm  --mixdchletfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-3/conus_q1_g6_stem_loop_s1_l0_allld6_v0-3.dirichlet --fitlen --sqlstatsfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-3/conus_g6_stem_loop_s1_l0_allld6_v0-3.sqlstats --countfile notebook/milestone6/g6_stem_loop_s1_l0_allld6_v0-3/conus_g6_stem_loop_s1_l0_allld6_v0-3.counts grammars/g6_stem_loop_s1_l0_allld6_v0-3.grm  foo.sto  foo_v0-3.sto
+
+%FOLDP
+sh shscripts/m6_foldp_mea_rnabench_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/m6_foldp_cyk_rnabench_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/m6_foldp_mea_trna1415_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/m6_foldp_cyk_trna1415_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/m6_foldp_mea_mathews_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/m6_foldp_cyk_mathews_dirichlet60_allld6_v0-8prime.sh
+sh shscripts/conus/m6_foldp_mea_conus_allld6_v0-8prime.sh
+sh shscripts/conus/m6_foldp_cyk_conus_allld6_v0-8prime.sh
+
+%ACC
+sh shscripts/m6_accp_mea_rnabench_dirichlet60_allld6_v0-7.sh
+sh shscripts/m6_accp_cyk_rnabench_dirichlet60_allld6_v0-7.sh
+sh shscripts/m6_accp_mea_trna1415_dirichlet60_allld6_v0-7.sh
+sh shscripts/m6_accp_cyk_trna1415_dirichlet60_allld6_v0-7.sh
+sh shscripts/m6_accp_mea_mathews_dirichlet60_allld6_v0-7.sh
+sh shscripts/m6_accp_cyk_mathews_dirichlet60_allld6_v0-7.sh
+sh shscripts/conus/m6_accp_mea_conus_allld6_v0-7.sh
+sh shscripts/conus/m6_accp_cyk_conus_allld6_v0-7.sh
+
+
+ls -lt fold_dirichlet60/*acc
+more fold_dirichlet60/rnabench_foldp_mea_q1_fitboth.acc  
+more fold_dirichlet60/rnabench_foldp_cyk_q1_fitboth.acc  
+more fold_dirichlet60/tRNA1415/trna1415_annote_2of2_foldp_mea_q1_fitboth.acc   
+more fold_dirichlet60/tRNA1415/trna1415_annote_2of2_foldp_cyk_q1_fitboth.acc   
+more fold_dirichlet60/5s_foldp_mea_q1_fitboth.acc 
+more fold_dirichlet60/5s_foldp_cyk_q1_fitboth.acc 
+more fold_dirichlet60/grp1_foldp_mea_q1_fitboth.acc 
+more fold_dirichlet60/grp1_foldp_cyk_q1_fitboth.acc 
+more fold_dirichlet60/grp2w_foldp_mea_q1_fitboth.acc 
+more fold_dirichlet60/grp2w_foldp_cyk_q1_fitboth.acc 
+
+ls -lt fold_conus/*acc
+more fold_conus/rnabench_foldp_mea_q1_fitboth.acc  
+more fold_conus/rnabench_foldp_cyk_q1_fitboth.acc  
+more fold_conus/trna1415_annote_2of2_foldp_mea_q1_fitboth.acc   
+more fold_conus/trna1415_annote_2of2_foldp_cyk_q1_fitboth.acc   
+more fold_conus/5s_foldp_mea_q1_fitboth.acc 
+more fold_conus/5s_foldp_cyk_q1_fitboth.acc 
+more fold_conus/grp1_foldp_mea_q1_fitboth.acc 
+more fold_conus/grp1_foldp_cyk_q1_fitboth.acc 
+more fold_conus/grp2w_foldp_mea_q1_fitboth.acc 
+more fold_conus/grp2w_foldp_cyk_q1_fitboth.acc 
+
+==========================================================
+
+scripts/run-contrafold.pl -V -v data/tRNAs/tRNA1415/tornado/DF5200.sto foo_contraV.sto
+
+F5200         GUUAAUGUAGCUUAAAAUUUUAUAAAGCAAGACACUGAAAAUGUCUAGAUGGGCAUUACCGCCCCAUCAACA
+#=GR DF5200 SS .............................(((((.......))))).((((((.........))))))....
+//
+
+~/src/easel/miniapps/esl-compstruct data/tRNAs/tRNA1415/tornado/DF5200.sto foo_contraV.sto
+
+                          [sensitivity]             [PPV]
+DF5200                ==      5    19 26.32%       5    11 45.45%
+
+
+
+scripts/run-contrafold.pl -v data/tRNAs/tRNA1415/tornado/DF5200.sto foo_contra.sto
+
+DF5200         GUUAAUGUAGCUUAAAAUUUUAUAAAGCAAGACACUGAAAAUGUCUAGAUGGGCAUUACCGCCCCAUCAACA
+#=GR DF5200 SS .........((((...........)))).(((((.......))))).(((((((......).))))))....
+//
+
+~/src/easel/miniapps/esl-compstruct data/tRNAs/tRNA1415/tornado/DF5200.sto foo_contra.sto
+                          [sensitivity]             [PPV]
+DF5200                ==     10    19 52.63%      10    16 62.50%
+===================================================================
+
+src/grm-fold  --score --cyk -v grammars/CONTRAfoldG.grm data/tRNAs/tRNA1415/tornado/DF5200.sto foo.sto
+
+F5200         GUUAAUGUAGCUUAAAAUUUUAUAAAGCAAGACACUGAAAAUGUCUAGAUGGGCAUUACCGCCCCAUCAACA
+#=GR DF5200 SS (((,,,,,,,,,,,,,,,,,,,,,,,,<-<<<<<_______>>>>>->,,<<<<______>>>>,,,,))):
+//
+
+# <sqname> <len> <cyksc> <sen> <PPV> <F>  <kpairs> <tpairs> <pfss> <logodds> <pass>
+DF5200   72    0.5   63.2   92.3   75.0 19 13   -7.9    inf 0
+
+
+src/grm-fold  --score --gpostfile grammars/gmea_default/gmea_default_gamma1.grm -v grammars/CONTRAfoldG.grm data/tRNAs/tRNA1415/tornado/DF5200.sto foo.sto
+
+
+
+scripts/run-contrafold.pl -V -v  5s_1.sto foo_contraV.sto
+
+src/grm-fold  --score --cyk -v grammars/CONTRAfoldG.grm 5s_1.sto foo.sto
+
+src/grm-score  --score -v grammars/CONTRAfoldG.grm foo_contraV.sto foo_contraV_score.sto
+
+
+=================
+regularizations
+=================
+Tdist t-S: 0.819001 0.180623 0.000376 
+Tdist t-S^{p}: 0.862952 0.083497 0.003262 0.003262 0.047027 
+Tdist t-S^{m}: 0.684993 0.046062 0.268945 
+Tdist t-F0: 0.888634 0.111366 
+Tdist t-F5: 0.713630 0.286370 
+Tdist t-P: 0.328468 0.057269 0.030316 0.048682 0.034609 0.001932 0.014574 0.007657 0.003602 0.090662 0.256434 0.086846 0.014812 0.021491 0.002648 
+Tdist t-M2: 0.918247 0.081753 
+Tdist t-M1^{p}: 0.794043 0.205957 
+Tdist t-M1^{m}: 1.000000 
+Tdist t-M: 0.348724 0.042826 0.608450 
+Tdist t-R: 0.750796 0.249204 
+
+=================
+train ml-reg
+=================
+./grm-train --count --regularize --countsavefile ../foo.count ../grammars/CONTRAfoldGu.grm ../foo.sto ../foo_mlreg.param ../notebook/milestone8/CONTRAfoldGu/train_ml_S151Rfam/S151Rfam_CONTRAfoldGu.counts ../notebook/milestone8/CONTRAfoldGu/train_ml_rRNAdom/rRNAdom_CONTRAfoldGu.counts 
+
+# Transition probability distribution (logs).
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+11
+  0  3  -0.200214 -1.734299 -5.314316 
+  1  5  -0.147887 -2.507090 -5.371349 -5.371349 -3.064637 
+  2  3  -0.377355 -3.052019 -1.320267 
+  3  2  -0.113447 -2.232611 
+  4  2  -0.334366 -1.258048 
+  5  15 -1.133580 -2.854117 -3.464353 -3.011200 -3.338463 -5.647753 -4.144092 -4.705622 -5.284801 -2.406463 -1.380136 -2.448557 -4.129409 -3.787587 -5.481532 
+  6  2  -0.080418 -2.560461 
+  7  2  -0.226817 -1.594876 
+  8  1  0.000000 
+  9  3  -1.057838 -3.118604 -0.496634 
+  10 2  -0.283225 -1.399785 
+
+./grm-train --count --regularize --countsavefile ../foo.count ../grammars/g6.grm ../foo.sto ../foo_mlreg.param ../notebook/milestone8/g6/train_ml_S151Rfam/S151Rfam_g6.counts ../notebook/milestone8/g6/train_ml_rRNAdom/rRNAdom_g6.counts 
+
+=================
+train mcl
+=================
+./grm-train --mcl --count --countsavefile ../foo.count ../grammars/CONTRAfoldGu.grm ../foo.sto ../foo_mcl.param ../notebook/milestone8/CONTRAfoldGu/train_ml_S151Rfam/S151Rfam_CONTRAfoldGu.counts ../notebook/milestone8/CONTRAfoldGu/train_ml_rRNAdom/rRNAdom_CONTRAfoldGu.counts 
+
+=================
+train mcl-reg
+=================
+./grm-train --mcl --count --regularize --countsavefile ../foo.count ../grammars/CONTRAfoldGu.grm ../foo.sto ../foo_mclreg.param ../notebook/milestone8/CONTRAfoldGu/train_ml_S151Rfam/S151Rfam_CONTRAfoldGu.counts ../notebook/milestone8/CONTRAfoldGu/train_ml_rRNAdom/rRNAdom_CONTRAfoldGu.counts 
+
+
+
+
+
+=================
+fold ml-vanilla
+=================
+./grm-fold --count --gpostfile ../grammars/gmea_g6/gmea_g6_gamma6.grm ../grammars/CONTRAfoldGu.grm ../foo.sto ../foo_ml.out ../notebook/milestone8/CONTRAfoldGu/train_ml_S151Rfam/S151Rfam_CONTRAfoldGu.counts ../notebook/milestone8/CONTRAfoldGu/train_ml_rRNAdom/rRNAdom_CONTRAfoldGu.counts 
+
+
+=================
+fold ml-reg 
+=================
+./grm-fold --lprob --gpostfile ../grammars/gmea_g6/gmea_g6_gamma6.grm ../grammars/CONTRAfoldGu.grm ../foo.sto ../foo_mlreg.out ../foo_mlreg.param
+
+=================
+fold mcl-vanilla
+=================
+
+=================
+fold mcl-reg
+=================

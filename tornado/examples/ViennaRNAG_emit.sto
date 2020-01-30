@@ -1,0 +1,776 @@
+# STOCKHOLM 1.0
+
+seq1         UUGUUAGGUGGGCACUCUAUUUGGAAAAAUAGCCUAACAAA
+#=GR seq1 SS <<<<<----<<<<----<<<<<____>>>>>>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq2         UUUAAUAAUGAAUGAGCACUCUCAGCUCGAGUGCAGAAAAGCACCCCUUACACUAUCUUUCCAGAUCAUCGAUGGGUUUAUCAGGGGUCGAAAUCAUAAGUCUCGAAGUUCUAGCAUUAUUGCAACACAACCUCUGAGUCG
+#=GR seq2 SS :<____>:::::<<--<<<<<_______>>>>>>>:::<<<<-<<____________________________>>>>>>:<<<<<<<<-------------------<<--<<<<_______>>>>>>->>>>>>>>::::
+//
+# STOCKHOLM 1.0
+
+seq3         UCCGUACAGAUCAGAAAGGAUGAGGAAUCGCUGAAACAGGCAAGGAAAGACAGUAUAUCAGAAAUGUAGAUUAUCACAAUCAUAGGGGUCAACCCGGAUGCCGUUCGACCAGCGGCGUCCGGGGGCAGUACACAGGGUCUAUACUCCAGGGACCUAUAAAGGUGGUAUGAGGAA
+#=GR seq3 SS (((----------------------------((---------------------------------------(((((---((((((,<<<--<<<<<<<<<<<_________>>>>>>>>>>>>>>,,,,,,,,,<<________>>,,,,,)))))---))))))-))-))):
+//
+# STOCKHOLM 1.0
+
+seq4         UGCAUGCGCAUGAGGGCUCCCUUGGCCCCAAAGCGUGGAUAGAAAUGCGUGAAAACGGGUCUCAGCUGCACUCAAUUACAUAGACCAAGACUGGAGCUGUGCGAUGCGUUAGUACAUGAGAGCAGGAUACUAAGUGUGUAAUUAGUACGGCCACCUGGCCAUGGAAGGUGUAGACUUGUCGGGCGAGCCGGUAAGGAAGA
+#=GR seq4 SS <<<____>>>:::<<<<_______>>>>::::<-------<____>->:::::::::[[[[[,,<>,((((,,,,,,,,,,,,,,,,,,,,,,,,<<<<<<___________>>>>----->>,,,,,<<<<<________>>>>>,,<<<______>>>,,,,,,,))))]]]]]::(<><<<_______>>>,)::::
+
+seq4         UAUCUUUUGUUUGAAAUUGCU
+#=GR seq4 SS ::::<<_______>>::::::
+//
+# STOCKHOLM 1.0
+
+seq5         CUGAUACCUGGCUCGGAAGAGCCCCUACGGGAAUAUGUA
+#=GR seq5 SS <<<--<<<<<<<<<____>>>>>>>>>>>>:::::::::
+//
+# STOCKHOLM 1.0
+
+seq6         CUGCUAGCCUAAAGGAUUAGCAGA
+#=GR seq6 SS <<<<<<--<_______>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq7         GACUAGGUUUUAUGGAUGACUUCCCCCCAGGUACGCAAUGUUCCUAUACGUAAGCUUGUGGAUUCGUCGUAUAGGAUUGAUCGCAAUUAGAGAUGCAACGUGCUACCAGUUGUCGGCGCGUUGACUUGUAAAGUCCGCGCCACCUCGAAUAACUCCCGGUAGUGUAGAUCAGGGAGGGUCAAGCGGCGGAAUCAUUUUGC
+#=GR seq7 SS {{{{{{{{,,,,,[[[[[[-------[[[[------------[[-------[[[[[[[[,,,,((((((-------((((((---(,,,,,,,,,<<<<<<<<---<_______>>>>>>>>>,,,<____>,,,,,,,,,,<<<------------<<<_______>>>->>>,)))))))-)))))),,,,,,<<<__
+
+seq7         UUGUUGAUGAUGGGAACACAAGCUUAGGACUGGCUCGUCCUCUAUUCUCCCCAGGGGGCUCCCCAAGAUUUCCGGCCAAACCGCCUGAGAGCUUGAAAAGACGGGAAUGCAAUCGUAGCCCGGGGGGCGAGAGUCAGAAACUUAUAGGAUUGGAUUCUCAUGGCCCCCUCACGGGGGUUGUGGGAAUCCGGUAGCUUUUC
+#=GR seq7 SS ____________>>>,,]]]]]]]]-]]-]]]]-]]]]]]{{,{{{--{{{{{{,(((((((((((((----((----(,,<>,<<-------------------<<<<<-------<<<<<<<<<<<<-------<<<<<<-------<<<<<<<<<<<<<<<<<<<____>>>>>>>>>>>>>>>>>>>->>-->>>>
+
+seq7         AUGCCCCCCGGCAGCAGCAUUCUCUCUUCUUGGGGAGCCCAAAACUAACUUUGCUCUUUCGGCGGGUGUGCAGCGCCCGUCGGAGAGCAUGCAGCGACCAAGUGGUCACAGGCCACCACGGAUCAGGAGAAGUUUUGCAGCACCCGACUAGGGUUGCAAAAUCAGUAGGAUUAGUAGCUGGUGCCAGGUUCUCUACCAAA
+#=GR seq7 SS ->>>>>>>>>>-->>->>>>>->>)))))))))))))))-----),,,,,,,<<<<-<<<<<<<<<<<<___>>>>>>>>>>>>>>>>,,,,,<___>,{{<<<<<_____>>>>>,,,<------------<<<<<<<<<-<<______>>>>>>>>>>>->,,{{{{{{{{,,[[[[[----[[,,<>(<><<<____
+
+seq7         UAGGUACAGGUUUGGCUAUGUCAUAAUAGGAGGCUGCUCUAGAUUUAUUACAAGUUAAAACUUGUUACAUCAGAGCUUGAAGCAAAAUAAUUCUAGUGGUUGACUGGGGAGUACCUGUGGGUGUAGGGAUGACCUGUGAUUGACGAAGGCUUAGUCAAAAGGCCACGGCGGAUACCCACGAUGACUACUCCGUUAAAACG
+#=GR seq7 SS ____>>>,),]]]]]]],,,,,,,,,,,,,,,,,,<<<------------<<<<<<----<<_________>>>>>>>>->>>,,,,}}}}}}}},,,,}},,}}}}}}}}},<<<_________>>>,,,,,,,,,,,,,}},,,,,}}}}}}}}:::::<<____>>::::::<<-------<<<<<<<<<____>>>
+
+seq7         GAGUAGGGGAAAACUGCGAU
+#=GR seq7 SS >>>>>>->>:::::::::::
+//
+# STOCKHOLM 1.0
+
+seq8         GGCUGUACCUUGGUCCCCACGGUCUACCUGGAUGCCGCUCUCUUUUCAAAACUAUUACAUUGUAAUGUCGUCUGGAGACUUCUACGUCAGCGCUCCCAUUACAGUGUUUUGAAAACCAGGCUAGCUACACCGGACCAAUAAACUCAGAAAAACAAGAGUCUGCGCUUACACAACAUCGCGGGUAUGUAUCGUGGUGUAAG
+#=GR seq8 SS {{{{{<>{,<<<<<<<----<<<-<<<<-<<-<<<<--<-<<<<<<<<<<<<-------<<<<<--<<----<<<<<----<----<___>>>>>>>>>>>>>>->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>,,,<<------<<<<<-------<<<<<<<<<<-----<<<<<_______>>>>>>>>>>>>
+
+seq8         CAGAGCCUGUUUGUUCGAAGCUGGGUUAGCUCCUGCGCAAUUUCGCAGCCACCCAGAUUGUGCUGCGGCCGUCGAUAAGGGGGGAACCCAACUGGGUACGGGGCGUGCCGAAGAACUCAAAGGAUCCUAACACCGCUUGUGGCUCUGUCGGCCGCUUCGUGCCCUUGGGAGUGCGAAAGCUACUGCUGUGUGGGUUAACC
+#=GR seq8 SS >--->>->>>>>>>,,,,,,<<<<<<----<<<<<<<______>>>>>>>>>>>>>,,{{{{<>,,{{{[[-------[[[[,((,<<<<<--<<<<<<<<<<<<-<<<<<----<-----<<--<<<<<______>-->>>>>>->>>>>>>>>>>>>>>>>>>>>>>,,,<<____>>,,,,,,,<<<-<<<<<<<<<
+
+seq8         UUAACUAAAGUAAAAGAAUGGAAAAGUGGGUUAGCCCCACAAAUCACUGCCCUUAAGUGAGUGGAGGGGGCGUCGCAGGAGUCACAGCCAGUUUUUGUGGUCUCGCAAGGCGACCCCACGAUUACAUGAUGUGGGGGGGCUGCCACGCAGGGUGUUGUGUCAUCUGUGUGGCAGCUCCCCCACAUCGCCGGGGCAGCGAU
+#=GR seq8 SS <__________________________>>>>>>>>>>>>>,,,)),,,,,,,,,,,,,,,((((<><<<<<____>>>>>,)))),<<<----<<-<<<____>>>>>>>>,,]]]]-]],,,,,,,<<<<<<<<<<<<<<<<<<<<<<<<--<_______>>>>>>>>>>>>>>>>>>>>>>>>>}}}<<<<<<____>
+
+seq8         GCCUUCCUGUAUAGAGGAAGGCCCUGGUGCUGUGUAAGUAGCACCCGGCCCGAGGUUGAUGUAGCCA
+#=GR seq8 SS >>>>>,,,,}}}},,,,,,((((<><<<<<<<<____>>>>>>>>,)))),,,,,,,,,},}}}}}:
+//
+# STOCKHOLM 1.0
+
+seq9         G
+#=GR seq9 SS :
+//
+# STOCKHOLM 1.0
+
+seq10         CCCGUCUGCCUUACUAUAUUGUCGGGGAACCAUCCUCGAAGUAAAGGAGAUAAAGGCCAAUGAAAAUCCAAAGGCCUUAUCUCCGUGGACGGA
+#=GR seq10 SS :[[[[[[[[,,,<<-------<<<<<<<____>>>>>>>->>,,,(((((((<><<<<______________>>>>,)))))))]]]]]]]]:
+//
+# STOCKHOLM 1.0
+
+seq11         GCCCUCAAAAGUCGGGAAAAUCACGGUCGGCA
+#=GR seq11 SS <<<-------<<<<_________>>>>->>>:
+//
+# STOCKHOLM 1.0
+
+seq12         CUAGGGGCAGUAAAAAUACCGGUCGGCAGAUAUUAAGAGACUCACCUGCACUCAUCGCACAUGAUGCGAUGGGGCCCAGGACACUGCUGUAUAUAAGAAGCAAUUCGAAAGCUUUAGAAAUAAAUGUAACUGAGGCGUCUCUAAUGUACCGGUAGCCAGAGUGCUUUUUUGCCUGGGGAUCCAAAGUGUGCUAUAUAAGA
+#=GR seq12 SS {{-------{{{{{{{,[[[[[------------[[[-------[[[,,,,<<<<<<<<_____>>>>>>>>,,((,,,,,,,,,<------------<____>->,,,,,,<<-------------------<<<-------<<______>>->>>->><<________>>,,)),,,,(((--((((((((-------
+
+seq12         CAAAAUCAAUUGCACACAAACGAGCAUGGAUGUAUCUCACAGGGCGGAGGGGGGGCAAGUCAGAGAGACCGCCCUGUGAUAUGUAGGUAGCGCACUGGAACUGCUUCGGUUAUUUAAGUUGCGGAUCCCGGCGUGAGCCGGGAUUCGCAGCGGCGGUAAGCAGUUGAAGAAAAUCUACACCGGCCCAGCUAGCCGUAAGG
+#=GR seq12 SS (----------------------------(((((((--(((((((((<><<<<<<<____>>>>>>>,))))))))))))))))-)-))))))))))),,,,<<____>>,<<____>>,<<<<<<<<<<<<____>>>>>>>>>>>>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<<<<_______>>>>,,,]]
+
+seq12         GAUUUUCCGUAGGUGAGAAAGCACCUUGCACAACGGUCGAUCAAAGCCUGUUUUUUACCAGA
+#=GR seq12 SS ]-]]]-]]---]]],,,,,<<--<<<<-------<<____>>->>>>>>,,}}}}}}}-}}:
+//
+# STOCKHOLM 1.0
+
+seq13         ACUAAGUGUGUAGCCGAACGCCUUAGAUGUCUGGUGAACCAGAGGGCGGGCUUAGUA
+#=GR seq13 SS ((((((-------(((---(<><<------<<<<____>>>>>>,))))-)))))):
+//
+# STOCKHOLM 1.0
+
+seq14         AUUUCCCGGCUGGGGGGCUUGUGUGCGGGCUCGGUCAAAUGGGGGAGGUCUUGUAAUGACGAAGGCGCUGCGCUAAUUUAUAAACCAAAAAUCAUAAGGCGCCUUAGACUUUUAGGCGUAAUGACCGGUUGAGUUACUGCGUUGUUUGCAAGGCCU
+#=GR seq14 SS ((((,,<><<<<---<<<<<______>>>>>>>>>,))))((-------(((((((---(((,<<<<<<---------<<<____________>>>->>>>>>,,,,,,,,,,,,,<<<<--<<<_______>>>-->>>>)))-)))))))-)):
+//
+# STOCKHOLM 1.0
+
+seq15         AAUUAGGGAUGGACUCUAGCAGUGCAGCGCCGUUAUUUGAGUCCAGGGCCAGAUGGAGGUUUUGAUAGCCCCUUAGACCGUUGCUGGCUAGCCGCUAUUGGCAUAACGGGAAGAUUUAUCCAGGAACCAUAAGUGGGUACAUAUAAGCCAUAAUAAAACAGAGCGGAUCCCUGACUAAAUGUGCCUUAGUUCUCAACUAU
+#=GR seq15 SS :::{{{{---{{{,,<<--<____>>>{{{{{{{{{{--{{{{-{{{{{{{---{------------{{{,,,,,,,<<<<<<---<<<<--<____>>>>>->>>>>>,,,{{--{---------{{---------------------------------------{{{,,,,,,,,,,,,{{{{{{{,{{{,,(((<>
+
+seq15         UGUCGGGGGGAAGGUGAGGCCUCUUAGGACGACCCCCCAGUAUACCCCAGGUUCAUAACGUCUACUGGGCACCUCGGGUGGUUCCAUUAAAGGAUUGGUGAAGAGCUGUGACCCGCCCCGGCCUGUCCAUUUCGACUGGACUUAGAACAACUGGGUAAAAAUCCAGGCCGGCUGCACAGUCUUAGCUGGCAAUGGAGUCC
+#=GR seq15 SS <_________>,))),,,,{{{{{{{-{{{--{{{{{{{{,,<>,<<<<-<<___________>>>>>><_____>,,[[[--[-------[[[[[-[[,,,,,,,,(((,,,<>,<<<<<<<<<----------------------------<_______>->>>>>>>>>))),<<<<____>>>>,,,,,]]]]]]]
+
+seq15         CACCGAACUCUGGGGGGGUUUGAGAGGAAAGUGGACGACGACAACCAUACCUAAAGGUAGUCGCCCCCCCCGGUUGCCUGUGGUACUCACCAGCCGGGGGGUACUGACUAUCUUGUCACUCUAUAAGAUUCCUGUCACCUGGUGUUAGGAGGAAAACUCUCCGUUUUAUAAACGAGGCAACUCAAAGCGAAGAUCUAAGG
+#=GR seq15 SS -]]]],,,,}}}}}}}}}}}}}}}}}},,,,,,,,,,,,,,,,,<<_________>>,<<<<<<<<<--<<<<<<---<<<<<___>>>>>>>>>>>>>>>>--->>>><<<<<__________>>>>>,<<________>>,,,,}}},,,,,,,((,,,,,<<____>>,,<<<____>>>,,)),,,,,,,}}}}}}
+
+seq15         CCAAAGUAUGUGCUAAGAAUAGGAGGGUAUCUCAUAGCCUACGGUAAUGGCCCUGGCUGGUAGCGGCGUAGACGGUGGGUUGUGUUGCGUAUGACACAAUUUGCCGUAUCGGAUCCUUUAUCUUCAUCCAUUCUUCCGGCCCAUGAAUUAAAAAAAAAUGCUCGCAGUUGGCUGGAAAUACCGCCCCGCAACGGUGGAUA
+#=GR seq15 SS },,,<<<____>>>,,,,,,,}}}-}}-}}},,,,,,,,,,,}}}-}}}}}}}}}}}}}}}}}}}}}},,,,,<<<<<<<<<<<<<<____>>>>>>>>>>>>>>,,,,,,,,}}}}}}}::[-------[[[[[[,,,,,,,,,,,,(((------------((((---(<><<--<<<<<<<-<<<<<<<<<<<<<__
+
+seq15         UUGAACUCCACCGUUGCGGGUGGUAUCCUCAUUGCCUUAUGAUCCGGAACCGUCCCGGAUCGCGCUGAAGAAAGUUCGAAUAGUACGAACGCAAAUAUAUGUGUUCCAUAAGCGCACCCGAAAGGGGUAAACCUCUUUUGG
+#=GR seq15 SS ______>>>>>>>>>>>>>>>>>>>>>>,)-))))-))),<<<<<___________>>>>>,,,,,]]]]]]-]::::::::::::<------------<<--<<_______>>>>->:(((((<><_____>,)))))::
+//
+# STOCKHOLM 1.0
+
+seq16         AGGACGGGCACGAGCGCAUGAUCGUGUGGUUCGGGCGUAGGGAGCGUCAUUAACGCGCAGAGACGUUUCUCGCUCGAUGCCACUGACUA
+#=GR seq16 SS ((----((<<<--<<<______>>>>>>,,<<<<<<<--<<<<<<<<<_____________>>>>>>>>>>>>>>>>,,))-)):::::
+//
+# STOCKHOLM 1.0
+
+seq17         UGGUGGGGUUGCUUUUAGGCUGUAGGCCGCAUAUUGCAAAGCUAAUAGACAUAGAGGUGAUCACUGCGUGAACCGUCAACGCCGCUUGUAUUAGCCUAUGCGCCGAGCCUUCUGCCGUGUCGUAACGACGGGUGGAAACACCCCGCCUGGUUGGCAUCUUAGGUUCUCCCGCAGAACUACGCGACACGCGUGGAGAACGA
+#=GR seq17 SS [[[-[[[[[[[[[[[,,((((---(((-(((((-------(((((,,<-------<<<____>>>-><<<____________>>>,,,,,)))))-))))))))-))))((((((,,,,,,,,,,,<---<<<<____>>>>>,<<<<<<<____>>-->>>>>,,,,,,))))))<<<<<<<___>>>>>>>,,,,,,]
+
+seq17         GGUAGGCAACCCCCCAA
+#=GR seq17 SS ]]---]]]]]]]]]]]:
+//
+# STOCKHOLM 1.0
+
+seq18         GGGUGACUA
+#=GR seq18 SS <<____>>:
+//
+# STOCKHOLM 1.0
+
+seq19         AUUUGACUGGUCCACUGAAUUACUCAGA
+#=GR seq19 SS ::::::::::::::<<<_______>>>:
+//
+# STOCKHOLM 1.0
+
+seq20         UAGAU
+#=GR seq20 SS :::::
+//
+# STOCKHOLM 1.0
+
+seq21         GCGAAGCCUGGAACCGGACCGGUUUCGUA
+#=GR seq21 SS <<<<<<<<<_______>--->>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq22         GACUCUAGAACGUGUCAAGAAUUGAAAGGUGAGAUCAUAUGGGUGAAAUAAACAAUAAUACAAAAUUAAAAUUGCAGUCCAGAGAAAUUAAACAAUCUAGGGCAACUUUUUAAAAAGUCCAGGUAAGGAAGAGUAUUAGAGAAAGCCUCCCCAGGACUCCGGGUGGAGGGCGUAGGUCCGCAAAACGAAGGAUUUACGAC
+#=GR seq22 SS <<<<<----------------------------<<-------<<-------------------------------------------------------------------------------------------------------<<<-<<<<<--<<<<<<<<<<<<<<<<<<<<<__________>>>>>>>>>--
+
+seq22         AUCCUCCACCUGCUCUUGGGAGGCCAUUGAGUCUGUGAGGCAACUCACAAACGCAUUGUUCGGUCCACGUUUGCAUUAAUAGACAUGAAGACAGUGAAACUAGUUUAUAGCCUCCUAUAUAUGGUUAGAAAUCGAGAAAGCCAUAUUUACGGGUAAGGAUUCGUAAAUUAGAGAAACCUAGGUAAUCGCCCGUGAUCUCC
+#=GR seq22 SS ->>>>>>>>>>>>>>>>>>>>->>->>->>>>>:<<<<<____>>>>>:::{{,,,,<______>,,,,,,,{{{{{-------{{{{,,,{{-------{{{{{{--{{<>{{{,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,[,<<<<<<<------------<<-------<<____>>->>->>>>>>>((((,,
+
+seq22         GUGAACGAGCGAGGUCUUGAACAUUAAUAAGAUAAACGAGACAAUAUAACGCCCAUGGCGCGGUAAAACCCAAGGGCUACCCCAUCGAAAAGAGAGAAGGUGAGUGCAACGUCAUUCACCGUACAGGAACCAAUAAAAACAGAAACGACUUAGAUGUACGUAUAUAGCUAUUUGGGGGCCCGAUGUCCCAACACGCUUCU
+#=GR seq22 SS <<-------<<<____>>>->>,<____>)))),,,,],,,,,,{{{{{{{{{{{{------------{{{,,<<<<--<<<<<-------------------<<<----------------------------------------------------<_______>->>>->>>>>>>>>,,,{{{{{{{{{--{{{{<
+
+seq22         CUGAGCGAUACGACCAGCGGCGAGUGUACGAUGGAAGAGACUGCUUCACUUCGCACGAAAAUUUCGUGCGUCGACUCCAGAAGUGUUGGGACUACGGGUACCGCGGUAAUACGGAUGGUACAAGUCCUGAAAGUGUGAAAGGGCUAUAGAGCAGGGGGCAACUCCAACCAUUGGGGGGAGCUAGAUAAACGCUCUUCAUC
+#=GR seq22 SS >[[[[,,<>,,,,,,,,((((,<<<<--<-------<______>->>>>>,,,<<<<_______>>>>,)))),]]]],}}}}}}}}}}}}},,,,,,,,,{{{{-{{{{{{,,,<<<________>>>,,,,,,,,,,,{{{{{,,{{--{{{{,,{{{{<>{,,,,,,,{{,<<<<<<<_________>>>>>>>,,<
+
+seq22         UUUAGGGCCACAUUUAGUGUAGAGCACUUGGGGGGGGCAGAAACGAGUUUCUGGGAGGGGCCCUGCAAAAAAACCAUCUGAAAGGGGUAUCUCCGAUUCACGUUCAAAUAAAUGAAAGGGUGACUCACCACAGUAGAUGUGGCUCAUUCUGGUUUGAUUUGGUGAGACCCUUAGGCAGCCUCAAUAUGGUGAAGAUGCGC
+#=GR seq22 SS <-------<<<_____>>>->>{{{--{{---{{{{{{-------{{{---{{{{{{{--{{{,,,,,,,,,,(-------(((((---(<><<<<-------<<<<<<-------<<<<<<<----<<<<<_____>>>>>->>>>>>>->>>>>>->>>>,,,)-)))))-),,,,,,,,,,,,,,,,,,,,<<____
+
+seq22         AUAAUAACUAGCCAAUUGUGCCGGGGACUUAUAAAGCACGACCUAAGUGCCAAUGAGUGUGCUCAGGUGCGGUGCAGCGUUAAUCCCGCAUGUUGGACUGAGUUAACCCCCAAUCAGGCCCGGUGAAGGUCCUAUAAUUCCACCCGGAUUUAUCUGGAAUAGAAGAGCCUGGGCCUUCCGUGUGGUUUGUGAAUAAAACU
+#=GR seq22 SS ___>>,,,,,,,,,{{{,[[[[[[((,,,,,,,,,<<<<-------<<<<<______________>>>>>->>>>,<<<_______>>>,,,,,,,,,,,,,,,,,))<<______>>,]]]]]],,<<--<<_______>>>>,,}}},,,,,,<<___________>>}}}}}}},,,,<<______________>>,
+
+seq22         GCCAGCUACGAGAGAAGCUAACAAGGUGUUACGCCGGUCUGGGGGCAGUAAUACAGCUCGGAGAACAAUUAGAGUGUGCAAUCUAGAACUGAGCAAUUAAACGACCAAAUUCUUGGUCCUUGGCGAUGAAAGUUCAAGGUAAAUCAAAGUACUUAGCGCAGGCCAGAUUGCCAUGCCGAACCUUAGGAAACAGCAGGGAA
+#=GR seq22 SS ,}}}}}}-}}}}}}}}}}},,(((((-------((,,,<<<<<<<<_______>>>>>>>>,,,,,,,<<<<<________>>>>>,,,,,,,,,,,,,,,,,,,,,,,,,,,,))-))))),,,,,,,,,,,,,,,,,,,,,,,,,,,}},,,,<<____>>,,},}}}},,,<<<<----------------------
+
+seq22         AAUAUGAGGUGAGAGGAGCGAGGGUCUCGCGCGGCGCCCUAAUAGAGAUCAGCACUGGUACUGAGGCCCCACUCGUCCCCCACGGGGGAUGGGGCCUCCAGGCUAGUAAUAGCUUCGGCGCCAGAGACGUCUGGCGUCUAUAAGCCCAGCCCAGAAAGGAGUUGAACAUUUCUUUACGCUAGCCUGACUGUAAAGGCCAA
+#=GR seq22 SS -----------------<<<<<___>>>>>->>>>,,}}},,,,,,,,,,<<--<--<<--<<<<<<<<<<----<<<<<____>>>>>>>>>>>>>>>>>>>>,,,,,,,}}},,,<<<<<<<<____>>>>>>>>,,,,,}}}}},,,{{{{-------------------{{{{{{{<>[[[[[[[[[[[[[--[--
+
+seq22         AAGGGUAGGCAACCGUUUUUUCAGGCUGGAUGUUACCAUAGCGCAGUGACGGGUGAUCUGUAAUCCGUUAUGGCCAGCCUGUGAGGAACCGGAACAGAUAAAGAGCUAAUGGAAGCAGAAAAGUGACUAUGUACGUCAUUACUACCCUGCCAAACUGGAUGCAAAAUUAGCUCUUUUGCUGCUGCUUUGCAGUCGGGUAG
+#=GR seq22 SS [--[-[[[,,,,,,,,,,,,,<<<<<<<-------<<<<--<-------<<<<<________>>>>>->>>>>->>>>>>>,,,,,((-(------------((((((((,,,,<<<<------------<<-<________>>>->>>>,,,,,,,,,<____>))))))))-))),]]]]]]]]]]]]]]]]]]],}}
+
+seq22         CGUAGCCUGGGCUGUGCGAAGCCGAAAACCAUAAAGAGGUCUGCAGCACGGUAACAAUAACAGGUCAAGGAAUCCGCAAGGAUUUCUUGGCUCUGUGCUGGCCGCUAAUACCACGGAAAGAGAUCAGUUUUUCACAGCUGACAAAUAACCCAAAACUUCACUGUGUUAGAUAAGCGCAGUAGUUGUAAUCUCCAGGUUUA
+#=GR seq22 SS }}}}}-}}}},,,,,,,,,,,,<____________>,,}},,,,,,,<<<<------------<<<<<<<<<<<<____>>>>>>>>>>>>->>>>,,((((---(((----------------------------------------------------(,<<<<_______>>>>,,,,,,<<_______>>,)-)))
+
+seq22         GCCGAAUUGCGCGGGGCAUGGGUGUUAUAGGAGUUAAGCUACUGAUGAUUUAAGGAGGACUAUGACAAGUGAGCAUGGAGGACACAUCCAUGCCUCAUACUCCUUAAAUUCAUAAAUGUGAAGACGGUCGUCUCUUUAGCCGUCAAGUUCAGCAGGAUAGACCGU
+#=GR seq22 SS )))),}}}}}}}}}}}-}}}}}}}}}}}}}}},}}}}}}}}-}},,,<<<<<<<<-<<---<<<<-------<<<<<<<_______>>>>>>>->>>>->>>>>>>>>>}}}}-}}}}},,,<<<<<--<________>>>>>>,,,,,,,,,,<______>}}:
+//
+# STOCKHOLM 1.0
+
+seq23         CGGUAGGCCGCGAGUCGA
+#=GR seq23 SS <<--<--<_____>>>>:
+//
+# STOCKHOLM 1.0
+
+seq24         GGGUCACCAGCGAGAGGGGAAAAGGACGCUCAUUUACAUUAAUUUCUGAAUUAAGUGGAAGUUGAAGAGCCUCCCGCUGGUGACCCA
+#=GR seq24 SS <<<<<<<<<<<-----<<<<-------<<<<-------<<<<<<<<<_________>>>>>>>>>->>>>->>>>>>>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq25         CUCUGGCGCUGCUUCCGCAGAUCGAAUGUACAGCCGCCACUGAACGAGUCUGGGCUAGUUUAUUGAGCAAGCGAAGACAGUUCUGGGCAUACAAACUCCUAAUUAAGUCCGCCACCUACUAAAACACGGUGCCGUGCAGUGGCCUUAACACUUUUUGACCCAGACGCGUACUUGGAGGGAGUGAGAACCCGUGUGGUAGC
+#=GR seq25 SS {{{{,,<>,{{{{{,,<<<_______>>>,,,,,,{{{,[[[-------[[<>((,<_____><_____>,)),]]-]]],(((((--(---(((--(((--(((((---(((((<>,,,,,,,<<<<____>>>>,,))))))))))))))))-)---))))),<<-------------------<<<_____>>>->>
+
+seq25         AUCAACUUCGGCUUAGAUGGAAACAGCCCUUUGAUUGGGACAAGAAAAGUAUACGUCUUUACAUAUCCAUAAGGCGAAUAACAAGCGGCAGUCCCUUAAACCAAAACGGCCUCUCAUCCCCUGUGAACUGAGAUACGCGGGGAUACCAGAAAAGUGACGCUACUCUCUGGAAACAGAGCUACGGCUACGGGACCGUAAGG
+#=GR seq25 SS <<<<<--<<<<<-----<<____>>>>>>>>>>>>,,,,,,,,,,,,,,,,,,,<____________>,,,,}}},,,,,,{---{{{,{,{{-------------------{{{,,<<<--<<<--<______>>>>>>>,,,,,,,,,,,,,[[,(((--((<<<<<____>>>>>,,,<<-------<<<<____>>
+
+seq25         UUACGAAGGUGUACCUCAACGGUCUAUGUCAAGAGAGCGGACACUAGAUGUUUUGCAAGCACGGUUUUACAGUUCACUCGUGGAGAAAUAGCCAAUGUGAAAUUCUAAUGUUCUUGGAUGCACAGGAGACUACGUUAGAUUACUUGACACCGUAUAUGUCUCGUGAGGUGUGAGAGAGCUUGUAGUACCCUUUGUCUUUA
+#=GR seq25 SS >>->>,))))),,<<_____>>,,,,]],,,,,,}}}-}},,[--[[[[<>(((((((((,,,,<<<<<<-<<---<<<<<________>>>>>>>>>>>>>,,,,,,,,<<<<<<----<<<-------<__________________________________>->>>>>>>>>,))))))------))),]]]]]},
+
+seq25         ACACCCAUUCCUAUUAUUCGGGUCGUCUUAGUGCGCCCUUUGCAACUACGGGUUGCAAUCGCGCGGUGUCCUGGGAUAACCGGGUCGGUUUUCUGACCCCCCCCGGGACGCCGUGUCGGAAGGGCCGUUGGGGCAAAGAGUCAUUUCGAGUCAUUGAUUGGGGAGUUGGGUACAAGGAAUUCCUGUAAAUCAUUCGGAAA
+#=GR seq25 SS ,,((,,<>,<<________>>)),(((((((((-(((((,,<<<<<_____>>>>>,,,,,<<<<<<<<<<<<<<----<<<<<<<<<____>>>>>>>>>>>>>>>>>>>>>>>,,,,,)))))))))))))),,,,,,,,,,,}}}-},,,,,,,,,,,,,,,(((,,,,,,,,,,,,,<<____________>>,,,
+
+seq25         GGUUAAAGGGGGCAGCCAUUACCGAUAUACCUCUCCGGCGAUCUGCCAAACCGUGCAUCCAAGUGUACGGAUUAUAUGUAGUGAAACAUAUAAAAGUUACUUAUUACAGAAAGGGAUCUAGUCGAAAUUGGGCCUCUAGCGGGUAGGCACAGCAUUAGAAUGGGGACAAGGUGUCGAGCUCCCGACUCUGGACCCUGCAA
+#=GR seq25 SS ,,,,,,,<<<<<-------<<______>>->>>>>,,,,,,,,,,)--)),,,<<<______>>>,,,,,,,,,,,,,,,<<-------<______>->>,,,,,,,,,,,,,{{------------{{<<<<----------<-------<<<<<----<<____>>->>>>>->->>>>,,,[[[[[[[<>((-((,,
+
+seq25         AAGCACAGGCAUAGCCGUUAAGAGACCCCAAUGGGUCUCUUAACCGGACUUUGCGGGUGCCUUCCAGAGUCUAAGCAGGCUAAGCCAGAGA
+#=GR seq25 SS ,<-------------------<<<<<<<____>>>>>>>->,,<<<_______>>>,,)))),]]]]]]],,,,,,}}-}}}}}}}}}}}:
+//
+# STOCKHOLM 1.0
+
+seq26         UGCCGACAUGGGUAAAAUUAUUUGGCGGCGA
+#=GR seq26 SS <<<<<----<--<<<______>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq27         CGUGCAAAUCAGA
+#=GR seq27 SS :<_______>:::
+//
+# STOCKHOLM 1.0
+
+seq28         ACAAUAGUUUACUUGCAUAGUUGUACAUAAGUGAGACACCGGCCAGUUUUACAAUCAUACAAUGAGAAGCUAAGUAAACAAAAACCUAUUUGAAUGACAAUAUUAUAUGUAAGGACCAAACACUAGCGUGAACAAUUGCUAGUACACAGCAGCACCCGAACGGCUACGAUAGUCGAUCUAACGAUAUGCAUAGUAGUAAA
+#=GR seq28 SS :<<<________>>>::::<<<<------------------------------------------------------------------------------------<<<---<-------<<<<<<<____>---->>>>>>->>>>->>>>::::::::::<<<<_________________________>>>>::::
+
+seq28         ACCAGUCUUUCGUUCCUUUCGAUUGGAGGUACAAAGACCGAGAAAGGGUGUUUGAUACGAACACUAAC
+#=GR seq28 SS :<<<<<----<<_______>>>>>>>:::::::::::::::::::::<<<<<<_____>>>>>>::::
+//
+# STOCKHOLM 1.0
+
+seq29         ACGGGCGGGAUGCUCAUACGCCACGUAUCCAGGCGGGGAGGUUACAAUACAAUAAUAAGGAUCUUAAAAAUACCAGAGUGAAGCACCUUUUAUGGCUGCCGUAUGGGCAUCCCGUCCGUACGUACG
+#=GR seq29 SS <<<<<<<<<<<<<<<<<<<<---------<----------------------------------------------------<<__________>>->->>>>>>>>>>>>>>>>>>>>:::::::
+//
+# STOCKHOLM 1.0
+
+seq30         ACAC
+#=GR seq30 SS ::::
+//
+# STOCKHOLM 1.0
+
+seq31         AAAUAUCGGG
+#=GR seq31 SS ::::::::::
+//
+# STOCKHOLM 1.0
+
+seq32         GGAGAAAUCCGGCGCUGAUGCAGGCGAAUUGAAAAAAACGUGGCUUAACGAAACCAAGGCGAAAAGGUUUGCAAGUGGCAAAACAUAGUCUGGCUCUAACCUAAUUACCUCUAGGUCAGACGCAACGUAGCUACUGUGUCAACACCGGAUA
+#=GR seq32 SS [-------[[[[----[[[[[[[[[------------[[[[,<<-------<<<<----<____>>>>>->>,,,,,,,,,,,,,,,((((((((<><--<<_______>>>,)))))))),,,]]]]-]]--]]]]]]---]-]]]]-]:
+//
+# STOCKHOLM 1.0
+
+seq33         AC
+#=GR seq33 SS ::
+//
+# STOCKHOLM 1.0
+
+seq34         UACUAGCUUAAUCAAAUGGGACUCUCAUAUUUUGAAGAUUGCGGUUGCUUCUCAAGGAACGACUCUUCCGUUAGAAUGAUUUUGCGUGAUUUUCUAUAUGGGGCAUACCCUCAACGCAAAAGCUAGUGUGAAAGCAAAAUUUGAGUCCGGGGGAGCGAAACGCAAACCGCUCGGAUAGAUUAAAAGU
+#=GR seq34 SS ::::<<<--<<<<---<<<----<<___________>>>>>->>>>>>>::::::::<<<<_______>>>>:::::::(((((((,,<<_____>>,,<<<_____>>>,,,,)))))))<<<________>>>:::<<<<--<<<<<----<<<<__________>>>>>>>>>>>>>:::::::
+//
+# STOCKHOLM 1.0
+
+seq35         UC
+#=GR seq35 SS ::
+//
+# STOCKHOLM 1.0
+
+seq36         GAGGCCUCCCCUUUGCGGACUCGGUGUCCGCAAGGCCCCAUUAGCGGACUCA
+#=GR seq36 SS ((,,<<<-------<<<<<<_____>>>>>>->>>,<______>,,,,,)):
+//
+# STOCKHOLM 1.0
+
+seq37         GCCUGAUAAUACUUGGCA
+#=GR seq37 SS <<<___________>>>:
+//
+# STOCKHOLM 1.0
+
+seq38         AAUAUG
+#=GR seq38 SS ::::::
+//
+# STOCKHOLM 1.0
+
+seq39         UGACGUAUAGUCGUACAAGUAGAGUCCACGGAGAACCAGGCAGUUUCUGGCCCUUCCGGUAGGUUAAUCGACCCAGGGCCAGGAACUGCCUAAGGUGCUGAGUGCGUUAUCGCCGAGGCAGCCUCGCGCAUAUACGAAUAAGUCCAGGGCGAGCGAAGGAUGUUGGACCUUGAAGGAGGGCUGGGACUAAAUUGGUGAAU
+#=GR seq39 SS <<<<<<<----<-------<<<------------<<<<<<<<<<<<<<<<<<<<-------<<________>>->>>>>>>>>>>>>>>>>-->>>->>>->>>>>>>>:::::{{{{{{{{{{{---{,,,,,,,,,,,,<<<<--<<<____>>>>>>>,,,,,,<<<<____>>>>,,,,<<-------<<<<____
+
+seq39         GCCAAACGCUGCAACUCCCCAAUCGCCAACCGCGGGAACGAGAGCUUAGGCUGGCCCGCUGUUGCUAGCAAUGGUGAACCUCACUGCGAUCAAUGGAGCCCAUCGGCAGUCCAUUUGUAUUCAUAUUGUCGGUUUCCCGAGCCCUCGGAAGGCGGACAAGUUAUGUAUCUGGCUGUUGGGACUACCAGUAUGGGAAUGGG
+#=GR seq39 SS ________________________>>>>->>,<<____>>,,,,[[[----[[[[[[[[[[[[[,,<____><<____>>,,,,,,,(((((-((----(((((((((,,,,,,,,,<<____>>,,,,,,,,,<<<_________>>>,,,,,,,,,,,,,,,<<<<<<<<<<<<<<<-------<----<<<<_____
+
+seq39         UCCUAUGCUAACAGCCAGAUGCAAUUGCUUUCACUCUCUGUCCUAGGAGAAAGCAUGUGACGCAUUGCCAUGAUGGCAUGAUCCAACAGCGGGUCCAAGGUAACUUCAUCGUUACACUUAUUCAGCCUCUACCAGUCGUGUGACGGUAUCAACUGGCCCAUCUGUAAAUUGUAAAACACAGCAUUCCCCACUAGUUGCGG
+#=GR seq39 SS >>>>->->>>>>>>>>>>>>>>,,,<<<<<<<----<<________>>>>>>>>>,<_______>))))--))))))))))))]]]]]]]]]]]]]]]]<<<<<______>>>>>,,,,,,,,,(((((-------(((,,,<<__________________________>>,,,,,,,<<<<----<<--<<<<----<
+
+seq39         GGCGCGCCAGGACUGGUUGCUUGGUACGAGAGAAAGCCGGGGGUUGCCUCAAACAG
+#=GR seq39 SS <<<____>>>>>>>>>>>>>>,,,,)))-)))---)),}}}}}}}}}}}}::::::
+//
+# STOCKHOLM 1.0
+
+seq40         AUAAACAAAUCAGUAACGGUCCUUGGGGAUAUAUUGGUAUUAGACAGGCCGGAAACCAUUCCGGCCAUGCUGAACCGAGGACCGGAUUUUCGGACAAAGUCGUUCGUACCUCCUGGGCCCAUUUGCUGACUCUGUUUAGUCCAAGUGGGCCCAGCUGUGCGAAUUAACAAAAAGAGCGAUGACGGGUUACGGAGCGGUGC
+#=GR seq40 SS [,,,,,(((((,,<>,<<<<<<<<<<-------<<<<<<<-------<<<<<<<____>>>>>>>->>>>>>>->>>>>>>>>>))))),,,,,,,,,,,(((----((<><<<<<<<<<<<<<--<<<<<______>>>>>>>>>>>>>>>>>>,))))),,,,,,,,,,,,,,,,,,,,,((((,,,<><<<----<<
+
+seq40         GGAAGCCUCCCCCGAGUAUA
+#=GR seq40 SS ____>>>>>,)))),,,,]:
+//
+# STOCKHOLM 1.0
+
+seq41         CUGACGGCCCCCCCUGCUCCCAGUAUUACACGGCCCCCCUUAGAACCCCAGAAGCCUCGGUACUUUCUUUUCGGGCCAUAGCAUAAAAGCGCGGUUAAUCGCCCAAACUACCAGGGCUGGGUCUAAGUAUGUGGAGAAACAUGUCUCCGUAAGUAUUUAAAUUUAACUUAAAUCAGCAUUACACCGAUCAUAUCUGCCGA
+#=GR seq41 SS {{{{{{{--{{{{--{{{{{,,,,,,,,,,{{{{{,,,((((((--(((((---(((<><<<----<<<<-------------------<<<<<____>>>>>->>>>>>>,)))-))))))))))),,<<<<<<<---------------------------------------<<<<<<<<<<-------<<<<<<__
+
+seq41         AAGGCAGAAGGUGUAAUGCACUUCACAAUUUCCCGUAGAGAUCUUUUCUUGACGGGGGCUUUACAUGGCUCGUUGAACAAGAAAUAACAAUCGGGGGUCGAACCCAUACCGAAGGGGCCUUGGAUUCGGGAGGGGCUCUCGGAGCCUGUCCAUAAAUGGGAGUGUUUUUAAAUGCAAUGGGCUCCGAACACGAGGCCGAA
+#=GR seq41 SS __>>>>>>->>>>>>>>>>->>>>>>>,,,,{{{{{{{{{{{{{{{{{{{{{{{<>{{{{{{{----{(((-------------------(((--(((<<_________>>,,,,,<<--<<<<<<<<<--<<<<<<-<<<<<<<<<<<------------<<<<<____>>>>>->>>>>>>>>>-->>>>>>>>>>>>
+
+seq41         UCUGGCAAGACCCGGAGGGUACUAAAGAGAAAGGAGUUGGGGGCUUGUGCAAAACGGUUGUCUCAGAUAUGCCACGCAUGACGUGGUGCUGCAUUCGCUGGGCGCAUUCGUUCUCACAAGAAGGUAUCUAACUGGAUGGCAUCCUUAUUACAAUUGUAAAGAUAAAUUAGGAGACAGAGGGCGAUGUUAUUUGCCUGUUC
+#=GR seq41 SS >>>>>>,,,))))))-))),,,,,,{{,,,,{{,,{{{<>{{{{{----{----{{{{{{-------{{{{{{{---------{{,,,,,{{{{{<>{<>[[[[[,,(((((((----------------------------((<<<<_______>>>><<<------------<<--<<_____________>>>>->>
+
+seq41         UAAGAGGCAGAACGAAAGUCUGAGCGGUUCUUAACUCAGCCGUCUCGAAAGACUCUGACAUCGCGUAUAUAGGAAGCAUCGAAGAAGUGCUUAUGACGCGGCGGCCAUUACUAUUUUAAUGGUUGCGUCCUGCUGGCGUGACAACCGGAAGAAAGGCGUCGAAAUUUAGUGGUUAUAGGCGCUACGGUAAUGACCUACUU
+#=GR seq41 SS >,,,,))-)))))))(-------(((((-------((((,,<><<<____>>>,))))-)))))-),,,,,,,,,]]--]]],},}}}}},,,,<<<<-<<--<<<<<<<______>>>>>>>>>>>>>,}}-}}}}}}}-}}}}}}}}}}}},}}},,<<_______________________>>,,,,,,,,,,,}},
+
+seq41         AGUCCAGCUCUGUCGUUGGCUGGAAUGGAGCGCGUUACUGUAAUUCAGCCUCGGAGAUUGGAGCGUCCGCGUCAGAUGCGCCGCUUUGGAGGACAGAUUGCUAAUAAUUCCUGAAGUCUCGUCGAGAAAAGAUCUCGAAAAAGGGUACGUGCUAUUAGCGCCAAUGUAGAUCAUGGGCACAACGGCUGGGACAAUCAUGU
+#=GR seq41 SS ,,,<<<<<--<<____>>>>>>>,,,,<<<-------<<<_____>>>->>>,,,,,<<<<<<<<-<<<<_______>>>>>>>>>>>>,,,,}---},,,,,,,,,,,,}}}}}}}},}}}}}}}}}}}}}}}}}---------},,<<<<_____>>>>,,,,,,,,,,,}}}}},,,,,,}}}}},,,<<_______
+
+seq41         AUGUCCCUGGGGUGGGCCCGUCGGUCAUACGAAAGUCCAAUGGCUUGGCAAACAAGUGGUACAGCUGUGCGGCGUUUCCAGUCCGUAUGGCUUUUGUGAGGAGGACUGAGCUUAUCCCAAAGAAUCGGUGAUAAUCCGAUCAUGAGCUUCGGCUUACGGACAAAAAUAGCACAGCCGUGAU
+#=GR seq41 SS _>>,,,,,}}}}}}}}}}}}}}}}:::<<<------------<<<<<_____>>>>>->>>::[[[[[[---[,,,,<<<_______>>><____>((-------((,,,<<________>>,<<<<<_______>>>>>,,,,,<<____>>,,,,))-)),,,,,,]]]]]]]::::::
+//
+# STOCKHOLM 1.0
+
+seq42         GCUAUCAGGAAUGAUAGCA
+#=GR seq42 SS <<<<<<<____>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq43         AAUGUUACUCGAGUAGUAGUAUUCGGGGGGCGAGGAAACUCGAGGGGUUGCAUGUUUAUUAGCCGCGGACCUACCCCUGCUUCGCUCUCACCGCCAUGUGGGGAUGAAGACAUGUGAAGUUGGUGUAACCCCGGAGAAUAAGGAAACUCUUGGAACCUAAUCCGUAGCGGAUGUGCAGAAGUACAAUAAAAUUUGGAAAA
+#=GR seq43 SS :::::::<<<<<<<<____>>>>>>>>:::<<<<____>>>>::::{,<____>,,,,,,,,,,{{{,,{{--{{{{{{{{{{-------{{{{{{{{{{{{,,,,,,,<<<<_________>>>>{{{{{,,,<<<----<____>>>>{{{{{{{{{{{{{{{{{,,,,,<<<<____>>>>,,,,,,,,<<____>>
+
+seq43         AAGCCCCGGAUUAAGUAUACGAUCAAGAUGGUGUGUGCGCCUAUGCAUGUAUCCAACCCUUUAAAAGUGGCCAUAAGCAUAGUUCAUAAGGACUUCUAUAACGGAACACUGUCAUCCGUUCAUGCGUUCACCUAGUGCAAUGCGGGACUCACGAAAUGAUUCAACGCGGGGGGAAACUGGAACAUGCCUCCUACGGGUUA
+#=GR seq43 SS ,,,[[[[----------------------------[[[[,,,,<<<<<<-------<<__________>>->>>-->>>,,((------------(((,,<<<<<_________>>>>>,,,<<____>>,,)))-)),,,,,<<<---<_______>->>>,,]]]]-]]]],,,,,,,,,,,,,,,,,}}}}}}}}}}
+
+seq43         GGUUUCAUAGGUGGGUUACUUCGGCAAGAUGAUACAAGGAUCAGACCCCGGUCAGCCACAAUGGUCUGAAAGAUCCCAGACCUUAUGAAGCCUCAGGAUGGGCCUGAAGUGAACGUGACGCAAGUAUCAAUCUCAGGGUUCAUGAACCACGGGCGGGUCAAUCCUGCCGGGAAAACAGUCUCUGACACCGGCAGGCAGUC
+#=GR seq43 SS }}}}}}},,,,,}}}}},,,,{{{,,,<<<-------<<________>>->>>,,{{,,,,,<<<<<<________>>>>>>,,,,,,,[[[[((<<_____>>,,,,<____>,))<<____>>,,,,,,,,,,,,<<<____>>>,,,]]]],}},,,,,<<<<<<<<-------<<<___>>>->>>>>>>><<<<<
+
+seq43         CUUCAGCAAUGAAGGACUGCCGGACAAAACCCAUGUGGCGGAGAAGCAGGGGGGAGUCACCAACCUUGAUCCCGGAGCCGUAACAUAAAUCCGGCCGUGGGCGAAACGUCUCCUAGCAC
+#=GR seq43 SS <<<<<____>>>>>>>>>>}}},,,,,,,}}}}}}}}}}}}-}}}}}}}}}}}},,,,,,,,,<<-------<<<--<<<___________>>>>>>->>,,,,,,}}},,,,,,,}::
+//
+# STOCKHOLM 1.0
+
+seq44         GGGUAUUCCGGGCGGCGCGAGUACCAGGAAACCCCCUGAUCGGGGCCCCCCGCAAAUUAACCUAGCGGGGGGAACGGAUACGGCAAGUGGGAGGAGCGCCAGGGUAGAGAACAACUCAAGGGGUCACUGCCCCGGCAUCUCACCA
+#=GR seq44 SS [[[[,,,((,,<>,<<________>>)),,,((<<<_____>>>,<<<<<<<<___________>>>>>>>>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,)),,,,,,,,,,]]]]::<<<<______>>>>:<________>:
+//
+# STOCKHOLM 1.0
+
+seq45         AUCAACUCCGACGGAGGAGGAUA
+#=GR seq45 SS <<<--<<<<______>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq46         AGGGUCCUGUACAAGUUUCGAAUUAGUCUGAAGUAAAAAAUGUAGUUAAAGUACCUAGAACUUGGUUUGAGAUCGUUCACCCAUUGGCCCAAUGUUUGGCAGCGUGUCCCUACCCCCCUCAAAGACUAGCCGAACGAAAACCGAGGUCGGGGGUCUGCCAACAUGCCACCGCAGCGUGGACGGGGUUCGAGACAGUCGCG
+#=GR seq46 SS [[[[-[[[[----------------------------------------------------[[[[[[,,,<<____>>,,,,,((((((,,,,,,<<<<<<<-----<<<<------------<<<<-------<<_____>>->>>>->>>>->>>>>>><<<<<_______>>>>>,,,<<<<<<------------<
+
+seq46         GUGAUCACCAGGCCCCGCGGAAUAACCGGGCAACUGUUAGGCUGGAAAGCUAAAGCACCCUUA
+#=GR seq46 SS <<____>>>->>>>>>,,,<-------<<____>>->,,)))))),,]]]]]]-]]]]]]]]:
+//
+# STOCKHOLM 1.0
+
+seq47         GGAAUUCCGAUAAAAACCAUUCAAAACAAAAAGGAUGCAGUUCGGACAUAUAGAGGAUUAUAGGAAAAAAGGGAUUGGUAGACUUUCCAACUCCGACUUUCGGAAUUUCA
+#=GR seq47 SS ((((((((((----------------------------((<><<<<----------------------------<<<<________>>>>->>>>,))-)))))))))):
+//
+# STOCKHOLM 1.0
+
+seq48         UUAAUGA
+#=GR seq48 SS <____>:
+//
+# STOCKHOLM 1.0
+
+seq49         ACAGUAAUGUACCACGAGCUCUCAGGGUCGUACGAAUCAGUGGCAGACAUAGCUCGCCAAGGGUAGAUCGGAAUGUAGAGUGAAUCUUCGUAACGAGGUGUGAAACCGCCCGAAGGCUAUAUGGGGCCUUCGGAGAGUUAUGCAUUGCGACGAGAGCCAGAGAAGUAUAUAAAAAGCGCAACAGUUCACCGUGAGGGCGA
+#=GR seq49 SS <<<____>>>:[[[[[[[[-[[[[[[[[<<<-<-------------------<<<------------------------------------------------------<<<<<<<<<______>>>>>>>>>->>>->>>><<-------<<<<<<-------------------<<<---------<<____>>>>>-
+
+seq49         GCUCUCAUGUACCUCAGGAAUCCAAGGUGGAAGAUAUCCAAGACAGUGAAACCUGGCAUCCUGAGGCUCGUGGAACCUAUGGCAAUAUCAAUGCACCGUACCCCUUGCCCGAGCCAAAGAAUAAUAAGUGGGUAAUAAGAUCUUGAAGCCCACACCAAUAUGAAACGUAGCAAUGACAAUAGACAUAUGCAAGAAUUGCG
+#=GR seq49 SS >>>>>>->>(((((<><<___>>,))))),,,,,,,,<_______>,,,,,,,,,,,]]]]]]]]]]]]]---------]]]:::::::::::::{{{{{{{{{{{{{-{{{{------------------------------------------------------------------------------------{{{
+
+seq49         ACUAGCUUCGAGUGAAGACGGGGGAUAUCAAAAUUUUUACCCCUGCCCUGGGGAAGAUAGAUCAUGCGCUUGAUUAUUGCGGUGCCUCGGGGCGACCAGGGGUUAGCCCGUCUUCGCAAGCUCCGUGUCCGUACACGGCGCAACUACUAGAAUAGGUGGGAUAAUCCCCACUAGUACACCUUGCACUCGGCAAGGGGUAC
+#=GR seq49 SS {<>[[[[[---[[[[[[[[<>((,,,,,,<<____>>,,<<<<<<<<<<<<-------<-------<<<_________>>>->->>-->>>>---->>>>>>,,,,)),]]]]]]]]]]]]],,<<<<<_______>>>>>,,,,<<<<<-------<<<______>>>->>>>>,,,,,}}}}-}}}}}}}}}}}}}}}
+
+seq49         GGGCCCUGACUUGAUCACAUGUUAAUGUGAUAAGGUUAUCACAAGGUAUGCCAGUAGAUAGGCUGACCUUCUUUGGCCUCUACAGAAAACGCAGGUUCAGGCUAGCGU
+#=GR seq49 SS }}::(((((--((<<<<<<______>>>>>>,,,,<_________>,,,,,,,,,,<<--<<<<<--<____>>>>>>>>,,,,,,,,,,,,,,))))))):::::::
+//
+# STOCKHOLM 1.0
+
+seq50         G
+#=GR seq50 SS :
+//
+# STOCKHOLM 1.0
+
+seq51         UUGGAACCCACCAGGCAUUCAAGCACCUGGUUCCUUUGAAUGGCCUUGUCACAGUAGGUCCGGGCCAUGAGACAUGAUCCUUACAAUGUGAUGUAAAGGGGUCAUGCUUGGUAGAAGCAAAAUACAGAAAUAAUUUUGGAGCAUGAUCCACGAAUAUAAUACAAAUGGAAAGAGUAACAAUUUACGUAUUAA
+#=GR seq51 SS :::<<<<----<<<____________>>>>>>>::::::<<<<<<<--<<-<______>>>>>>>>>>:::::::::::::::::::::::<<<----<<<<<<<<<<<-------------------<<_____>>->>>>>>>>>>>>>>::::<<<<<<<<<<-------<___>->>>>-->>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq52         AGGGACCUGCCCAAAGCGUAGCACAGACUUAAAAUAUGAUAGGAGUACUUCUAUGCAGCUACCCAAACAAGGGGCUGUAUAGUGGCGGGUCCUA
+#=GR seq52 SS <<-<<<<<<<<---------------------------------------<<<<<<<<<--<-<_______>>>>>>>>>>>->>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq53         A
+#=GR seq53 SS :
+//
+# STOCKHOLM 1.0
+
+seq54         UGAGUUCUAGAAGAAAGCCCCCCACAUCGGCGGAGCGCCGGGGGCUAAGAACUUAACACC
+#=GR seq54 SS :(((((((-------((((((-(,,<>,<<<<___>>>>)))))))-)))))))::::::
+//
+# STOCKHOLM 1.0
+
+seq55         ACUUAUACAUGGUA
+#=GR seq55 SS <<<_______>>>:
+//
+# STOCKHOLM 1.0
+
+seq56         UCUACGAACUAGGCAUAUUCGAAAUCGACAGCUCGUGCCUGACGCGUCGCGAAAGCGAAAAAUCUUCGGAUCGUACCCGUAAAGUUAUACUAUGGGCACGCGUACGACUAGAUCCGCAGAAAACACAGGCUUAACUAGCCUGACGAGUGACAUCUUCCGUAUACCGUUGGAAUUGGAUAACGGCCUCGCGCCGGAUCGAG
+#=GR seq56 SS [[[-------[[,,,,,,,,,,,,,<<<____>>>,(((,,,,,,,,,<<____>>,,,,,<<<____>>>,,<<-<<<<______>>>>>>,,))--),,,,,,,,,,,,,,,,,,,,,,,,,,,<<<<_______>>>>,,,,,(((((--(,,,,,,,,,<<<<<<<<-------<<<<<<--<<<<<<_______>
+
+seq56         GCGCGGCCGUUCUCCAAUUUGGAGGCAAUGAGGCCAAUUGGUCACACUUAAAUAGAUCCUCAGAA
+#=GR seq56 SS >>>>>>>>>>>->>>>>-->>>,,,,,<<_______>>,)))))),,,,,,,,,,,,,]]-]]]:
+//
+# STOCKHOLM 1.0
+
+seq57         AGGGCAACCA
+#=GR seq57 SS :<<____>>:
+//
+# STOCKHOLM 1.0
+
+seq58         UGCCACCAAGGUGGCUUUUGCAAAACCUUAGCCGGGGUGCGGUACAGCUCGUAGCAGA
+#=GR seq58 SS :<<<<<____>>>>>::((((,,,,<_______><<<<________>>>>,,,)))):
+//
+# STOCKHOLM 1.0
+
+seq59         GCAGGGGGGAAGCUCCCUGCUAACACUGCCUUAAAGAAUUAGUUGGAGGUG
+#=GR seq59 SS <<<<<<<<____>>>>>>>>:::::::(((((<><________>,))))):
+//
+# STOCKHOLM 1.0
+
+seq60         UCUAAAAUACCCGGUACACACCCUACCUUAUUGGCCUUGAGGGGUUGAUGUGAGUAAUGUGGGACACGCAUAAGAUUGGGGCGACACCAAGGAAGAUUAAUGAAAGUAAAAACGCUAGCUGCACUGUAAAGUGAGAUUUCAACGAAGAGACUAAGUUCUGACGAGUGCCCGGUGAAAUGUCGAGACUUGGGGGCGUAGGG
+#=GR seq60 SS {-------{{{{<-------<<<----<<__________>>>>>->,,{{-------{{{{{{{{{{{---------{{{{{-------{{---------------------------------------{{{------------{{{{{{{{{--{{{---{{{--{{<<<<<___>>>>>,,,[[[(((((,,<>,<<
+
+seq60         ACCCAGCCAAAUAACGACGGCUGGGUCCCCCCCGGGGCAUACCGGCCUGCGUCGCCCUGCGAAGAGUAUCGGCUUUUCUUUAGUCUUGUUAACAAUUUUGUACUGCACACUUUAAGCCGUGUCCUACACCAAAGGGGUCACGACGGGACCACCCUGUCUUGAGGGGUCAAAAUGGGGGGCGACCUGAGAACCCUCCCGUC
+#=GR seq60 SS <<<<<<<<__________>>>>>>>>>>))))),<<<----<<<<<____>>>>>>>>,,,]]],,,,,,}}}}}-}}}}}}}}}},,,,,,<<____>>,,}}-}}}-}}-}}}}}}}}}}}}}}}}-}},,,}}}}-}{{,,,,<<<--<<<<______>>>>>>>,,,,{<>[[[[[<>(((((((((,,<<-<<<_
+
+seq60         CCUCCGACCUGCGGGAAGCCAUUAUAUAACCUUUCCUUUUCGGAGUGGGUCCCAGCAGAAGACGUGGGGUAGAGAAAUCUACUCCACAGGGCUCCUAAAAGGGGUUCUAACGUUCUUGGAAAAUAGAAAGAAAAGUGGGCCGAGACCCCCUAAGACCGAGAGUUUGUCAUAUUGGCUAUUGUCUGGGGGUCUCGGCCCAC
+#=GR seq60 SS __________>>>>>,,,<<------------<<<<_____>>>>->>,,,,,,,,,,,,,,,<<<<<<<<<<____>>>>>>>>>>,<<<<<<_______>>>>>>,,,,))))))))----),]]]]],},(((((((((((((((((--((((--(--((<><<<<___>>>>,)))))))))))))))))))))))
+
+seq60         UAACAACGAGGUAUGUAACGAUUAGGAUAGUGGUGGCCGACCCUACAGCUGCAACUAACAGAGGCCGAAGUAAGCCUGCUGUACUAGGCCCCGUUGAAUGCGGGGGUUAGAACCCUAUUUGACCCGGUAACCUGUGUUGCCGGAUGGCCAGCGGAGGAUUGGUCGAGUUAGGCCAGGGAGUACAAAAAGUUGCG
+#=GR seq60 SS ),,,,,}}::::::::::[[[,,,,,,,,(((((((((<><<-<<<<<<-<------------<<________>>->>>>>>>>>,))))))------))),<<<_______>>>,,,]]]:::(((,,,,<<<-<<<<_____>>>>>>>,,,,,,,<<<<<<______>>>>>>,,,,,,,,,,,,,)))::
+//
+# STOCKHOLM 1.0
+
+seq61         CUGCGAAGCAUGCCCGAAGCUUCGGA
+#=GR seq61 SS <<<--<<<<-<______>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq62         ACUUACCUUAGUUUUUCGGGCAGAAGUUAUCCUGAGUGCUGCGAUCUCGUGGCUGGUAAGUCCCACAGCACUCUUAUAGGGCUUUUGCUACAGC
+#=GR seq62 SS ::::::<___>:::::::((((((((((--(<><<<<<--<-------<<---<<<_____>>>>>->>>>>>,,,,,))))))))))):::::
+//
+# STOCKHOLM 1.0
+
+seq63         GUGGUUAGUACGGUUAGGGAUACUGGCCACUCGUCGGAAUGAUGAAGCAACUGAAUGCGGGGGCCCCGGACCUGGCCGUGAGGAAGAUGAAUUCUCGGCUGAGGCCCCCAUGGGUCUUUAACGCAGGGAAAUGCUGGGUCGCGAAGGUAAGGGCUGAAAACUUACAGUAUAAAGGCCAAAGAAGCUAUCGCAAUGUACGU
+#=GR seq63 SS ((((((((((<><<___>>,))))))))))[[[[[[[[[,,,,,,,,,,,,,,,,,,,,<<<<<<-------<<<<<<-------<<_____>>->>>>>>->>>>>>,,,,,,,,,,,,,(((-------(((((((----(,,<<<___________>>>,,<<<-------<<-------<<<<<<<<<<<____>>
+
+seq63         UGCGAUAGCAGCUCUGAUUACGGCUCAGUACGCGAAUCUUGAAUCUAUCUAUAAGUAGAAAACUUAUUAAAAUCAAUCAGCGAGGUGCUUAAUCGCAAGCCUUGCAGAGAGUAUUUUCCGACGGACCAA
+#=GR seq63 SS >>>>>>>>>->>->>>,,,,,,))))))))-))),,,<<<---------------------------------------<<<<<--<<<________>>>>>>>>->>>,,,,,,]]]]]]]]]:::::
+//
+# STOCKHOLM 1.0
+
+seq64         GAGAGUUGUAUGCGGGAUGAUAUCGCGUACCUCA
+#=GR seq64 SS <<<----<<<<<<<<_______>>>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq65         AGGAGUAAGCACUUCGGGGAUCUCCGAGAGGAUCCCCGUAGGAGUGGCGGCUCGUCGUCUACAAUCGGACGAGUGUGCUUACUCCAGGGCCUAGCUAUAUCGCUGCCGGGUAUUAUCGGCCAGAGGCUGGCCCGGUAAGCGACUCCAAUUUGGGGUUAACAAACUUAAGCUAUGGCGUUGAAGGUGGUAAGCAAACUCUC
+#=GR seq65 SS :(((((((((((,,<<<<<<<<--<____>>>>>>>>>,,,,,,,,,,,,,<<<<---<________>>>>>,,))))))))))):((((-((((----((<><<<<<<______>>>>>>,))-))))))))::::::::::::::::::{{,<<______>>,,{{{{--{------------{{,,,,,,,,<<<<_
+
+seq65         UUGUAGGGAUGGGGAGGGGACGCAUACUCUGGCCCUAUAUGCACUGGGGGGGCGAUACUCCAGGCCCUUAAGACGAGAGAGGUGAGGUCGAUAGUAAGGAAGUAAGGGGUCGAGAGACUCCAGGAUUAGUACAAACACUGCUCAUUAGGUUUCUCUCUCGACAGGAUUGUAACAUAUCCCCCCGGGGUGCUAUUUCUUCG
+#=GR seq65 SS ____>>>>,,,,,,,,,[[-[[-------[[<<<-------<<<<--<<<<<<<--<<<___________>>>>>>>>>>>>>>->>>,,,,,,,,,,,,,,,,,<<<<<<____>>>>>>,,,,,,,,,,,,,,,,,,,,,,((-------((((((((,,,<<<<______>>-->><<<<<<<<________>>>>>
+
+seq65         CCUAGGGUAUGUCGGCGUUCACGGAGACAUUGUGAGAGGGGAUCGCCAAGCCCCACACCAGGCUUAUGAUCUAAUAGGUAGGCGGCUAAACGUGUAAUUGUGGAGUAUGUCUGCGGUGGUCCAGAAGCACCGCAGCAUUACGCCAUAUAUUAAAUGUAUAUGGAAAACAAUCGGAUCCUGCCCUCAAGAUCUGAAAUGAU
+#=GR seq65 SS >>>,,,,,<<<<<-<<_______>>>>>>>,,))))))))-)),,,]]-]]]],,,,}}-}}}}},,,,,}}:::::::::::{{{,,,,,<<<<<<<------------<<<<<<<<_________>>>>>>>>->>>>>>>,,,,,,,,,,,,,,,,,,,{-------{{{{<<<<<<<<<<<<<_____________
+
+seq65         GGUUCAUAUUGAGGGUGGGAUUAAACGACAUGUGCCCUGGGGAAUUUGACGGGGUGCAUGGUGGUUUUUCGGGUUAUACUCACAUUAAACACUAAUCUGUGAUAACGAUGCGGGUAAAAAAAGUAUGAGUAGGAGGCCUUUAGGGUCUAAUAACGGGCCAGCAAACAGAGUUAAUAAUAAAGAAAGACUCCAGACAAAGU
+#=GR seq65 SS ________>>>>>>>>>>>>>(((<<--<<<<<<<<<--<<________>>>>>>>>>>>>>,,,,,,,,,,<<_______>>,))),,,,,,,,,<<<<<_______>>>>>,{-------{{,,,,,,{{{{{,,<<<<<<---------------------------------------------------------
+
+seq65         UGUCAUAAUACAUACGUGCAUAAACGCGACCACUCGUUUAAGAAUGCGGGACGAGGGGGUAGAAAUGCUUCCAGGCUAGAGUAGCAUAAUUCUCAUUAGCUACCUCCUAGCCUCUGGUAGCUAGAGACAGUUGAACGGGGCAACCUGGUUGGCACUGGGAACGGACCAGUGUCGCAUGUGCCUACCGCCCCACUCAUUCG
+#=GR seq65 SS ----------------------------------------------<-------<<<<<<<____>>>>>>>->->>>>>>,,,,,,,,,((((--((((((((<><<____>>,))))))))))))<<<<----<<<<____>>>>>>>>,<<<<<<_______>>>>>>{{{{---{{{{--{{{{{{<>{{{{{-{{
+
+seq65         GUCUGAAUAGGUAGUCAAACCCCCCAGUUUUUGGGCCCAGCUGUAUUUCAUAUUUAUGGAAUACAGCUGGGAUGAAGCCUGGCCGAGUGAAGGCCAAAAGCAGCAAGGUAAAAAAGAAUAACAACACCGGUAAAUCGGAGCUGCUCACGAACAAAGACUCUACCCGGGCAAUUACACACUUGCCCGUACAGAGUUCACCC
+#=GR seq65 SS {{{-------------------{{,[[[[[[[--[<<<<<<<<<<<<<<<<____>>>>>>>>>>>>>>>>,,,,,((,,<<<<_______>>>>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<<<____>>>,,)),,,,,,,,,,]]]]]]]][<<<---<<<<<________>>>>>->>>,,(((((--(((
+
+seq65         CUUAAUGGCUCGCGGCGCAAUGAGCGGGCGUGGUAACGCGCUUACUCGUUCAUUGUAAUAAGCCCCGUAGGGGGGCUUCGUAAACUUAGAAAGAUUGGAGGGAGCCGAUGCCGACAGGGAAGAAGGAUAGGCGCCUUAGAACUAACCCAUGGUAUGUUCACAGCAUAUUUGGCCUCAAUUAAUACCCGCAAACCAUUAUC
+#=GR seq65 SS ((---(((-(((<><<<<<<<<<<<<<<<<<<____>>>>---->>>>>>>>>>>>-->>,))))))-)))))))))),],,,,,,,,,,,,,,,,{{----{{{{,<<<<-------------------<-------<<<<_____________>>>>->->>>>,,,,,{{{,,,,,,[[[[[[[[,,,((((((---
+
+seq65         UUGAAGCCAUAUACCUGUUUGUUGGCCUUGGGGCAUAAGAUAACGAAGGUUAUGCCCCGAGGCCAAUAUUUAGAGGAUCUGAUAUCUAAGUUGUAUCAUUUGAAAGAAUAGACUGUCAAGGACUUAAAAUGGUCUUCUGUAUGCGGAAUGACCGCGCUUCAGUUAGCUUUCCGAGGGGAAUGAGAAUAAUGUAUUAGUAU
+#=GR seq65 SS -((-((-------(((,,,<<<<<<<<<<<<<<<-----<<<<<____>>>>>>>>>>>>>>>>>>>>,,,,,,,<<<-------<______>->>>,,,,,,,,,,,,,,,,,,,,,)))-))))-)))))),,,((----((<<<<-------<<________>>->>>>,,<<-------<----<<______>>->
+
+seq65         GCCGGUGACGGCCGGGACGAACCAACCCUGGAUCAUGAUGGCCUGCAAGUGGGUAUUAAGAACCCCUGGAGAAAUAAUGUGAUGUUCUAGGGUUACUUAACAGAUGCAUCCGGACACGCCCAUGUAGCAUUUACGCUGUAUGGGGAGUCCGGGUGCUAAGUAAUCCUAGAACAUUACUCGGUCUUCGGCAGCCAAGACGU
+#=GR seq65 SS ->><<<____>>><<<_________>>>,<<__________>>,))-))]]]]]]]],,[[[[[<>(-------(((((,,<>,<<<<<<<<<<<<<<<-------<<<<<<<<<---<<<<<<<<<<______>>>>>>>>>>-->>>>>>>>>->>>>>>>>>>>>>>>)))))-),]]--]]]}}},<-------<<
+
+seq65         GGGGAACACAACAUGGUUCCUAGGGUGACCGGUGCCACAAGGGCGGGGUGGCGAAAAACGGCAACGACAAAUAAUCGGCAACUGACCUCCUAUAGGACCCUCAGGGUUGUGGAACACCGCCCCCUGCUGUUUAAAACAGGACUGAAGGCUAGGAUUAAAGCCGACUGGGGUUCAAAACGUCUCGGUAGCUUGAUCUUGAC
+#=GR seq65 SS _____>>->,,,,,}}}}}},,,}}-}}}}}}}---}}},}}}}}}}}}}}}}},,,,<<____>>,,,,,,,,,,,,,,,,,,,,}}}}},,,{{<>{<>,,<<<----<<_______>>>>>,,<<<<_____>>>>,,,,,,{{,,,,,[[[[[-------[[<>(((((---((((-(((-------(--(-----
+
+seq65         UAAUUUGAGAGGGUAUCAAGGGGGGGGGGCCGUGAAGAUCAAGAAGAGAGGUAUUCUCGCGGCCAUGUGAAUCUAGUUGGUCGUGGCGCCUGCUUAUAAAAGCCACAGGCGCCGAACUACUAUGCGAGGUUACGGGAUGGGCGAACCUACCCCUCCAAUGGAUCAAAGUUAAAAAGAUCAGUCGUGGGCUGACAAUGAUU
+#=GR seq65 SS -------(((--(((((---((((((((((<><____>,))))))))))))))))))-))-)))))))))))),]]-]]]]],,<<<<<<<<<<<____>>>--->>>>>>>>,,,}},,,,,,,,(((((<><_______>,))))),{{{<>[[---[[[[------------[[[[[,,,,<>((-------((--(
+
+seq65         GAAAAAGUCCAAUGUGGAAGCAGUCUCUGGUAACGGUCAGUCGCCAAAAAGUCGCUCGCCCGUCGCACUUACAUGAGCAAGGGCCGCUGACUCUGGCAAGCAGUGGGUCAGCGGCCCUGUGCGGGAAGAGGCGACGUUCUAAUGAAUAAUUUGCGAAUUGUGCACUUGCCCCUUGCAGGGCACCCCUGUUUCAUGCACAU
+#=GR seq65 SS -------(((((((((((((((----((((,,<<<---------------------<<<<<--<<<<<------------<<<<<<<<<<<<-<__________>>>>>>>>>>>>>->>>>>>>----->>>->>>,,,,,,,,,,,,,,,<<_______>>,,,,<<<________>>>,))))))))))--------
+
+seq65         CCACAUUGGAAGCAACCUUGAUUCAUCCGGUGGAGGACGGUCGACGUGUCCCUCAUAUGGCCUCUCUGGAAAAAAGAACAUUGAGAGUCUGGGCGGGUUUGGGAAACCCGAAAGAGUUUUCCCCCGCCAGGGUCAACGCCCCCAUAUGAGCACGACCGUUCUCGUAGGGAUUCCCGCGGCGGGGUGACGAAUCGAUCACU
+#=GR seq65 SS -)))))))))-)))-)),]]]]]-]]]]]],,<<<<<<<<<<<---<<--<-<<<<<<----<<<<<<------------<<<<---<<--<<<<<----<<<<<<--<_______>>>>>>>>>>>>-->>>>>>->>>>>>>>>>>>>>>>>>>>>>>>>>,,,}}},},}},,,,,,,,,,,,}}-},}}}}-},,,
+
+seq65         GGCCAA
+#=GR seq65 SS ,}}}::
+//
+# STOCKHOLM 1.0
+
+seq66         CAGUAUAGACAAGUGCUUCUUGUCUAUGCUGA
+#=GR seq66 SS <<<<<<<<<<<<<_____>>>>>>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq67         UGGGUAGAACCGAUUAGGCGGGUAGAGGCGAUGUGCCCAACUGUCCUUGGGAACAAGGACUGAAACCAAAUAGUCUAUGAGUGAUUGUUUCAAA
+#=GR seq67 SS <_____>:::<<______>>::::::<<<_____>>>::::::<<<<<<____>>>>>>:::::::::<<<<<<<_______>>>>>>>:::::
+//
+# STOCKHOLM 1.0
+
+seq68         GGAGACA
+#=GR seq68 SS <____>:
+//
+# STOCKHOLM 1.0
+
+seq69         CCGGCAUCUGUAAAUUAGUGCUGUGUGUCAGCACUAGUAUAAGAAAUAAAUAUGUGCCGGA
+#=GR seq69 SS (((((((,,,,,,,,,<<<<<<<_____>>>>>>>,,,,,,<____>,,,,,,))))))):
+//
+# STOCKHOLM 1.0
+
+seq70         GUCCUG
+#=GR seq70 SS ::::::
+//
+# STOCKHOLM 1.0
+
+seq71         GGGCGCGACCCA
+#=GR seq71 SS <<<_____>>>:
+//
+# STOCKHOLM 1.0
+
+seq72         UCGAGAGAA
+#=GR seq72 SS <<____>>:
+//
+# STOCKHOLM 1.0
+
+seq73         GAGGCCUCCGUCAGAGAGCAGAGCGAUCCAAACGAGGCACGGCCUCCCCUUUCGGGGGUCGUGUCUGGUGGCUCUCCGGGACAGGGAGAGCCAUUAAUCGAUCGUAACGUCCUCACUAGCUUUUUAAAACAGGGGGCAGGAGUCGACUCUUGUCCCUCUAAGCUUGUCGCUCGAGGGACACGGCUUCUGCCUUGUUUUAA
+#=GR seq73 SS ::[[[[[,,,,,,,,,,<<___>>,,,,,,,,((,<<<<<<<<<<<________>>>>>>>>>>>,,<<<<<<<<<---<____>>>>>>>>>>,,,,,,,,)),,,,<<-<<<-<<<<<<<<<<<<<<<<--<<<<<<<<<<<<------<<<<<<<----<________>>>>>>>>->>>>>>>>>>>>>>>>>>>>
+
+seq73         AAGGCUAGGAGGCAAGGCCGUCCUUUCCUGACCGUCGGAAAAGUUCCUUCCGAUAGUAAGACGGCUUCGGAUAUUGCCGGCGUACCUGUCGGUCUCUACGGCACAAUGGGUGUGUAGAGAUCGGUGGUAGACGCCUUAUUAGGAGGCCGAAAGGAGCCUCCUAGGGAUUGUGAAGGCAAUCCUUCCCUUUUAAUCCCGUU
+#=GR seq73 SS >>>>>>>>>>>>>,]]]]]:{{{{,{{{{{{{{{{{{{{{{{{{{{{{{{,,,,,,,,,,,,,,<____>,,,,,,,,((((((((-(((((((((((((<><<_____>>,))))))))))))))))--))))),,,,<<<<<<<<<____>-->>>>>>>><<<<<<<<____>>>>>>>>,,,,,,,,,,,{{{{{{
+
+seq73         ACACAGACGCCGUUGAUCACGGACCUGCAAAAUGGGCUGCUGAGAUCGGUUUGGAUAGGUUUGUCUAAGCUCGCAGACUGGGAAAACGGUUUAAAGAAUAGCUAAUGGGUGGCUGGUACGAGACGCUAGUUACCCCGGCGUGUAUGGAAACAUAUACAGUUGCCCAAGUUUAAUUAAACAUAGUUAGGCCCCCUGCGGGG
+#=GR seq73 SS {{{{{,,,,<<<<_____>>>>,{{-------{{{{<>,,,,,,,[[[<<<<<<<<<____>>>>>>>>>((((((--((((,,,,<<<-------------------<<<<<<<<--<<___>>>>>>>>>>->>>,,<<<<<<<____>>>>>>>,<<<_____>>>,,,,,,,,,,,,,,,,,,,)))))))))),,
+
+seq73         UAUAGCGCACGGGACUGCUGGGGCAACCCCCUUAAGCCACCCGUGCGCACGGAUCCUAGGGAACCGUACUUAGGAGACAGGACCUGAACUUGUGUAAUGGGGCCAAGUGGAGGAGUUUUUCCGGUGGUCAGGAUACGAAUCGCGAGAAAAAAAUGAGUACUAACAGCGUAGGCUGUAACUCUGGGGGAACACCAUAGUGG
+#=GR seq73 SS ,,,,(((((((((<><<<<<<<<____>>>>--->>>>,))))))))),]]],,}}}}-}},,<<-------<____>->>,,,,,,,,,}}}}}}}}}}},,,,,,,}}}}}}}}}}}}}}}}}}}}}}}}},,,,,,,<_______________>,,,,,,<<<<____>>>>,,,,,,,}}}}:::::<<<___>>>
+
+seq73         UGUGUGCCGCGGUCACCGGUAAGAAAUUGCCCGCGAGCGAUCCUGCCUCGUUCCCGCUUAUGAGUGUAGCUGGACGAAUAAGGAUUUACAUGCUGUUCACAUUCUGACUAGCAUGUACUCUCGA
+#=GR seq73 SS ::::[[,,((((,,,,,<<<<<____>>>>>,<<<<<_________>>>>>,,)))),,,,,,,,,,,,,,<<<------------<<<<<<<_________________>>>>>>>->>>]]:
+//
+# STOCKHOLM 1.0
+
+seq74         AUGCGAAGGUAAUA
+#=GR seq74 SS <<_________>>:
+//
+# STOCKHOLM 1.0
+
+seq75         UAUAAAUAGCGACGAAUCUACGUCCUAUAAAUCAAUUGAGAUAUUGCCUUACGUUACGAAAGCGAUCAUGGGAAUUGCGAUUGGACCGAUGAAGCUAUUGGGGCAAGGACGCGA
+#=GR seq75 SS <-------------------<<<<<-------------------<<<<<--<<----------------------------<<<-<_______>>>>->>>>>>>->>>>>->:
+//
+# STOCKHOLM 1.0
+
+seq76         CACGUGUGCAGACUACAAUUGCCGUGAAGGGCGGUGGAUAGACACGGGCUGCGGGCCUUGGGGCUCUCAUUACAACGCUAGAGAGCAGUGAGCCCACGUGGGUCCCCGUUGCAGAGCGUCUCGCUUGAAGGGGCGAUUCGCAUAUAGAACAAAGUCGGUAUAACAAAACAACGAGUAAAUAAUGUAUCACAAAAAAGACG
+#=GR seq76 SS <____>{{{-------{{{{{{{-------{{{,,,,,,,,,,<<<<<<<<<<-------<<<<--<<<<<---<<________>>>>>>>>>>>->>>>>--->>>>>{,,,,<<<_____>>>,{{<>[[[[----------------------------[[------------------------------------
+
+seq76         GUAGUCAUGGAUAAAGGGACGAAGCGAGAAGAUUAACUGCAUGUCAACUCACGUGAAGGCUACCGACGAUUAUGAAUGCGGGCCAACACCGUCAAAAGCAAACCAAAAAAGAGAGCCUUGUCUACUAUCACGCGGUUAACCGUGGUGGGACAGGCUUACUUCCCGCGAGGUAGAGAAUGUAGGAGGACUUUCCGUUUGUG
+#=GR seq76 SS ---[[[<>(((------------((------------((((((---(((((((((----(,<<<------------<<<<<--------------<<<------------<<--<<<<-<<<--<<<<<<<<--<____>>>>>>>>>>>>>>>>>>->>>->>>>>->>>,,,,,,,,,,,,,,,,<<<<<<<--<<<_
+
+seq76         CAAACUUGGAGAAAGAUUCUGUGCGUGAGUUCAUGUGAGUUUCCAGACAGUUUAGAGUUUACAAUGCCGCCACCCUACAGGUGGCGGCUCUUAGGGGGUGCUGGCCCUUAUUCAGGCCUCCAUUGUAAUGGCAGGGGCCCACAAGGACACCAGGCCGUCUGCCCUGAUGGGGUGCAGGCAAUUGGCAAGCCCCUAGAACG
+#=GR seq76 SS ___>>>>>>>-->>>,,,,,))))))))))-))))))-))-))),]]]-]]-]]]],}},,,,},<<<<<<<<<_____>>>>>>>>>,,,<<<<<<_______>>>>>>,,,,,,<<<--<<<<----<<<<<--<<<_____________>>>--->>>>>->>>>>>>,}}}-}}}}}}}-}}}::(((<<<<<-<<
+
+seq76         AGGUUCUCCUUGUCUAGUCAACGGGAUUUUUAGAUAAUCCAAAAGGGGGGGAUUGAAGGAGUGAUCUUUACGAGGGACGAAGUAUCUCG
+#=GR seq76 SS <<<____>>>>>>>>>>,,,,,,<<<<<_______>>>>>,,,,,))):::::::<<<<<____>>>>>::::<<<<_______>>>>:
+//
+# STOCKHOLM 1.0
+
+seq77         CUAGAAAUAGAGUGUCGAACCACCUCCUUGACUAGGUCCUCAGGCCGGAGUGAAGGGGACGGCGGGCA
+#=GR seq77 SS <<<____>>>:::<<<<<_________>>>>>:::<<<----<<--<<-<_________>>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq78         CAGGCGCCUUGAUACGUGGUACCGCUUGUACCGAAGGCGGAGGGGCUGGGAGUGGAAAGAGACAUGAUUCCAAGUAAAUGAAAAACUAGGAAUAGAUGUGUCGUCCCAGCUCCCACUACGCGUAUCAAGGCGCCUGGAAGUAACGCAAGUUACUAAACGAAGUGUCUCAAGAAGAUAUUCACGAGAUACCAAGGAAAAAA
+#=GR seq78 SS {{{{{{{{{{{{{{{{-{<>[[,<<<<_______>>>>,,,((((((((((,<____>,,,,,,,<-------------------<<<____>>>->,,,,,,)))))))))),,,]],}}}}}}}}}}}}}}}}}:::<<<<<____>>>>>::::<-------<<<--------------------------------
+
+seq78         GCAAUCGGAAUUAGAAAAAAAAACAGUGCAAAAGCACGGUACUUCCCCGUUGAGAGCCCUUAGCCUGUUGAAAGAGCUAAGGGGACAC
+#=GR seq78 SS -----------------------------------<<<<_______>>>>->>>->:<<<<<<<<>--------->>>>>>>::::::
+//
+# STOCKHOLM 1.0
+
+seq79         GUGAAACGCCUGAUUCCUGGCAAAUUUCAGGAUGUGGAUGUGUUGUCUGCCGGUGGAACACAACGAAGCCCGUCUGGCUAUCACCACGGGGGGAAAGAUGACGUAGCCGGCGUAGAAUCGUGUCUUGUACGGCACGUUAGCUUCAAAUAUAUUAAUGGCGGCCAAAAAUACAUGCAGAUAUUGCCGACUUAGACAAGUCA
+#=GR seq79 SS {{{{,,,,<<________>>,,,,,{{{{,[[[[[[[[,,,<<<<<<<<____>>>--->>>>>,,,,<<<----<__________>>>>,,,,,,<-------<<<--<<-------<<<<<<______>>>>>>->>>>>->,,,,,,,,,,,,((((-((-------(((((((-----((-------((,,,,,<_
+
+seq79         UCGCAGAGAGGGGUGGGGGAGCCGCAAAAAAAAGAACUUAGCCUCAUAUGCAUGCGGCGCCAUGUGGAGAAUCCACCAGAAAUUUCGAAAACCCGACGCGCAAAAGGAAACUUCUCCAGUGAGCGGAGGCCGUAUCAACGCCUCCCUCAAGUUCAUCAAGGUAGGUUUGCUUGGUGCCUACAAAACUUGCGUAAGUUCCU
+#=GR seq79 SS _____>,<-------<<____>>->,,,,,,,,,,,,))-))-))----)))))-)))))),,,,,,,,,,]]]]]-----]]],,,,,,,,{{<<-------<<<____>>>->>,,{,<<<-<<<<<<_________>>>>>>>>><<<--------------<<<----<_______>>>>->>>,,,,,,,,,,,,
+
+seq79         ACUGGUUAGGGGAAACUUUUCGUACGUGAGUGUAGGUCCCUUAAGACCAGUUUCUCCCUGAAAUCAAAACGUGUCAGGUGAAGGUCACGCAACAUGAUUAGAUCAUAGCGGGUGAAAAUUCGCUGUCCCGUGACUUAGAGGCAACAGAUAGGGACGGAGUGAAAAUUCCAUACUGUAGAAAUAUGAUUGUGAACGUACUA
+#=GR seq79 SS ,,[[[[,((((((--(--((<><<<____>>>,))))))))),,,,,<<<_______>>>,,]]]],,,},,,,,,}}}}}},,}}}}{{<>{{----{,,,,,<<<<<<<<<____>>>>>>>>>{{--{-------------------{{{------------{{{{<>{{,,<<____>>,,,,{{<>{{--{{{{{
+
+seq79         UUGAGGGAAAGAGCAAUUUAAGACGUAAUGUUUUGCUGUUUGACGCUUGCGGUACAGCACCGCAAGAUCACAGGUGAUGUUGUGGGAGUUUUGUAACUUUUAUGACCGGGUGAACGCCGAAGGGAUACAAGGUUCCCCGUAGGCCGAGGUGGUAUACGUAGGCCAGGCCUGGACGGUGUGCUAGCACUACGCGAAGUCAU
+#=GR seq79 SS {,[,,,,,,<<<____>>>,,,(<><<_________>>,),,,]{{{{{{{{-{{,,<<<<___________>>>>,,<<<<<<<<<<<<____>>>>>>>>>>>>,{{,,,,,,,<<____>>,,,,,,,,{{{--{--{{{{{{{{{{-------{{{{------------{{[[[,<<_________>>,,,,,,,,
+
+seq79         AAUUGCGCGCUGAGGGCUGACAUAGGGAUCGAUAUUGCAAGCAGCGCGCCUCCAAAAGCCGGUAUGAGCAAGUCUUACUGCAGAGCACAGGCCAGAGAUGAGCCCCGCUCGGCAUCUAGCAUCACAAGUCAAAGGGUUGGCAACGGCCUUGGCACCUAAAGCGACUAUAAUCUCGGCCUGGAGCCCAUGUUACCGCAAGU
+#=GR seq79 SS ,,,,<<<<<<<<-<<<<-------<<________>>->>>>>>>>>>>>,,,,,,,,((((----------((<><><<<------------<<____>>->>>,,))-)))),,,,,,,,,]]],,<<<<--<<<<<<____>>>>>>>>>>,,,,,,,,}}-}}}}-}}}}}}}}}}}}}}}},,,,,}}}}}}}}}}
+
+seq79         UUUGAGAUCAGAGAUAGUGUUUCAAGUAGGAGACCCAGGGAAAUGUGCCCAGCCCCUUGACCACUGGGCAUAAUUAGCCGAAUCGCAAA
+#=GR seq79 SS ,,,,,,,,,,,,,}}}}}}}},}},}},}}}}-}}}-}}},,,,<<<<<<<---<<<____>>>>>>>>>>,}}},}}:::::::::::
+//
+# STOCKHOLM 1.0
+
+seq80         GCGGCUGCCCGUCUGGCUAGCUUCCGCA
+#=GR seq80 SS <<<<<<<--<<____>>>>>--->>>>:
+//
+# STOCKHOLM 1.0
+
+seq81         GGUGAGCAGGAAUUCAGAAAUCAUC
+#=GR seq81 SS <<___________>>::::::::::
+//
+# STOCKHOLM 1.0
+
+seq82         UUUGGGCAGCACAACCUACGUAUGUCGCAUCCCCCUACCGCACGCCUCCUAGAAUGAGCGAUUGGCUCGCAGGAAAAGUCUUUAGGUACAUAAUAAUACUAGACUGUACCAGGAUCGGAACCUGGUCAGUCGGGGGGGGGGCAAAUAAAAACCGGGAGAAGAGCGUGGUCUAACGCAUUCUGCAUUUGAAAGUGACCCAC
+#=GR seq82 SS {{{{--{{{{--{{------------{{{{{{{{----{{{<>{,,((<>,,,,,,,<<<<_____>>>>,,)),,<<<<<--<<--<<_______>>>>>>>>>,,,,,,,,,,{{{{<>[[[[[[[((<><<<<<<<<-<__________>>>>>>>>>,))<<<---<___>>>>,,,,,,,,,,,,,,]]]]]]],
+
+seq82         UUUGGUUGCACGACAGGAAUCUGCCGGGAAACUUAGCGGGGGGUGCAUUGCUGUAAAGGGCGCAAAGACCUAGG
+#=GR seq82 SS }}}}<<<________>>--->,,,,<<____>>},}}}}}}}}}}}-}}}}}}}}}}:::::::::::::::::
+//
+# STOCKHOLM 1.0
+
+seq83         GCGAAAGCGGAAG
+#=GR seq83 SS <<____>>:::::
+//
+# STOCKHOLM 1.0
+
+seq84         AGUU
+#=GR seq84 SS ::::
+//
+# STOCKHOLM 1.0
+
+seq85         GGACAGAUGGUCCGAGCUUUAAAUCCAGCCGGAGAGGCGUACCUCCCUCCUGCCUCUGCGUAAUAAUCCUAAAGAGCCCCAGGAUUAUCUGGUGGAUUUAAAUCCAGACUGGCGUGAAUUGUCCCGUCUCCCGGGUUCGAUUGCCUGAGAGAUCGGAGACGGACGCUGGAGCGACUGCUAAUGCUGUCCA
+#=GR seq85 SS [[[[[[,(((-------((((((((((-((<<---<<_____>>>>,,<<<---<<<<<________________>>>>>>>>,,,,,,,))))))))))))-))),,,,<<<----<--<<<<<<----<<<-------------------<<<____>>>->>>>>>--->>>>>>>,,,,]]]]]]:
+//
+# STOCKHOLM 1.0
+
+seq86         UGGGAAUUUAA
+#=GR seq86 SS <<______>>:
+//
+# STOCKHOLM 1.0
+
+seq87         UAAGUGCA
+#=GR seq87 SS ::::::::
+//
+# STOCKHOLM 1.0
+
+seq88         GGGUUAGGGUCCCA
+#=GR seq88 SS <<<_______>>>:
+//
+# STOCKHOLM 1.0
+
+seq89         GGAGA
+#=GR seq89 SS :::::
+//
+# STOCKHOLM 1.0
+
+seq90         GGUGAACGGUUUACAUUA
+#=GR seq90 SS ((((<><____>,)))):
+//
+# STOCKHOLM 1.0
+
+seq91         GGGAGGAAAGUAAAUGAGCAAGCAAACAUAUCCCA
+#=GR seq91 SS <<<<-------------------<____>->>>>:
+//
+# STOCKHOLM 1.0
+
+seq92         AGGGGUCCCUUGCCGUAAGUGACUCUGCGUCCACCCAAGACGACCCGUUCGAGGGAGGACGGUGCGGCUUUACGCAUGAAGGGCCCCUA
+#=GR seq92 SS <<<<<<<<--<<<--<<<<<--<<<<<--<<<-----------<<<______>>>->>>>>>-->>>>>>-->>>>---->>>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq93         CACCUCCCCUGUUGGAGAGGAGGUUGAGUCGCCAUGCGCAUUAAGGAUGGUUUGCUCUGACCUACUUCCGUAUUGGAAACUUUGUCCACUACUAACUGGAUGGAGAGUAGAGUAAGCCACUGAGGAAUAUCCGGAGGGAUAUGGGACUGUAACAAUGUCUUACCCCCUUCCUCGCCGGGCAUUGAGUAAGAGGAUAAACA
+#=GR seq93 SS ::<<<<<<<____>>--->>>>>:::{{{{{{{{{{{{{{{,,,,,,,(((((((((((,,,,,,<<<<<___>>>>>,<<<<<<<<<________>>>>>>>>>,,))))))))))),[,(((((<<<<<<____>>>>>><<--<<<<<<_______>>>>>>>>,)))))<<<<<<<--------------------
+
+seq93         AACAGUAAGGGAGCAUGACCGGUGGUUACAUCAACCAUCCGGCUCGGCCGGACGCACAAAUGCGUAUGGCGGCAGCUUCGUGGAUUAGUAU
+#=GR seq93 SS --------<<<------------<<<_______>>>->>>->>>>>>>,,,,,],,,,,}}}}}}}}}}}}}---}}::::::::::::::
+//
+# STOCKHOLM 1.0
+
+seq94         UCUGGGGGAACCCGGAUUGAUCUCGGUGAUUCCAGCAGGCCGUGUUCCUUAAUAGUGAUCGGAGCGGCAUGGGUGACCAAGAGAACGAAGAUGCCCUAUAGGGCUAAGGAAAACCAACCGGAGUUUAGUUAGGGGUCUUGUCGCGAGUACCUGGAAUUAUCGAUGU
+#=GR seq94 SS <<<<<<____>>>>>>::::[--[[[[[[[[[[[----[---[[,<<_________>>,,,,,(((((,,<<____>>,,,,,,,,<<-----<<<<<-----<<-----<<<<________>>>>>>->>>>>->>,,))))),,,]]-]]]]]]]]]]]]]:::
+//
+# STOCKHOLM 1.0
+
+seq95         CCCUCGCCAUUUGGGUGCGUUAGUCUAUACAAACGUUCUAUUUUGUAGAUAAUCCUCAAUUUCCUUAGGGCGGGAAGAGGGA
+#=GR seq95 SS ((((--(,,,,,,,<<<__________>>>,,,,<<<<<<--<<<--<<<_______>-->>>>>>>>>>>,,,,,))))):
+//
+# STOCKHOLM 1.0
+
+seq96         CAUCCGA
+#=GR seq96 SS <____>:
+//
+# STOCKHOLM 1.0
+
+seq97         UUUCACGAUGCAAUCUGAAAAAUGUAGGAGCGAUAGCGAUAAGAGGGGAGGGCAAUAGCCCCGGCGUCGGGAAAGAAAAGAAAAGACCCUCUUAAAGGGAAGGGUAAGAAUACAUUGGCAUUCAGAUCAAUUUCUGAAUGUCUAACCCUAACCGGACCUUGCUGCACCCGCCGCAAGCAGGUGGGCCUCCGGGGCCGUAG
+#=GR seq97 SS {{{{{{-------------------{{{{{{{,,,<<-------<<<<__________>>>>->>,,,{{{-------{{{{,,,,,(<><<<<-------<<-------<<----<<<<<<<<<<______>>>>>>>>>>>>->>->>>>,),,{{{{{{,[[[[,,,,,(((((((((((((((--(-((((---(,
+
+seq97         UGAAACGUGUUAAGGAUAGUCUUUGGGUUGUCCUACCGAUCCUUGUAACUUUUCAUUAAGUUACAGAGGGCCCGCCUGCUUGCAGCUAAAUCGUAAAAAUGGGCAUAAAUACUACCUGUCAAGUGCAUUGAAAGCCAGUCGUUAAGCAUAGGGUCCGCCGCAUAUCGGGGGGUUGGCCGAAAAAACGCAUUAUCAAACUA
+#=GR seq97 SS ,,,,,,,,,,,<<<<<___>>>>>,<<<______>>>,,,,<<<--<<_______>>>>>,)-)))))))))))))))))))),,,<<------------<-------<___>->->>,,,,]]]],,,,,,,,{{{{{{{----{{,,,<<____________>>,,,<<_____>>,,,,,,,,{{{{{{{{--{---
+
+seq97         UAUUAGCACGGCUUGCGGGAUACGUGAUAAGACGCUCUAUUUAACAAUGACCGUAUAAUCUGUUCUUGCCCGGCGCCCGACAGAGCUACUGGAAACAGUUUCUGGGGCGCAUCUAAAAAUAGAAAAGCUAGUUCCCUUAAUUUAGCGGCGAAUACUCGGGGGGCGGUGAACACGGCAUCAAAAACAGAAGAGUAUUCGCC
+#=GR seq97 SS {-------{{{--{,,{{----{{,,,,,,,{{{{{--------{{{{{,,,,,,,,,,(((----(((((((,<<<<--<<<<---<<<<____>>>>->>>>>>>>,,,,,,,,,,,,,,,,,,<<<<____________>>>>,<<<<<<<<<<--<<<<<<<<<_______>>>>----->>>>>>>>>>>>>>>,
+
+seq97         AGGAUGGCCCGGGCUUGGUGUCAGGUGUAUUGGAGGGUCACAAGACCCUUACGCCGUGCGGGGCCGAGAAUAUCCGAUAGUGAAACCGGGGGUCAAAGGCUCAAAAAAAAUAGGGUUUCCGCAGGGCCUUUCCACGAGGUCUCUAGAACGAUAAGGUGCGGUGACGGUUAUUAAAACAUACUACCAUUGACAACCCCCCG
+#=GR seq97 SS ,,,,,,,,)))))))))),{{,,<<<<<<----<<<<<______>>>>>>>>>>>,{{{{{{{{,,(,,,,,,,<<____>>,,<<<---<<<-------------------<<<-<<<<<____>>>>>>>>->>>>>>,,,,,,,,,,,),,,,,[[[[[-------------------[[[[[-------[[[[[,(
+
+seq97         CAACUAGUAAUAAAGGAGACGCUAGAUCGCGAAAGCGAUGUCUACUUCAAUUCCACUAAAAGGAAUUGGUAUAUAGUGCAAUGCCGUCUAAAAGAACGAAAGCUCGGUAAUCGGCCAGGGCUGGUAGGUCGUUUCUGGCUUCUCACGGCCCCGCACCGGGCCCAUCACCACCUCCUUGAUGGCGCACAAGGAGAUGUUGA
+#=GR seq97 SS (,,<<<<-------<____>->>>>,<<<<____>>>>,)),,,<<<<<<<<<<_______>>>>>>>>----->>,,,,<<--<<--<-------<____>->>>>>,,,,]]---]]]-]]]]]-]]]]],,,,,,,,,,,,,,,}}}}}}}},,(-------(((((-((((((<<<------------<<<<----
+
+seq97         UUGCCCAGCGGCUUUAAAGUCGCUGGGCCAUCUAUCGCGCCGGAUGCAAAAAAGCGGUAGGCACCCGCUCGCCAUCGGAAUAGUUGAGCCCUGGUGGCAAAACCAUUGUAGCGUACUAAUAUCCGAGUAAUGUUCGGCAACGACAUACACCCUUGAGAUGCGUGAAAAGGUCUUUGCGUAUACUGGUAGCGACCACCCUA
+#=GR seq97 SS --<<<<<<<<<<<____>>>>>>>>>>>>>>>->>>,,,<<<<------------<<<____________>>>->>>>,,,,,,,)))))))))))-),,,}}}}}}}-}}}}},,,,,,,<______>,(((<><____>,))),,,}}}},,,,,,,{{--{{,,,<<<<---<<___________>>>>>>,,<<--
+
+seq97         AUGCAAAACAUUGUGAGGUAAGAUUCGAAAUGCGAAUCUCCCUCUUGGGAGGUAACAUACAUCCCGCUCCGUCGAGUAUGCUCUAUACUAUCCUUCAGUGCGGAAGCCAUGUAAGAGCGCUGUAUUGCUCCGCUGGGCCGUUAAUCCGCAACAAGCGGACGAAGCGGGGCAAUAGCGCUGGUGGCGAGGAGCAUGUCAGA
+#=GR seq97 SS -<<<<<____>>>>>->>,,,,,,,,,,{{{{,,,<<<<<<<____>>>>>>>,,,,,,,,,,{{{{{{<>{<>{{{{{{{----{,,<>{{{{{,,,,<<____>>,,,,,,,,,<<<<<--<<<<<<<<<<<-<<<-------<<<<_____>>>>->>>>>>>>>>>>>>>>>>>,{{{{{{{{{{{{{{{{{{---
+
+seq97         GGACGGGGGGGGGCUACCUAUUACCAUUGACUUCCUAGAACACUUCGAGUCACGGGGCAAAAUGUUUAGGACUUAGGCAGACUGGAUCUACUGCUGGCGACUGGGCAAGAAGGUCACCAAAGUAAGCAAAAAAAGACGACAGAAGAAACAACGCGACCAAAUUCUCCGUAAUAGUUCGGGGCUAGUAGCCAGAUUGUCUA
+#=GR seq97 SS -{{{-{{{{{{{{{--{{{{{{{{{{{-{{{{{-------{--{{{{{{{{-{{{{{{{---------{{,,,[[[[[[[-------------[[[[[----------------------------------------------------[[<>(-------(<><<<________>>>,)-),]]-]]]]]-]]]]]]]
+
+seq97         CUGUAUGAUUAGGAGCGAACCUGUUCUGGACUCGGGGUAAGUCAUGGUAAUAGGGGGGGAAAAGUCGACAUGCUUGUUAGCAAGAAAACGGAAACGCGCUAGUAUUACAGCCGAAUCAACAGAAACAGGAAACGUUUUAAUAGGAUAGGGGGCGUGGAAUGGAUGCUUAGAGUAAUACAUAAGUGUAUCGUCACCUUGAG
+#=GR seq97 SS <<_________>>,,,,,,}}}}}}}}}}}}}}}}}}-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}},,,<<<<-------<<____>>->>>>,,,,,,,,,}},,,,,,,,,,,,,,,,,,,<<<<<<<__________>>>>>>>,,,,<<-----<<<__________>>>->>,,}}}}}}}},,}}}
+
+seq97         GAUAGUAUACUUGUGAGCGGGGUUGAUGUUUCCGUGCAUAGCCCCACUGCCUCGGGGUAGUGGGGUUAUGCGCGCCUACUAUAAAUGAUUGCACCGAAUGGUAAUGCCAAGCGAUCUCCCUCUCUGCGGGCGGGACAGUAAGACCGCUAUGAUUGCUGACCAGAGGCAAUCAUAGCGGUUAGAGCAGAGGGAGGGGUGCU
+#=GR seq97 SS }},}}}}}}}},},}}}}}},,,,,,}}}},,<<<<<<<<<<<<<<<<<<<____>>>>>>>>>>>>>>>>>>>,,,,,,,,,,,,,,}}}}}}}}-}}}}}}}}}},,}}}}},((((((((-((<><<<------------<<<<<<<<<<<<<<_______>>>>>>>>>>>>>>->>>,)))))))))),,,,,}}
+
+seq97         GGUUUGACGGGAAUUCAACGCAAGGAGGGUUCUGCCCAUCUGCAUAGUCCGGGGACGGCAAGACCUUGGUAACCCAAAGGGGUAAUUAUCCCAUGGUGGGACUACAGGCGUUCCUAGUGAAGAAAUAAGUGUUAUUUCCCCGGGGCCAAAUCGAAAGGAGAGGAUCUUUCAGAAGGAGUAAAUA
+#=GR seq97 SS }},<<<<_______>>>>,}}}}}},,,,}}}}-}}},((((--((((((-------((,,,,,,,<<<____>>>,,<<<<<____>>>>>,,,))-))))))))))}}}}}}}-}}}}}}::::::<-------<<<---<<<<-----<____>>>>>>>>->::::::::::::::::::
+//
+# STOCKHOLM 1.0
+
+seq98         GCUGGCUCAGGCCAGCA
+#=GR seq98 SS <<<<<<____>>>>>>:
+//
+# STOCKHOLM 1.0
+
+seq99         UCCAUAAUCACCGAAUCUUGUAUAGAAAUCAUGGCCUUUGGUUGAGAACAAGUUGGUACCCGAAUGGUCAGAGGCUGGUGUCAGCUGAGAAGAAAAAUCAACUUAAGGAUGGUUAGUGUUACCGUAUUAGAUUGGACAGCUAACUCAUAUGCGCAACAAAUUGUAUUCCUGCUUAAUCGCAAACAUAAGCAAAUACAGGU
+#=GR seq99 SS {<------------<<_____>>->,,,,,,,{{{{{{,,<>,{{-------{{{{{{{{,,,,,[,<<<<---<<<____>>>>>>>,,,,,<<-------<_______>->>,,,(((<><<______________>>,))),,,,,,,],,,,,,,,,,,,,,,,,,,((((,,<><___>,)))),,,,,,,,}}}
+
+seq99         ACCAAAGAUCAGGGUCACGUGGGGAGUGUAAUGACAAGUAAGCCGGAAAGCCUGACGCGGCAGGACUAAUUACAACCGUACUGUUGAAGAGUCUUCAAUAGACCAGAACUUUUAGUGAGUUUGCUUAAGGAAGGCAGCUAUUCACUCUGCGGUGGCAGCAGAAAUAUUCGGCCUCUGCAUGGCUUUUCUUUGCGUAGCUU
+#=GR seq99 SS }}}--}}-}}}}}}}},{{{{{{{-{{{,,,,,,,,,,{{{--{{{{{{{{<>[[[[[,(,,<____________>,,,,<<<____________________>>>,<<<<_____>>>>,,,),,,,,,,,,,,,,(((((((((,,,,,,,,,,,,,,,,,,,,,,,<_______>,,,,,,<<<-------------
+
+seq99         CCAAAACCCAUUAAGCCUGGGCAAAAUUAUAGUGAGUGAUAGUGACCUUCUAUCUAAGGGCGUCAGCUUUCCCUUAAGCAUGGAAACAGAGUACUGCCGUCCCCGCGUGCUAGCUAAUUAGUCCUUUGGGCGUGUUAGAGGGACUAA
+#=GR seq99 SS ------<<<<_______>>>>->>>,,,,,))))---))))),,,<<-<_______>>>]]]]],}}}}}}}}}}},,,,,<____>,,,,,,,,,,}}}}}}}}}},,,<____>,,,<<<<<<<--<<<____>>>>>>>>>>}:
+//
+# STOCKHOLM 1.0
+
+seq100         CACGGCAACUAACGAGGCGCGAACUCAGCAAGCCUCGCCCGCCUACAUCUGGCGGGUUCAGGAAGGCGACUUUAACAACCGCCGGCUCGAAACAUUGAGUCGAAUAACAUCGAAAGAAACCAAUGGUGUACCACUGUGGAACCGUGGCCUAUCGCCGCGCACGAUUAACGGUGUAUGACAUCCUAACACUAGAUUGUGA
+#=GR seq100 SS {{{,[[,,,,,,<<<<<<<<_______>>-->>>>>><<<<<<_______>>>>>>,,,,((,,<<<<___________>>>><<<<<<<____>>>>>>>,,,,,,,,<<____>>,,,,,<<<<_______>>>>,,,,)),,,<<_____>>,]],,,,<<<<---<<<<<___________>>>>>->>>>}}}:
+//

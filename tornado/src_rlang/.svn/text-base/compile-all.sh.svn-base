@@ -1,0 +1,10 @@
+./grampiler < gdemo.grm > gdemo.gob
+./grampiler < plus1.grm > plus1.gob
+./grampiler < g1.grm > g1.gob
+./grampiler < g2.grm > g2.gob
+./grampiler < g3.grm > g3.gob
+./grampiler < g4.grm > g4.gob
+./grampiler < g5.grm > g5.gob
+./grampiler < g6.grm > g6.gob
+./grampiler < g7.grm > g7.gob
+./grampiler < g8.grm > g8.gob

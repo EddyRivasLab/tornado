@@ -1,0 +1,4 @@
+edist : 2 : 2 : p1
+edist : 2 : 2 : p2
+
+S --> SS | Sa | aS | aSa' p1 p2 | e

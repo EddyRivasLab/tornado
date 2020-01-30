@@ -1,0 +1,27 @@
+edist : 1 : 0 : s1
+edist : 1 : 1 : s2
+edist : 2 : 0 : p1
+edist : 2 : 2 : k1
+edist : 2 : 4 : k2
+
+S --> e  |  a  |  a s1  |  T  |  a R  |  a R s1
+
+T --> L a  |  L a s1  |  S R  |  a P^1 a'  |  a R a'  |  a R b
+
+L --> a P^1 a' k1  |  a R a' p1  |  a R b s1
+
+L --> a R b s1 s2  |  a Q^2 a' R  |  a S a' R
+
+R --> a S b R  |  a Q^2 a' R k2  |  a S a' R p1
+
+R --> a S b R s1  |  a S b R s1 s2  |  L a P^1 a'
+
+P^1 --> L a S a'  |  L a S b  |  L a P^1 a' k1
+
+P^1 --> L a S a' p1  |  L a S b s1  |  L a S b s1 s2
+
+Q^2 --> L a Q^2 a' R  |  L a S a' R  |  L a S b M
+
+Q^2 --> L a Q^2 a' R k2  |  L a S a' R p1  |  L a S b R s1
+
+M --> L a S b R s1 s2

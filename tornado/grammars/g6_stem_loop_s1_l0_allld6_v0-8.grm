@@ -1,0 +1,241 @@
+# g6_stem_loop_s1_l0_allld6_v0-8
+# 
+# a variation of g6_stem_loop_s1_l0_allld6 
+#
+# hairpinloops: separates 3,4,rest + dangles
+#
+
+########################################################### 
+# param definitions
+########################################################### 
+def : p-BIGINT     :  999999
+
+########################################################### 
+# transition distributions 
+########################################################### 
+
+########################################################### 
+# emission distributions 
+########################################################### 
+# basepair emission 
+#-------------------
+edist : 2 : 0 : 1 : _WW_ : e1 : 0
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+
+# stacked stem bp
+#---------------------
+edist : 2 : 2 : 1 : _WW_ : e1 : 0 #AA
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 1 #AC
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 2 #AG
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 3 #AU
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 4 #CA
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 5 #CC
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 6 #CG
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 7 #CU
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 8 #GA
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 9 #GC
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 10 #GG
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 11 #GU
+NN = -p-BIGINT
+AU = 1
+CG = 1
+GC = 1
+UA = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 12 #UA
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 13 #UC
+NN = -p-BIGINT
+edist : 2 : 2 : 1 : _WW_ : e1 : 14 #UG
+NN = -p-BIGINT
+AU = 1
+UA = 1
+CG = 1
+GC = 1
+UG = 1
+GU = 1
+edist : 2 : 2 : 1 : _WW_ : e1 : 15 #UU
+NN = -p-BIGINT
+
+# stacked hairpin terminal [e1]
+#------------------------------
+edist : 2 : 2 : 0 : e1 : 0 #AA
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 1 #AC
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 2 #AG
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 3 #AU
+NN = 0
+edist : 2 : 2 : 0 : e1 : 4 #CA
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 5 #CC
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 6 #CG
+NN = 0
+edist : 2 : 2 : 0 : e1 : 7 #CU
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 8 #GA
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 9 #GC
+NN = 0
+edist : 2 : 2 : 0 : e1 : 10 #GG
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 11 #GU
+NN = 0
+edist : 2 : 2 : 0 : e1 : 12 #UA
+NN = 0
+edist : 2 : 2 : 0 : e1 : 13 #UC
+NN = -p-BIGINT
+edist : 2 : 2 : 0 : e1 : 14 #UG
+NN = 0
+edist : 2 : 2 : 0 : e1 : 15 #UU
+NN = -p-BIGINT
+
+# triloops
+#---------
+edist : 3 : 2 : 0 : e1 : 0 #AA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 1 #AC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 2 #AG
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 3 #AU
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 4 #CA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 5 #CC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 6 #CG
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 7 #CU
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 8 #GA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 9 #GC
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 10 #GG
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 11 #GU
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 12 #UA
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 13 #UC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 14 #UG
+NNN = 0
+edist : 3 : 2 : 0 : e1 : 15 #UU
+NNN = -p-BIGINT
+
+# tetraloops
+#------------
+edist : 4 : 2 : 0 : e1 :0 #AA
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :1 #AC
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :2 #AG
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :3 #AU
+NNNN  = 0
+edist : 4 : 2 : 0 : e1 :4 #CA
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :5 #CC
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :6 #CG
+NNNN  = 0
+edist : 4 : 2 : 0 : e1 :7 #CU
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :8 #GA
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :9 #GC
+NNNN  = 0
+edist : 4 : 2 : 0 : e1 :10 #GG
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :11 #GU
+NNNN = 0
+edist : 4 : 2 : 0 : e1 :12 #UA
+NNNN  = 0
+edist : 4 : 2 : 0 : e1 :13 #UC
+NNNN = -p-BIGINT
+edist : 4 : 2 : 0 : e1 :14 #UG
+NNNN  = 0
+edist : 4 : 2 : 0 : e1 :15 #UU
+NNNN = -p-BIGINT
+
+
+########################################################### 
+# length distributions
+########################################################### 
+ldist : 3 : 4000 : 4000 : l1 # hairpinloop's ldist
+ld  = 0
+ldist : 1 : 4000 : 4000 : l2 # bulges' ldist
+ld  = 0
+ldist : 2 : 4000 : 4000 : l3 # internal loops' ldist
+ld  = 0
+ldist : 0 : 4000 : 4000 : l4 # multiloops loops' ldist
+ld  = 0
+ldist : 1 : 4000 : 4000 : l5 # stem ldist
+ld  = 0
+ldist : 0 : 4000 : 4000 : l6 # unpaired
+ld  = 0
+
+S --> LS | m...m l6
+L --> m...m F l6
+
+F --> d...(i,k-1)...d'(l+1,j) l5 e1_2_0 e1_2_2  P(k,l)
+
+# hairpin loops 3+4+rest with dangles
+P --> a:i,i+1,i+2:i-1,i+3     e1                      #t3-0 [  3nt-hairpin loop]
+P --> a:i,i+1,i+2,i+3:i-1,i+4 e1                      #t3-1 [  4nt-hairpin loop]
+P --> a:i,j:i-1,j+1           e1 m...m(i+1,j-1) l1    #t3-2 [>=5nt-hairpin loop]
+
+P --> m...m F l2 | F m...m l2 
+P --> d... F ...d l3 
+P --> M R
+
+M --> H M | H
+
+H --> m...m F l4  
+R --> H m...m l4 

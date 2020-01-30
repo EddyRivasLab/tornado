@@ -1,0 +1,7 @@
+S --> a S  |  T  |  e
+
+T --> T a  |  a P^1 a'  |  T a P^1 a'
+
+P^1 --> a P^1 a'  |  a N a'
+
+N --> a S  |  T a  |  T a P^1 a'

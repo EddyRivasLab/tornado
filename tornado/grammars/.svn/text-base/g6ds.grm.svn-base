@@ -1,0 +1,143 @@
+# g6ds (G6 + dangles + stacking)
+#
+# Pfold (B Kundsen + J Hein)
+# unambiguous
+# min 2 nt loop; no epsilon string
+#
+#
+
+########################################################### 
+# transition distributions 
+########################################################### 
+#S^{p} and S^{m}
+tdist : 4 : t-S
+
+#L^{pp} and L^{mp}
+tdist : 2 : t-L
+
+#M1^{p} and M1^{m}
+tdist : 2 : t-M1
+
+########################################################### 
+# emission distributions 
+########################################################### 
+# singlet emission
+#---------------------
+edist : 1 : 0 : 0 : e1 
+
+# basepair emission WC_C
+edist : 2 : 0 : 1 : _WW_ : e1 
+
+# stacked stem bp [e1]
+#---------------------
+edist : 2 : 2 : 1 : _WW_ : e1
+
+#-----------------------------------------------
+# L-dangle in multiloop [e1]
+#
+#  P(i | i-1&j+1) = p-dangle_left_(i-1)(j+1)(i)
+#-----------------------------------------------
+edist : 1 : 2 : 0 : e1 
+
+#------------------------------------------------
+# R-dangle in multiloop [e2]
+#
+#  P(j | i-1&j+1) = p-dangle_rigth_(i-1)(j+1)(j)
+#------------------------------------------------
+edist : 1 : 2 : 0 : e2 
+
+#------------------------------------------------------------------
+# two dangles [e1]
+#
+#  P(i,j)
+#                   
+# tied by JOINT:  P(i,j) =  P(i)   *  P(j)
+#                          e1_1_0    e1_1_0
+#--------------------------------------------------------------------
+edist : 2 : 0 : 0 : e1 
+tied : e1_1_0 : 0 :  e1_1_0 : 0 : joint
+
+#------------------------------------------------------------------
+# multi_mismatch [e3]
+#
+#  P(i,j | i-1&j+1) 
+#                   
+# tied by JOINT:  P(i,j | i-1&j+1) = P(i | i-1&j+1) * P(j | i-1&j+1)
+#                                       e1_1_2            e2_1_2
+#--------------------------------------------------------------------
+edist : 2 : 2 : 0 : e3 
+tied : e1_1_2 : 0 : e2_1_2 : 0 : joint
+
+#---------------------------------------------------------------------------------
+# multiloop or external closing basepair dependent on  L-R dangle [e3]
+#
+#  P(i&j | i-1,j+1) =  
+#
+# tied by ROTATION: P(i&j | i-1,j+1) = P(j+1,i-1 | j&i) * P(j&i) / P(i-1,j+1)
+#                                           e3_2_2        e1_2_0    e1_2_0
+#---------------------------------------------------------------------------------
+edist : 2 : 2 : 1 : _WW_ : e3 
+tied : e3_2_2 : 0 :  e1_2_0 : 1 : e1_2_0 : 0 : rotate
+
+#----------------------------------------------------------------
+# closing base_pair dependent on L-dangle [e1]
+#
+#  P(i&j | i-1) =   
+#
+# tied by ROTATION: P(i&j | i-1) = P(i-1 | j&i) * P(j&i) / P(i-1)
+#                                     e2_1_2      e1_2_0
+#----------------------------------------------------------------
+edist : 2 : 1 : 1 : _WW_ : e1 
+tied : e2_1_2 : 0 :  e1_2_0 : 1 : e1_1_0 : 0 : rotate
+
+#----------------------------------------------------------------
+# closing base_pair dependent on R-dangle [e2]
+#
+#  P(i&j | j+1) =   p-dangle_left_(j)(i)(j+1)
+#                 + p-base_pair(j)(i) 
+#                 + p-helix_closing_(j)(i)
+#
+# tied by ROTATION: P(i&j | j+1) = P(j+1 | j&i) * P(j&i) / P(j+1)
+#                                     e1_1_2      e2_2_0
+#----------------------------------------------------------------
+edist : 2 : 1 : 1 : _WW_ : e2 
+tied : e1_1_2 : 0 :  e1_2_0 : 1 : e1_1_0 : 0 : rotate
+
+
+############################################################################
+# The basic g6 grammar structure is:
+#
+#   S --> L S | L
+#   L --> a:i&j e1 F(i+1,j-1) | a
+#   F --> a:i&j e1 F(i+1,j-1) | L S
+#
+############################################################################
+
+S --> a:i e1 S^{p}(i+1,j) | S^{m} 
+
+S^{p} --> t-S L^{pp}(i,k) S^{p}(k+1,j) 
+S^{p} --> t-S L^{pm}(i,k) S^{m}(k+1,j) 
+S^{p} --> t-S L^{pp}
+S^{p} --> t-S L^{pm}
+
+S^{m} --> t-S L^{mp}(i,k) S^{p}(k+1,j) 
+S^{m} --> t-S L^{mm}(i,k) S^{m}(k+1,j) 
+S^{m} --> t-S L^{mp}
+S^{m} --> t-S L^{mm}
+
+L^{pp} --> t-L F0^{pp}(i,j-1)  a:j e1 | a:i e1
+L^{mp} --> t-L F0^{mp}(i,j-1)  a:j e1 | a:i e1
+
+L^{pm} --> F0^{pm}  
+L^{mm} --> F0^{mm} 
+
+F0^{pp} --> a:i&j:i-1,j+1 e3 F(i+1,j-1) #basepair + L-dangle + R-dangle
+F0^{pm} --> a:i&j:i-1     e1 F(i+1,j-1) #basepair + L-dangle
+F0^{mp} --> a:i&j:j+1     e2 F(i+1,j-1) #basepair + R-dangle
+F0^{mm} --> a:i&j         e1 F(i+1,j-1) #basepair 
+
+F --> a:i&j:i-1,j+1 e1 F(i+1,j-1)   
+F --> a:i,j:i-1,j+1 e3 M1^{p}(i+1,j-1) | a:i:i-1,j+1 e1 M1^{p}(i+1,j) |  M1^{m}(i,j-1) a:j:i-1,j+1 e2 | M1^{m}
+
+M1^{p} -->  t-M1 L^{pp} S^{p} | L^{pm} S^{m} 
+M1^{m} -->  t-M1 L^{mp} S^{p} | L^{mm} S^{m} 

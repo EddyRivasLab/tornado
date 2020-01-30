@@ -1,0 +1,3 @@
+S --> aSa' | aL | Ra | LS
+L --> aSa' | aL
+R --> Ra | e

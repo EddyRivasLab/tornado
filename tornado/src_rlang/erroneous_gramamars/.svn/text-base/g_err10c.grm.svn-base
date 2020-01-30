@@ -1,0 +1,8 @@
+edist : 1 : 0 : s1
+edist : 1 : 1 : s2
+edist : 2 : 0 : p1
+edist : 2 : 2 : p2
+
+S --> a S a' p2  |  aS s1  |  Sa  s2  |  SS  |  e
+
+P^1 --> a P^1 a' p1

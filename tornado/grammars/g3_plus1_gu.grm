@@ -1,0 +1,32 @@
+# G3
+# Nussionov-like unambiguous
+# min 1 nt loop;
+
+########################################################### 
+# transition distributions 
+########################################################### 
+tdist : 4 : t-S
+tie   : 1 : 2   # indices: 0..3
+
+
+########################################################### 
+# emission distributions 
+########################################################### 
+# singlet emission
+#---------------------
+edist : 1 : 0 : 0 : e1 : 0
+N = 0
+
+# basepair emission WC_C
+edist : 2 : 0 : 1 : _WW_ : e1 : 0
+NN = -99999999
+AU = 1
+CG = 1
+GC = 1
+UA = 1
+GU = 1
+UG = 1
+
+S --> t-S a:i&j e1 S(i+1,j-1) | a:i e1 L(i+1,j) | R(i,j-1) a:j e1 | LS
+L -->     a:i&j e1 S(i+1,j-1) | a:i e1 L(i+1,j)
+R -->     R(i,j-1) a:j e1 | e

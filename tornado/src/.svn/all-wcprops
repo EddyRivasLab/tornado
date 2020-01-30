@@ -1,0 +1,545 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/eddylab/eddys/tornado/!svn/ver/1233/trunk/src
+END
+grm_parsetree.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_parsetree.c
+END
+grm_gmx.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1181/trunk/src/grm_gmx.c
+END
+grm_posterior.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1198/trunk/src/grm_posterior.h
+END
+grm_score_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_score_func.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1061/trunk/src/Makefile.in
+END
+grm_sscyk.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_sscyk.c
+END
+distplot.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/652/trunk/src/distplot.c
+END
+grm_bg.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eddylab/eddys/tornado/!svn/ver/1002/trunk/src/grm_bg.h
+END
+grm_parsetree.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1179/trunk/src/grm_parsetree.h
+END
+grm_gmx.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1008/trunk/src/grm_gmx.h
+END
+grm_train_count_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/eddylab/eddys/tornado/!svn/ver/1212/trunk/src/grm_train_count_func.c
+END
+grm_gldist_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/eddylab/eddys/tornado/!svn/ver/1063/trunk/src/grm_gldist_func.c
+END
+grm_sscyk.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1174/trunk/src/grm_sscyk.h
+END
+grm_train_count_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/861/trunk/src/grm_train_count_func.h
+END
+grm_gldist_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/739/trunk/src/grm_gldist_func.h
+END
+milestone1.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1181/trunk/src/milestone1.c
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1233/trunk/src/configure.ac
+END
+grm-psample.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/1215/trunk/src/grm-psample.c
+END
+grm.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/eddylab/eddys/tornado/!svn/ver/1202/trunk/src/grm.h
+END
+grm_parsegrammar.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/1001/trunk/src/grm_parsegrammar.h
+END
+grm_fold_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1233/trunk/src/grm_fold_func.c
+END
+grm_optimize.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/1202/trunk/src/grm_optimize.c
+END
+logsum.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/eddylab/eddys/tornado/!svn/ver/553/trunk/src/logsum.c
+END
+grm_paramsample.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/eddylab/eddys/tornado/!svn/ver/1034/trunk/src/grm_paramsample.c
+END
+grm_mea.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_mea.c
+END
+grm-fold.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm-fold.c
+END
+grm_fold_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1202/trunk/src/grm_fold_func.h
+END
+grm_ssemit.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1065/trunk/src/grm_ssemit.c
+END
+grm_optimize.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/1202/trunk/src/grm_optimize.h
+END
+logsum.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/eddylab/eddys/tornado/!svn/ver/553/trunk/src/logsum.h
+END
+grm_paramsample.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/652/trunk/src/grm_paramsample.h
+END
+grm_parsegrammar.y
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/1221/trunk/src/grm_parsegrammar.y
+END
+grm_io.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_io.c
+END
+grm_mea.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1202/trunk/src/grm_mea.h
+END
+grm_emit_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1063/trunk/src/grm_emit_func.c
+END
+grm_ssemit.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_ssemit.h
+END
+grm_inside.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_inside.c
+END
+grm_io.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eddylab/eddys/tornado/!svn/ver/1001/trunk/src/grm_io.h
+END
+grm_util.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_util.c
+END
+m2_fold.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1181/trunk/src/m2_fold.c
+END
+grm_emit_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/739/trunk/src/grm_emit_func.h
+END
+grm_inside.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_inside.h
+END
+grammar.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grammar.c
+END
+grm_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/1212/trunk/src/grm_util.h
+END
+grammar.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1193/trunk/src/grammar.h
+END
+grm_cyk.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_cyk.c
+END
+grm-parse.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1215/trunk/src/grm-parse.c
+END
+basecomposition.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/986/trunk/src/basecomposition.c
+END
+grm_cyk.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1179/trunk/src/grm_cyk.h
+END
+basecomposition.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/986/trunk/src/basecomposition.h
+END
+grm_paramfit.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/983/trunk/src/grm_paramfit.c
+END
+grm-gldist.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1006/trunk/src/grm-gldist.c
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/219/trunk/src/config.guess
+END
+m2_train.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/1181/trunk/src/m2_train.c
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/219/trunk/src/config.sub
+END
+grm_paramfit.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/635/trunk/src/grm_paramfit.h
+END
+grm_gldistdp.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_gldistdp.c
+END
+grm_outside.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_outside.c
+END
+m2_collate.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/1008/trunk/src/m2_collate.c
+END
+grm_gldistdp.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_gldistdp.h
+END
+grm_outside.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/545/trunk/src/grm_outside.h
+END
+grm_mixdchlet.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/631/trunk/src/grm_mixdchlet.c
+END
+grm_nussinov.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/219/trunk/src/grm_nussinov.c
+END
+grm_mpi.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1199/trunk/src/grm_mpi.c
+END
+grm_mixdchlet.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/631/trunk/src/grm_mixdchlet.h
+END
+grm_parsegrammar.lex
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eddylab/eddys/tornado/!svn/ver/1169/trunk/src/grm_parsegrammar.lex
+END
+grm_nussinov.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/106/trunk/src/grm_nussinov.h
+END
+grm-score.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1215/trunk/src/grm-score.c
+END
+grm_mpi.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/1198/trunk/src/grm_mpi.h
+END
+grm-train.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1215/trunk/src/grm-train.c
+END
+grm_minimizer.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/892/trunk/src/grm_minimizer.c
+END
+grm_minimizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/865/trunk/src/grm_minimizer.h
+END
+grm_train_optimize_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/eddylab/eddys/tornado/!svn/ver/1233/trunk/src/grm_train_optimize_func.c
+END
+grm-sseval.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/543/trunk/src/grm-sseval.c
+END
+grm-emit.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/1215/trunk/src/grm-emit.c
+END
+grm_psample_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/1198/trunk/src/grm_psample_func.c
+END
+grm_sccyk.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1231/trunk/src/grm_sccyk.c
+END
+grm_train_optimize_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eddylab/eddys/tornado/!svn/ver/792/trunk/src/grm_train_optimize_func.h
+END
+grm-em.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eddylab/eddys/tornado/!svn/ver/1171/trunk/src/grm-em.c
+END
+grm_config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/552/trunk/src/grm_config.h.in
+END
+grm_psample_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/eddylab/eddys/tornado/!svn/ver/971/trunk/src/grm_psample_func.h
+END
+grm_sccyk.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/1179/trunk/src/grm_sccyk.h
+END
+grm_train_regularize_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/eddylab/eddys/tornado/!svn/ver/872/trunk/src/grm_train_regularize_func.c
+END
+grm-dirichlet.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1001/trunk/src/grm-dirichlet.c
+END
+grm_posterior.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/1233/trunk/src/grm_posterior.c
+END
+grm_score_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/1181/trunk/src/grm_score_func.c
+END
+grm_train_regularize_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/eddylab/eddys/tornado/!svn/ver/869/trunk/src/grm_train_regularize_func.h
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/219/trunk/src/aclocal.m4
+END
+grm_bg.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eddylab/eddys/tornado/!svn/ver/1004/trunk/src/grm_bg.c
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/222/trunk/src/install-sh
+END

@@ -1,0 +1,23 @@
+# Transition probability distributions.
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+1
+  0  5  -1.909543 -2.602690 -2.602690 -1.098612 -0.993252 
+
+# Emission probability distributions.
+# <ned>
+#   <#> <nemit> <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0  2
+    -2.944439 -2.944439 -2.944439 -2.944439 
+    -2.944439 -2.944439 -2.944439 -2.944439 
+    -2.944439 -1.558145 -2.944439 -2.944439 
+    -2.944439 -2.944439 -2.944439 -2.944439 
+   1  1
+    -0.693147 -1.791759 -1.791759 -1.791759 
+
+# Length probability distributions (if any).
+# <nld>
+#    <#> <min> <max>
+#       <len>  <lp[len]>
+0

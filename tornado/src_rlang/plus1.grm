@@ -1,0 +1,7 @@
+AU = 1
+CG = 1
+GC = 1
+UA = 1
+remaining_base_pairs = -99999999
+
+S --> e  |  aSa'  |  aS  |  Sa  |  SS

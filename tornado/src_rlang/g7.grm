@@ -1,0 +1,9 @@
+S --> a P^1 a'  |  a L  |  R a  |  L S
+
+L --> a P^1 a'  |  a L
+
+R --> R a  |  e
+
+P^1 --> a P^1 a'  |  a N a'
+
+N --> a L  |  R a  |  L S

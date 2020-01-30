@@ -1,0 +1,8 @@
+#G8
+# G4 + stacking
+# min 1 nt loop; no lone pairs
+
+S        --> a S  |  R  |  e
+R        --> R a  |  a P^{-1,1} a'  |  R a P^{-1,1} a'
+P^{-1,1} --> a P^{-1,1} a'  |  a Q a' e0_2_0_0
+Q        --> a S  |  R a  |  R a P^{-1,1} a'

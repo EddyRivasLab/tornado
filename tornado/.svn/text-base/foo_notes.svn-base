@@ -1,0 +1,59 @@
+
+~/src/tornado/src/grm-fold --count --cmea --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts
+
+
+
+
+~/src/tornado/src/grm-fold --count --cmea --cweightfile  /groups/eddy/home/rivase/src/tornado/data/rRNAdom-S-151Rfam-S-Full-Train-S-Processed-TRA-Tr6.cwgt --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_Tr6/Tr6_ViennaRNAGz_wcx.counts
+
+
+
+/src/tornado/src/grm-fold --count --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3/TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3_ViennaRNAGz_wcx.counts 
+
+~/src/tornado/src/grm-fold --count --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+~/src/tornado/src/grm-fold --fitparam --fitlen --count --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+~/src/tornado/src/grm-fold --count --cyk ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+~/src/tornado/src/grm-fold --paramsavefile TORNADO_Test_Rfam3D_ViennaRNAGz_wcx.param --count --cyk ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3/TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3_ViennaRNAGz_wcx.counts 
+
+~/src/tornado/src/grm-fold --paramsavefile Tr1Tr2Tr3_ViennaRNAGz_wcx.param --count --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx.param
+ cp Tr1Tr2Tr3_ViennaRNAGz_wcx.param Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD.param 
+
+
+~/src/tornado/src/grm-fold --lprob --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out TORNADO_Test_Rfam3D_ViennaRNAGz_wcx.param
+
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out TORNADO_Test_Rfam3D_ViennaRNAGz_wcx.param
+
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_TD.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_LD.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_ED.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_ED_INT.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_ED_180.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_ED_131.param
+~/src/tornado/src/grm-fold --lprob --cyk --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo.sto foo_Vienna.out Tr1Tr2Tr3_ViennaRNAGz_wcx_MOD_ED_e_1_4_2.param
+
+
+
+
+
+
+
+~/src/tornado/src/grm-fold --count --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/CONTRAfoldG.grm foo.sto foo_CONTRAfoldG.out ~/src/tornado/notebook/milestone8/CONTRAfoldG/train_ml_rRNAdom/rRNAdom_CONTRAfoldG.counts ~/src/tornado/notebook/milestone8/CONTRAfoldG/train_ml_S-151Rfam/S-151Rfam_CONTRAfoldG.counts ~/src/tornado/notebook/milestone8/CONTRAfoldG/train_ml_S-Processed-TRA/S-Processed-TRA_CONTRAfoldG.counts ~/src/tornado/notebook/milestone8/CONTRAfoldG/train_ml_S-Full-Train/S-Full-Train_CONTRAfoldG.counts
+
+~/src/tornado/src/grm-fold --count --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/CONTRAfoldG.grm foo.sto foo_CONTRAfoldG.out  ~/src/tornado/notebook/milestone8/CONTRAfoldG/train_ml_S-Processed-TRA/S-Processed-TRA_CONTRAfoldG.counts 
+
+~/src/tornado/src/grm-fold --score --cyk        --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/CONTRAfoldG.grm foo.sto foo_CONTRAfoldGsc.out 
+~/src/tornado/src/grm-fold --score --cmea --auc --gpostfile ~/src/tornado/grammars/gmea_g6/gmea_g6_gamma6.grm ~/src/tornado/grammars/CONTRAfoldG.grm foo.sto foo_CONTRAfoldGsc.out 
+
+
+~/src/tornado/src/grm-score -v --count ~/src/tornado/grammars/ViennaRNAGz_wcx.grm foo_CONTRAfoldGsc.out ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+
+~/src/tornado/src/grm-parse --count ~/src/tornado/grammars/ViennaRNAGz_wcx.grm ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_rRNAdom/rRNAdom_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-151Rfam/S-151Rfam_ViennaRNAGz_wcx.counts  ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Processed-TRA/S-Processed-TRA_ViennaRNAGz_wcx.counts ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_S-Full-Train/S-Full-Train_ViennaRNAGz_wcx.counts
+
+~/src/tornado/src/grm-parse --count -v ~/src/tornado/grammars/ViennaRNAGz_wcx.grm ~/src/tornado/notebook/milestone8/ViennaRNAGz_wcx/train_ml_TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3/TORNADO_Test_Rfam3D_no-Tr1Tr2Tr3_ViennaRNAGz_wcx.counts|more

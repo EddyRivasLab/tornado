@@ -1,0 +1,100 @@
+Script started on Tue 06 Dec 2005 01:48:00 PM CST
+[rlang@woodworm trunk]$ ./m3_train --cfiles foo foo.stk foo.par
+Enter named of compiled grammar file: plus1.gob
+plus1.gob now open for input
+plus1.gob closed
+plus1.gob now open for input
+plus1.gob closed
+# Transition probability distributions.
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+1
+  0  5      4.0     3.0     2.0     0.0     3.0 
+
+# Emission probability distributions.
+# <ned>
+#   <#> <nemit>
+#     <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0  1
+        2.0     0.0     0.0     0.0 
+   1  2
+        0.0     0.0     0.0     0.0 
+        0.0     0.0     0.0     0.0 
+        0.0     3.0     0.0     0.0 
+        0.0     0.0     0.0     0.0 
+
+# Length probability distributions (if any).
+# <nld>
+#    <#> <min> <max>
+#       <len>  <lp[len]>
+0
+[rlang@woodworm trunk]$ ./m2_fold foo.par foo.stk foo.out
+seq1                                sc = -14630     0.0 MB RAM   len    8
+[rlang@woodworm trunk]$ ./m3_train --cfiles one one.stk one.par
+Enter named of compiled grammar file: plus1.gob
+plus1.gob now open for input
+plus1.gob closed
+plus1.gob now open for input
+plus1.gob closed
+# Transition probability distributions.
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+1
+  0  5   1786.0   411.0   339.0   321.0  1785.0 
+
+# Emission probability distributions.
+# <ned>
+#   <#> <nemit>
+#     <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0  1
+      253.0   107.0   133.0   127.0 
+   1  2
+        0.0     1.0     1.0    48.0 
+        0.0     0.0    96.0     1.0 
+        2.0   112.0     0.0    30.0 
+       68.0     0.0    33.0     1.0 
+
+# Length probability distributions (if any).
+# <nld>
+#    <#> <min> <max>
+#       <len>  <lp[len]>
+0
+[rlang@woodworm trunk]$ ./m2_fold one.par one.stk one.out
+AB019750                            sc = -3343302     4.2 MB RAM   len 1482
+[rlang@woodworm trunk]$ ./m3_train --cfiles big big.stk bigf[K.par
+Enter named of compiled grammar file: plus1.gob
+plus1.gob now open for input
+plus1.gob closed
+plus1.gob now open for input
+plus1.gob closed
+# Transition probability distributions.
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+1
+  0  5   5906.0   958.0  1190.0  1184.0  5905.0 
+
+# Emission probability distributions.
+# <ned>
+#   <#> <nemit>
+#     <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0  1
+      563.0   662.0   770.0   379.0 
+   1  2
+        1.0     2.0     4.0   104.0 
+        5.0     2.0   311.0     1.0 
+        1.0   307.0     5.0    50.0 
+      116.0     0.0    48.0     1.0 
+
+# Length probability distributions (if any).
+# <nld>
+#    <#> <min> <max>
+#       <len>  <lp[len]>
+0
+[rlang@woodworm trunk]$ ./m2_fold big.par big.stk big.out
+X59733                              sc = -9183693    35.1 MB RAM   len 4290
+[rlang@woodworm trunk]$ exit
+
+Script done on Tue 06 Dec 2005 02:23:29 PM CST

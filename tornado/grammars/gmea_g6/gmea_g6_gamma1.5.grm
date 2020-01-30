@@ -1,0 +1,26 @@
+# gmea-G6
+#
+# Pfold (B Kundsen + J Hein)
+# unambiguous
+#
+
+# param definitions
+def : p-gamma     :  1.5
+def : p-pair      :  log(2*p-gamma)
+
+# tdist
+tdist : 2 : t-S
+td = 0
+
+tdist : 2 : t-L
+td = 0
+0  = p-pair    # basepair
+
+tdist : 2 : t-F
+td = 0
+0  = p-pair    # basepair
+
+
+S --> t-S LS   | L
+L --> t-L aFa' | a
+F --> t-F aFa' | LS

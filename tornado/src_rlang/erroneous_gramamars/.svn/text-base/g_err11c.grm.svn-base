@@ -1,0 +1,3 @@
+AU_AU = 1
+
+S --> SS | Sa | aS | aSa' | e

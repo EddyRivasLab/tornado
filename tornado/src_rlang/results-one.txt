@@ -1,0 +1,66 @@
+Script started on Fri 09 Dec 2005 10:20:36 AM CST
+[rlang@woodworm trunk]$ cat g2.grm
+S --> aP^1a' | aS | Sa | SS | e
+P^1 --> aP^1a' | S
+[rlang@woodworm trunk]$ ./m3_train g2.gob ./data/one.stk one.par
+*** glibc detected *** free(): invalid pointer: 0xb7fae858 ***
+Abort
+
+[rlang@woodworm trunk]$ cat g3.grm
+S --> aSa' | aL | Ra | LS
+L --> aSa' | aL
+R --> Ra | e
+[rlang@woodworm trunk]$ ./m3_train g3.gob ./data/one.stk one.par
+*** glibc detected *** free(): invalid pointer: 0xb7fae858 ***
+Abort
+
+[rlang@woodworm trunk]$ cat g4.grm 
+S --> aS | T | e
+T --> Ta | aSa' | TaSa'
+[rlang@woodworm trunk]$ ./m3_train g4.gob ./data/one.stk one.par
+
+FATAL: Couldn't fill cyk matrix for structure for AB019750
+
+[rlang@woodworm trunk]$ cat g5.grm
+S --> aS | aSa'S | e
+
+[rlang@woodworm trunk]$ ./m3_train g5.gob ./data/one.stk one.par
+
+[rlang@woodworm trunk]$ cat g6.grm
+S --> LS | L
+L --> aFa' | a
+F --> aFa' | LS
+[rlang@woodworm trunk]$ ./m3_train g6.gob ./data/one.stk one.par
+
+FATAL: Couldn't fill cyk matrix for structure for AB019750
+
+[rlang@woodworm trunk]$ cat g7.grm
+S --> a P^1 a'  |  a L  |  R a  |  L S
+
+L --> a P^1 a'  |  a L
+
+R --> R a  |  e
+
+P^1 --> a P^1 a'  |  a N a'
+
+N --> a L  |  R a  |  L S
+[rlang@woodworm trunk]$ ./m3_train g7.gob ./data/one.stk one.par
+
+FATAL: Couldn't fill cyk matrix for structure for AB019750
+
+[rlang@woodworm trunk]$ cat g8.grm
+S --> a S  |  T  |  e
+
+T --> T a  |  a P^1 a'  |  T a P^1 a'
+
+P^1 --> a P^1 a'  |  a N a'
+
+N --> a S  |  T a  |  T a P^1 a'
+[rlang@woodworm trunk]$ ./m3_train g8.gob ./data/one.stk one.par
+
+FATAL: Couldn't fill cyk matrix for structure for AB019750
+
+[rlang@woodworm trunk]$ exit
+exit
+
+Script done on Fri 09 Dec 2005 10:28:51 AM CST

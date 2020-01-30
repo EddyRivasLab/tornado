@@ -1,0 +1,377 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/eddylab/eddys/tornado/!svn/ver/94/trunk/src_rlang
+END
+g3.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g3.gob
+END
+g4.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g4.gob
+END
+parsetree.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/parsetree.h
+END
+g5.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g5.gob
+END
+g6.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g6.gob
+END
+foo.1
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/foo.1
+END
+sscyk.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/sscyk.h
+END
+one1.par
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/one1.par
+END
+g7.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g7.gob
+END
+g8.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g8.gob
+END
+using_compiled_plus1
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/using_compiled_plus1
+END
+plus1.grm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/plus1.grm
+END
+grampiler.y
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grampiler.y
+END
+m2_train.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/m2_train.c
+END
+m3_train.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/m3_train.c
+END
+util.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/util.c
+END
+y.tab.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/y.tab.c
+END
+milestone1.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/94/trunk/src_rlang/milestone1.c
+END
+one.par
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/one.par
+END
+m2_collate.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/m2_collate.c
+END
+util.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/util.h
+END
+y.tab.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/y.tab.h
+END
+compile-all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/compile-all.sh
+END
+lex.yy.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/lex.yy.c
+END
+run-all-on-mixed80.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/run-all-on-mixed80.sh
+END
+plus1.gob
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/plus1.gob
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/94/trunk/src_rlang/Makefile
+END
+run-all-on-foo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/run-all-on-foo.sh
+END
+gdemo.grm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/gdemo.grm
+END
+one.1
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/one.1
+END
+foo1.par
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/foo1.par
+END
+g1.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g1.grm
+END
+g2.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g2.grm
+END
+g3.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g3.grm
+END
+g4.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g4.grm
+END
+grammar_io.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grammar_io.c
+END
+results-one.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/results-one.txt
+END
+g5.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g5.grm
+END
+g6.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g6.grm
+END
+big.1
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/big.1
+END
+gdemo.gob
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/gdemo.gob
+END
+g7.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g7.grm
+END
+g8.grm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g8.grm
+END
+foo1.1
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/foo1.1
+END
+grammar_io.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grammar_io.h
+END
+m2_fold.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/m2_fold.c
+END
+foo2.1
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/foo2.1
+END
+foo3.1
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/foo3.1
+END
+nussinov.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/nussinov.c
+END
+grammar.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grammar.c
+END
+cyk.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/cyk.c
+END
+grampiler.lex
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grampiler.lex
+END
+nussinov.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/nussinov.h
+END
+rl_makefile
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/rl_makefile
+END
+parsetree.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/parsetree.c
+END
+grammar.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/grammar.h
+END
+cyk.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/cyk.h
+END
+run-all-on-one.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/run-all-on-one.sh
+END
+g1.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g1.gob
+END
+sscyk.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/sscyk.c
+END
+g2.gob
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/g2.gob
+END
+sseval.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/eddylab/eddys/tornado/!svn/ver/86/trunk/src_rlang/sseval.c
+END

@@ -1,0 +1,43 @@
+Brief installation instructions for TORNADO
+
+ER Wed Jan  7 11:25:08 EST 2009
+------------------------------------------
+
+Source distribution (tornado.tar.gz):
+
+    setenv TORNADO  (HOME) assign a location for the libraries.
+
+    tar zxf tornado.tar.gz       Unpacks the archive. (makes a new directory, tornado). 
+
+souce code:
+----------
+easel             - Sequence analysis library (SRE unpublished). svn revision 293.
+tornado           - Probabilistic RNA folding with a generalized SCFG grammar
+
+tornado executables:
+------------
+grm-emit      - emits sequences with secondary structures given a probabilistic RNA grammar
+grm-fold      - folds an RNA sequence 
+grm-score     - calculates score of an RNA structure 
+grm-sseval    - simple statistics for a given RNA structure
+grm-train     - trains the parameters of an RNA grammar given a training set
+grm-parse     - display of an SCFG grammar
+
+
+To create the executables:
+-------------------------
+
+easel
+-----
+cd easel
+autoconf
+./configure
+make
+(need the easel library to compile tornado)
+
+tornado
+-------
+cd src
+autoconf
+./configure
+make

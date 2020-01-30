@@ -1,0 +1,263 @@
+# STOCKHOLM 1.0
+#=GF GA 2.0 2.0
+
+#=GS X59733 DE Xenopus borealis from lsu.ali
+
+X59733         UCGCGACUCUUAGCGGUGGAUCACUCGGCUCGUGCGUCGAUGAAGAACGC
+#=GR X59733 SS ......<<<<<<<<<<....<<<<..<<<<<<<<<.........<<<<<<
+
+X59733         AGCUAGCUGCGAGAAUUAGUGUGAAUUGCAGGACACAUUGAUCAUCGACA
+#=GR X59733 SS <......>>>>.......<<<....<<....>>.........>>>.....
+
+X59733         CUUCGAACGCACCUUGCGGCCCCGGGUUCCUCCCGGGGCUACGCCUGUCU
+#=GR X59733 SS .>>>...<<<.....>>><<<<<<<<.....>>>>>>>>..<<<<<<<<<
+
+X59733         GAGGGUCGCUCCUCAGACCUCAGAUCAGACGUGGCGACCCGCUGAAUUUA
+#=GR X59733 SS <<<.<<<........>>>>>>>>>.>>>>>>......<<<<<<.....<.
+
+X59733         AGCAUAUUACUAAGCGGAGGAAAAGAAACUAACCAGGAUUCCCCCAGUAA
+#=GR X59733 SS .....>......>>>>>.>.........<<....>>...<<<<......<
+
+X59733         CGGCGAGUGAAGAGGGAAGAGCCCAGCGCCGAAUCCCCGCCCGCCCGGCG
+#=GR X59733 SS <.....>>.....>>>>...<<<..<<<<<...<<<<<<<<<<<...>>>
+
+X59733         GGCGCGGGAAAUGUGGCGUACGGGAGACCGGACCCCCCCGGCGCGGCUCG
+#=GR X59733 SS >>>>.>>>>.....>>>>>...<<<<<<<<......<<<<<<<<.<<<.<
+
+X59733         GGGGCCCAAGUCCUUCUGAUCGAGGCCCAGCCCGCGGACGGUGUUAGGCC
+#=GR X59733 SS <<<<<<...<.<<<<......>>>>>............<<<.......>>
+
+X59733         GGUGGCGGCCCCCGGCGCGGCGGGACCCGGUCUCCUCGGAGUCGGGUUGU
+#=GR X59733 SS >.....>>>>>>>>>>>>>>>>>>...>>>>>>>>........<<<<<<<
+
+X59733         UUGUGAAUGCAGCCCAAAGCGGGUGGUAAACUCCAUCUAAGGCUAAAUAC
+#=GR X59733 SS ........>>>>>>>.....<<<<<<......>>>>>>..>>>.......
+
+X59733         CGGCACGAGACCGAUAGCGGACAAGUACCGUAAGGGAAAGUUGAAAAGAA
+#=GR X59733 SS ..>>>>>>>.>>...............<<....>>....>>>>.......
+
+X59733         CUUUGAAGAGAGAGUUCAAGAGGGCGUGAAACCGUUAAGAGGUAAACGGG
+#=GR X59733 SS <<<<....>>>>...................>>>>>>>>>>.....<<<<
+
+X59733         UGGGGUCCGUGCGGUCCGCCCGGAGGAUUCAACCCGGCGGGUCAGCGCCG
+#=GR X59733 SS <<<<<<<........<<<.<<<<..........>>>>>>>..........
+
+X59733         GCCGGACCGGGCCACUCGGCGGACCCCCCCGCCGGCCCCCUCCCCUCGCC
+#=GR X59733 SS ......<<<<<............<<<<<<<<<<<<<<<<<<<<<......
+
+X59733         GGGAGGGCGGUCGCGCGGGGGGGACGCGGCCCGGGCGGCCCCGGCGCCCG
+#=GR X59733 SS >>>>>>>.>>>>>.>>>>>>>>>......>>>>>................
+
+X59733         CAGGGCGCAUUUCCUCCGCGGCGGUGCGCCGCGACCGGCUCCGGGUCGGC
+#=GR X59733 SS ..................................................
+
+X59733         UGGGAAGGCCCAGGGGUUCAGGGGAAGGUGGCCGGCCGCCCCCGCGCGGC
+#=GR X59733 SS ..................................................
+
+X59733         CGGCGUUACAGCCCCCCCCCAGGCAGCAGCACUCGCCGUCACCCGGGGCC
+#=GR X59733 SS ..................................................
+
+X59733         GAGGGAGACGACCGCCUCCGCGGCCUUCCUCCCCGGAACCGUCCCGUCCC
+#=GR X59733 SS ..................................................
+
+X59733         GCUCCCCCCCGGGGGGGCGGGCCGCGGGGCGGGGAAGGGGGACGGGGCCC
+#=GR X59733 SS ..................................................
+
+X59733         CCCGCUCCCGGCGCGGCUGUCAACCGGGGCGGACUGCCCCCAGUGCGCCC
+#=GR X59733 SS ..................................................
+
+X59733         CAUCCGCGCCGCGCCGCCGAGGCGGGAGGGCCCGCGGGAGCCGCCAGGGG
+#=GR X59733 SS ...........<<<<<<.................................
+
+X59733         UCCGCGGCGAUGUCGGUGUCCCACCCGACCCGUCUUGAAACACGGACCAA
+#=GR X59733 SS ...>>>>>>.....>>>..>>>>>>>>..................<<<<<
+
+X59733         GGAGUCUAACGCGCGCGCGAGUCGGAGGGACUCUGCGCGAAACCCUGUGG
+#=GR X59733 SS <<..<<<<<<<<<<<<<<..<<<<<<<<<.............>>>>>>>>
+
+X59733         CGCAAUGAAGGUGAGGGCCGGGGCGCCCCGGCUGAGGUGGGAUCCCGCCG
+#=GR X59733 SS >...<<....>>...<<<<<<<....>>>>>>>..<<<<<...<<<<<<<
+
+X59733         CCCUCCUCCCCAGGGGGGAGGUCACGGCGGGCGCACCACCGGCCCGUCUC
+#=GR X59733 SS .<<<<<<<<....>>>>>>>>...>>>>>>>....>>>>>.<<<<<<<<<
+
+X59733         GCCCGCUCCGUCGGGGAGGUGGAGCGUGAGCGCGCGCGAUAGGACCCGAA
+#=GR X59733 SS .<<<<......>>>>>>>>>>>.>>....>>>>>>>>>>>>>>.<<....
+
+X59733         AGAUGGUGAACUAUGCCUGGGCAGGGCGAAGCCAGAGGAAACUCUGGUGG
+#=GR X59733 SS .<<<<<<.....<<<<<<<<<<.<<<....<<<<<<<....>>>>>>>..
+
+X59733         AGGUCCGUAGCGGUCCUGACGUGCAAAUCGGUCGUCCGACCUGGGUAUAG
+#=GR X59733 SS ...>>>...<<<....<<<........>>>..>>>..>.>>>>>>>>>..
+
+X59733         GGGCGAAAGACUAAUCGAACCAUCUAGUAGCUGGUUCCCUCCGAAGUUUC
+#=GR X59733 SS .<<.......>>......>>>>>>........>>..<<<<<<....<<<<
+
+X59733         CCUCAGGAUAGCUGGCGCUCGUCCGUCGCAGUUUUAUCCGGUAAAGCGAA
+#=GR X59733 SS <....>>>>>...<<<<<<<.............<<<<<...<<<<<....
+
+X59733         UGAUUAGAGGUCUUGGGGCCGAAACGAUCUCAACCUAUUCUCAAACUUUA
+#=GR X59733 SS <<<....<<<..<<<<<<<<<...>>>>>>>>>>>>....>>>..>>>>>
+
+X59733         AAUGGGUAAGAAGCCCGGCUCGCUGGCUUGGAGCCGGGCGUGGAAUGCGA
+#=GR X59733 SS ....>>>>>...<<<<<<<<<.........>>>>>>>>>.........>>
+
+X59733         GCACGCCUAGUGGGCCACUUUUGGUAAGCAGAACUGGCGCUGCGGGAUGA
+#=GR X59733 SS >..>>>>......<<<<<<<<<<.....>>>>>>>>>>....<<<.....
+
+X59733         ACCGAACGCCGGGUUAAGGCGCCCGAUGCCGACGCUCAUCAGACCCCAGA
+#=GR X59733 SS .>>>...<<<<<<<...<<<.........<<<<<<<..............
+
+X59733         AAAGGUGUUGGUUGAUAUAGACAGCAGGACGGUGGCCAUGGAAGUCGGAA
+#=GR X59733 SS ..<<<.<<<<<<<<<<.......<<<<<.<<<...<<.........>>..
+
+X59733         UCCGCUAAGGAGUGUGUAACAACUCACCUGCCGAAUCAACUAGCCCUGAA
+#=GR X59733 SS .>>>.....<<..<<......>>>>.>>>>>...>>>>>>>>>>>>>...
+
+X59733         AAUGGAUGGCGCUGGAGCGUCGGGCCCAUACCCGGCCGUCGCCGGCGCUG
+#=GR X59733 SS ...............>>>>>>>.>>>...>>>>>>><<<<<.<<<<.<<.
+
+X59733         GGUCAGUCCGCGGGGGCUAGGCCGCGACGAGUAGGAGGGCCGCCGCGGUG
+#=GR X59733 SS ..................>>>>>>>>>>>....>>>>>>...<<<<<<<<
+
+X59733         CGCGCGGAAGCCCCGGGCGAGGGCCCGGGUGGAGCCGCCGCGGGUGCAGA
+#=GR X59733 SS .<<.......<<<.<<<<....>>>>>>>....>>>>>>>>>>.......
+
+X59733         UCUUGGUGGUAGUAGCAAAUAUUCAAACGAGAACUUUGAAGGCCGAAGUG
+#=GR X59733 SS >>>>>>>.......<<.....<<<<<<.......>>>>>>.<<<.....<
+
+X59733         GAGAAGGGUUCCAUGUGAACAGCAGUUGAACAUGGGUCAGUCGGUCCUAA
+#=GR X59733 SS <<<..<<..<<<<<<<...<<.....>>.>>>>>>......<<<.<<...
+
+X59733         GAGAUGGGCGAGCGCCGUUCGGAAGGGACGGGCGAUGGCCUCCGUCGCCC
+#=GR X59733 SS <<....<<<....>>>..........<<.<<<<<<<<<...>>>>>>>>>
+
+X59733         UCGGCCGAUCGAAAGGGAGUCGGGUUCAGAUCCCCGAACCCGGAGUGGCG
+#=GR X59733 SS >>......>>....>>...<<<<<........>>>>>..<<<<<<<<...
+
+X59733         GAGACGGGCGCCCGCGGCCCCCCCCACCGCCUCCCCGGCGGUGGGGGGGC
+#=GR X59733 SS .......<<<........<<<<<<<<<<<<<.....>>>>>>>>>>>>>.
+
+X59733         GGGGGCGUCCAGUGCGGCAACGCGACCGAUCCCGGAGAAGCCGGCGGGAG
+#=GR X59733 SS ....................>>>.......<<<<<<...<<<<..<<<..
+
+X59733         CCCCGGGGAGAGUUCUCUUUUCUUUGUGAAGGGCAGGGCCGCCCUGGAAU
+#=GR X59733 SS ..<<<.<<<<<<....>>>>>>.......<<<<........<<<<.....
+
+X59733         GGGUUCGCCCCGAGAGAGGGGCCCGCGCCUUGGAAAGCGUCGCGGUUCCG
+#=GR X59733 SS <<<.....>>>.....>>>>.......>>>>.....<<<<<<<.......
+
+X59733         GCGGCGUCCGGUGAGCUCUCGCUGGCCCUUGAAAAUCCGGGGGAGAGGGU
+#=GR X59733 SS >>>>>>>.>>>......>>>..>>>>.........>>>>>>.........
+
+X59733         GUAAAUCUCGCGCCGGGCCGUACCCAUAUCCGCAGCAGGUCUCCAAGGUG
+#=GR X59733 SS ........>>>>>>>>.>>>.>>>.....<<......>>.>>>>.<<<<.
+
+X59733         AACAGCCUCUGGCAUGUUAGAACAAUGUAGGUAAGGGAAGUCGGCAAGUC
+#=GR X59733 SS ....>>>>..>>>....<<<<.....<<<<<<<.<<<<<...........
+
+X59733         AGAUCCGUAACUUCGGGAUAAGGAUUGGCUCUAAGGGCUGGGUCGGUCGG
+#=GR X59733 SS .<<<<<<<..<....>...>>>>>>><<<<<<<<<<<<<<.<<<<<<<<<
+
+X59733         GCUGGGGCGCGAAGCGGGGCUGGGCACGCGCCGCGGCUGGACGAGGCGCC
+#=GR X59733 SS ..........................<<......................
+
+X59733         CCGGCGGCCUCCCUCCUCCCGCCCCCCCUCUCCCUCCGGUCCCCCCCCCU
+#=GR X59733 SS ..................................................
+
+X59733         CGCGGGGGGGGCGGCCGGGCGGGCGGGGGGGGACGCGGGGGGGCCGGGAG
+#=GR X59733 SS ..................................................
+
+X59733         CCGCCCGCCGGCGGCGGCGACUCUGGACGCGCGCCGGGCCCUUCCUGUGG
+#=GR X59733 SS ..................................................
+
+X59733         AUCGCCCCAGCUGCGGCGCGCGCCUCUCCCCCGCGCCGUCCCCCUCCGCG
+#=GR X59733 SS ..................................................
+
+X59733         CCUCCCCCCCCCGUCAGGGGGGGGACGGGGCGCGGGCGGCGGGGCGGCCG
+#=GR X59733 SS ..................................................
+
+X59733         GGGCGGGGCGCGCGGCCUCGGCCGGCGCCUAGCAGCUGACUUAGAACUGG
+#=GR X59733 SS ........>>.......>>>>>>>>>......>>>>>..>>>>>>>>>..
+
+X59733         UGCGGACCAGGGGAAUCCGACUGUUUAAUUAAAACAAAGCAUCGCGAAGG
+#=GR X59733 SS ..........<<<<<<<<<..<<<<<.....>>>>>...<<<<<<.<...
+
+X59733         CCCGAGGCGGGUGUUGACGCGAUGUGAUUUCUGCCCAGUGCUCUGAAUGU
+#=GR X59733 SS <<<.....>>>...>...>>>>>>..<<<<..<<<..<<<<<<.<..<<<
+
+X59733         CAAAGUGAAGAAAUUCAAUGAAGCGCGGGUAAACGGCGGGAGUAACUAUG
+#=GR X59733 SS .....<<<......>>>.....>>>>>>>>..>>>>><<<<<<.......
+
+X59733         ACUCUCUUAAGGUAGCCAAAUGCCUCGUCAUCUAAUUAGUGACGCGCAUG
+#=GR X59733 SS >>>>>>...<<<<<......>>>>><<<<<<.......>>>>>>......
+
+X59733         AAUGGAUGAACGAGAUUCCCACUGUCCCUACCUACUAUCUAGCGAAACCA
+#=GR X59733 SS ...>>>>...>>.>>>>>>>..>>>>>.>>>>>>>..>>>>>>.......
+
+X59733         CAGCCAAGGGAACGGGCUUGGCAGAAUCAGCGGGGAAAGAAGACCCUGUU
+#=GR X59733 SS ...<<<<<........>>>>>....<<<<<<<<<<.<<.....<<<<<.<
+
+X59733         GAGCUUGACUCUAGUCUGCAACUGUGAAGAGACAUGAGAGGUGUAGGAUA
+#=GR X59733 SS <<<<<..<<<<<..<<<<<<<..<<<<<<<<<<<<<<<<<..........
+
+X59733         AGUGGGAGGCCCCCGCGCUCGCCGCAAAGGGGCGCCGCCGGUGAAAUACC
+#=GR X59733 SS <<<<<..<<<<<<<<<<.....>>>...>>>>.>>>............>>
+
+X59733         ACUACUCUUAUCGUUUUUUCACUUACCCGGUGAGGCGGGGGGGCGAGCCC
+#=GR X59733 SS >>>.>>>>>>>.>>>>>>>>>>...<<<<<.....<<<<.....<<<<<<
+
+X59733         CGAGGGGCUCUCGCUUCUGGACCCAAGCGCCCGGCCCCCGCGCCGGGCGC
+#=GR X59733 SS ....>>>>>>................<<<<<<<<<......>>>>>>>>>
+
+X59733         GACCCGCUCCGAGGACAGUGGCAGGUGGGGAGUUUGACUGGGGCGGUACA
+#=GR X59733 SS ..>>>>..>>>>>.....>>>>>>>...>>>>>...<<<<...>>>>..<
+
+X59733         CCUGUCAAACCGUAACGCAGGUGUCCUAAGGCGAGCUCAGGGAGGACAGA
+#=GR X59733 SS <<<<<...........>>>>>><.<<..<<<<<<<<.<.<<<<<<.....
+
+X59733         AACCUCCCGUGGAGCAGAAGGGCAAAAGCUCGCUUGAUCUUGAUUUUCAG
+#=GR X59733 SS ..>>>>>>...>.<<......>>....>>>>>>>>..<<<..<<<<....
+
+X59733         UAUGAAUACAGACCGUGAAAGCGGGGCCUCACGAUCCUUCUGACUUUUUG
+#=GR X59733 SS ...>>>>..>>>.<<<....>>>.>>..........<<<<<..<<<....
+
+X59733         GGUUUUAAGCAGGAGGUGUCAGAAAAGUUACCACAGGGAUAACUGGCUUG
+#=GR X59733 SS ......>>>.>>>>>....>.....>>>>..>>>>>>>.........<<<
+
+X59733         UGGCGGCCAAGCGUUCAUAGCGACGUCGCUUUUUGAUCCUUCGAUGUCGG
+#=GR X59733 SS .<<<<<<...<<.......>>...>>>>>>...>>>..........<<<<
+
+X59733         CUCUUCCUAUCAUUGUGAAGCAGAAUUCACCAAGCGUUGGAUUGUUCACC
+#=GR X59733 SS <.<<<<<<..<<<<<<<<<......>>>>>..>>>>.<<<<<.....>>>
+
+X59733         CACUAAUAGGGAACGUGAGCUGGGUUUAGACCGUCGUGAGACAGGUUAGU
+#=GR X59733 SS >>.....>>>>>..>...>>>>>.....<<<<<<<....>>>.>>>>...
+
+X59733         UUUACCCUACUGAUGAUGUGUUGUCGCAAUAGUAAUCCUGCUCAGUACGA
+#=GR X59733 SS >>..>>>>>>>>>>.....<<<<<<<<..<<<....<<<<<.........
+
+X59733         GAGGAACCGCAGGUUCAGACAUUUGGUGUAUGUGCUUGGCUGAGGAGCCA
+#=GR X59733 SS ........>>>>>..<<<<............<<<<<<<<<<....>>>>>
+
+X59733         AUGGGGCGAAGCUACCAUCUGUGGGAUUAUGACUGAACGCCUCUAAGUCA
+#=GR X59733 SS ..>>>>>..........>>>>.<<<<...<<<<<...........>>>>>
+
+X59733         GAAUCCCCCCUAAACGUGACGAUACCGCAGCGCCGCGGAGCCUCGGUCGG
+#=GR X59733 SS ...>>>>..>>>...>>>>>>>>......<<<<<<...............
+
+X59733         CCUCGGAUAGCCGGCGCCCCCCCUCCGGGGGGCGGCGCCGGCGCGCAGAG
+#=GR X59733 SS .........<<<<<<<<<<<<......>>>>>>>>>>>>...........
+
+X59733         CCGCUCGCCUCGGGACCGGAGCGCGGACGAAAGGGGGCCGCCUCUCUCCC
+#=GR X59733 SS ..........<<<<...<<<<.<<<<<<.......>>>>>>>>>>..>>>
+
+X59733         GGAGCGCACCGCACGUUCGUGGGGAACCUGGUGCUAAAUCAUUCGUAGAC
+#=GR X59733 SS >...........................>>>>>>.<<<...<..<.....
+
+X59733         GACCUGAUUCUGGGUCAGGGUUUCGUGCGUAGCAGAGCAGCUACCUCGCU
+#=GR X59733 SS ..>..>.....<<<<<<<<<.<<.....<<<<....<<<<<......>>>
+
+X59733         GCGAUCUAUUGAAAGUCAUCCCUUGAGCCAAGCUUUUGUC
+#=GR X59733 SS >>...>>>>....>>....>>>>.>>>>>.....>>>...
+//

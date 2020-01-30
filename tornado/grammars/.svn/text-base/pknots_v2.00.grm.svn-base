@@ -1,0 +1,612 @@
+# pknots.grm
+#
+# no pseudoknots
+# Mfold + coaxials
+#
+# V6 coaxials not implemented (order L^5)
+#
+# This grammar is the skeleton (no scores) for mfold and pknots
+#
+
+########################################################### 
+# param definitions
+########################################################### 
+def : p-BIGINT     :  999999
+def : p-FLOATSCALE :  10
+def : p-wsf        :  100
+
+def : p-MAXRNALOOP : 30
+def : p-PRELOG     : 1.079*p-FLOATSCALE*p-wsf #length distributions larger than p-MAXRNALOOP
+########################################################### 
+# transition distributions 
+########################################################### 
+#W
+tdist : 16 : t-W
+tie: 4 : 5
+
+#M
+tdist : 15 : t-M
+tie: 4 : 5
+
+#V
+tdist : 37 : t-V
+
+########################################################### 
+# emission distributions 
+########################################################### 
+# singlet
+#--------
+edist : 1 : 0 : 0 : e1 : 0 
+N = 0
+
+# singlet in multiloops
+#--------------------------
+edist : 1 : 0 : 0 : e2 : 0 
+N = 0
+
+# singlet in intloops
+#--------------------------
+edist : 1 : 0 : 0 : e3 : 0 
+N = 0
+
+# basepair
+#---------
+edist : 2 : 0 : 1 : _WW_ : e1 : 0 
+NN = -p-BIGINT
+AU = 0
+UA = 0
+CG = 0
+GC = 0
+GU = 0
+UG = 0
+
+# 5-dangle [e1]
+#-------------
+edist : 1 : 2 : 0 : e1 : 0 #AA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 1 #AC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 2 #AG
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 3 #AU
+N = -p-BIGINT
+A = 0.3*p-FLOATSCALE*p-wsf
+C = 0.3*p-FLOATSCALE*p-wsf
+G = 0.4*p-FLOATSCALE*p-wsf
+U = 0.2*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 4 #CA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 5 #CC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 6 #CG
+N = -p-BIGINT
+A = 0.5*p-FLOATSCALE*p-wsf
+C = 0.3*p-FLOATSCALE*p-wsf
+G = 0.2*p-FLOATSCALE*p-wsf
+U = 0.1*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 7 #CU
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 8 #GA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 9 #GC
+N = -p-BIGINT
+A = 0.2*p-FLOATSCALE*p-wsf
+C = 0.3*p-FLOATSCALE*p-wsf
+G = 0.0*p-FLOATSCALE*p-wsf
+U = 0.0*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 10 #GG
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 11 #GU
+N = -p-BIGINT
+A = 0.3*p-FLOATSCALE*p-wsf
+C = 0.3*p-FLOATSCALE*p-wsf
+G = 0.4*p-FLOATSCALE*p-wsf
+U = 0.2*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 12 #UA
+N = -p-BIGINT
+A = 0.3*p-FLOATSCALE*p-wsf
+C = 0.1*p-FLOATSCALE*p-wsf
+G = 0.2*p-FLOATSCALE*p-wsf
+U = 0.2*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 13 #UC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e1 : 14 #UG
+N = -p-BIGINT
+A = 0.3*p-FLOATSCALE*p-wsf
+C = 0.1*p-FLOATSCALE*p-wsf
+G = 0.2*p-FLOATSCALE*p-wsf
+U = 0.2*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e1 : 15 #UU
+N = -p-BIGINT
+
+# 3-dangle [e2]
+#-------------
+
+edist : 1 : 2 : 0 : e2 : 0 #AA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 1 #AC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 2 #AG
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 3 #AU
+N = 0
+A = 0.7*p-FLOATSCALE*p-wsf
+C = 0.1*p-FLOATSCALE*p-wsf
+G = 0.7*p-FLOATSCALE*p-wsf
+U = 0.1*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 4 #CA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 5 #CC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 6 #CG
+N = -p-BIGINT
+A = 1.1*p-FLOATSCALE*p-wsf
+C = 0.4*p-FLOATSCALE*p-wsf
+G = 1.3*p-FLOATSCALE*p-wsf
+U = 0.6*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 7 #CU
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 8 #GA
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 9 #GC
+N = -p-BIGINT
+A = 1.7*p-FLOATSCALE*p-wsf
+C = 0.8*p-FLOATSCALE*p-wsf
+G = 1.7*p-FLOATSCALE*p-wsf
+U = 1.2*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 10 #GG
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 11 #GU
+N = -p-BIGINT
+A = 0.7*p-FLOATSCALE*p-wsf
+C = 0.1*p-FLOATSCALE*p-wsf
+G = 0.7*p-FLOATSCALE*p-wsf
+U = 0.1*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 12 #UA
+N = -p-BIGINT
+A = 0.8*p-FLOATSCALE*p-wsf
+C = 0.5*p-FLOATSCALE*p-wsf
+G = 0.8*p-FLOATSCALE*p-wsf
+U = 0.6*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 13 #UC
+N = -p-BIGINT
+
+edist : 1 : 2 : 0 : e2 : 14 #UG
+N = -p-BIGINT
+A = 0.8*p-FLOATSCALE*p-wsf
+C = 0.5*p-FLOATSCALE*p-wsf
+G = 0.8*p-FLOATSCALE*p-wsf
+U = 0.6*p-FLOATSCALE*p-wsf
+
+edist : 1 : 2 : 0 : e2 : 15 #UU
+N = -p-BIGINT
+
+# stacked stem bp [e1]
+#---------------------
+edist : 2 : 2 : 1 : _WW_ : e1 
+
+# stacked hairpin terminal [e1]
+#------------------------------
+edist : 2 : 2 : 0 : e1 
+
+# stacked internal-loop terminal [e2]
+#------------------------------------
+edist : 2 : 2 : 0 : e2 
+
+# stacked 1x1 internal-loop terminal [e3]
+#----------------------------------------
+edist : 2 : 2 : 0 : e3
+
+# stacked internal loop bp [e2]
+#------------------------------
+edist : 2 : 2 : 1 : _WW_ : e2 
+tied: e2_2_2 : 0 : rotate 
+
+# stacked 1x1 internal loop bp [e3]
+#----------------------------------
+edist : 2 : 2 : 1 : _WW_ : e3 
+tied: e3_2_2 : 0 : rotate 
+
+# triloops
+#---------
+edist : 3 : 2 : 0 : e1 : 0 #AA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 1 #AC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 2 #AG
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 3 #AU
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 4 #CA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 5 #CC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 6 #CG
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 7 #CU
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 8 #GA
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 9 #GC
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 10 #GG
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 11 #GU
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 12 #UA
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 13 #UC
+NNN = -p-BIGINT
+edist : 3 : 2 : 0 : e1 : 14 #UG
+NNN = 0
+GGG = 2.2*p-FLOATSCALE*p-wsf
+edist : 3 : 2 : 0 : e1 : 15 #UU
+NNN = -p-BIGINT
+
+# tetraloops
+#------------
+edist : 4 : 2 : 0 : e1 :0 #AA
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :1 #AC
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :2 #AG
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :3 #AU
+NNNN  = e1_2_2_3 : 0 : 3
+GAAA += 2.0*p-FLOATSCALE*p-wsf
+GCAA += 1.5*p-FLOATSCALE*p-wsf
+GUAA += 1.5*p-FLOATSCALE*p-wsf
+GUGA += 1.5*p-FLOATSCALE*p-wsf
+
+edist : 4 : 2 : 0 : e1 :4 #CA
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :5 #CC
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :6 #CG
+NNNN  = e1_2_2_6 : 0 : 3
+GAAA += 3.0*p-FLOATSCALE*p-wsf
+GCAA += 3.0*p-FLOATSCALE*p-wsf
+GGAA += 3.0*p-FLOATSCALE*p-wsf
+UUCG += 3.0*p-FLOATSCALE*p-wsf
+GUGA += 3.0*p-FLOATSCALE*p-wsf
+GAAG += 2.5*p-FLOATSCALE*p-wsf
+UACG += 2.5*p-FLOATSCALE*p-wsf
+GCGA += 2.5*p-FLOATSCALE*p-wsf
+GAGA += 2.0*p-FLOATSCALE*p-wsf
+GUAA += 2.0*p-FLOATSCALE*p-wsf
+UAAC += 2.0*p-FLOATSCALE*p-wsf
+GGGA += 1.5*p-FLOATSCALE*p-wsf
+
+edist : 4 : 2 : 0 : e1 :7 #CU
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :8 #GA
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :9 #GC
+NNNN  = e1_2_2_9 : 0 : 3
+GGGA += 3.0*p-FLOATSCALE*p-wsf
+GUGA += 3.0*p-FLOATSCALE*p-wsf
+GAGA += 3.0*p-FLOATSCALE*p-wsf
+GAAA += 3.0*p-FLOATSCALE*p-wsf
+GCAA += 2.5*p-FLOATSCALE*p-wsf
+GAAG += 1.5*p-FLOATSCALE*p-wsf
+GGAA += 1.5*p-FLOATSCALE*p-wsf
+GCGA += 1.5*p-FLOATSCALE*p-wsf
+GGAG += 1.5*p-FLOATSCALE*p-wsf
+UGAA += 1.5*p-FLOATSCALE*p-wsf
+ 
+edist : 4 : 2 : 0 : e1 :10 #GG
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :11 #GU
+NNNN = e1_2_2_11 : 0 : 3
+
+edist : 4 : 2 : 0 : e1 :12 #UA
+NNNN  = e1_2_2_12 : 0 : 3
+GAAA += 1.5*p-FLOATSCALE*p-wsf
+GGAA += 1.5*p-FLOATSCALE*p-wsf
+
+edist : 4 : 2 : 0 : e1 :13 #UC
+NNNN = -p-BIGINT
+
+edist : 4 : 2 : 0 : e1 :14 #UG
+NNNN  = e1_2_2_14 : 0 : 3
+GAGA += 2.5*p-FLOATSCALE*p-wsf
+GAAA += 2.0*p-FLOATSCALE*p-wsf
+
+edist : 4 : 2 : 0 : e1 :15 #UU
+NNNN = -p-BIGINT
+
+
+# stacked 1x2 internal-loop terminal [e2]
+#----------------------------------------
+edist : 3 : 2 : 0 : e2
+
+# stacked 2x2 internal-loop terminal [e2]
+#----------------------------------------
+edist : 4 : 2 : 0 : e2
+
+
+########################################################### 
+# length distributions
+########################################################### 
+# hairpin loops
+#--------------
+ldist : 0 : 28 : 4000 : l1 # add +2nts for total length of loop  
+ld  = -p-BIGINT
+1   = -5.7*p-FLOATSCALE*p-wsf
+2   = -5.6*p-FLOATSCALE*p-wsf
+3   = -5.6*p-FLOATSCALE*p-wsf
+4   = -5.4*p-FLOATSCALE*p-wsf
+5   = -5.9*p-FLOATSCALE*p-wsf
+6   = -5.6*p-FLOATSCALE*p-wsf
+7   = -6.4*p-FLOATSCALE*p-wsf
+8   = -6.5*p-FLOATSCALE*p-wsf
+9   = -6.6*p-FLOATSCALE*p-wsf
+10  = -6.7*p-FLOATSCALE*p-wsf
+11  = -5.8*p-FLOATSCALE*p-wsf
+12  = -6.9*p-FLOATSCALE*p-wsf
+13  = -6.9*p-FLOATSCALE*p-wsf
+14  = -6.9*p-FLOATSCALE*p-wsf
+15  = -7.0*p-FLOATSCALE*p-wsf
+16  = -7.1*p-FLOATSCALE*p-wsf
+17  = -7.2*p-FLOATSCALE*p-wsf
+18  = -7.2*p-FLOATSCALE*p-wsf
+19  = -7.3*p-FLOATSCALE*p-wsf
+20  = -7.3*p-FLOATSCALE*p-wsf
+21  = -7.4*p-FLOATSCALE*p-wsf
+22  = -7.4*p-FLOATSCALE*p-wsf
+23  = -7.5*p-FLOATSCALE*p-wsf
+24  = -7.5*p-FLOATSCALE*p-wsf
+25  = -7.5*p-FLOATSCALE*p-wsf 
+26  = -7.6*p-FLOATSCALE*p-wsf 
+27  = -7.6*p-FLOATSCALE*p-wsf 
+28  = -7.7*p-FLOATSCALE*p-wsf 
+fit : affine : -7.7*p-FLOATSCALE*p-wsf : -p-PRELOG : 1.0/p-MAXRNALOOP : 2.0/p-MAXRNALOOP # fit:affine:a:b:c:d corresponds to sc(x)=a+b*log(x*c+d)
+
+
+# bulges 
+#-------
+ldist : 2 : 30 : 4000 : l2 # add +0nts for total length of loop   
+ld  = -p-BIGINT
+2   = -2.8*p-FLOATSCALE*p-wsf
+3   = -3.2*p-FLOATSCALE*p-wsf
+4   = -3.6*p-FLOATSCALE*p-wsf
+5   = -4.0*p-FLOATSCALE*p-wsf
+6   = -4.4*p-FLOATSCALE*p-wsf
+7   = -4.6*p-FLOATSCALE*p-wsf
+8   = -4.7*p-FLOATSCALE*p-wsf
+9   = -4.8*p-FLOATSCALE*p-wsf
+10  = -4.9*p-FLOATSCALE*p-wsf
+11  = -5.0*p-FLOATSCALE*p-wsf
+12  = -5.1*p-FLOATSCALE*p-wsf
+13  = -5.2*p-FLOATSCALE*p-wsf
+14  = -5.3*p-FLOATSCALE*p-wsf
+15  = -5.4*p-FLOATSCALE*p-wsf
+16  = -5.4*p-FLOATSCALE*p-wsf
+17  = -5.5*p-FLOATSCALE*p-wsf
+18  = -5.5*p-FLOATSCALE*p-wsf
+19  = -5.6*p-FLOATSCALE*p-wsf
+20  = -5.7*p-FLOATSCALE*p-wsf
+21  = -5.7*p-FLOATSCALE*p-wsf
+22  = -5.8*p-FLOATSCALE*p-wsf
+23  = -5.8*p-FLOATSCALE*p-wsf
+24  = -5.8*p-FLOATSCALE*p-wsf
+25  = -5.9*p-FLOATSCALE*p-wsf
+26  = -5.9*p-FLOATSCALE*p-wsf
+27  = -6.0*p-FLOATSCALE*p-wsf
+28  = -6.0*p-FLOATSCALE*p-wsf
+29  = -6.0*p-FLOATSCALE*p-wsf
+30  = -6.1*p-FLOATSCALE*p-wsf
+fit : affine : -6.1*p-FLOATSCALE*p-wsf : -p-PRELOG : 1.0/p-MAXRNALOOP : 0.0 # fit:affine:a:b:c:d corresponds to sc(x)=a+b*log(x*c+d)
+
+# internal loops [1xn or nx1 (n>2)]
+#------------------------------------
+ldist : 1 : 27 : 4000 : l3  # add +3nts for total length of loop  
+ld  = -p-BIGINT
+1   = -1.7*p-FLOATSCALE*p-wsf
+2   = -1.8*p-FLOATSCALE*p-wsf
+3   = -2.0*p-FLOATSCALE*p-wsf
+4   = -2.2*p-FLOATSCALE*p-wsf
+5   = -2.3*p-FLOATSCALE*p-wsf
+6   = -2.4*p-FLOATSCALE*p-wsf
+7   = -2.5*p-FLOATSCALE*p-wsf
+8   = -2.6*p-FLOATSCALE*p-wsf
+9   = -2.7*p-FLOATSCALE*p-wsf
+10  = -2.8*p-FLOATSCALE*p-wsf
+11  = -2.9*p-FLOATSCALE*p-wsf
+12  = -3.0*p-FLOATSCALE*p-wsf
+13  = -3.0*p-FLOATSCALE*p-wsf
+14  = -3.1*p-FLOATSCALE*p-wsf
+15  = -3.1*p-FLOATSCALE*p-wsf
+16  = -3.2*p-FLOATSCALE*p-wsf
+17  = -3.3*p-FLOATSCALE*p-wsf
+18  = -3.3*p-FLOATSCALE*p-wsf
+19  = -3.4*p-FLOATSCALE*p-wsf
+20  = -3.4*p-FLOATSCALE*p-wsf
+21  = -3.4*p-FLOATSCALE*p-wsf
+22  = -3.5*p-FLOATSCALE*p-wsf
+23  = -3.5*p-FLOATSCALE*p-wsf
+24  = -3.6*p-FLOATSCALE*p-wsf
+25  = -3.6*p-FLOATSCALE*p-wsf
+26  = -3.6*p-FLOATSCALE*p-wsf
+27  = -3.7*p-FLOATSCALE*p-wsf
+fit : affine : -3.7*p-FLOATSCALE*p-wsf : -p-PRELOG : 1.0/p-MAXRNALOOP : 3.0/p-MAXRNALOOP  # fit:affine:a:b:c:d corresponds to sc(x)=a+b*log(x*c+d)
+
+# internal loops [nXm (n>2 m>2)]
+#-------------------------------
+ldist : 1 : 26 : 4000 : l4  # add +4nts for total length of loop  
+ld  = -p-BIGINT
+1   = -1.8*p-FLOATSCALE*p-wsf
+2   = -2.0*p-FLOATSCALE*p-wsf
+3   = -2.2*p-FLOATSCALE*p-wsf
+4   = -2.3*p-FLOATSCALE*p-wsf
+5   = -2.4*p-FLOATSCALE*p-wsf
+6   = -2.5*p-FLOATSCALE*p-wsf
+7   = -2.6*p-FLOATSCALE*p-wsf
+8   = -2.7*p-FLOATSCALE*p-wsf
+9   = -2.8*p-FLOATSCALE*p-wsf
+10  = -2.9*p-FLOATSCALE*p-wsf
+11  = -3.0*p-FLOATSCALE*p-wsf
+12  = -3.0*p-FLOATSCALE*p-wsf
+13  = -3.1*p-FLOATSCALE*p-wsf
+14  = -3.1*p-FLOATSCALE*p-wsf
+15  = -3.2*p-FLOATSCALE*p-wsf
+16  = -3.3*p-FLOATSCALE*p-wsf
+17  = -3.3*p-FLOATSCALE*p-wsf
+18  = -3.4*p-FLOATSCALE*p-wsf
+19  = -3.4*p-FLOATSCALE*p-wsf
+20  = -3.4*p-FLOATSCALE*p-wsf
+21  = -3.5*p-FLOATSCALE*p-wsf
+22  = -3.5*p-FLOATSCALE*p-wsf
+23  = -3.6*p-FLOATSCALE*p-wsf
+24  = -3.6*p-FLOATSCALE*p-wsf
+25  = -3.6*p-FLOATSCALE*p-wsf
+26  = -3.7*p-FLOATSCALE*p-wsf
+fit : affine : -3.7*p-FLOATSCALE*p-wsf : -p-PRELOG : 1.0/p-MAXRNALOOP : 3.0/p-MAXRNALOOP  # fit:affine:a:b:c:d corresponds to sc(x)=a+b*log(x*c+d)
+
+########################################################### 
+# W (the start state)
+########################################################### 
+W --> t-W  a V^{-1,1} a' e1                                              #00 W1 (single-pair)              a V^{-1,1} a'                                    
+W --> t-W  b:i:i+1,j-1 e1 c:j:i+1,j-1 e2 a:i+1&j-1 e1 V^{-1,1}(i+2,j-2)  #01 W2 (single-pair+LR-dangles) b a V^{-1,1} a' c  
+W --> t-W  b:i:i+1,j   e1                a:i+1&j   e1 V^{-1,1}(i+2,j-1)  #02 W3 (single-pair+L-dangle)   b a V^{-1,1} a'
+W --> t-W                 c:j:i  ,j-1 e2 a:i  &j-1 e1 V^{-1,1}(i+1,j-2)  #03 W4 (single-pair+R-dangle)     a V^{-1,1} a' c
+   
+W --> t-W  aW  e1                                                        #04 W5 (singlet, no dangles)
+W --> t-W   Wa e1                                                        #05 W6 (singlet, no dangles)
+W --> t-W  WW                                                            #06 W7 (bifurcation)
+
+W --> t-W  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+1&j:  k,i   e1 V^{-1,1}(k+2,j-1)                                      #07 W8.1  (coaxials)               a V^{-1,1} a'   b V^{-1,1} b'
+W --> t-W  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+2&j:  k,i   e1 V^{-1,1}(k+3,j-1) c:k+1 e1                             #08 W8.5  (coaxials)               a V^{-1,1} a' c b V^{-1,1} b' 
+
+W --> t-W  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+1&j:  k,i+1 e1 V^{-1,1}(k+2,j-1)          d:i:i+1,k e1                #09 W8.2 (coaxials with dangles) d a V^{-1,1} a'   b V^{-1,1} b'
+W --> t-W  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+1&j-1:k,i   e1 V^{-1,1}(k+2,j-2)                       f:j:k+1,j-1 e2 #10 W8.3 (coaxials with dangles)   a V^{-1,1} a'   b V^{-1,1} b' f
+W --> t-W  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+1&j-1:k,i+1 e1 V^{-1,1}(k+2,j-2)          d:i:i+1,k e1 f:j:k+1,j-1 e2 #11 W8.4 (coaxials with dangles) d a V^{-1,1} a'   b V^{-1,1} b' f
+
+W --> t-W  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+2&j  :k,i+1 e1 V^{-1,1}(k+3,j-1) c:k+1 e1 d:i:i+1,k e1                #12 W8.6 (coaxials with dangles) d a V^{-1,1} a' c b V^{-1,1} b' 
+W --> t-W  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+2&j-1:k,i   e1 V^{-1,1}(k+3,j-2) c:k+1 e1              f:j:k+2,j-1 e2 #13 W8.7 (coaxials with dangles)   a V^{-1,1} a' c b V^{-1,1} b' f
+W --> t-W  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+2&j-1:k,i+1 e1 V^{-1,1}(k+3,j-2) c:k+1 e1 d:i:i+1,k e1 f:j:k+2,j-1 e2 #14 W8.8 (coaxials with dangles) d a V^{-1,1} a' c b V^{-1,1} b' f
+
+W --> t-W  e                                                                                                      #15 epsilon
+
+
+########################################################### 
+# M for multiloops (identical to W except for the epsilon)
+########################################################### 
+M --> t-M                                a:i  &j   e1 V^{-1,1}(i+1,j-1)  #00 M1 (single-pair)              a V^{-1,1} a'
+M --> t-M  b:i:i+1,j-1 e1 c:j:i+1,j-1 e2 a:i+1&j-1 e1 V^{-1,1}(i+2,j-2)  #01 M2 (single-pair+LR-dangles) b a V^{-1,1} a' c  
+M --> t-M  b:i:i+1,j   e1                a:i+1&j   e1 V^{-1,1}(i+2,j-1)  #02 M3 (single-pair+L-dangle)   b a V^{-1,1} a'
+M --> t-M                 c:j:i  ,j-1 e2 a:i  &j-1 e1 V^{-1,1}(i+1,j-2)  #03 M4 (single-pair+R-dangle)     a V^{-1,1} a' c
+   
+M --> t-M  aM  e2                                                        #04 M5 (singlet, no dangles)
+M --> t-M   Ma e2                                                        #05 M6 (singlet, no dangles)
+M --> t-M  MM                                                            #06 M7 (bifurcation)
+
+M --> t-M  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+1&j:  k,i   e1 V^{-1,1}(k+2,j-1)                                      #07 M8.1  (coaxials)               a V^{-1,1} a'   b V^{-1,1} b'
+M --> t-M  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+2&j:  k,i   e1 V^{-1,1}(k+3,j-1) c:k+1 e2                             #08 M8.5  (coaxials)               a V^{-1,1} a' c b V^{-1,1} b' 
+
+M --> t-M  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+1&j:  k,i+1 e1 V^{-1,1}(k+2,j-1)          d:i:i+1,k e1                #09 M8.2 (coaxials with dangles) d a V^{-1,1} a'   b V^{-1,1} b'
+M --> t-M  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+1&j-1:k,i   e1 V^{-1,1}(k+2,j-2)                       f:j:k+1,j-1 e2 #10 M8.3 (coaxials with dangles)   a V^{-1,1} a'   b V^{-1,1} b' f
+M --> t-M  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+1&j-1:k,i+1 e1 V^{-1,1}(k+2,j-2)          d:i:i+1,k e1 f:j:k+1,j-1 e2 #11 M8.4 (coaxials with dangles) d a V^{-1,1} a'   b V^{-1,1} b' f
+
+M --> t-M  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+2&j  :k,i+1 e1 V^{-1,1}(k+3,j-1) c:k+1 e2 d:i:i+1,k e1                #12 M8.6 (coaxials with dangles) d a V^{-1,1} a' c b V^{-1,1} b' 
+M --> t-M  a:i  &k e1 V^{-1,1}(i+1,k-1) b:k+2&j-1:k,i   e1 V^{-1,1}(k+3,j-2) c:k+1 e2              f:j:k+2,j-1 e2 #13 M8.7 (coaxials with dangles)   a V^{-1,1} a' c b V^{-1,1} b' f
+M --> t-M  a:i+1&k e1 V^{-1,1}(i+2,k-1) b:k+2&j-1:k,i+1 e1 V^{-1,1}(k+3,j-2) c:k+1 e2 d:i:i+1,k e1 f:j:k+2,j-1 e2 #14 M8.8 (coaxials with dangles) d a V^{-1,1} a' c b V^{-1,1} b' f 
+
+
+########################################################### 
+# V^{-1,1} (segment bounded by an outside basepair)
+########################################################### 
+#V1 (haripin loops)
+V^{-1,1} --> t-V  a b c      e1                         #00 V1 abc       (triloops) 
+V^{-1,1} --> t-V  a:i,i+1,i+2,i+3:i-1,i+4 e1            #01 V1 abcf      (tetraloops) 
+V^{-1,1} --> t-V  a:i,j:i-1,j+1 e1 m...m(i+1,j-1) l1    #02 V1 a m...m b (hairpin loops >= 5nts with two dangles)
+
+#V2 (stems)
+V^{-1,1} --> t-V  a V^{-1,1} a'  e1                             #03 V2       a V^{-1,1} a'       (stacked pair)
+
+#V2 (bulges)
+V^{-1,1} --> t-V  b:i e3 a:i+1&j  :i-1,j+1 e1 V^{-1,1}(i+2,j-1) #04 V2     b a V^{-1,1} a'       ( 1nt left  bulge)
+V^{-1,1} --> t-V  b:j e3 a:i  &j-1:i-1,j+1 e1 V^{-1,1}(i+1,j-2) #05 V2       a V^{-1,1} a' b     ( 1nt right bulge)
+V^{-1,1} --> t-V  a:k&j e1 m...m(i,k-1) l2 V^{-1,1}(k+1,j-1)    #06 V2 m...m a V^{-1,1} a'       (>1nt left  bulge)
+V^{-1,1} --> t-V  a:i&l e1 m...m(l+1,j) l2 V^{-1,1}(i+1,l-1)    #07 V2       a V^{-1,1} a' m...m (>1nt right bulge)
+
+#V2 (internal loops)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e3 a:i+1&j-1:i  ,j   e3 V^{-1,1}(i+2,j-2)                                                   #08 V2 b         a V^{-1,1} a'         c (1x1       internal loop)
+V^{-1,1} --> t-V  b:i,i+1,j:i-1,j+1 e2 a:i+2&j-1:i+1,j   e2 V^{-1,1}(i+3,j-2)                                               #09 V2 b       f a V^{-1,1} a'         c (2x1       internal loop)
+V^{-1,1} --> t-V  b:i,j-1,j:i-1,j+1 e2 a:i+1&j-2:i  ,j-1 e2 V^{-1,1}(i+2,j-3)                                               #10 V2 b         a V^{-1,1} a' g       c (1x2       internal loop)
+V^{-1,1} --> t-V  b:i,i+1,j-1,j:i-1,j+1 e2 a:i+2&j-2:i+1,j-1 e2 V^{-1,1}(i+3,j-3)                                           #11 V2 b       f a V^{-1,1} a' g       c (2x2       internal loop)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e2 a:i+1&l  :i  ,l+1 e2 V^{-1,1}(i+2,l-1)          g:l+1 e3  m...m(l+2,j-1) l3              #12 V2 b         a V^{-1,1} a' g m...m c (1x[>2]    internal loop)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e2 a:i+2&l  :i+1,l+1 e2 V^{-1,1}(i+3,l-1) f:i+1 e3 g:l+1 e3  m...m(l+2,j-1) l4              #13 V2 b       f a V^{-1,1} a' g m...m c (2x[>2]    internal loop)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e2 a:k  &j-1:k-1,j   e2 V^{-1,1}(k+1,j-2) f:k-1 e3           m...m(i+1,k-2) l3              #14 V2 b m...m f a V^{-1,1} a'         c ([>2]x1    internal loop)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e2 a:k  &j-2:k-1,j-1 e2 V^{-1,1}(k+1,j-3) f:k-1 e3 g:j-1 e3  m...m(i+1,k-2) l4              #15 V2 b m...m f a V^{-1,1} a' g       c ([>2]x1    internal loop)
+V^{-1,1} --> t-V  b:i,j:i-1,j+1 e2 a:k  &l  :k-1,l+1 e2 V^{-1,1}(k+1,l-1) f:k-1 e3 g:l+1 e3  d... (i+1,k-2)...d(l+2,j-1) l4 #16 V2 b d...  f a V^{-1,1} a' g  ...d c ([>2]x[>2] internal loop)
+
+#V3 (MM+dangles)
+V^{-1,1} --> t-V  MM                                                #17 V3.1   M M
+V^{-1,1} --> t-V  a:i:j+1,i-1 e2                M(i+1,k) M(k+1,j)   #18 V3.2 a M M   (yes it's a 3-dangle)
+V^{-1,1} --> t-V                 b:j:j+1,i-1 e1 M(i,  k) M(k+1,j-1) #19 V3.3   M M b (yes it's a 5-dangle)
+V^{-1,1} --> t-V  a:i:j+1,i-1 e2 b:j:j+1,i-1 e1 M(i+1,k) M(k+1,j-1) #20 V3.4 a M M b
+
+#V4 (VM+dangles)
+V^{-1,1} --> t-V         a:i  &k:i-1,j+1 e1 V^{-1,1}(i+1,k-1) M(k+1,j)                                 #21 V4.1    a V^{-1,1} a'   M
+V^{-1,1} --> t-V         a:i  &k:i-1,j+1 e1 V^{-1,1}(i+1,k-1) M(k+1,j-1)              f:j:j+1,i-1 e1   #22 V4.2    a V^{-1,1} a'   M f
+V^{-1,1} --> t-V         a:i  &k:i-1,j+1 e1 V^{-1,1}(i+1,k-1) M(k+2,j)   c:k+1:i,k e2                  #23 V4.3    a V^{-1,1} a' c M
+V^{-1,1} --> t-V         a:i  &k:i-1,j+1 e1 V^{-1,1}(i+1,k-1) M(k+2,j-1) c:k+1:i,k e2 f:j:j+1,i-1 e1   #24 V4.4    a V^{-1,1} a' c M f
+
+V^{-1,1} --> t-V  b:i e2 a:i+1&k:i-1,j+1 e1 V^{-1,1}(i+2,k-1) M(k+1,j)                                 #25 V4.5  b a V^{-1,1} a'   M
+V^{-1,1} --> t-V  b:i e2 a:i+1&k:i-1,j+1 e1 V^{-1,1}(i+2,k-1) M(k+1,j-1)                f:j:j+1,i-1 e1 #26 V4.6  b a V^{-1,1} a'   M f
+V^{-1,1} --> t-V  b:i e2 a:i+1&k:i-1,j+1 e1 V^{-1,1}(i+2,k-1) M(k+2,j)   c:k+1:i+1,k e2                #27 V4.7  b a V^{-1,1} a' c M
+V^{-1,1} --> t-V  b:i e2 a:i+1&k:i-1,j+1 e1 V^{-1,1}(i+2,k-1) M(k+2,j-1) c:k+1:i+1,k e2 f:j:j+1,i-1 e1 #28 V4.8  b a V^{-1,1} a' c M f
+
+#V5 (MV+dangles)
+V^{-1,1} --> t-V                                M(i,  l-1) a:l&j:i-1,j+1 e1 V^{-1,1}(l+1,j-1)          #29 V5.1      M   a V^{-1,1} a'
+V^{-1,1} --> t-V  b:i:j+1,i-1 e2                M(i+1,l-1) a:l&j:i-1,j+1 e1 V^{-1,1}(l+1,j-1)          #30 V5.2    b M   a V^{-1,1} a'
+V^{-1,1} --> t-V                 c:l-1:l,j e1   M(i,  l-2) a:l&j:i-1,j+1 e1 V^{-1,1}(l+1,j-1)          #31 V5.3      M c a V^{-1,1} a'
+V^{-1,1} --> t-V  b:i:j+1,i-1 e2 c:l-1:l,j e1   M(i+1,l-2) a:l&j:i-1,j+1 e1 V^{-1,1}(l+1,j-1)          #32 V5.4    b M c a V^{-1,1} a'
+
+V^{-1,1} --> t-V                                M(i,  l-1) a:l&j-1:i-1,j+1 e1 V^{-1,1}(l+1,j-2) f:j e2 #33 V5.5      M   a V^{-1,1} a' f
+V^{-1,1} --> t-V  b:i:j+1,i-1 e2                M(i+1,l-1) a:l&j-1:i-1,j+1 e1 V^{-1,1}(l+1,j-2) f:j e2 #34 V5.6    b M   a V^{-1,1} a' f
+V^{-1,1} --> t-V                 c:l-1:l,j-1 e1 M(i,  l-2) a:l&j-1:i-1,j+1 e1 V^{-1,1}(l+1,j-2) f:j e2 #35 V5.7      M c a V^{-1,1} a' f
+V^{-1,1} --> t-V  b:i:j+1,i-1 e2 c:l-1:l,j-1 e1 M(i+1,l-2) a:l&j-1:i-1,j+1 e1 V^{-1,1}(l+1,j-2) f:j e2 #36 V5.8    b M c a V^{-1,1} a' f 
+

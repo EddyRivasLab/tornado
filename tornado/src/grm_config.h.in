@@ -1,0 +1,115 @@
+/* tornado_config.h.in  [input to configure]
+ * 
+ * System-dependent configuration of Easel, by autoconf.
+ * 
+ * This file should be included in all Easel .c files before
+ * anything else, because it may set #define's that control
+ * behaviour of system includes and system libraries. An example
+ * is large file support.
+ * 
+ */
+#ifndef tornadoCONFIG_INCLUDED
+#define tornadoCONFIG_INCLUDED
+
+/* Version info.
+ */
+#undef TORNADO_VERSION    
+#undef TORNADO_DATE      
+#undef TORNADO_COPYRIGHT 
+#undef TORNADO_LICENSE   
+#undef TORNADO_HOME   
+#undef TORNADO_BIN   
+#undef TORNADO_SHARE
+
+/* Large file support
+ * Must precede any header file inclusion.
+ */
+#undef _FILE_OFFSET_BITS
+#undef _LARGE_FILES
+#undef _LARGEFILE_SOURCE
+
+/* Debugging verbosity (0=none;3=most verbose)
+ */
+#undef tornadoDEBUGLEVEL
+
+/* In Inside algorithm implementations, we use a table lookup in
+ * grm_FLogsum() to calculate summed probabilities in log
+ * space. grm_INTSCALE defines the precision of the calculation; the
+ * default of 1000.0 means rounding differences to the nearest 0.001
+ * nat. grm_LOGSUM_TBL defines the size of the lookup table; the
+ * default of 16000 means entries are calculated for differences of 0
+ * to 16.000 nats (when grm_INTSCALE is 1000.0).  e^{-grm_LOGSUM_TBL /
+ * p7_INTSCALE} should be on the order of the machine FLT_EPSILON,
+ * typically 1.2e-7.
+ */
+#define grm_INTSCALE     1000.0f
+#define grm_LOGSUM_TBL   16000
+
+/* System headers
+ */
+#undef HAVE_ENDIAN_H
+#undef HAVE_INTTYPES_H
+#undef HAVE_STDINT_H
+#undef HAVE_UNISTD_H
+#undef HAVE_SYS_TYPES_H
+#undef HAVE_STRINGS_H
+
+#undef HAVE_SYS_PARAM_H
+#undef HAVE_SYS_SYSCTL_H
+
+#undef HAVE_EMMINTRIN_H
+#undef HAVE_PMMINTRIN_H
+#undef HAVE_XMMINTRIN_H
+
+#undef HAVE_ALTIVEC_H
+
+/* Types
+ */
+#undef WORDS_BIGENDIAN
+#undef int8_t
+#undef int16_t
+#undef int32_t
+#undef int64_t
+#undef uint8_t
+#undef uint16_t
+#undef uint32_t
+#undef uint64_t
+#undef off_t
+
+/* Optional packages
+ */
+#undef HAVE_LIBGSL
+
+/* Optional parallel implementation support
+ */
+#undef HAVE_SSE2
+#undef HAVE_VMX
+#undef HAVE_MPI
+#undef HAVE_PTHREAD
+
+#undef HAVE_SSE2_CAST
+
+/* Programs */
+#undef HAVE_GZIP
+
+/* Functions */
+#undef HAVE_CHMOD
+#undef HAVE_FSEEKO
+#undef HAVE_FSTAT
+#undef HAVE_GETCWD
+#undef HAVE_GETPID
+#undef HAVE_MKSTEMP
+#undef HAVE_POPEN
+#undef HAVE_PUTENV
+#undef HAVE_STAT
+#undef HAVE_STRCASECMP
+#undef HAVE_SYSCONF
+#undef HAVE_SYSCTL
+#undef HAVE_TIMES
+#undef HAVE_ERFC
+
+#undef HAVE_FUNC_ATTRIBUTE_NORETURN // Compiler supports __attribute__ tag, which we use to help w/ clang static analysis.
+
+
+#endif /*tornadoCONFIG_INCLUDED*/
+

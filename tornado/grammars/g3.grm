@@ -1,0 +1,7 @@
+# G3
+# Nussionov-like unambiguous
+# min 1 nt loop;
+
+S --> aSa' | aL | Ra | LS
+L --> aSa' | aL
+R -->  Ra | e

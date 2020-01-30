@@ -1,0 +1,3 @@
+S --> LS | L
+L --> aFa' | a
+F --> aFa' | LS
