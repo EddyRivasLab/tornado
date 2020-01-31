@@ -362,8 +362,8 @@ grammar_sample_edist_allld6(ESL_RANDOMNESS *rng, GRAMMAR *G, char *errbuf, int v
   if ((d = esl_mixdchlet_Create(2, K)) == NULL) 
     ESL_XFAIL(eslFAIL, errbuf, "mixdchlet failed.");   
 
-  d->pq[0] = 0.8;
-  d->pq[1] = 0.2;
+  d->q[0] = 0.8;
+  d->q[1] = 0.2;
   
   d->alpha[0][0] = 30;
   d->alpha[0][1] = 10;
@@ -378,7 +378,7 @@ grammar_sample_edist_allld6(ESL_RANDOMNESS *rng, GRAMMAR *G, char *errbuf, int v
   for (l = 0; l < G->nld; l++) {
     ldist = &(G->ldist[l]);
 
-    qused = esl_rnd_DChoose(rng, d->pq, d->N); /* sample a component */
+    qused = esl_rnd_DChoose(rng, d->q, d->Q); /* sample a component */
     esl_dirichlet_DSample(rng, d->alpha[qused], d->K, ldist->ep);
 
     printf("Component %2d: p[] = ", qused);

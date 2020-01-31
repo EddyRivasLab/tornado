@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "esl_dirichlet.h"
+#include "esl_mixdchlet.h"
 
 #define MAXLENTRAIN 5000	 /* maximum length of sequences for training */
 #define MAXLENFOLD  5000	 /* maximum length of sequences for folding */

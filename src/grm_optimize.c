@@ -510,10 +510,9 @@ static int
 gd_optimize_ldist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, char *errbuf, int be_verbose)
 {
   struct gd_optimize_data  data;
-  GMX                     *gmx = NULL;	/* DP matrix: M x (L x L triangular)     */
-  double                  *p;	        /* parameter vector                  */
-  double                  *u;              /* max initial step size vector      */
-  double                  *wrk;        	/* 4 tmp vectors of length nbranches */
+  ESL_MIN_DAT             *dat = esl_min_dat_Create(NULL);
+  GMX                     *gmx = NULL;   /* DP matrix: M x (L x L triangular)     */
+  double                  *p;            
   double                   fx;
   double                   tol = 0.0001;
   int                      nv;
@@ -524,8 +523,6 @@ gd_optimize_ldist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, char *errbuf, int be_v
 
   /* allocate */
   ESL_ALLOC(p,   sizeof(double) * (nv+1));
-  ESL_ALLOC(u,   sizeof(double) * (nv+1));
-  ESL_ALLOC(wrk, sizeof(double) * (nv+1) * 4);
 
  /* Copy shared info into the "data" structure
    */
@@ -537,23 +534,17 @@ gd_optimize_ldist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, char *errbuf, int be_v
   data.be_verbose = be_verbose;
   data.errbuf     = errbuf;
  
-  /* Define the step size vector u.
-   */
-  for (v = 0; v < nv; v ++)
-    u[v] = 1000.1;
-  u[nv] = 1.0;
-
   /* Create the parameter vector.
    */
   gd_optimize_ldist_pack_paramvector(p, (long)nv, &data);
- 
+
   /* pass problem to the optimizer
    */
-  if ((status = esl_min_ConjugateGradientDescent(p, u, nv, 
+  if ((status = esl_min_ConjugateGradientDescent(NULL, p, nv, 
 						 &gd_optimize_ldist_func_measc,
 						 NULL, 
 						 (void *) (&data), 
-						 tol, wrk, &fx))  != eslOK) goto ERROR;
+						 &fx, dat))  != eslOK) goto ERROR;
 
   if (0) printf("\n END GRADIENT DESCENT\n");
 
@@ -561,15 +552,13 @@ gd_optimize_ldist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, char *errbuf, int be_v
   gd_optimize_ldist_unpack_paramvector(p, (long)nv, &data);
   
   /* clean up */
-  free(u);
   free(p);
-  free(wrk);
+  esl_min_dat_Destroy(dat);
   return eslOK;
 
  ERROR:
-  if (p   != NULL) free(p);
-  if (u   != NULL) free(u);
-  if (wrk != NULL) free(wrk);
+  if (p)   free(p);
+  if (dat) esl_min_dat_Destroy(dat);
   return status;
 }
 
@@ -685,9 +674,11 @@ gd_optimize_ldist_func_meaF(double *p, int np, void *dptr)
  *
  */
 static int
-gd_optimize_tdist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, int priorify, double wgt, int fitlen, int geomfit, int fitparam,int fitbc,  char *errbuf, int be_verbose)
+gd_optimize_tdist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, int priorify, double wgt, int fitlen, int geomfit, int fitparam,int fitbc,
+		  char *errbuf, int be_verbose)
 {
   struct gd_optimize_data  data;
+  ESL_MIN_DAT             *dat = esl_min_dat_Create(NULL);
   GMX                     *gmx = NULL;	/* DP matrix: M x (L x L triangular)     */
   double                  *p;	        /* parameter vector                  */
   double                  *u;              /* max initial step size vector      */
@@ -702,8 +693,6 @@ gd_optimize_tdist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, int priorify, double w
 
   /* allocate */
   ESL_ALLOC(p,   sizeof(double) * (nv+1));
-  ESL_ALLOC(u,   sizeof(double) * (nv+1));
-  ESL_ALLOC(wrk, sizeof(double) * (nv+1) * 4);
   
   /* Copy shared info into the "data" structure
    */
@@ -730,27 +719,24 @@ gd_optimize_tdist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, int priorify, double w
  
   /* pass problem to the optimizer
    */
-  if ((status = esl_min_ConjugateGradientDescent(p, u, nv, 
+  if ((status = esl_min_ConjugateGradientDescent(NULL, p, nv, 
 						 &gd_optimize_tdist_func_meaF,
 						 NULL, 
 						 (void *) (&data), 
-						 tol, wrk, &fx))  != eslOK) goto ERROR;
-
-  if (1) printf("\n END GRADIENT DESCENT measc=%f\n", fx);
+						 &fx, dat))  != eslOK) goto ERROR;
+   if (1) printf("\n END GRADIENT DESCENT measc=%f\n", fx);
 
   /* unpack the final parameter vector */
   gd_optimize_tdist_unpack_paramvector(p, (long)nv, &data);
   
   /* clean up */
-  free(u);
   free(p);
-  free(wrk);
+  esl_min_dat_Destroy(dat);
   return eslOK;
 
  ERROR:
-  if (p   != NULL) free(p);
-  if (u   != NULL) free(u);
-  if (wrk != NULL) free(wrk);
+  if (p)   free(p);
+  if (dat) esl_min_dat_Destroy(dat);
   return status;
 }
 

@@ -82,6 +82,7 @@ Grammar_Mixdchlet_CreateLike(GRAMMAR *G, GRAMMAR *Gdst)
   TDIST *tdist;
   int    td;
   int    m;
+  int    q;
   int    status;
 
   for (td = 0; td < G->ntd; td ++) {
@@ -92,9 +93,13 @@ Grammar_Mixdchlet_CreateLike(GRAMMAR *G, GRAMMAR *Gdst)
     Gdst->tdist[td].tc_mixdchlet = NULL;
 
     if (tdist->d != NULL) {
-      if ((status = Grammar_Mixdchlet_CreateTdist(&(Gdst->tdist[td]), tdist->d->N)) != eslOK) goto ERROR;
-      if ((status = esl_mixdchlet_Copy(tdist->d, Gdst->tdist[td].d))                != eslOK) goto ERROR; 
- 
+      if ((status = Grammar_Mixdchlet_CreateTdist(&(Gdst->tdist[td]), tdist->d->Q)) != eslOK) goto ERROR;
+      
+      // copy
+      esl_vec_DCopy(tdist->d->q, tdist->d->Q, Gdst->tdist[td].d->q);
+      for (q = 0; q < tdist->d->Q; q++)
+	esl_vec_DCopy(tdist->d->alpha[q], tdist->d->K, Gdst->tdist[td].d->alpha[q]);
+
       for (m = 0; m < tdist->nc; m ++) 
 	esl_vec_DCopy(tdist->tc_mixdchlet[m], tdist->tn, Gdst->tdist[td].tc_mixdchlet[m]);
     }
@@ -219,7 +224,7 @@ Grammar_Mixdchlet_Fit(FILE *fp, GRAMMAR *G, ESL_RANDOMNESS *r, char *errbuf, int
   for (td = 0; td < G->ntd; td ++) {  
    tdist = &(G->tdist[td]);
    if (be_verbose) printf("\nFIT tdist=%s\n", tdist->tname);
-   if (esl_mixdchlet_Fit(tdist->tc_mixdchlet, tdist->nc, tdist->d, be_verbose) != eslOK) 
+   if (esl_mixdchlet_Fit(tdist->tc_mixdchlet, tdist->nc, tdist->d, NULL) != eslOK) 
      ESL_XFAIL(eslFAIL, errbuf, "mixdchlet fit failed\n");
    if (be_verbose) {
      printf("FIT done\n");
@@ -257,13 +262,13 @@ Grammar_Mixdchlet_Random(ESL_RANDOMNESS *r, GRAMMAR *G)
   for (td = 0; td < G->ntd; td ++) {
     d = G->tdist[td].d;
 
-    for (q = 0; q < d->N; q++) {
-      d->pq[q] = esl_rnd_UniformPositive(r);
+    for (q = 0; q < d->Q; q++) {
+      d->q[q] = esl_rnd_UniformPositive(r);
       
       for (i = 0; i < d->K; i++)
 	d->alpha[q][i] = alpha_range*esl_rnd_UniformPositive(r);
     }
-    esl_vec_DNorm(d->pq, d->N);
+    esl_vec_DNorm(d->q, d->Q);
   }
   
   return eslOK;

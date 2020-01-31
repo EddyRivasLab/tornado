@@ -18,9 +18,9 @@
 #define TORNADO_DATE "July 2019"
 #define TORNADO_COPYRIGHT "Copyright (C) 2016 Howard Hughes Medical Institute."
 #define TORNADO_LICENSE "Freely distributed under the GNU General Public License (GPLv3)."
-#define TORNADO_HOME "/Users/erivas/src/tornado"
-#define TORNADO_BIN "/Users/erivas/src/tornado/bin"
-#define TORNADO_SHARE "/Users/erivas/src/tornado/share"
+#define TORNADO_HOME "/Users/erivas/src/Mysrc/tornado"
+#define TORNADO_BIN "/Users/erivas/src/Mysrc/tornado/bin"
+#define TORNADO_SHARE "/Users/erivas/src/Mysrc/tornado/share"
 
 /* Large file support
  * Must precede any header file inclusion.

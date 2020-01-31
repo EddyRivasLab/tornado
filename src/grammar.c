@@ -2815,14 +2815,14 @@ Grammar_PriorifyTransition_Mixdchlet(TDIST *tdist)
   
   sum_counts = esl_vec_DSum(tdist->tc, d->K);
   
-  for (q = 0; q < d->N; q ++) {
+  for (q = 0; q < d->Q; q ++) {
     sum_alpha = esl_vec_DSum(d->alpha[q], d->K);
     if (sum_counts+sum_alpha < 1e-6) { status = eslFAIL; goto ERROR; }
     
     /* calculate mixture contribution */
     esl_vec_DCopy (tdist->tc, d->K, val);
     esl_vec_DAdd  (val, d->alpha[q], d->K);
-    esl_vec_DScale(val, d->K, d->pq[q]/(sum_counts+sum_alpha));
+    esl_vec_DScale(val, d->K, d->q[q]/(sum_counts+sum_alpha));
     
     /* add mixture contribution */
     esl_vec_DAdd(tdist->tp, val, d->K);
