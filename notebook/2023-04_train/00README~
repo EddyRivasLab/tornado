@@ -1,0 +1,24 @@
+Sat Apr 22 12:52:47 EDT 2023
+
+
+Train several typical models:
+-----------------------------
+cd /src/Mysrc/tornado/notebook/2023-04_train
+mkdir g6
+mkdir g6s
+mkdir g6x
+mkdir g6sx
+mkdir RBG
+mkdir RBG_J3
+mkdir RBG_J3J4
+
+
+on benchmark files:
+------------------
+~/src/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto
+
+
+cd g6
+~/src/tornado/src/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_g6.counts ~/src/Mysrc/tornado/grammars/g6.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_g6.param > TORNADO_TrATrBTrB_g6.train
+
+

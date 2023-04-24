@@ -524,7 +524,7 @@ gd_optimize_ldist(GRAMMAR *G, GRAMMAR *Gpost, ESL_SQ *sq, char *errbuf, int be_v
   /* allocate */
   ESL_ALLOC(p,   sizeof(double) * (nv+1));
 
- /* Copy shared info into the "data" structure
+  /* Copy shared info into the "data" structure
    */
   data.G          = G;
   data.Gpost      = Gpost;

@@ -14,8 +14,8 @@
 
 /* Version info.
  */
-#define TORNADO_VERSION "0.5.1"
-#define TORNADO_DATE "July 2019"
+#define TORNADO_VERSION "0.6.0"
+#define TORNADO_DATE "May 2023"
 #define TORNADO_COPYRIGHT "Copyright (C) 2016 Howard Hughes Medical Institute."
 #define TORNADO_LICENSE "Freely distributed under the GNU General Public License (GPLv3)."
 #define TORNADO_HOME "/Users/erivas/src/Mysrc/tornado"

@@ -115,7 +115,7 @@ CYK_Fill(GRAMMAR *G, ESL_SQ *sq, GMX **ret_cyk, SCVAL *ret_sc, char *errbuf, int
 	/* Terminals need to be filled in reverse order */
 	for (w = G->M-1; w >= 0; w--) {
 	  if ((status = dp_recursion(&(cyk->dp[w][j][d]), cyk, G, dsq, L, c, j, d, w, NULL, errbuf)) != eslOK) goto ERROR;
-	  if (0&&j-d+1==45&&j==61&&w==21) printf("\nCYK %f w=%d[%s] i=%d j=%d d=%d L=%d\n", cyk->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, d, L); 
+	  if (be_verbose) printf("\nCYK %f w=%d[%s] i=%d j=%d d=%d L=%d\n", cyk->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, d, L); 
 	}
 	   
       } 

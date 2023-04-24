@@ -42,7 +42,7 @@ AC_PREREQ(2.63)
 ################################################################
 # 2. AC_INIT
 ################################################################
-AC_INIT(TORNADO, 0.5.1, elenarivas@fas.harvard.edu, TORNADO)
+AC_INIT(TORNADO, 0.6.0, elenarivas@fas.harvard.edu, TORNADO)
 AC_MSG_NOTICE([Configuring TORNADO for your system.])
 
 # remember if the usexr is overriding CFLAGS
@@ -79,7 +79,7 @@ fi
 #     EASEL_VERSION    e.g. "1.9a"
 #
 TORNADO_NAME="TORNADO"
-TORNADO_DATE="July 2019"
+TORNADO_DATE="May 2023"
 TORNADO_COPYRIGHT="Copyright (C) 2016 Howard Hughes Medical Institute."
 TORNADO_LICENSE="Freely distributed under the GNU General Public License (GPLv3)."
 TORNADO_VERSION=$PACKAGE_VERSION

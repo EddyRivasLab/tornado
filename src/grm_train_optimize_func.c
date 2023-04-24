@@ -16,6 +16,7 @@
 #include <esl_fileparser.h>
 #include <esl_getopts.h>
 #include <esl_msa.h>
+#include <esl_minimizer.h>
 #include <esl_random.h>
 #include <esl_sqio.h>
 #include <esl_stopwatch.h>
@@ -29,6 +30,7 @@
 #include "grm_io.h"
 #include "grm_minimizer.h"
 #include "grm_mixdchlet.h"
+#include "grm_optimize.h"
 #include "grm_paramfit.h"
 #include "grm_parsegrammar.h"
 #include "grm_parsetree.h"
@@ -36,6 +38,7 @@
 #include "grm_train_count_func.h"
 #include "grm_train_optimize_func.h"
 #include "grm_util.h"
+
 
 #ifdef HAVE_MPI
 #include "esl_mpi.h"
@@ -203,15 +206,15 @@ static int
 cgd_optimize_mcle(ESL_GETOPTS *go, struct cfg_s *cfg)
 {
   struct cgd_data  data;
+  ESL_MIN_DAT     *dat = esl_min_dat_Create(NULL);
   double          *p;	        /* parameter vector                  */
-  double          *u;           /* max initial step size vector      */
-  double          *wrk;         /* 4 tmp vectors of length nbranches */
   double           fx;
   double           step = 1.0;
   int              nv;
   int              status;
 
-   /* Copy shared info into the "data" structure
+  
+  /* Copy shared info into the "data" structure
    */
   data.go  = go;
   data.cfg = cfg;
@@ -221,25 +224,19 @@ cgd_optimize_mcle(ESL_GETOPTS *go, struct cfg_s *cfg)
   
   /* allocate */
   ESL_ALLOC(p,   sizeof(double) * (nv+1));
-  ESL_ALLOC(u,   sizeof(double) * (nv+1));
-  ESL_ALLOC(wrk, sizeof(double) * (nv+1) * 4);
 
-  /* Define the step size vector u.
-   */
-  step = 1.0;
-  Grm_CGD_StepGeneric(nv, u, step);
-  
-  /* Create the parameter vector.
+    /* Create the parameter vector.
    */
   Grm_CGD_PackParamvectorGeneric(p, (long)nv, &data);
  
-   /* pass problem to the optimizer
+
+  /* pass problem to the optimizer
    */
-  if ((status = esl_min_ConjugateGradientDescent(p, u, nv, 
+  if ((status = esl_min_ConjugateGradientDescent(NULL, p, nv, 
 						 &cgd_optimize_mcle_func,
 						 &cgd_optimize_mcle_dfunc, 
 						 (void *) (&data), 
-						 cfg->tol, wrk, &fx))  != eslOK) goto ERROR;
+						 &fx, dat))  != eslOK) goto ERROR;
 
 #if 0
   printf("\n END GRADIENT DESCENT\n");
@@ -249,15 +246,13 @@ cgd_optimize_mcle(ESL_GETOPTS *go, struct cfg_s *cfg)
   Grm_CGD_UnpackParamvectorGeneric(p, (long)nv, &data);
   
   /* clean up */
-  free(u);
   free(p);
-  free(wrk);
+  esl_min_dat_Destroy(dat);
   return eslOK;
 
  ERROR:
   if (p   != NULL) free(p);
-  if (u   != NULL) free(u);
-  if (wrk != NULL) free(wrk);
+  if (dat != NULL) esl_min_dat_Destroy(dat);
   return status;
 }
 

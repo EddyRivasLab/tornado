@@ -15,6 +15,7 @@
 #include <esl_alphabet.h>
 #include <esl_fileparser.h>
 #include <esl_getopts.h>
+#include <esl_minimizer.h>
 #include <esl_msa.h>
 #include <esl_random.h>
 #include <esl_sqio.h>
@@ -189,8 +190,6 @@ cgd_regularize_MM(struct regularize_data *data)
 {
   struct cfg_s *cfg = data->cgd_data.cfg;
   double       *p = NULL;	   /* parameter vector                  */
-  double       *u = NULL;        /* max initial step size vector      */
-  double       *wrk = NULL;      /* 4 tmp vectors of length nbranches */
   double        fx;
   double        step;
   int           nv = data->nv;
@@ -198,25 +197,18 @@ cgd_regularize_MM(struct regularize_data *data)
 
   /* allocate */
   ESL_ALLOC(p,   sizeof(double) * (nv+1));
-  ESL_ALLOC(u,   sizeof(double) * (nv+1));
-  ESL_ALLOC(wrk, sizeof(double) * (nv+1) * 4);
    
-   /* Define the step size vector u.
-   */
-  step = 10.0;
-  Grm_CGD_StepGeneric(nv, u, step);
-
   /* Create the parameter vector.
    */
   Grm_CGD_PackParamvectorGeneric(p, (long)nv, &data->cgd_data);
  
    /* pass problem to the optimizer
    */
-  if ((status = esl_min_ConjugateGradientDescent(p, u, nv, 
+  if ((status = esl_min_ConjugateGradientDescent(NULL, p, nv, 
 						 &cgd_regularize_MM_func,
 						 &cgd_regularize_MM_dfunc, 
 						 (void *) (data), 
-						 cfg->tol, wrk, &fx))  != eslOK) goto ERROR;
+						 &fx, NULL))  != eslOK) goto ERROR;
 
 #if 1
   printf("\n END GRADIENT DESCENT fx %f\n", fx);
@@ -226,15 +218,11 @@ cgd_regularize_MM(struct regularize_data *data)
   Grm_CGD_UnpackParamvectorGeneric(p, (long)nv, &data->cgd_data);
 
   /* clean up */
-  free(u);
   free(p);
-  free(wrk);
   return eslOK;
 
  ERROR:
   if (p   != NULL) free(p);
-  if (u   != NULL) free(u);
-  if (wrk != NULL) free(wrk);
   return status;
 }
 

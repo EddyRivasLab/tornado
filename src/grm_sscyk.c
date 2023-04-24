@@ -258,7 +258,7 @@ ssCYK_Fill(GRAMMAR *G, ESL_SQ *sq, BPT **ret_bpt, int L, SSCYK **ret_cyk, char *
 	      ESL_XFAIL(eslFAIL, errbuf, "SSCYK_FILL failed at i=%d j=%d nt=%s\n", j-d+1, j, G->nt[w].ntname);
 	    
 #if 0
-	    if ((j==133&&j-d+1==3)) printf("dp: i %d j %d L %d nt[%d] %s reachable? %d\n", j-d+1, j, cyk->L, w, G->nt[w].ntname, reachable);
+	    printf("dp: i %d j %d L %d nt[%d] %s reachable? %d\n", j-d+1, j, cyk->L, w, G->nt[w].ntname, reachable);
 #endif
 
 	    if (reachable) {

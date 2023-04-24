@@ -1229,7 +1229,7 @@ dp_recursion_atom_emission_iscompatible(ATOM *A, BPT *bpt, int L, int c[4], int 
     if (b < 1 || b > L+1) ESL_XFAIL(eslFAIL, errbuf, "i=%d j=%d bad bondaries for atom %s, L=%d", a, b, A->atom_syntax, L);
     
     for (x = 0; x < bpt->n; x ++) {
-      if (bpt->type[x]+1 == A->bp[bp].basepairtype) {
+      if (bpt->type[x] == A->bp[bp].basepairtype) {
 	if (bpt->ct[x][a] != b) iscompatible = FALSE;
 	if (bpt->ct[x][b] != a) iscompatible = FALSE;
       }

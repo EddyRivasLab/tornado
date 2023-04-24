@@ -1,0 +1,47 @@
+Sat Apr 22 12:52:47 EDT 2023
+
+
+Train several typical models:
+-----------------------------
+cd ~/src/Mysrc/tornado/notebook/2023-04_train
+mkdir g6
+mkdir g6s
+mkdir g6x
+mkdir g6sx
+mkdir RBG
+mkdir RBG_J3
+mkdir RBG_J3J4
+
+
+on benchmark files:
+------------------
+~/src/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto
+
+
+cd g6
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_g6.counts ~/src/Mysrc/tornado/grammars/g6.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_g6.param > TORNADO_TrATrBTrB_g6.train
+cd ..
+
+cd g6x
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_g6x.counts ~/src/Mysrc/tornado/grammars/g6x.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_g6x.param > TORNADO_TrATrBTrB_g6x.train
+cd ..
+
+cd g6s
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_g6s.counts ~/src/Mysrc/tornado/grammars/g6s.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_g6s.param > TORNADO_TrATrBTrB_g6s.train
+cd ..
+
+cd g6xs
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_g6xs.counts ~/src/Mysrc/tornado/grammars/g6xs.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_g6xs.param > TORNADO_TrATrBTrB_g6xs.train
+cd ..
+
+cd RBG
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_RBG.counts ~/src/Mysrc/tornado/grammars/RBG.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_RBG.param > TORNADO_TrATrBTrB_RBG.train
+cd ..
+
+cd RBG_J3
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_RBG_J3.counts ~/src/Mysrc/tornado/grammars/RBG_J3.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_RBG_J3.param > TORNADO_TrATrBTrB_RBG_J3.train
+cd ..
+
+cd RBG_J3J4
+~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_RBG_J3J4.counts ~/src/Mysrc/tornado/grammars/RBG_J3J4.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_RBG_J3J4.param > TORNADO_TrATrBTrB_RBG_J3J4.train
+cd ..

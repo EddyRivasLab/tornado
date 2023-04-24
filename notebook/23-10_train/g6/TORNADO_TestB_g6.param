@@ -1,0 +1,27 @@
+
+# Transition probability distribution (logs).
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+3
+  0  2  -0.105546 -2.300918 
+  1  2  -2.540962 -0.082068 
+  2  2  -0.249757 -1.509547 
+
+# Emission probability distribution (logs).
+# <ned>
+#   <#> <name> <nemit> <ncontext> <has_baspair> (<basepairtype> <coordl_idx> <coordr_idx> ) <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0 e1_1_0_0 1 0 0 
+    -1.079625 -1.753123 -1.486745 -1.343474 
+   1 e1_2_0_0 2 0 1 (WW_C 0 1)
+    -4.487582 -4.785736 -4.568928 -1.806454 
+    -4.648265 -5.756094 -1.378940 -5.196478 
+    -4.519331 -1.439347 -5.262075 -2.974862 
+    -1.809133 -5.489465 -3.029694 -4.186321 
+
+# Length probability distribution (logs).
+# <nld>
+#    <#> <min> <max> <meanL> <fit> <minL> <minR> <alpha> <bernoulli> <type>
+#    <emissions>
+#       <len>  <lp[len]>
+0

@@ -339,18 +339,18 @@ TraceCT_EmissionAtom(ATOM *A, BPT *bpt, int *c, int L, char *errbuf)
     a = c[A->coordbase[bp_coordl]] + A->offset[bp_coordl]; 
     /* coord of second emitted base */
     b = c[A->coordbase[bp_coordr]] + A->offset[bp_coordr];
-    
-    /* nothing guarantees a<b */
+
+     /* nothing guarantees a<b */
     if (a > b) { swap = a; a = b; b = swap; }
     
     if (a < 0 || a > L) ESL_XFAIL(eslFAIL, errbuf, "parsetree_ct_emission_atom: a is off bounds %d", a);
     if (b < 0 || b > L) ESL_XFAIL(eslFAIL, errbuf, "parsetree_ct_emission_atom: b is off bounds %d", b);
     
     for (x = 0; x < bpt->n; x ++) {
-      if (A->bp[bp].basepairtype == bpt->type[x]+1) {
+      if (A->bp[bp].basepairtype == bpt->type[x]) {
 	bpt->ct[x][a] = b;
 	bpt->ct[x][b] = a;
-      }
+     }
     }
 
   }

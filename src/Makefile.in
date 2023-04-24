@@ -61,8 +61,8 @@ LIBS      = -leasel -lm
 IFLAGS   = -I../lib/easel -I../src 
 LFLAGS   = -L../lib/easel -L../src 
 
-MYLIBDIR = -L../easel
-MYINCDIR = -I../easel
+MYLIBDIR = -L../lib/easel
+MYINCDIR = -I../lib/easel
 
 # beautification magic stolen from git
 #
