@@ -541,6 +541,7 @@ AC_SYS_LARGEFILE
 # 13. Write out esl_config.h header and the Makefiles
 #################################################################
 AC_CONFIG_HEADERS([
+lib/easel/esl_config.h
 src/grm_config.h
 ])
 
