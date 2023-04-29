@@ -2754,9 +2754,9 @@ Grammar_Priorify(GRAMMAR *G, double wgt, int force_wccomp, char *errbuf)
 {
   int status;
 
-  if ((status = Grammar_PriorifyTransitions(G, 1.0)) != eslOK) 
+  if ((status = Grammar_PriorifyTransitions(G, wgt)) != eslOK) 
    ESL_XFAIL(eslFAIL, errbuf, "Grammar_Priorify: error for transitions");
-  if ((status = Grammar_PriorifyEmissions(G, 1.0, force_wccomp)) != eslOK) 
+  if ((status = Grammar_PriorifyEmissions(G, wgt, force_wccomp)) != eslOK) 
    ESL_XFAIL(eslFAIL, errbuf, "Grammar_Priorify: error for Emissions");
   if ((status = Grammar_PriorifyLdists(G, wgt)) != eslOK) 
    ESL_XFAIL(eslFAIL, errbuf, "Grammar_Priorify: error for Ldists");

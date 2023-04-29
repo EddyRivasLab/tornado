@@ -145,11 +145,11 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight,  char *er
 int 
 Grammar_Write(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, int preload_format, char *errbuf)
 {
-  int status;
+  double wgt = 1e-4;
+  int    status;
 
-  if ((status = Grammar_Priorify(G, 0.1, FALSE, errbuf))        != eslOK) goto ERROR; 
-  if ((status = Grammar_Normalize(G, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR; 
- 
+  if ((status = Grammar_Priorify(G, wgt, FALSE, errbuf)) != eslOK) goto ERROR;
+
   if (preload_format) fprintf(fp, "{\n");
   if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))          != eslOK) goto ERROR;
   if ((status = Grammar_WriteEmissions(fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
