@@ -261,7 +261,7 @@ Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, int preload_
 	  fprintf(fp, "%7f ", paramval);
       }
       if (preload_format) {
-	if (G->ned > 0) fprintf(fp, "}, \\\\ %s\n", tdist->tname); else fprintf(fp, "} \\\\ %s\n", tdist->tname); 
+	if (G->ned > 0) fprintf(fp, "}, // %s\n", tdist->tname); else fprintf(fp, "} // %s\n", tdist->tname); 
       }
       else fprintf(fp, "\n");
     }
@@ -301,8 +301,8 @@ Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on,
       edist = &(G->edist[i]);
 
       if (edist->c > 0) { // a hack that works for RBG grammars
-	if      (!strcmp(edist->ename, "e1_2_2_0"))  fprintf(fp, "{ \\\\ e1_2_2_x\n");
-	if      (!strcmp(edist->ename, "e2_2_2_0"))  fprintf(fp, "{ \\\\ e2_2_2_x\n");
+	if      (!strcmp(edist->ename, "e1_2_2_0"))  fprintf(fp, "{ // e1_2_2_x\n");
+	if      (!strcmp(edist->ename, "e2_2_2_0"))  fprintf(fp, "{ // e2_2_2_x\n");
  	else if (!strcmp(edist->ename, "e1_2_2_15")) fprintf(fp, "}\n");
 	else if (!strcmp(edist->ename, "e2_2_2_15")) fprintf(fp, "}\n");
      }
@@ -313,8 +313,8 @@ Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on,
       if ((status = grammar_write_edist(fp, i, edist, sctype, preload_format, errbuf)) != eslOK) goto ERROR;
       
       if (preload_format) {
-	if (i <  G->ned-1) fprintf(fp, ", \\\\ %s\n", edist->ename);
-	if (i == G->ned-1) fprintf(fp, " \\\\ %s\n",  edist->ename);
+	if (i <  G->ned-1) fprintf(fp, ", // %s\n", edist->ename);
+	if (i == G->ned-1) fprintf(fp, " // %s\n",  edist->ename);
 	if (edist->c > 0) { // a hack that works for RBG grammars
 	  if (!strcmp(edist->ename, "e1_2_2_15")) fprintf(fp, "},");
 	  if (!strcmp(edist->ename, "e2_2_2_15")) fprintf(fp, "}");
@@ -390,7 +390,7 @@ Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int preload_forma
 	}
       }
       if (preload_format) 
-	fprintf(fp, "{%7f,%7f,%7f,%7f}, \\\\ %s emit\n", emit[0], emit[1], emit[2], emit[3], G->ldist[i].lname);
+	fprintf(fp, "{%7f,%7f,%7f,%7f}, // %s emit\n", emit[0], emit[1], emit[2], emit[3], G->ldist[i].lname);
       else
 	fprintf(fp, "  %7f %7f %7f %7f\n", emit[0], emit[1], emit[2], emit[3]);
 
@@ -970,7 +970,7 @@ grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, int preloa
     else
       fprintf(fp, "    %3d  %7f\n", len+ldist->min, paramval);
   }
-  if (preload_format) fprintf(fp, "} \\\\ %s\n", ldist->lname); else fprintf(fp, "\n");
+  if (preload_format) fprintf(fp, "} // %s\n", ldist->lname); else fprintf(fp, "\n");
 
   return eslOK;
 
@@ -997,7 +997,7 @@ grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, int preload_
   int    status;
 
   if (preload_format) {
-    fprintf(fp, "{ \\\\ %s\n", ldist->lname);
+    fprintf(fp, "{ // %s\n", ldist->lname);
 
     for (l1 = ldist->minL; l1 <= ldist->max; l1++) {
       fprintf(fp, "{");
