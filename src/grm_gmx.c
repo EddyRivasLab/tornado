@@ -316,22 +316,22 @@ GMX_GrammarFitNormalize(GRAMMAR *G, int priorify, double pwgt, double *bc, int *
     if ((status = Grammar_ValidateDistsNorm(G, errbuf, tol))                                 != eslOK) goto ERROR; 
     Grammar_Scorify(G); 
     break;
-  case LPROB: 
+  case LPROB:
     if ((status = Grammar_ForceWCComp(G, errbuf))                                            != eslOK) goto ERROR; 
     if (fitbc) { if ((status = Grammar_FitBCEdist(G, bc_paired, bc_unpaired, errbuf, FALSE)) != eslOK) goto ERROR; }
     if ((status = Grammar_UnTieEdist(G, errbuf))                                             != eslOK) goto ERROR;  
     if ((status = Grammar_ValidateDistsNorm(G, errbuf, tol))                                 != eslOK) goto ERROR; 
-    Grammar_Scorify(G); 
-    break;
+     Grammar_Scorify(G); 
+     break;
   case SCORE:                                                                                          
     if ((status = Grammar_ForceWCComp(G, errbuf))                                            != eslOK) goto ERROR; 
-    break;
+      break;
   default: goto ERROR;                                                                                 
     break;
   }
 
   if ((status = Grammar_Validate(G, errbuf)) != eslOK) goto ERROR;
-
+ 
   if (verbose) {
     printf("\n\n=================================\n");
     printf("      FINAL GRAMMAR %s\n", G->gname);

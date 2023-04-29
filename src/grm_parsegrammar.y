@@ -2657,7 +2657,7 @@ Grammar_Parse(FILE *fp, char *gfilename,
 
   /* After parsing finish setting up the grammar */
   if ((status = Grammar_Set(G, backrules, errbuf, verbose)) != eslOK) goto ERROR;
-  
+
   /* Set optional parameters. Ignore constrain if it cannot be imposed.
    */
   G->force_wccomp = force_wccomp;
@@ -2666,6 +2666,8 @@ Grammar_Parse(FILE *fp, char *gfilename,
     if (G->S > 0) G->force_min_stem = force_min_stem;
     else printf("Ignoring force_min_stem option. min_stem is %d\n", G->min_stem);
   }
+
+
   
   /* Validate data structure in G */
   if (nparamfile > 0) {

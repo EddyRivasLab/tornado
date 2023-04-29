@@ -804,7 +804,7 @@ POST_MEACalculate(ESL_RANDOMNESS *rng, GRAMMAR *G, ESL_SQ *sq, POST **ret_post, 
     /* output in  log-probability space */
     if ((status = Grammar_Normalize(Gexpc, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR;  
     if ((status = Grammar_TieTdist(Gexpc, errbuf)) != eslOK) goto ERROR;  
-    if (be_verbose) { Grammar_WriteTransitions(stdout, Gexpc, COUNT, errbuf); }
+    if (be_verbose) { Grammar_WriteTransitions(stdout, Gexpc, COUNT, FALSE, errbuf); }
  
    /* validate Gexpc */
     if ((status = Grammar_Validate(Gexpc, errbuf)) != eslOK) goto ERROR;

@@ -1192,13 +1192,13 @@ process_result_cyk(struct cfg_s *cfg, ESL_SQ *tsq, ESL_SQ *sq, float cmb, int Gi
 
   /* print information for individual grammar used */
   if (cfg->countsavefile != NULL) { 
-    if ((status = Grammar_Write(cfg->countsavefp, G, COUNT, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_Write(cfg->countsavefp, G, COUNT, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
   }
   if (cfg->paramsavefile != NULL) { 
     if ((status = CompStruct(NULL, tsq, sq, &kpairs, &kcorrect, &tpairs, &tcorrect, &sen, &ppv, FALSE, FALSE))    != eslOK) goto ERROR;
     if (sen + ppv > 0.) F = 2.0 * sen * ppv / (sen + ppv);
    
-    if ((status = Grammar_Write(cfg->paramsavefp, G, LPROB, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_Write(cfg->paramsavefp, G, LPROB, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
   }
   if (cfg->margsavefile != NULL) {
     if ((cfg->margsavefp = fopen(cfg->margsavefile, "w")) == NULL) 
@@ -1211,7 +1211,7 @@ process_result_cyk(struct cfg_s *cfg, ESL_SQ *tsq, ESL_SQ *sq, float cmb, int Gi
     if (sen + ppv > 0.) F = 2.0 * sen * ppv / (sen + ppv);
     printf("\n# <sqname> <len> <cyksc> <sen> <PPV> <F>  <kpairs> <tpairs> <pfss> <logodds> <pass>\n");
     printf("%s %4" PRId64 " %6.1f %6.1f %6.1f %6.1f %d %d %6.1f %6.1f %d\n", sq->name, sq->n, cyksc, sen, ppv, F, kpairs, tpairs, pfss, logodds, Gidx);
-    /*if ((status = Grammar_WritePartial(stdout, G, cfg->mcdistype, LPROB, cfg->errbuf)) != eslOK) goto ERROR;*/
+    /*if ((status = Grammar_WritePartial(stdout, G, cfg->mcdistype, LPROB, FALSE, cfg->errbuf)) != eslOK) goto ERROR;*/
   }
 #endif
 
@@ -1334,17 +1334,17 @@ process_result_mea(struct cfg_s *cfg, ESL_SQ *tsq, ESL_SQ *sq, int newnmc, POST 
   
   /* print information for individual grammar used */
   if (cfg->countsavefile != NULL) { 
-    if ((status = Grammar_Write(cfg->countsavefp, G, COUNT, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_Write(cfg->countsavefp, G, COUNT, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
   }
   if (cfg->paramsavefile != NULL) { 
     if ((status = CompStruct(NULL, tsq, sq, &kpairs, &kcorrect, &tpairs, &tcorrect, &sen, &ppv, FALSE, FALSE))    != eslOK) goto ERROR;
     if (sen + ppv > 0.) bestF = 2.0 * sen * ppv / (sen + ppv);
      
     if (cfg->mcdistype != DIST_NONE) {
-      if ((status = Grammar_WritePartial(cfg->paramsavefp, G, cfg->mcdistype, LPROB, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+      if ((status = Grammar_WritePartial(cfg->paramsavefp, G, cfg->mcdistype, LPROB, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
     }
     else {
-       if ((status = Grammar_Write(cfg->paramsavefp, G, LPROB, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+       if ((status = Grammar_Write(cfg->paramsavefp, G, LPROB, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
     }
   }
   if (cfg->margsavefile != NULL) {

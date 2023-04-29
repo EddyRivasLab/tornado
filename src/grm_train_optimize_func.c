@@ -89,7 +89,7 @@ int GrmTrainBW(ESL_GETOPTS *go, struct cfg_s *cfg)
   */
   if (1||cfg->be_verbose) { 
     printf("Given G:\n"); 
-    Grammar_WriteTransitions(stdout, cfg->G, COUNT, cfg->errbuf); 
+    Grammar_WriteTransitions(stdout, cfg->G, COUNT, FALSE, cfg->errbuf); 
   }
   if (1||cfg->be_verbose) printf("it=%d calculate expected counts...\n", iteration);
   if (cfg->Ge != NULL) Grammar_Destroy(cfg->Ge); cfg->Ge = NULL;
@@ -127,7 +127,7 @@ int GrmTrainBW(ESL_GETOPTS *go, struct cfg_s *cfg)
    
     if (1||cfg->be_verbose) { 
       printf("CURRENT G:\n"); 
-      Grammar_WriteTransitions(stdout, cfg->G, COUNT, cfg->errbuf); 
+      Grammar_WriteTransitions(stdout, cfg->G, COUNT, FALSE, cfg->errbuf); 
      }
     if (1||cfg->be_verbose) printf("it=%d calculate expected counts...\n", iteration);
     if (cfg->Ge != NULL) Grammar_Destroy(cfg->Ge); cfg->Ge = NULL;

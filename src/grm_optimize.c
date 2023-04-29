@@ -248,7 +248,7 @@ em_optimize_onFOLD(GRAMMAR *G, ESL_SQ *sq, enum model_e modeltype, enum train_e 
   if ((status = Grammar_CopyDist(Gprv, G, errbuf)) != eslOK) goto ERROR;
   if (0) {
     printf("optimized after %d iterations\n", iteration);
-    if ((status = Grammar_WriteTransitions(stdout, G, COUNT, errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_WriteTransitions(stdout, G, COUNT, FALSE, errbuf)) != eslOK) goto ERROR;
   }
 
   if (Gprv != NULL) Grammar_Destroy(Gprv);       

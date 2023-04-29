@@ -29,9 +29,9 @@
 
 static enum basepair_e basepairtype(char *name);
 static int             grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, double cweight, char *errbuf, int verbose);
-static int             grammar_write_edist(FILE *fp, int idx, EDIST *edist, enum param_e sctype, char *errbuf);
-static int             grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, char *errbuf);
-static int             grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, char *errbuf);
+static int             grammar_write_edist(FILE *fp, int idx, EDIST *edist, enum param_e sctype, int preload_format, char *errbuf);
+static int             grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, int preload_format, char *errbuf);
+static int             grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, int preload_format, char *errbuf);
 static int             parse_grmfile(FILE *fp, char *grmfile, char *errbuf, int be_verbose);
 
 
@@ -74,7 +74,7 @@ CreateTmpfileWithInclude(char *grmfile, char tmpfile[32], char *errbuf, int be_v
  *            logprobabilities, scores or counts. Parameters
  */
 int
-Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight, char *errbuf, int verbose)
+Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight,  char *errbuf, int verbose)
 {
   ESL_FILEPARSER *efp = NULL;
   int             nf = 0;
@@ -104,7 +104,7 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight, char *err
      ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): multiple files are only allowed for grammars given in counts.");
    
 #if 0
-  if (verbose) Grammar_Dump(stdout, G, FALSE, TRUE);
+  if (verbose) Grammar_Dump(stdout, G, FALSE, TRUE, verbose);
 #endif
   
   switch(param) {
@@ -113,8 +113,8 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight, char *err
     if ((status = Grammar_Priorify(G, 0.1, FALSE, errbuf))        != eslOK) goto ERROR; 
     if ((status = Grammar_Normalize(G, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR; 
     break;
-  case LPROB:                                                          
-    if ((status = Grammar_Normalize(G, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR; 
+  case LPROB:
+    if ((status = Grammar_Normalize(G, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR;
     break;
   case SCORE:                                                                                                                            
     break;
@@ -125,6 +125,7 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight, char *err
   }
   
   if (efp != NULL) esl_fileparser_Destroy(efp);  efp = NULL;
+
   return eslOK;
   
  ERROR:
@@ -142,13 +143,18 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight, char *err
  * Xref:      STL9/52.
  */
 int 
-Grammar_Write(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, char *errbuf)
+Grammar_Write(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, int preload_format, char *errbuf)
 {
   int status;
-  
-  if ((status = Grammar_WriteTransitions(fp, G, sctype, errbuf))          != eslOK) goto ERROR;
-  if ((status = Grammar_WriteEmissions(fp, G, sctype, tedist_on, errbuf)) != eslOK) goto ERROR;
-  if ((status = Grammar_WriteLdists(fp, G, sctype, errbuf))               != eslOK) goto ERROR;
+
+  if ((status = Grammar_Priorify(G, 0.1, FALSE, errbuf))        != eslOK) goto ERROR; 
+  if ((status = Grammar_Normalize(G, NULL, NULL, NULL, errbuf)) != eslOK) goto ERROR; 
+ 
+  if (preload_format) fprintf(fp, "{\n");
+  if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))          != eslOK) goto ERROR;
+  if ((status = Grammar_WriteEmissions(fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
+  if ((status = Grammar_WriteLdists(fp, G, sctype, preload_format, errbuf))               != eslOK) goto ERROR;
+  if (preload_format) fprintf(fp, "}\n");
 
   return eslOK;
   
@@ -165,41 +171,41 @@ Grammar_Write(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, char *er
  * Xref:      STL9/52.
  */
 int 
-Grammar_WritePartial(FILE *fp, GRAMMAR *G, enum dist_e distype, enum param_e sctype, int tedist_on, char *errbuf)
+Grammar_WritePartial(FILE *fp, GRAMMAR *G, enum dist_e distype, enum param_e sctype, int tedist_on, int preload_format, char *errbuf)
 {
   int status;
   
   switch(distype) {
   case DIST_T:  
-    if ((status = Grammar_WriteTransitions(fp, G, sctype, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
     break;
   case DIST_E:
-    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, errbuf)) != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
     break;
   case DIST_L:
-    if ((status = Grammar_WriteSegLdists  (fp, G, sctype, TRUE, errbuf))      != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegLdists  (fp, G, sctype, TRUE, preload_format, errbuf))      != eslOK) goto ERROR;
     break;
   case DIST_TE:
-    if ((status = Grammar_WriteTransitions(fp, G, sctype, errbuf))            != eslOK) goto ERROR;
-    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, errbuf)) != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
     break;
   case DIST_TL:
-    if ((status = Grammar_WriteTransitions(fp, G, sctype, errbuf))            != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegLdists(  fp, G, sctype, TRUE, errbuf))      != eslOK) goto ERROR;
+    if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegLdists(  fp, G, sctype, TRUE, preload_format, errbuf))      != eslOK) goto ERROR;
     break;
   case DIST_EL:
-    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, errbuf)) != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, errbuf))            != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegLdists  (fp, G, sctype, TRUE, errbuf))      != eslOK) goto ERROR;
+    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegLdists  (fp, G, sctype, TRUE, preload_format, errbuf))      != eslOK) goto ERROR;
     break;
   case DIST_NONE:
   case DIST_TEL:
-    if ((status = Grammar_WriteTransitions(fp, G, sctype, errbuf))            != eslOK) goto ERROR;
-    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, errbuf)) != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, errbuf))            != eslOK) goto ERROR;
-    if ((status = Grammar_WriteSegLdists(  fp, G, sctype, TRUE, errbuf))      != eslOK) goto ERROR;
+    if ((status = Grammar_WriteTransitions(fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteEmissions  (fp, G, sctype, tedist_on, preload_format, errbuf)) != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegEdists  (fp, G, sctype, preload_format, errbuf))            != eslOK) goto ERROR;
+    if ((status = Grammar_WriteSegLdists(  fp, G, sctype, TRUE, preload_format, errbuf))      != eslOK) goto ERROR;
      break;
   default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_WritePartial(): wrong distype for G."); 
     break;    
@@ -212,7 +218,7 @@ Grammar_WritePartial(FILE *fp, GRAMMAR *G, enum dist_e distype, enum param_e sct
 }
 
 int 
-Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
+Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, int preload_format, char *errbuf)
 {
   TDIST *tdist;                 /* pointer to trasition distributions */
   double paramval;              /* parameter value to save */
@@ -223,20 +229,24 @@ Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf
   /* The transitions.
    * <#> <n> <p_1>..<p_n>
    */
-  fprintf(fp, "\n# Transition ");
-  switch(sctype) {
-  case COUNT: fprintf(fp, "counts.\n");                                        break;
-  case LPROB: fprintf(fp, "probability distribution (logs).\n");               break;
-  case SCORE: fprintf(fp, "scores.\n");                                        break;
-  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+  if (preload_format) {
   }
-  fprintf(fp, "# <ntd>\n");
-  fprintf(fp, "#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.\n");
-  fprintf(fp, "%d\n", G->ntd);
+  else {
+    fprintf(fp, "\n# Transition ");
+    switch(sctype) {
+    case COUNT: fprintf(fp, "counts.\n");                                        break;
+    case LPROB: fprintf(fp, "probability distribution (logs).\n");               break;
+    case SCORE: fprintf(fp, "scores.\n");                                        break;
+    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+    }
+    fprintf(fp, "# <ntd>\n");
+    fprintf(fp, "#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.\n");
+    fprintf(fp, "%d\n", G->ntd);
+  }
   for (i = 0; i < G->ntd; i++)
     {
       tdist = &(G->tdist[i]);
-      fprintf(fp, "  %-2d %-2d ", i, tdist->tn);
+      if (preload_format) fprintf(fp, "{"); else fprintf(fp, "  %-2d %-2d ", i, tdist->tn);
       for (x = 0; x < tdist->tn; x++) {
 	switch(sctype) {
 	case COUNT: paramval = tdist->tc[x];      break;
@@ -244,11 +254,17 @@ Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf
 	case SCORE: paramval = tdist->tsc[x];     break;
 	default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
 	}
-	fprintf(fp, "%7f ", paramval);
+	if (preload_format) {
+	  if (x < tdist->tn-1) fprintf(fp, "%7f,", paramval); else fprintf(fp, "%7f", paramval);
+	}
+	else
+	  fprintf(fp, "%7f ", paramval);
       }
-      fprintf(fp, "\n");
+      if (preload_format) {
+	if (G->ned > 0) fprintf(fp, "}, \\\\ %s\n", tdist->tname); else fprintf(fp, "} \\\\ %s\n", tdist->tname); 
+      }
+      else fprintf(fp, "\n");
     }
-  fprintf(fp, "\n");
 
   return eslOK;
   
@@ -257,7 +273,7 @@ Grammar_WriteTransitions(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf
  }
 
 int 
-Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, char *errbuf)
+Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on, int preload_format, char *errbuf)
 {
   EDIST  *edist;
   int     i;			/* index over distributions */
@@ -265,26 +281,55 @@ Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on,
 
   /* The emissions.
    */
-  fprintf(fp, "# Emission ");
-  switch(sctype) {
-  case COUNT: fprintf(fp, "counts.\n");                          break;
-  case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
-  case SCORE: fprintf(fp, "scores.\n");                          break;
-  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+  if (preload_format) {
   }
-  fprintf(fp, "# <ned>\n");
-  fprintf(fp, "#   <#> <name> <nemit> <ncontext> <has_baspair> (<basepairtype> <coordl_idx> <coordr_idx> ) <p_1> .. <p_{4^n}> for each 1..<ned>\n"); 
-  fprintf(fp, "%d\n", G->ned);
+  else {
+    fprintf(fp, "# Emission ");
+  
+    switch(sctype) {
+    case COUNT: fprintf(fp, "counts.\n");                          break;
+    case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
+    case SCORE: fprintf(fp, "scores.\n");                          break;
+    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+    }
+    fprintf(fp, "# <ned>\n");
+    fprintf(fp, "#   <#> <name> <nemit> <ncontext> <has_baspair> (<basepairtype> <coordl_idx> <coordr_idx> ) <p_1> .. <p_{4^n}> for each 1..<ned>\n"); 
+    fprintf(fp, "%d\n", G->ned);
+  }
   for (i = 0; i < G->ned; i++)
     {
       edist = &(G->edist[i]);
 
+      if (edist->c > 0) { // a hack that works for RBG grammars
+	if      (!strcmp(edist->ename, "e1_2_2_0"))  fprintf(fp, "{ \\\\ e1_2_2_x\n");
+	if      (!strcmp(edist->ename, "e2_2_2_0"))  fprintf(fp, "{ \\\\ e2_2_2_x\n");
+ 	else if (!strcmp(edist->ename, "e1_2_2_15")) fprintf(fp, "}\n");
+	else if (!strcmp(edist->ename, "e2_2_2_15")) fprintf(fp, "}\n");
+     }
+
       if (tedist_on == FALSE && edist->tiedtype != TIED_OFF) continue; /* write only the untied edists */
 
-      if ((status = Grammar_CalculateTiedEdist(edist, G, sctype, errbuf)) != eslOK) goto ERROR;
-      if ((status = grammar_write_edist(fp, i, edist, sctype, errbuf))    != eslOK) goto ERROR;
+      if ((status = Grammar_CalculateTiedEdist(edist, G, sctype, errbuf))              != eslOK) goto ERROR;
+      if ((status = grammar_write_edist(fp, i, edist, sctype, preload_format, errbuf)) != eslOK) goto ERROR;
+      
+      if (preload_format) {
+	if (i <  G->ned-1) fprintf(fp, ", \\\\ %s\n", edist->ename);
+	if (i == G->ned-1) fprintf(fp, " \\\\ %s\n",  edist->ename);
+	if (edist->c > 0) { // a hack that works for RBG grammars
+	  if (!strcmp(edist->ename, "e1_2_2_15")) fprintf(fp, "},");
+	  if (!strcmp(edist->ename, "e2_2_2_15")) fprintf(fp, "}");
+	}
+      }
     }
-  fprintf(fp, "\n");
+  
+  if (preload_format) {
+    if (G->nld > 0) {
+      fprintf(fp, ",\n");
+    }
+    else
+      fprintf(fp, "\n");
+  }
+  else fprintf(fp, "\n");
   
   return eslOK;
   
@@ -294,7 +339,7 @@ Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on,
 
 
 int 
-Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
+Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int preload_format, char *errbuf)
 {
   double emit[4];
   double meanL;
@@ -304,30 +349,39 @@ Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
 
   /* The length distributions.
    */
-  fprintf(fp, "# Length ");
-  switch(sctype) {
-  case COUNT: fprintf(fp, "counts.\n");                          break;
-  case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
-  case SCORE: fprintf(fp, "scores.\n");                          break;
-  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+  if (preload_format) {
   }
-  fprintf(fp, "# <nld>\n");
-  fprintf(fp, "#    <#> <min> <max> <meanL> <fit> <minL> <minR> <alpha> <bernoulli> <type>\n");
-  fprintf(fp, "#    <emissions>\n");
-  fprintf(fp, "#       <len>  <lp[len]>\n");
-  fprintf(fp, "%d\n", G->nld);
+  else {
+    fprintf(fp, "# Length ");
+    switch(sctype) {
+    case COUNT: fprintf(fp, "counts.\n");                          break;
+    case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
+    case SCORE: fprintf(fp, "scores.\n");                          break;
+    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+    }
+    fprintf(fp, "# <nld>\n");
+    fprintf(fp, "#    <#> <min> <max> <meanL> <fit> <minL> <minR> <alpha> <bernoulli> <type>\n");
+    fprintf(fp, "#    <emissions>\n");
+    fprintf(fp, "#       <len>  <lp[len]>\n");
+    fprintf(fp, "%d\n", G->nld);
+  }
   for (i = 0; i < G->nld; i++)
     {
       Ldist_MeanL(&(G->ldist[i]), G->ldist[i].max, NULL, &meanL, NULL);
       
-      fprintf(fp, "  %d %d %d %.2f %d %d %d %.3f %.3f", i, G->ldist[i].min, G->ldist[i].max, meanL,
-	      G->ldist[i].fit, G->ldist[i].minL, G->ldist[i].minR, G->ldist[i].alpha, G->ldist[i].bernoulli);
-      if      (G->ldist[i].type == LDIST_MONO) fprintf(fp, " MONO\n");
-      else if (G->ldist[i].type == LDIST_DI)   fprintf(fp, " DI\n");
-      else if (G->ldist[i].type == LDIST_SEMI) fprintf(fp, " SEMI\n");
-      else ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong ldist type\n");
-
-       for (x = 0; x < 4; x ++) {
+      if (preload_format) {
+	fprintf(fp, "{"); 
+      }
+      else {
+	fprintf(fp, "  %d %d %d %.2f %d %d %d %.3f %.3f", i, G->ldist[i].min, G->ldist[i].max, meanL,
+		G->ldist[i].fit, G->ldist[i].minL, G->ldist[i].minR, G->ldist[i].alpha, G->ldist[i].bernoulli);
+	if      (G->ldist[i].type == LDIST_MONO) fprintf(fp, " MONO\n");
+	else if (G->ldist[i].type == LDIST_DI)   fprintf(fp, " DI\n");
+	else if (G->ldist[i].type == LDIST_SEMI) fprintf(fp, " SEMI\n");
+	else ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong ldist type\n");
+      }
+      
+      for (x = 0; x < 4; x ++) {
 	switch(sctype) {
 	case COUNT: emit[x] = G->ldist[i].ec[x];      break;
 	case LPROB: emit[x] = log(G->ldist[i].ep[x]); break;
@@ -335,17 +389,19 @@ Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
 	default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
 	}
       }
-      fprintf(fp, "  %7f %7f %7f %7f\n", 
-	      emit[0], emit[1], emit[2], emit[3]);
+      if (preload_format) 
+	fprintf(fp, "{%7f,%7f,%7f,%7f}, \\\\ %s emit\n", emit[0], emit[1], emit[2], emit[3], G->ldist[i].lname);
+      else
+	fprintf(fp, "  %7f %7f %7f %7f\n", emit[0], emit[1], emit[2], emit[3]);
 
 	
       switch(G->ldist[i].type) {
       case LDIST_MONO:
-	if (grammar_write_ldist_mono(fp, &(G->ldist[i]), sctype, errbuf) != eslOK) goto ERROR;
+	if (grammar_write_ldist_mono(fp, &(G->ldist[i]), sctype, preload_format, errbuf) != eslOK) goto ERROR;
 	break;
       case LDIST_DI:
       case LDIST_SEMI:
-	if (grammar_write_ldist_di(fp, &(G->ldist[i]), sctype, errbuf) != eslOK) goto ERROR;;
+	if (grammar_write_ldist_di(fp, &(G->ldist[i]), sctype, preload_format, errbuf) != eslOK) goto ERROR;;
 	break;
       default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong type for ldist %s.", G->ldist[i].lname); 
 	break;
@@ -359,7 +415,7 @@ Grammar_WriteLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
 }
 
 int
-Grammar_WriteSegLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int small, char *errbuf)
+Grammar_WriteSegLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int small, int preload_format, char *errbuf)
 {
   double meanL;
   int    i;			/* index over distributions */
@@ -367,31 +423,39 @@ Grammar_WriteSegLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int small, cha
 
   /* The length distributions.
    */
-  fprintf(fp, "# Length ");
-  switch(sctype) {
-  case COUNT: fprintf(fp, "counts.\n");                          break;
-  case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
-  case SCORE: fprintf(fp, "scores.\n");                          break;
-  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+  if (preload_format) {
+    fprintf(fp, "{\n");
   }
-  fprintf(fp, "# <nld>\n");
-  fprintf(fp, "#    <#> <min> <max> <meanL> <fit> <alpha> <bernoulli>\n");
-  fprintf(fp, "#       <len>  <lp[len]>\n");
-  fprintf(fp, "%d\n", G->nld);
+  else {
+    fprintf(fp, "# Length ");
+    switch(sctype) {
+    case COUNT: fprintf(fp, "counts.\n");                          break;
+    case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
+    case SCORE: fprintf(fp, "scores.\n");                          break;
+    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+    }
+    fprintf(fp, "# <nld>\n");
+    fprintf(fp, "#    <#> <min> <max> <meanL> <fit> <alpha> <bernoulli>\n");
+    fprintf(fp, "#       <len>  <lp[len]>\n");
+    fprintf(fp, "%d\n", G->nld);
+  }
   for (i = 0; i < G->nld; i++)
     {
       Ldist_MeanL(&(G->ldist[i]), G->ldist[i].max, NULL, &meanL, NULL);
-      
-      fprintf(fp, "  %d %d %d %.2f %d %.3f %.3f\n", i, G->ldist[i].min, G->ldist[i].max, meanL, G->ldist[i].fit, G->ldist[i].alpha, G->ldist[i].bernoulli);
+
+      if (!preload_format)
+	fprintf(fp, "{\n");
+      else
+	fprintf(fp, "  %d %d %d %.2f %d %.3f %.3f\n", i, G->ldist[i].min, G->ldist[i].max, meanL, G->ldist[i].fit, G->ldist[i].alpha, G->ldist[i].bernoulli);
  
       if (!small) {
 	switch(G->ldist[i].type) {
 	case LDIST_MONO:
-	  if (grammar_write_ldist_mono(fp, &(G->ldist[i]), sctype, errbuf) != eslOK) goto ERROR;
+	  if (grammar_write_ldist_mono(fp, &(G->ldist[i]), sctype, preload_format, errbuf) != eslOK) goto ERROR;
 	  break;
 	case LDIST_DI:
 	case LDIST_SEMI:
-	  if (grammar_write_ldist_di(fp, &(G->ldist[i]), sctype, errbuf) != eslOK) goto ERROR;;
+	  if (grammar_write_ldist_di(fp, &(G->ldist[i]), sctype, preload_format, errbuf) != eslOK) goto ERROR;;
 	  break;
 	default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong type for ldist %s.", G->ldist[i].lname); 
 	  break;
@@ -406,7 +470,7 @@ Grammar_WriteSegLdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int small, cha
  }
 
 int 
-Grammar_WriteSegEdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
+Grammar_WriteSegEdists(FILE *fp, GRAMMAR *G, enum param_e sctype, int preload_format, char *errbuf)
 {
   double emit[4];
   int    i;			/* index over distributions */
@@ -415,20 +479,25 @@ Grammar_WriteSegEdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
 
   /* The length distributions.
    */
-  fprintf(fp, "# Length ");
-  switch(sctype) {
-  case COUNT: fprintf(fp, "counts.\n");                          break;
-  case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
-  case SCORE: fprintf(fp, "scores.\n");                          break;
-  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+  if (preload_format) {
+    fprintf(fp, "{\n");
   }
-  fprintf(fp, "# <nld>\n");
-  fprintf(fp, "#    <#> <min> <max> \n");
-  fprintf(fp, "#    <emissions>\n");
-  fprintf(fp, "%d\n", G->nld);
+  else {
+    fprintf(fp, "# Length ");
+    switch(sctype) {
+    case COUNT: fprintf(fp, "counts.\n");                          break;
+    case LPROB: fprintf(fp, "probability distribution (logs).\n"); break;
+    case SCORE: fprintf(fp, "scores.\n");                          break;
+    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+    }
+    fprintf(fp, "# <nld>\n");
+    fprintf(fp, "#    <#> <min> <max> \n");
+    fprintf(fp, "#    <emissions>\n");
+    fprintf(fp, "%d\n", G->nld);
+  }
   for (i = 0; i < G->nld; i++)
     {
-      fprintf(fp, "  %d %d %d\n", i, G->ldist[i].min, G->ldist[i].max);
+      if (preload_format) fprintf(fp, "{"); else fprintf(fp, "  %d %d %d\n", i, G->ldist[i].min, G->ldist[i].max);
       for (x = 0; x < 4; x ++) {
 	switch(sctype) {
 	case COUNT: emit[x] = G->ldist[i].ec[x];      break;
@@ -437,9 +506,14 @@ Grammar_WriteSegEdists(FILE *fp, GRAMMAR *G, enum param_e sctype, char *errbuf)
 	default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
 	}
       }
-      fprintf(fp, "  %7f %7f %7f %7f\n", 
-	      emit[0], emit[1], emit[2], emit[3]);
-      fprintf(fp, "\n");
+      if (preload_format)  {
+	fprintf(fp, "%7f,%7f,%7f,%7f}", emit[0], emit[1], emit[2], emit[3]);
+ 	fprintf(fp, "},\n");
+      }
+      else {
+	fprintf(fp, "  %7f %7f %7f %7f\n", emit[0], emit[1], emit[2], emit[3]);
+	fprintf(fp, "\n");
+      }
 
     }      
 
@@ -585,21 +659,25 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
       for (x = 0; x < tdist->tn; x++)
 	{
 	  if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
+
 	  switch(param) {
 	  case COUNT: 
 	    if (atof(tok) < 0.)  ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read():counts have to be positive");
-	    tdist->tc[x]  += cweight * atof(tok);      break;
+	    tdist->tc[x]  += cweight * atof(tok);
+	    break;
 	  case LPROB:                                 
-	    tdist->tp[x]   = exp(atof(tok)); break;
+	    tdist->tp[x]   = exp(atof(tok));
+	    break;
 	  case SCORE:                                 
-	    tdist->tsc[x]  = atof(tok);      break;
+	    tdist->tsc[x]  = atof(tok);
+	    break;
 	  default:   
 	    ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): unknown paramtype");                     
 	    break;
 	  }
 	}
     }
-  
+
   /* Emissions section.
    * <ned>
    * for each i=0..ned-1: (it not a tied distribution)
@@ -765,9 +843,11 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
 		l2 = x - l1;
 		if (l2 >= G->ldist[i].minR && l1+l2 >= G->ldist[i].min) {
 		  if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
-		  if (atoi(tok) != l1) ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad ldist %s. l1=%d/%d min=%d max=%d\ntok=%s", G->ldist[i].lname, atoi(tok), l1, G->ldist[i].min, max, tok);
+		  if (atoi(tok) != l1) ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad ldist %s. l1=%d/%d min=%d max=%d\ntok=%s",
+						 G->ldist[i].lname, atoi(tok), l1, G->ldist[i].min, max, tok);
 		  if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
-		  if (atoi(tok) != l2) ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad ldist %s. l2=%d/%d min=%d max=%d", G->ldist[i].lname, atoi(tok), l2, G->ldist[i].min, max);
+		  if (atoi(tok) != l2) ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad ldist %s. l2=%d/%d min=%d max=%d",
+						 G->ldist[i].lname, atoi(tok), l2, G->ldist[i].min, max);
 
 		  len = l2*(max+1) + l1;
 		  if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
@@ -807,7 +887,7 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
  *
  * Returns:   <eslOK> on success; 
  */int
- grammar_write_edist(FILE *fp, int idx, EDIST *edist, enum param_e sctype, char *errbuf)
+ grammar_write_edist(FILE *fp, int idx, EDIST *edist, enum param_e sctype, int preload_format, char *errbuf)
 {
   SCVAL paramval;
   int   n;			/* number of emissions */
@@ -816,31 +896,40 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
   int   status;
   
   n = Integer_Power(4, edist->n);
-  fprintf(fp, "  %2d %s %1d %d %d ", 
-	  idx, edist->ename, 
-	  edist->n, edist->c, 
-	  edist->nbasepairs);
-  if (edist->has_basepair) {
-    for (b = 0; b < edist->nbasepairs; b ++) {
-      fprintf(fp, "(");
-      Write_Basepairtype(fp, edist->bp[b].basepairtype);
-      fprintf(fp, " %d %d)", edist->bp[b].basepair_coordl_idx, edist->bp[b].basepair_coordr_idx);
-    }
+  if (preload_format) {
+    fprintf(fp, "{");
   }
-  fprintf(fp, "\n    ");
+  else {
+    fprintf(fp, "  %2d %s %1d %d %d ", 
+	    idx, edist->ename, 
+	    edist->n, edist->c, 
+	    edist->nbasepairs);
+    if (edist->has_basepair) {
+      for (b = 0; b < edist->nbasepairs; b ++) {
+	fprintf(fp, "(");
+	Write_Basepairtype(fp, edist->bp[b].basepairtype);
+	fprintf(fp, " %d %d)", edist->bp[b].basepair_coordl_idx, edist->bp[b].basepair_coordr_idx);
+      }
+    }
+    fprintf(fp, "\n    ");
+  }
   
   for (x = 0; x < n; x++)
     {
-      if (x > 0  && (x%4 == 0)) fprintf(fp, "\n    ");
+      if (x > 0  && (x%4 == 0) && !preload_format) fprintf(fp, "\n    ");
       switch(sctype) {
       case COUNT: paramval = edist->ec[x];      break;
       case LPROB: paramval = log(edist->ep[x]); break;
       case SCORE: paramval = edist->esc[x];     break;
       default: ESL_XFAIL(eslFAIL, errbuf, "grammar_write_edist_untied(): wrong sctype for G."); break;
       }
-     fprintf(fp, "%7f ", paramval);
+      if (preload_format) {
+	if (x < n-1) fprintf(fp, "%7f,", paramval); else fprintf(fp, "%7f}", paramval);
+      }
+      else
+	fprintf(fp, "%7f ", paramval);
     }
-  fprintf(fp, "\n");
+  if (!preload_format) fprintf(fp, "\n");
   
   return eslOK;
   
@@ -859,7 +948,7 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
  * Returns:   <eslOK> on success; 
  */
 int
-grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, char *errbuf)
+grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, int preload_format, char *errbuf)
 {
   double paramval;              /* parameter value to save */
   int    lemit;                 /* counter over length emissions */
@@ -875,9 +964,13 @@ grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, char *errb
     case SCORE: paramval = ldist->lsc[len];     break;
     default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
     }
-    fprintf(fp, "    %3d  %7f\n", len+ldist->min, paramval);
+    if (preload_format) {
+      if (len < lemit-1) fprintf(fp, "%7f,", paramval);else fprintf(fp, "%7f", paramval);
+    }
+    else
+      fprintf(fp, "    %3d  %7f\n", len+ldist->min, paramval);
   }
-  fprintf(fp, "\n");
+  if (preload_format) fprintf(fp, "} \\\\ %s\n", ldist->lname); else fprintf(fp, "\n");
 
   return eslOK;
 
@@ -895,7 +988,7 @@ grammar_write_ldist_mono(FILE *fp, LDIST *ldist, enum param_e sctype, char *errb
  * Returns:   <eslOK> on success; 
  */
 int
-grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, char *errbuf)
+grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, int preload_format, char *errbuf)
 {
   double paramval;              /* parameter value to save */
   int    lsum;                 /* counter over length emissions */
@@ -903,24 +996,48 @@ grammar_write_ldist_di(FILE *fp, LDIST *ldist, enum param_e sctype, char *errbuf
   int    len;
   int    status;
 
-  for (lsum = ldist->min; lsum <= ldist->max; lsum++) {
-    for (l1 = ldist->minL; l1 <= lsum; l1++) {
-      l2  = lsum - l1;
-      if (l2 >= ldist->minR) {
+  if (preload_format) {
+    fprintf(fp, "{ \\\\ %s\n", ldist->lname);
+
+    for (l1 = ldist->minL; l1 <= ldist->max; l1++) {
+      fprintf(fp, "{");
+	
+      for (l2 = ldist->minL; l2 <= ldist->max; l2++) {
+	
 	len = l2*(ldist->max+1) + l1;
-	if (lsum >= ldist->min) {
-	  switch(sctype) {
-	  case COUNT: paramval = ldist->lc[len];      break;
-	  case LPROB: paramval = log(ldist->lp[len]); break;
-	  case SCORE: paramval = ldist->lsc[len];     break;
-	  default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
-	  }      
-	  fprintf(fp, "    %3d,%3d  %7f\n", l1, l2, paramval);
-	} 
+	switch(sctype) {
+	case COUNT: paramval = ldist->lc[len];      break;
+	case LPROB: paramval = log(ldist->lp[len]); break;
+	case SCORE: paramval = ldist->lsc[len];     break;
+	default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+	}      
+	if (l2 < ldist->max) fprintf(fp, " %7f,", paramval); else fprintf(fp, " %7f},\n", paramval);
       }
     }
+    fprintf(fp, "}\n");
   }
-  fprintf(fp, "\n");
+  
+  else {
+    for (lsum = ldist->min; lsum <= ldist->max; lsum++) {
+      for (l1 = ldist->minL; l1 <= lsum; l1++) {
+	l2  = lsum - l1;
+	if (l2 >= ldist->minR) {
+	  len = l2*(ldist->max+1) + l1;
+	  if (lsum >= ldist->min) {
+	    switch(sctype) {
+	    case COUNT: paramval = ldist->lc[len];      break;
+	    case LPROB: paramval = log(ldist->lp[len]); break;
+	    case SCORE: paramval = ldist->lsc[len];     break;
+	    default: ESL_XFAIL(eslFAIL, errbuf, "Grammar_Write(): wrong sctype for G."); break;
+	    }      
+	    fprintf(fp, "    %3d,%3d  %7f\n", l1, l2, paramval);
+	  } 
+	}
+      }
+    }
+    
+    fprintf(fp, "\n");
+  }
 
   return eslOK;
 

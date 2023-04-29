@@ -2103,7 +2103,7 @@ Grammar_Dump(FILE *fp, GRAMMAR *G, int backrules, int distcounts, int verbose)
 
  /* report distribution parameters */
   if (verbose) {
-    Grammar_Write(stdout, G, G->sctype, tedist_on, NULL);
+    Grammar_Write(stdout, G, G->sctype, tedist_on, FALSE, NULL);
   }
   
 }
@@ -2867,7 +2867,7 @@ Grammar_PriorifyLdists(GRAMMAR *G, double wgt)
   int i;
   int l;
 
-#if 0
+#if 1
   /* LDISTS: priorify the length distribution up to ldist->fit */
   for (i = 0; i < G->nld; i++) {
       Ldist_Emits(&(G->ldist[i]), &lemit);
@@ -2919,7 +2919,7 @@ Grammar_RefreshFromCounts(GRAMMAR *G, char *errbuf, int verbose)
       esl_vec_DCopy(G->ldist[i].ec, 4, G->ldist[i].ep);
     }
 
-  if (verbose) Grammar_Write(stdout, G, COUNT, FALSE, NULL);
+  if (verbose) Grammar_Write(stdout, G, COUNT, FALSE, FALSE, NULL);
 
   return eslOK;
 }
@@ -5010,29 +5010,29 @@ Grammar_Validate(GRAMMAR *G, char *errbuf)
     ESL_XFAIL(eslFAIL, errbuf, "forced min_loop is wrong");
   if (G->force_min_stem < G->min_stem)
     ESL_XFAIL(eslFAIL, errbuf, "forced min_stem is wrong");
-  
+
   /* Validate  NTs */
   for (w = 0; w < G->M; w++) 
     if ((status = Grammar_ValidateNT(w, &(G->nt[w]), G, errbuf)) != eslOK) goto ERROR;
    
-  /* Validate TDISTs */ 
+   /* Validate TDISTs */ 
   if ((status = Grammar_ValidateTDists(G, errbuf))               != eslOK) goto ERROR;
   
-  /* Validate EDISTs */
+   /* Validate EDISTs */
   if ((status = Grammar_ValidateEDists(G, errbuf))               != eslOK) goto ERROR; 
 
-  /* Validate LDISTs */  
+   /* Validate LDISTs */  
   if ((status = Grammar_ValidateLDists(G, errbuf))               != eslOK) goto ERROR; 
 
   /* Validate joint disegment rules */  
   if ((status = Grammar_ValidateJDRule(G, errbuf))               != eslOK) goto ERROR;
   
-  /* Validate tied disegment rules */
+   /* Validate tied disegment rules */
   if ((status = Grammar_ValidateSTEMRule(G, errbuf))             != eslOK) goto ERROR; 
 
-  /* Validate Parameters */
+   /* Validate Parameters */
   if ((status = Grammar_ValidateParameters(G, errbuf))           != eslOK) goto ERROR; 
-
+ 
   return eslOK;
   
  ERROR:
@@ -5094,7 +5094,7 @@ Grammar_ValidateAtom(int w, ATOM *A, RULE *rp, GRAMMAR *G, char *errbuf)
   if (A->nt_idx != w) 
     ESL_XFAIL(eslFAIL, errbuf, "Grammar_ValidateAtom(): wrong nt assignment for rule %s ATOM %s. It is %s it should be %s", 
 	      rp->rule_syntax, A->atom_syntax, nt->ntname, G->nt[w].ntname);
-  
+
   /* check that each type of atom has the right type of distributions
    */
   switch(A->atomtype) {
@@ -5167,7 +5167,8 @@ Grammar_ValidateAtom(int w, ATOM *A, RULE *rp, GRAMMAR *G, char *errbuf)
   for (bp = 0; bp < A->nbasepairs; bp ++) {
     if (A->bp[bp].basepairtype == BPTYPE_UNKNOWN)
     ESL_XFAIL(eslFAIL, errbuf, "Grammar_ValidateAtom(): NT %s RULE %s ATOM %s ncontexts %d nbps %d ATOM_basepair = %d edist[%d] %s type %d has undefined basepair type", 
-	      nt->ntname, rp->rule_syntax, A->atom_syntax,  A->ncontexts, A->nbasepairs, bp, A->edist_idx[0], G->edist[A->edist_idx[0]].ename, G->edist[A->edist_idx[0]].bp[0].basepairtype);
+	      nt->ntname, rp->rule_syntax, A->atom_syntax,  A->ncontexts, A->nbasepairs, bp,
+	      A->edist_idx[0], G->edist[A->edist_idx[0]].ename, G->edist[A->edist_idx[0]].bp[0].basepairtype);
   }
   
 #if 0
@@ -5229,8 +5230,9 @@ Grammar_ValidateEmissionAtomEdist(ATOM *A, GRAMMAR *G, char *errbuf)
 
   for (n = 0; n < A->ncoords; n++) { 
     Acoord_isbp = EmissionAtomCoordIsPaired(A, n);
-
-    for (e = 0; e < A->nedists; e++) { 
+    
+    for (e = 0; e < A->nedists; e++) {
+      
       edist = &(G->edist[A->edist_idx[e]]);
       for (ne = 0; ne < edist->n; ne++) 
 	{ 
@@ -5431,7 +5433,7 @@ Grammar_ValidateNT(int w, NT *nt, GRAMMAR *G, char *errbuf)
     if (nt_used == FALSE)    
       ESL_XFAIL(eslFAIL, errbuf, "Grammar_ValidateNT(): NT %s not used in any rule", nt->ntname);
   }
-  
+
   /* Validate  rules */
   for (r = 0; r < nt->nrules; r++) 
     if ((status = Grammar_ValidateRULE(w, r, &(nt->pr[r]), FALSE, G, errbuf)) != eslOK) goto ERROR;
@@ -5528,7 +5530,7 @@ Grammar_ValidateRULE(int w, int r, RULE *rp, int isbackrule, GRAMMAR *G, char *e
    /* for each atom */
   for (a = 0; a < rp->natoms; a++) 
     if ((status = Grammar_ValidateAtom(w, &(rp->atom[a]), rp, G, errbuf)) != eslOK) goto ERROR;
-  
+ 
   return eslOK;
 
  ERROR:

@@ -45,3 +45,54 @@ cd ..
 cd RBG_J3J4
 ~/src/Mysrc/tornado/bin/grm-train --ml --margsavefile TORNADO_TrATrBTrB_marginal.param --null TORNADO_TrATrBTrB_null.param --countsavefile TORNADO_TrATrBTrB_RBG_J3J4.counts ~/src/Mysrc/tornado/grammars/RBG_J3J4.grm ~/src/Mysrc/tornado/data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto TORNADO_TrATrBTrB_RBG_J3J4.param > TORNADO_TrATrBTrB_RBG_J3J4.train
 cd ..
+
+
+
+---------------------------------------------------------------------------------
+cluster
+---------------------------------------------------------------------------------
+
+cd ~/src/Mysrc/tornado
+
+sbatch shscripts/run_tornado.sh g6        TrATrBTrB
+sbatch shscripts/run_tornado.sh g6s       TrATrBTrB
+sbatch shscripts/run_tornado.sh g6x       TrATrBTrB
+sbatch shscripts/run_tornado.sh g6xs      TrATrBTrB
+sbatch shscripts/run_tornado.sh RBG       TrATrBTrB
+sbatch shscripts/run_tornado.sh RBG_J3    TrATrBTrB
+sbatch shscripts/run_tornado.sh RBG_J3J4  TrATrBTrB
+
+sbatch shscripts/run_tornado.sh g6        TrA
+sbatch shscripts/run_tornado.sh g6s       TrA
+sbatch shscripts/run_tornado.sh g6x       TrA
+sbatch shscripts/run_tornado.sh g6xs      TrA
+sbatch shscripts/run_tornado.sh RBG       TrA
+sbatch shscripts/run_tornado.sh RBG_J3    TrA
+sbatch shscripts/run_tornado.sh RBG_J3J4  TrA
+
+sbatch shscripts/run_tornado.sh g6        TrB
+sbatch shscripts/run_tornado.sh g6s       TrB
+sbatch shscripts/run_tornado.sh g6x       TrB
+sbatch shscripts/run_tornado.sh g6xs      TrB
+sbatch shscripts/run_tornado.sh RBG       TrB
+sbatch shscripts/run_tornado.sh RBG_J3    TrB
+sbatch shscripts/run_tornado.sh RBG_J3J4  TrB
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+save param in preload format ready to inmport into R-scape src/covgrammars.c
+----------------------------------------------------------------------------------------------------------------------------------------
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/g6/TORNADO_TrATrBTrB_g6.preload.param      grammars/g6.grm    notebook/2023-04_train/g6/TORNADO_TrATrBTrB_g6.counts
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/g6s/TORNADO_TrATrBTrB_g6s.preload.param    grammars/g6s.grm   notebook/2023-04_train/g6s/TORNADO_TrATrBTrB_g6s.counts
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/g6x/TORNADO_TrATrBTrB_g6x.preload.param    grammars/g6x.grm  notebook/2023-04_train/g6x/TORNADO_TrATrBTrB_g6x.counts
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/g6xs/TORNADO_TrATrBTrB_g6xs.preload.param  grammars/g6xs.grm notebook/2023-04_train/g6xs/TORNADO_TrATrBTrB_g6xs.counts
+
+
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/RBG/TORNADO_TrATrBTrB_RBG.preload.param            grammars/RBG.grm      notebook/2023-04_train/RBG/TORNADO_TrATrBTrB_RBG.counts
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/RBG_J3/TORNADO_TrATrBTrB_RBG_J3.preload.param      grammars/RBG_J3.grm   notebook/2023-04_train/RBG_J3/TORNADO_TrATrBTrB_RBG_J3.counts
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/RBG_J3J4/TORNADO_TrATrBTrB_RBG_J3J4.preload.param  grammars/RBG_J3J4.grm notebook/2023-04_train/RBG_J3J4/TORNADO_TrATrBTrB_RBG_J3J4.counts
+
+bin/grm-parse --count --preload --paramsavefile notebook/2023-04_train/RBG_J3J4/TORNADO_TrB_RBG_J3J4.preload.param  grammars/RBG_J3J4.grm notebook/2023-04_train/RBG_J3J4/TORNADO_TrB_RBG_J3J4.counts

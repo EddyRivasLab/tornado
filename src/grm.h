@@ -212,6 +212,9 @@ struct cfg_s {
   double          mm_alpha;           /* parameters for MM regularization */
   double          mm_beta;            /* beta should be positive */
   SCVAL           regsc;              /* regularization function value */
+
+  /* writing */
+  int            preload_format;      // display grammar counts/prob/scores in a format that R-scape reads
 };
 
 extern int GRM_EMIT   (ESL_GETOPTS *go, struct cfg_s *cfg);

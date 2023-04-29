@@ -40,9 +40,11 @@ static ESL_OPTIONS options[] = {
   { "--scoresavefile",  eslARG_STRING,   NULL,      NULL,   NULL,  NULL,      NULL, NULL,                       "save score file",                               0 },
   { "--margsavefile",   eslARG_STRING,   NULL,      NULL,   NULL,  NULL,      NULL, NULL,                       "print maginals for G",                          0 },
 /* Alternate grammar parameters options */ 
-  { "--count",          eslARG_NONE,"default",      NULL,   NULL,  PARAMOPTS, NULL, NULL,                       "grammar paramfile are given in counts",         0 },
+  { "--count",          eslARG_NONE,    FALSE,      NULL,   NULL,  PARAMOPTS, NULL, NULL,                       "grammar paramfile are given in counts",         0 },
   { "--lprob",          eslARG_NONE,    FALSE,      NULL,   NULL,  PARAMOPTS, NULL, NULL,                       "grammar paramfile are given in logprobs",       0 },
   { "--score",          eslARG_NONE,    FALSE,      NULL,   NULL,  PARAMOPTS, NULL, NULL,                       "grammar paramfile are given in scores",         0 },
+/* output options */ 
+  { "--preload",        eslARG_NONE,    FALSE,      NULL,   NULL,  NULL,      NULL, NULL,                       "grammar paramfile are given in scores",         0 },
 /* sequence weighting */ 
   { "--cweightfile",    eslARG_STRING,   NULL,      NULL,   NULL,   NULL,     NULL, NULL,                       "assign weights to the different training sets", 0 },
   {  0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -101,7 +103,7 @@ main (int argc, char **argv)
 
   /* the options */
   if      (esl_opt_GetBoolean(go, "--count")) cfg.paramtype = COUNT; 
-  else if (esl_opt_GetBoolean(go, "--lprob")) cfg.paramtype = LPROB; 
+  else if (esl_opt_GetBoolean(go, "--lprob")) cfg.paramtype = LPROB;
   else if (esl_opt_GetBoolean(go, "--score")) cfg.paramtype = SCORE; 
   cfg.nparamfile      = esl_opt_ArgNumber(go) - fixargs;
   cfg.paramfile       = malloc(sizeof(char *) * cfg.nparamfile);
@@ -116,6 +118,7 @@ main (int argc, char **argv)
   cfg.paramsavefile   = esl_opt_GetString(go,  "--paramsavefile");
   cfg.scoresavefile   = esl_opt_GetString(go,  "--scoresavefile");
   cfg.backrules       = esl_opt_GetBoolean(go, "--bck");
+  cfg.preload_format  = esl_opt_GetBoolean(go, "--preload");
   cfg.grmfile         = esl_opt_GetArg(go, 1);
   cfg.priorify = TRUE;
   npf = 0;
@@ -154,14 +157,13 @@ main (int argc, char **argv)
   fclose(yyin);
   remove(grmtmpfile);
   
-
   /* save counts if asked to */
   if (cfg.countsavefile) {
     if ((cfg.fp = fopen(cfg.countsavefile, "w")) == NULL) 
       grammar_fatal ("failed to open %s for output", cfg.countsavefile);
  
     if (cfg.G->sctype == COUNT) {
-      if (Grammar_Write(cfg.fp, cfg.G, COUNT, FALSE, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
+      if (Grammar_Write(cfg.fp, cfg.G, COUNT, FALSE, cfg.preload_format, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
     }
     else {
       fprintf(cfg.fp, "Cannot create count file %s. G specified by scores only.\n", cfg.countsavefile);
@@ -176,7 +178,7 @@ main (int argc, char **argv)
       grammar_fatal ("failed to open %s for output", cfg.paramsavefile);
  
     if (cfg.G->sctype != SCORE) {
-      if (Grammar_Write(cfg.fp, cfg.G, LPROB, TRUE, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
+      if (Grammar_Write(cfg.fp, cfg.G, LPROB, TRUE, cfg.preload_format, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
     }
     else {
       fprintf(cfg.fp, "Cannot create paramfile %s. G specified by scores only.\n", cfg.paramsavefile);
@@ -190,7 +192,7 @@ main (int argc, char **argv)
     if ((cfg.fp = fopen(cfg.scoresavefile, "w")) == NULL) 
       grammar_fatal ("failed to open %s for output", cfg.scoresavefile);
 
-    if (Grammar_Write(cfg.fp, cfg.G, SCORE, TRUE, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
+    if (Grammar_Write(cfg.fp, cfg.G, SCORE, TRUE, cfg.preload_format, cfg.errbuf) != eslOK) grammar_fatal ("failed to write grammar.\n%s", cfg.errbuf);
     fclose(cfg.fp);
   }
 

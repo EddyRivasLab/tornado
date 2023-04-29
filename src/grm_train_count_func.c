@@ -104,7 +104,7 @@ GRM_TrainCountOnSeq(GRAMMAR *G, ESL_SQ *sq, enum model_e modeltype, enum train_e
     }
   
 #if 0
-  if ((status = Grammar_WriteTransitions(stdout, G, COUNT, errbuf)) != eslOK) goto ERROR;
+  if ((status = Grammar_WriteTransitions(stdout, G, COUNT, FALSE, errbuf)) != eslOK) goto ERROR;
 #endif
 
   if (bpt != NULL) bpt_Destroy(bpt); bpt = NULL;
@@ -195,7 +195,7 @@ GRM_TrainCountOnFile(char *seqssfile, GRAMMAR *G, enum model_e modeltype, enum t
     }
   
 #if 0
-  if ((status = Grammar_WriteTransitions(stdout, cfg.G, COUNT, cfg.errbuf)) != eslOK) goto ERROR;
+  if ((status = Grammar_WriteTransitions(stdout, cfg.G, COUNT, FALSE, cfg.errbuf)) != eslOK) goto ERROR;
 #endif
 
   if (cfg.sqfp  != NULL) esl_sqfile_Close(cfg.sqfp);    cfg.sqfp  = NULL;
@@ -268,7 +268,7 @@ GRM_TRAIN_COUNT(ESL_GETOPTS *go, struct cfg_s *cfg)
     }      
 
 #if 0
-  Grammar_WriteTransitions(stdout, cfg->G, COUNT, cfg->errbuf);
+  Grammar_WriteTransitions(stdout, cfg->G, COUNT, FALSE, cfg->errbuf);
 #endif
 
   /* Stop timing. */
@@ -904,12 +904,12 @@ dump_result(struct cfg_s *cfg, int sqidx, ESL_SQ *sq, PARSETREE ***ret_Tlist, BG
       sprintf(csavefile, "%s.%d", cfg->cfiles, sqidx);
       if ((fp = fopen(csavefile, "w")) == NULL)
 	ESL_XFAIL(eslFAIL, cfg->errbuf, "couldn't open checkpoint file %s", csavefile);
-      if ((status = Grammar_Write(fp, Gct, COUNT, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+      if ((status = Grammar_Write(fp, Gct, COUNT, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
       fclose(fp);
     } 
   
 #if 0
-  if ((status = Grammar_WriteTransitions(stdout, Gct, COUNT, cfg->errbuf)) != eslOK) goto ERROR;
+  if ((status = Grammar_WriteTransitions(stdout, Gct, COUNT, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
 #endif
 
   /* the individual grammar counts become a dirichlet sample */
@@ -970,16 +970,16 @@ GRM_TrainOutput(struct cfg_s *cfg)
      if ((cfg->fp = fopen(cfg->countsavefile, "w")) == NULL) 
       ESL_XFAIL(eslFAIL, cfg->errbuf, "failed to open %s for countsavefile", cfg->countsavefile);
 
-    if ((status = Grammar_Write(cfg->fp, cfg->G, COUNT, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+     if ((status = Grammar_Write(cfg->fp, cfg->G, COUNT, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
     fclose(cfg->fp); cfg->fp = NULL;
   }
 
 #if 0
-    Grammar_WriteTransitions(stdout, cfg->G, COUNT, cfg->errbuf);
+  Grammar_WriteTransitions(stdout, cfg->G, COUNT, FALSE, cfg->errbuf);
 #endif
 
 #if 0
-    Grammar_WriteEmissions(stdout, cfg->G, LPROB, FALSE, cfg->errbuf);
+    Grammar_WriteEmissions(stdout, cfg->G, LPROB, FALSE, FALSE, cfg->errbuf);
 #endif
 
   /* save length-depedency stats if asked to */
@@ -1004,7 +1004,7 @@ GRM_TrainOutput(struct cfg_s *cfg)
  /* save paramfile */
   if ((cfg->fp = fopen(cfg->paramsavefile, "w")) == NULL) 
     ESL_XFAIL(eslFAIL, cfg->errbuf, "failed to open %s for output", cfg->paramsavefile);
-  if ((status = Grammar_Write(cfg->fp, cfg->G, LPROB, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
+  if ((status = Grammar_Write(cfg->fp, cfg->G, LPROB, FALSE, FALSE, cfg->errbuf)) != eslOK) goto ERROR;
   fclose(cfg->fp); cfg->fp = NULL;
   
  /* log normalize and save null model if asked to */
