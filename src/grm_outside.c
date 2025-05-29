@@ -91,7 +91,7 @@ Outside_Fill(GRAMMAR *G, ESL_SQ *sq, GMX *imx, GMX **ret_omx, SCVAL *ret_sc, flo
 	 */
 	for (w = 0; w < G->M; w++) {
 	  if ((status = dp_recursion(&(omx->dp[w][j][d]), omx, imx, G, sq->dsq, L, c, j, d, w, naive, errbuf)) != eslOK) goto ERROR;
-	  if (0) printf("\n-->OUTSIDE %f w=%d[%s] i=%d j=%d L = %d\n", omx->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, L); 
+	  if (be_verbose) printf("\n-->OUTSIDE %f w=%d[%s] i=%d j=%d L = %d\n", omx->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, L); 
 #if 0
 	  /* for debugging: calculation of internal loops in O(L^4) */
 	  if (naive == FALSE) {
@@ -179,6 +179,9 @@ Outside_RuleScore(SCVAL *ret_rsc, GMX *omx, GMX *imx, RULE *brp, DRULE *dr, GRAM
    * all our coords i,k,l,j; d,d1,d2 are set up (we think).
    * add up all the contributions of each atom to the score.
    */
+  if (verbose)
+    printf("\nORule: i = %d k = %d l = %d j = %d rule %s \n", i, k, l, j, brp->rule_syntax);
+
   for (e = 0; e < brp->natoms; e++)
     {
       A = &(brp->atom[e]);

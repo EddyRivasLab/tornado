@@ -134,7 +134,7 @@ Inside_Fill(GRAMMAR *G, ESL_SQ *sq, GMX **ret_imx, SCVAL *ret_sc, char *errbuf, 
 	for (w = G->M-1; w >= 0; w--) {
 	  if ((status = dp_recursion(&(imx->dp[w][j][d]), imx, G, sq->dsq, L, c, j, d, w, sampleback, errbuf)) != eslOK) goto ERROR;
 #if 0
-	    if (w==13&&j==44&&d==4)printf("\nINSIDE %f w=%d[%s] i=%d j=%d d=%d L=%d\n", imx->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, d, L);
+	  printf("\nINSIDE %f w=%d[%s] i=%d j=%d d=%d L=%d\n", imx->dp[w][j][d], w, G->nt[w].ntname, j-d+1, j, d, L);
 #endif
 #if 0
 	  /* for debugging: calculation of internal loops in O(L^4) */
@@ -908,7 +908,6 @@ dp_recursion_rule(GMX *imx, GRAMMAR *G, ESL_DSQ *dsq, int L, int c[4], int j, in
 	  } 
 	
 	/* start with the rule score */
-	if (0&&w==9&&j==19&&j-d+1==1&&d1==1&&d2==14&&mid==0) verbose = TRUE; else verbose = FALSE;
 	if ((status = Inside_RuleScore(&sc, imx, rp, dr, G, dsq, L, c, mid, sampleback, errbuf, verbose)) != eslOK) goto ERROR;
 	
 	if (sc > -eslINFINITY && tdist->tsc[r] > -eslINFINITY)

@@ -562,7 +562,7 @@ Grammar_CalculateMarginals(FILE *fp, GRAMMAR *G, char *errbuf)
     {
       edist = &(G->edist[e]);
       
-      if (!edist->silent) {
+      if (!edist->silent && edist->n == 2) {
 	for (x = 0; x < 4; x ++) p[x] = 0.0;
 	
 	nemit = Integer_Power(4, edist->n);
@@ -573,12 +573,13 @@ Grammar_CalculateMarginals(FILE *fp, GRAMMAR *G, char *errbuf)
 	    p[ridx%4] += edist->ep[idx];
 	    ridx /= 4;
 	  }
-	  p[ridx] += edist->ep[idx];
+	  if (idx==ridx) p[ridx] += edist->ep[idx];
 	}
 	
 	fprintf(fp, "\nedist %s MARGINALS:\n", edist->ename);
-	for (x = 0; x < 4; x ++)
+	for (x = 0; x < 4; x ++) {
 	  fprintf(fp, "%f ", p[x]);
+	}
 	fprintf(fp,"\n");
       }
     }
@@ -5004,7 +5005,7 @@ Grammar_Validate(GRAMMAR *G, char *errbuf)
   int    status;
 
   if (errbuf != NULL) *errbuf = 0;
-  
+
   /* Validate general parameters */
   if (G->force_min_loop < G->min_loop)
     ESL_XFAIL(eslFAIL, errbuf, "forced min_loop is wrong");
@@ -5026,7 +5027,7 @@ Grammar_Validate(GRAMMAR *G, char *errbuf)
 
   /* Validate joint disegment rules */  
   if ((status = Grammar_ValidateJDRule(G, errbuf))               != eslOK) goto ERROR;
-  
+ 
    /* Validate tied disegment rules */
   if ((status = Grammar_ValidateSTEMRule(G, errbuf))             != eslOK) goto ERROR; 
 
@@ -5711,7 +5712,7 @@ Grammar_ValidateTDists(GRAMMAR *G, char *errbuf)
 	      tsc = tdist->tsc[ti];
 	    }
 	    if (ntied > 1) {
-	      if (esl_DCompare(tdist->tc[ti], tc, 1e-9) == eslFAIL)
+	      if (esl_DCompare(tdist->tc[ti], tc, 1e-9, 1e-9) == eslFAIL)
 		ESL_XFAIL(eslFAIL, errbuf, 
 			  "Grammar_ValidateTDists(): tdist %s. Probabilities not tied properly. t=%d (%f) should be (%f)", 
 			  tdist->tname, ti, tdist->tc[ti], tc);	
@@ -8421,10 +8422,10 @@ grammar_set_rule_d1_iterator(RULE *rp, GRAMMAR *G, char *errbuf)
     case EPSILON_ATOM: 
       break;
 
-    case NONTERMINAL_ATOM: 
+    case NONTERMINAL_ATOM:
       if (atom->ncoords != 2) return eslFAIL;
       if (atom->coordbase[0] == COORD_I && atom->offset[0] >= 0 && 
-	  atom->coordbase[1] == COORD_K && atom->offset[0] <= 0   ) {
+	  atom->coordbase[1] == COORD_K && atom->offset[1] <= 0   ) {
 	rp->d1_iterator_min += atom->atom_mind;
 	rp->d1_iterator_max  = INT_MAX;
       }
@@ -8471,7 +8472,7 @@ grammar_set_rule_d1_iterator(RULE *rp, GRAMMAR *G, char *errbuf)
     }
 
 #if 0
-    printf("RULE %s D1: %d min %d max %d\n", rp->rule_syntax, rp->d1_iterator_state, rp->d1_iterator_min, rp->d1_iterator_max);
+    printf("RULE %s atom %s D1: %d min %d max %d\n", rp->rule_syntax, atom->atom_syntax, rp->d1_iterator_state, rp->d1_iterator_min, rp->d1_iterator_max);
 #endif
  }
   

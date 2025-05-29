@@ -1,17 +1,17 @@
 Brief installation instructions.
 
-TORNADO v0.6.0	   May 2023
+TORNADO v0.9.0	   June 2025
 http://rivaslab.org/software
 
 ----------------------------------------------------------------------------
-Starting from a source distribution, tornado_v0.6.0/:
+Starting from a source distribution, tornado_v0.9.0/:
 
- move into new directory:   cd tornado_v0.6.0
+ move into new directory:   cd tornado_v0.9.0
  configure:                 ./configure
  build:                     make
  install:		    make install
 
-The default installation produces several executables at tornado_v0.6.0/bin/:
+The default installation produces several executables at tornado_v0.9.0/bin/:
 grm-dirichlet
 grm-emit
 grm-gldist
@@ -24,7 +24,7 @@ grm-score
 grm-train
 
 For complete documentation, see the TORNADO User's Guide 
-(tornado_v0.6.0/documentation/TORNADO_userguide.pdf).
+(tornado_v0.9.0/documentation/TORNADO_userguide.pdf).
 
 
 ----------------------------------------------------------------------------

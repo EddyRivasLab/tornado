@@ -444,7 +444,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 215 "grm_parsegrammar.y"
+#line 216 "grm_parsegrammar.y"
 { 
   char              *string; 
   double             dval; 
@@ -987,40 +987,40 @@ static const yytype_int16 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   275,   275,   275,   294,   295,   300,   301,   302,   303,
-     308,   309,   312,   326,   327,   328,   329,   330,   331,   332,
-     333,   334,   335,   336,   337,   338,   339,   340,   341,   342,
-     343,   349,   350,   351,   352,   353,   354,   355,   358,   359,
-     361,   362,   364,   365,   368,   369,   370,   372,   373,   375,
-     376,   381,   387,   393,   399,   405,   411,   417,   427,   426,
-     434,   433,   441,   440,   448,   447,   455,   454,   462,   461,
-     469,   468,   481,   490,   505,   513,   519,   525,   531,   537,
-     543,   551,   556,   561,   566,   572,   581,   580,   588,   587,
-     595,   594,   602,   601,   609,   608,   616,   615,   623,   622,
-     630,   629,   637,   636,   644,   643,   651,   650,   658,   657,
-     665,   664,   672,   671,   679,   683,   682,   689,   690,   691,
-     694,   694,   696,   702,   702,   704,   708,   710,   712,   715,
-     715,   717,   717,   719,   719,   723,   729,   735,   741,   749,
-     755,   763,   769,   777,   782,   787,   788,   789,   790,   793,
-     799,   805,   812,   822,   828,   836,   841,   846,   851,   856,
-     861,   866,   871,   876,   881,   886,   890,   896,   903,   911,
-     918,   926,   936,   937,   942,   941,   951,   950,   962,   967,
-     975,   979,   983,   987,   994,   995,   996,   997,  1000,  1010,
-    1024,  1036,  1045,  1058,  1069,  1081,  1094,  1110,  1110,  1113,
-    1114,  1115,  1116,  1120,  1121,  1125,  1126,  1127,  1128,  1131,
-    1140,  1149,  1153,  1157,  1161,  1168,  1172,  1176,  1180,  1188,
-    1196,  1204,  1213,  1221,  1230,  1240,  1249,  1259,  1268,  1278,
-    1287,  1297,  1308,  1318,  1329,  1339,  1350,  1360,  1371,  1380,
-    1391,  1403,  1413,  1424,  1436,  1446,  1458,  1470,  1481,  1493,
-    1504,  1516,  1529,  1540,  1552,  1565,  1576,  1588,  1601,  1613,
-    1626,  1638,  1651,  1663,  1676,  1688,  1701,  1715,  1726,  1738,
-    1749,  1761,  1773,  1786,  1799,  1813,  1827,  1842,  1850,  1859,
-    1868,  1878,  1887,  1897,  1907,  1918,  1930,  1943,  1954,  1966,
-    1979,  1990,  2002,  2015,  2027,  2040,  2054,  2064,  2075,  2087,
-    2100,  2111,  2123,  2136,  2150,  2161,  2173,  2186,  2200,  2211,
-    2223,  2236,  2250,  2261,  2273,  2286,  2300,  2312,  2325,  2339,
-    2354,  2366,  2379,  2391,  2404,  2417,  2431,  2444,  2458,  2471,
-    2485,  2498,  2512,  2526,  2541,  2555
+       0,   276,   276,   276,   295,   296,   301,   302,   303,   304,
+     309,   310,   313,   327,   328,   329,   330,   331,   332,   333,
+     334,   335,   336,   337,   338,   339,   340,   341,   342,   343,
+     344,   350,   351,   352,   353,   354,   355,   356,   359,   360,
+     362,   363,   365,   366,   369,   370,   371,   373,   374,   376,
+     377,   382,   388,   394,   400,   406,   412,   418,   428,   427,
+     435,   434,   442,   441,   449,   448,   456,   455,   463,   462,
+     470,   469,   482,   491,   506,   514,   520,   526,   532,   538,
+     544,   552,   557,   562,   567,   573,   582,   581,   589,   588,
+     596,   595,   603,   602,   610,   609,   617,   616,   624,   623,
+     631,   630,   638,   637,   645,   644,   652,   651,   659,   658,
+     666,   665,   673,   672,   680,   684,   683,   690,   691,   692,
+     695,   695,   697,   703,   703,   705,   709,   711,   713,   716,
+     716,   718,   718,   720,   720,   724,   730,   736,   742,   750,
+     756,   764,   770,   778,   783,   788,   789,   790,   791,   794,
+     800,   806,   813,   823,   829,   837,   842,   847,   852,   857,
+     862,   867,   872,   877,   882,   887,   891,   897,   904,   912,
+     919,   927,   937,   938,   943,   942,   952,   951,   963,   968,
+     976,   980,   984,   988,   995,   996,   997,   998,  1001,  1011,
+    1025,  1037,  1046,  1059,  1070,  1082,  1095,  1111,  1111,  1114,
+    1115,  1116,  1117,  1121,  1122,  1126,  1127,  1128,  1129,  1132,
+    1141,  1150,  1154,  1158,  1162,  1169,  1173,  1177,  1181,  1189,
+    1197,  1205,  1214,  1222,  1231,  1241,  1250,  1260,  1269,  1279,
+    1288,  1298,  1309,  1319,  1330,  1340,  1351,  1361,  1372,  1381,
+    1392,  1404,  1414,  1425,  1437,  1447,  1459,  1471,  1482,  1494,
+    1505,  1517,  1530,  1541,  1553,  1566,  1577,  1589,  1602,  1614,
+    1627,  1639,  1652,  1664,  1677,  1689,  1702,  1716,  1727,  1739,
+    1750,  1762,  1774,  1787,  1800,  1814,  1828,  1843,  1851,  1860,
+    1869,  1879,  1888,  1898,  1908,  1919,  1931,  1944,  1955,  1967,
+    1980,  1991,  2003,  2016,  2028,  2041,  2055,  2065,  2076,  2088,
+    2101,  2112,  2124,  2137,  2151,  2162,  2174,  2187,  2201,  2212,
+    2224,  2237,  2251,  2262,  2274,  2287,  2301,  2313,  2326,  2340,
+    2355,  2367,  2380,  2392,  2405,  2418,  2432,  2445,  2459,  2472,
+    2486,  2499,  2513,  2527,  2542,  2556
 };
 #endif
 
@@ -1583,7 +1583,7 @@ do								\
     }								\
   else								\
     {								\
-      yyerror (YY_("syntax error: cannot back up")); \
+      yyerror (yyparse_param, YY_("syntax error: cannot back up")); \
       YYERROR;							\
     }								\
 while (YYID (0))
@@ -1663,7 +1663,7 @@ do {									  \
     {									  \
       YYFPRINTF (stderr, "%s ", Title);					  \
       yy_symbol_print (stderr,						  \
-		  Type, Value); \
+		  Type, Value, yyparse_param); \
       YYFPRINTF (stderr, "\n");						  \
     }									  \
 } while (YYID (0))
@@ -1677,17 +1677,19 @@ do {									  \
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 static void
-yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
+yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep, void *yyparse_param)
 #else
 static void
-yy_symbol_value_print (yyoutput, yytype, yyvaluep)
+yy_symbol_value_print (yyoutput, yytype, yyvaluep, yyparse_param)
     FILE *yyoutput;
     int yytype;
     YYSTYPE const * const yyvaluep;
+    void *yyparse_param;
 #endif
 {
   if (!yyvaluep)
     return;
+  YYUSE (yyparse_param);
 # ifdef YYPRINT
   if (yytype < YYNTOKENS)
     YYPRINT (yyoutput, yytoknum[yytype], *yyvaluep);
@@ -1709,13 +1711,14 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep)
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 static void
-yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
+yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep, void *yyparse_param)
 #else
 static void
-yy_symbol_print (yyoutput, yytype, yyvaluep)
+yy_symbol_print (yyoutput, yytype, yyvaluep, yyparse_param)
     FILE *yyoutput;
     int yytype;
     YYSTYPE const * const yyvaluep;
+    void *yyparse_param;
 #endif
 {
   if (yytype < YYNTOKENS)
@@ -1723,7 +1726,7 @@ yy_symbol_print (yyoutput, yytype, yyvaluep)
   else
     YYFPRINTF (yyoutput, "nterm %s (", yytname[yytype]);
 
-  yy_symbol_value_print (yyoutput, yytype, yyvaluep);
+  yy_symbol_value_print (yyoutput, yytype, yyvaluep, yyparse_param);
   YYFPRINTF (yyoutput, ")");
 }
 
@@ -1763,12 +1766,13 @@ do {								\
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 static void
-yy_reduce_print (YYSTYPE *yyvsp, int yyrule)
+yy_reduce_print (YYSTYPE *yyvsp, int yyrule, void *yyparse_param)
 #else
 static void
-yy_reduce_print (yyvsp, yyrule)
+yy_reduce_print (yyvsp, yyrule, yyparse_param)
     YYSTYPE *yyvsp;
     int yyrule;
+    void *yyparse_param;
 #endif
 {
   int yynrhs = yyr2[yyrule];
@@ -1782,7 +1786,7 @@ yy_reduce_print (yyvsp, yyrule)
       fprintf (stderr, "   $%d = ", yyi + 1);
       yy_symbol_print (stderr, yyrhs[yyprhs[yyrule] + yyi],
 		       &(yyvsp[(yyi + 1) - (yynrhs)])
-		       		       );
+		       		       , yyparse_param);
       fprintf (stderr, "\n");
     }
 }
@@ -1790,7 +1794,7 @@ yy_reduce_print (yyvsp, yyrule)
 # define YY_REDUCE_PRINT(Rule)		\
 do {					\
   if (yydebug)				\
-    yy_reduce_print (yyvsp, Rule); \
+    yy_reduce_print (yyvsp, Rule, yyparse_param); \
 } while (YYID (0))
 
 /* Nonzero means print parse trace.  It is left uninitialized so that
@@ -2041,16 +2045,18 @@ yysyntax_error (char *yyresult, int yystate, int yychar)
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 static void
-yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)
+yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, void *yyparse_param)
 #else
 static void
-yydestruct (yymsg, yytype, yyvaluep)
+yydestruct (yymsg, yytype, yyvaluep, yyparse_param)
     const char *yymsg;
     int yytype;
     YYSTYPE *yyvaluep;
+    void *yyparse_param;
 #endif
 {
   YYUSE (yyvaluep);
+  YYUSE (yyparse_param);
 
   if (!yymsg)
     yymsg = "Deleting";
@@ -2075,7 +2081,7 @@ int yyparse ();
 #endif
 #else /* ! YYPARSE_PARAM */
 #if defined __STDC__ || defined __cplusplus
-int yyparse (void);
+int yyparse (void *yyparse_param);
 #else
 int yyparse ();
 #endif
@@ -2112,11 +2118,11 @@ yyparse (YYPARSE_PARAM)
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 int
-yyparse (void)
+yyparse (void *yyparse_param)
 #else
 int
-yyparse ()
-
+yyparse (yyparse_param)
+    void *yyparse_param;
 #endif
 #endif
 {
@@ -2365,14 +2371,14 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 275 "grm_parsegrammar.y"
+#line 276 "grm_parsegrammar.y"
     {  
 if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");  
 ;}
     break;
 
   case 3:
-#line 279 "grm_parsegrammar.y"
+#line 280 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("END_GRAMMAR\n\n"); 
   if (((struct yyparse_s *)yyparse_param)->verbose) printf ("#n-parameters: %d \n", nparam); 
@@ -2384,7 +2390,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 12:
-#line 313 "grm_parsegrammar.y"
+#line 314 "grm_parsegrammar.y"
     { 
   (yyvsp[(3) - (5)].param)->value = (yyvsp[(5) - (5)].dval); 
   (yyvsp[(3) - (5)].param)->used  = FALSE; 
@@ -2394,398 +2400,398 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 13:
-#line 326 "grm_parsegrammar.y"
+#line 327 "grm_parsegrammar.y"
     { (yyval.dval) = (yyvsp[(1) - (3)].dval) + (yyvsp[(3) - (3)].dval);  ;}
     break;
 
   case 14:
-#line 327 "grm_parsegrammar.y"
+#line 328 "grm_parsegrammar.y"
     { (yyval.dval) = (yyvsp[(1) - (3)].dval) - (yyvsp[(3) - (3)].dval);  ;}
     break;
 
   case 15:
-#line 328 "grm_parsegrammar.y"
+#line 329 "grm_parsegrammar.y"
     { (yyval.dval) = (yyvsp[(1) - (3)].dval) * (yyvsp[(3) - (3)].dval);  ;}
     break;
 
   case 16:
-#line 329 "grm_parsegrammar.y"
+#line 330 "grm_parsegrammar.y"
     { if ((yyvsp[(3) - (3)].dval) == 0.0) { grammar_fatal("divide by zero"); } else { (yyval.dval) = (yyvsp[(1) - (3)].dval) / (yyvsp[(3) - (3)].dval); } ;}
     break;
 
   case 17:
-#line 330 "grm_parsegrammar.y"
+#line 331 "grm_parsegrammar.y"
     { (yyval.dval) = -(yyvsp[(2) - (2)].dval);      ;}
     break;
 
   case 18:
-#line 331 "grm_parsegrammar.y"
+#line 332 "grm_parsegrammar.y"
     { (yyval.dval) = (yyvsp[(2) - (3)].dval);       ;}
     break;
 
   case 19:
-#line 332 "grm_parsegrammar.y"
+#line 333 "grm_parsegrammar.y"
     { (yyval.dval) = sqrt((yyvsp[(3) - (4)].dval)); ;}
     break;
 
   case 20:
-#line 333 "grm_parsegrammar.y"
+#line 334 "grm_parsegrammar.y"
     { (yyval.dval) = log((yyvsp[(3) - (4)].dval));  ;}
     break;
 
   case 21:
-#line 334 "grm_parsegrammar.y"
+#line 335 "grm_parsegrammar.y"
     { (yyval.dval) = exp((yyvsp[(3) - (4)].dval));  ;}
     break;
 
   case 22:
-#line 335 "grm_parsegrammar.y"
+#line 336 "grm_parsegrammar.y"
     { (yyval.dval) = sin((yyvsp[(3) - (4)].dval));  ;}
     break;
 
   case 23:
-#line 336 "grm_parsegrammar.y"
+#line 337 "grm_parsegrammar.y"
     { (yyval.dval) = cos((yyvsp[(3) - (4)].dval));  ;}
     break;
 
   case 24:
-#line 337 "grm_parsegrammar.y"
-    { (yyval.dval) = atof((yyvsp[(1) - (1)].string)); ;}
-    break;
-
-  case 25:
 #line 338 "grm_parsegrammar.y"
     { (yyval.dval) = atof((yyvsp[(1) - (1)].string)); ;}
     break;
 
-  case 26:
+  case 25:
 #line 339 "grm_parsegrammar.y"
+    { (yyval.dval) = atof((yyvsp[(1) - (1)].string)); ;}
+    break;
+
+  case 26:
+#line 340 "grm_parsegrammar.y"
     { (yyval.dval) = ((yyvsp[(3) - (6)].dval) > (yyvsp[(5) - (6)].dval))? (yyvsp[(3) - (6)].dval) : (yyvsp[(5) - (6)].dval); ;}
     break;
 
   case 27:
-#line 340 "grm_parsegrammar.y"
+#line 341 "grm_parsegrammar.y"
     { (yyval.dval) = ((yyvsp[(3) - (6)].dval) > (yyvsp[(5) - (6)].dval))? (yyvsp[(5) - (6)].dval) : (yyvsp[(3) - (6)].dval); ;}
     break;
 
   case 28:
-#line 341 "grm_parsegrammar.y"
+#line 342 "grm_parsegrammar.y"
     { (yyval.dval) = ((yyvsp[(3) - (10)].dval) > (yyvsp[(5) - (10)].dval))? (yyvsp[(7) - (10)].dval) : (yyvsp[(9) - (10)].dval); ;}
     break;
 
   case 29:
-#line 342 "grm_parsegrammar.y"
+#line 343 "grm_parsegrammar.y"
     { (yyval.dval) = ((yyvsp[(3) - (10)].dval) < (yyvsp[(5) - (10)].dval))? (yyvsp[(7) - (10)].dval) : (yyvsp[(9) - (10)].dval); ;}
     break;
 
   case 30:
-#line 343 "grm_parsegrammar.y"
+#line 344 "grm_parsegrammar.y"
     { if (isnan((yyvsp[(1) - (1)].param)->value)) grammar_fatal("param %s value is nan", (yyvsp[(1) - (1)].param)->name); else { (yyval.dval) = (yyvsp[(1) - (1)].param)->value; (yyvsp[(1) - (1)].param)->used = TRUE; } ;}
     break;
 
   case 51:
-#line 382 "grm_parsegrammar.y"
+#line 383 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(9) - (9)].string), atoi((yyvsp[(3) - (9)].string)), atoi((yyvsp[(5) - (9)].string)), atoi((yyvsp[(7) - (9)].string)), "", 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 52:
-#line 388 "grm_parsegrammar.y"
+#line 389 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(11) - (11)].string), atoi((yyvsp[(3) - (11)].string)), atoi((yyvsp[(5) - (11)].string)), atoi((yyvsp[(7) - (11)].string)), (yyvsp[(9) - (11)].string), 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 53:
-#line 394 "grm_parsegrammar.y"
+#line 395 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(13) - (13)].string), atoi((yyvsp[(3) - (13)].string)), atoi((yyvsp[(5) - (13)].string)), atoi((yyvsp[(7) - (13)].string)), (yyvsp[(9) - (13)].string), 0, 1, TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 54:
-#line 400 "grm_parsegrammar.y"
+#line 401 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(15) - (15)].string), atoi((yyvsp[(3) - (15)].string)), atoi((yyvsp[(5) - (15)].string)), atoi((yyvsp[(7) - (15)].string)), (yyvsp[(9) - (15)].string), atoi((yyvsp[(11) - (15)].string)), atoi((yyvsp[(13) - (15)].string)), FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 55:
-#line 406 "grm_parsegrammar.y"
+#line 407 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(17) - (17)].string), atoi((yyvsp[(3) - (17)].string)), atoi((yyvsp[(5) - (17)].string)), atoi((yyvsp[(7) - (17)].string)), (yyvsp[(9) - (17)].string), atoi((yyvsp[(11) - (17)].string)), atoi((yyvsp[(13) - (17)].string)), TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 56:
-#line 412 "grm_parsegrammar.y"
+#line 413 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(21) - (21)].string), atoi((yyvsp[(3) - (21)].string)), atoi((yyvsp[(5) - (21)].string)), atoi((yyvsp[(7) - (21)].string)), (yyvsp[(9) - (21)].string), atoi((yyvsp[(11) - (21)].string)), atoi((yyvsp[(13) - (21)].string)), FALSE, (yyvsp[(15) - (21)].string), atoi((yyvsp[(17) - (21)].string)), atoi((yyvsp[(19) - (21)].string)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 57:
-#line 418 "grm_parsegrammar.y"
+#line 419 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(25) - (25)].string), atoi((yyvsp[(3) - (25)].string)), atoi((yyvsp[(5) - (25)].string)), atoi((yyvsp[(7) - (25)].string)), (yyvsp[(9) - (25)].string), atoi((yyvsp[(11) - (25)].string)), atoi((yyvsp[(13) - (25)].string)), TRUE, (yyvsp[(17) - (25)].string), atoi((yyvsp[(19) - (25)].string)), atoi((yyvsp[(21) - (25)].string)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 58:
-#line 427 "grm_parsegrammar.y"
+#line 428 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(9) - (9)].string), atoi((yyvsp[(3) - (9)].string)), atoi((yyvsp[(5) - (9)].string)), atoi((yyvsp[(7) - (9)].string)), "", 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 60:
-#line 434 "grm_parsegrammar.y"
+#line 435 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(11) - (11)].string), atoi((yyvsp[(3) - (11)].string)), atoi((yyvsp[(5) - (11)].string)), atoi((yyvsp[(7) - (11)].string)), (yyvsp[(9) - (11)].string), 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 62:
-#line 441 "grm_parsegrammar.y"
+#line 442 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(13) - (13)].string), atoi((yyvsp[(3) - (13)].string)), atoi((yyvsp[(5) - (13)].string)), atoi((yyvsp[(7) - (13)].string)), (yyvsp[(9) - (13)].string), 0, 1, TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 64:
-#line 448 "grm_parsegrammar.y"
+#line 449 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(15) - (15)].string), atoi((yyvsp[(3) - (15)].string)), atoi((yyvsp[(5) - (15)].string)), atoi((yyvsp[(7) - (15)].string)), (yyvsp[(9) - (15)].string), atoi((yyvsp[(11) - (15)].string)), atoi((yyvsp[(13) - (15)].string)), FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 66:
-#line 455 "grm_parsegrammar.y"
+#line 456 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(17) - (17)].string), atoi((yyvsp[(3) - (17)].string)), atoi((yyvsp[(5) - (17)].string)), atoi((yyvsp[(7) - (17)].string)), (yyvsp[(9) - (17)].string), atoi((yyvsp[(11) - (17)].string)), atoi((yyvsp[(13) - (17)].string)), TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 68:
-#line 462 "grm_parsegrammar.y"
+#line 463 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(21) - (21)].string), atoi((yyvsp[(3) - (21)].string)), atoi((yyvsp[(5) - (21)].string)), atoi((yyvsp[(7) - (21)].string)), (yyvsp[(9) - (21)].string), atoi((yyvsp[(11) - (21)].string)), atoi((yyvsp[(13) - (21)].string)), FALSE, (yyvsp[(15) - (21)].string), atoi((yyvsp[(17) - (21)].string)), atoi((yyvsp[(19) - (21)].string)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 70:
-#line 469 "grm_parsegrammar.y"
+#line 470 "grm_parsegrammar.y"
     { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(25) - (25)].string), atoi((yyvsp[(3) - (25)].string)), atoi((yyvsp[(5) - (25)].string)), atoi((yyvsp[(7) - (25)].string)), (yyvsp[(9) - (25)].string), atoi((yyvsp[(11) - (25)].string)), atoi((yyvsp[(13) - (25)].string)), TRUE, (yyvsp[(15) - (25)].string), atoi((yyvsp[(19) - (25)].string)), atoi((yyvsp[(21) - (25)].string)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose);  
 ;}
     break;
 
   case 72:
-#line 482 "grm_parsegrammar.y"
+#line 483 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_joint(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (11)].string), atoi((yyvsp[(5) - (11)].string)), (yyvsp[(7) - (11)].string), atoi((yyvsp[(9) - (11)].string)), (yyvsp[(11) - (11)].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 73:
-#line 491 "grm_parsegrammar.y"
+#line 492 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_bayes(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (11)].string), atoi((yyvsp[(5) - (11)].string)), (yyvsp[(7) - (11)].string), atoi((yyvsp[(9) - (11)].string)), (yyvsp[(11) - (11)].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 74:
-#line 506 "grm_parsegrammar.y"
+#line 507 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_marginal(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (9)].string), atoi((yyvsp[(5) - (9)].string)), atoi((yyvsp[(7) - (9)].string)), (yyvsp[(9) - (9)].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 75:
-#line 514 "grm_parsegrammar.y"
+#line 515 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_conditional(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (13)].string), atoi((yyvsp[(5) - (13)].string)), atoi((yyvsp[(7) - (13)].string)), (yyvsp[(9) - (13)].string), atoi((yyvsp[(11) - (13)].string)), (yyvsp[(13) - (13)].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 76:
-#line 520 "grm_parsegrammar.y"
+#line 521 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_condmarg(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (11)].string), atoi((yyvsp[(5) - (11)].string)), (yyvsp[(7) - (11)].string), atoi((yyvsp[(9) - (11)].string)), (yyvsp[(11) - (11)].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 77:
-#line 526 "grm_parsegrammar.y"
+#line 527 "grm_parsegrammar.y"
     {  
   rna_edist_declare_tied_rotate_simple(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (9)].string), atoi((yyvsp[(5) - (9)].string)), (yyvsp[(7) - (9)].string), atoi((yyvsp[(9) - (9)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 78:
-#line 532 "grm_parsegrammar.y"
+#line 533 "grm_parsegrammar.y"
     { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (15)].string), atoi((yyvsp[(5) - (15)].string)), (yyvsp[(7) - (15)].string), atoi((yyvsp[(9) - (15)].string)), (yyvsp[(11) - (15)].string), atoi((yyvsp[(13) - (15)].string)), (yyvsp[(15) - (15)].string), -1, -1, ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 79:
-#line 538 "grm_parsegrammar.y"
+#line 539 "grm_parsegrammar.y"
     { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (17)].string), atoi((yyvsp[(5) - (17)].string)), (yyvsp[(7) - (17)].string), atoi((yyvsp[(9) - (17)].string)), (yyvsp[(11) - (17)].string), atoi((yyvsp[(13) - (17)].string)), (yyvsp[(15) - (17)].string), atoi((yyvsp[(17) - (17)].string)), -1, ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 80:
-#line 544 "grm_parsegrammar.y"
+#line 545 "grm_parsegrammar.y"
     { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (19)].string), atoi((yyvsp[(5) - (19)].string)), (yyvsp[(7) - (19)].string), atoi((yyvsp[(9) - (19)].string)), (yyvsp[(11) - (19)].string), atoi((yyvsp[(13) - (19)].string)), (yyvsp[(15) - (19)].string), atoi((yyvsp[(17) - (19)].string)), atoi((yyvsp[(19) - (19)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 81:
-#line 552 "grm_parsegrammar.y"
+#line 553 "grm_parsegrammar.y"
     {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (7)].string), (yyvsp[(7) - (7)].string), (int)((yyvsp[(3) - (7)].dval)), (int)((yyvsp[(5) - (7)].dval)), (int)((yyvsp[(5) - (7)].dval)), 0, 0, ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 82:
-#line 557 "grm_parsegrammar.y"
+#line 558 "grm_parsegrammar.y"
     {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (9)].string), (yyvsp[(9) - (9)].string), (int)((yyvsp[(3) - (9)].dval)), (int)((yyvsp[(5) - (9)].dval)), (int)((yyvsp[(7) - (9)].dval)), 0, 0, ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 83:
-#line 562 "grm_parsegrammar.y"
+#line 563 "grm_parsegrammar.y"
     {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (11)].string), (yyvsp[(11) - (11)].string), (int)((yyvsp[(7) - (11)].dval)), (int)((yyvsp[(9) - (11)].dval)), (int)((yyvsp[(9) - (11)].dval)), (int)((yyvsp[(3) - (11)].dval)), (int)((yyvsp[(5) - (11)].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 84:
-#line 567 "grm_parsegrammar.y"
+#line 568 "grm_parsegrammar.y"
     {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (13)].string), (yyvsp[(13) - (13)].string), (int)((yyvsp[(7) - (13)].dval)), (int)((yyvsp[(9) - (13)].dval)), (int)((yyvsp[(11) - (13)].dval)), (int)((yyvsp[(3) - (13)].dval)), (int)((yyvsp[(5) - (13)].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 85:
-#line 573 "grm_parsegrammar.y"
+#line 574 "grm_parsegrammar.y"
     {
   rna_tdist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(5) - (5)].string), (int)((yyvsp[(3) - (5)].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 86:
-#line 581 "grm_parsegrammar.y"
+#line 582 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(9) - (11)].string), atoi((yyvsp[(3) - (11)].string)), atoi((yyvsp[(5) - (11)].string)), atoi((yyvsp[(7) - (11)].string)), FALSE, "", 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[(11) - (11)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 88:
-#line 588 "grm_parsegrammar.y"
+#line 589 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(9) - (13)].string), atoi((yyvsp[(3) - (13)].string)), atoi((yyvsp[(5) - (13)].string)), atoi((yyvsp[(7) - (13)].string)), TRUE, "", 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[(11) - (13)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 90:
-#line 595 "grm_parsegrammar.y"
+#line 596 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(11) - (13)].string), atoi((yyvsp[(3) - (13)].string)), atoi((yyvsp[(5) - (13)].string)), atoi((yyvsp[(7) - (13)].string)), FALSE, (yyvsp[(9) - (13)].string), 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[(13) - (13)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 92:
-#line 602 "grm_parsegrammar.y"
+#line 603 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(13) - (15)].string), atoi((yyvsp[(3) - (15)].string)), atoi((yyvsp[(5) - (15)].string)), atoi((yyvsp[(7) - (15)].string)), FALSE, (yyvsp[(9) - (15)].string), 0, 1, TRUE, "", -1, -1, FALSE, atoi((yyvsp[(15) - (15)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 94:
-#line 609 "grm_parsegrammar.y"
+#line 610 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(11) - (15)].string), atoi((yyvsp[(3) - (15)].string)), atoi((yyvsp[(5) - (15)].string)), atoi((yyvsp[(7) - (15)].string)), TRUE, (yyvsp[(9) - (15)].string), 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[(13) - (15)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 96:
-#line 616 "grm_parsegrammar.y"
+#line 617 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(13) - (17)].string), atoi((yyvsp[(3) - (17)].string)), atoi((yyvsp[(5) - (17)].string)), atoi((yyvsp[(7) - (17)].string)), TRUE, (yyvsp[(9) - (17)].string), 0, 1, TRUE, "", -1, -1, FALSE, atoi((yyvsp[(15) - (17)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 98:
-#line 623 "grm_parsegrammar.y"
+#line 624 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(15) - (17)].string), atoi((yyvsp[(3) - (17)].string)), atoi((yyvsp[(5) - (17)].string)), atoi((yyvsp[(7) - (17)].string)), FALSE, (yyvsp[(9) - (17)].string), atoi((yyvsp[(11) - (17)].string)), atoi((yyvsp[(13) - (17)].string)), FALSE, "", -1, -1, FALSE, atoi((yyvsp[(17) - (17)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 100:
-#line 630 "grm_parsegrammar.y"
+#line 631 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(17) - (19)].string), atoi((yyvsp[(3) - (19)].string)), atoi((yyvsp[(5) - (19)].string)), atoi((yyvsp[(7) - (19)].string)), FALSE, (yyvsp[(9) - (19)].string), atoi((yyvsp[(11) - (19)].string)), atoi((yyvsp[(13) - (19)].string)), TRUE, "", -1, -1, FALSE, atoi((yyvsp[(19) - (19)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 102:
-#line 637 "grm_parsegrammar.y"
+#line 638 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(15) - (19)].string), atoi((yyvsp[(3) - (19)].string)), atoi((yyvsp[(5) - (19)].string)), atoi((yyvsp[(7) - (19)].string)), TRUE, (yyvsp[(9) - (19)].string), atoi((yyvsp[(11) - (19)].string)), atoi((yyvsp[(13) - (19)].string)), FALSE, "", -1, -1, FALSE, atoi((yyvsp[(17) - (19)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 104:
-#line 644 "grm_parsegrammar.y"
+#line 645 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(17) - (21)].string), atoi((yyvsp[(3) - (21)].string)), atoi((yyvsp[(5) - (21)].string)), atoi((yyvsp[(7) - (21)].string)), TRUE, (yyvsp[(9) - (21)].string), atoi((yyvsp[(11) - (21)].string)), atoi((yyvsp[(13) - (21)].string)), TRUE, "", -1, -1, FALSE, atoi((yyvsp[(19) - (21)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 106:
-#line 651 "grm_parsegrammar.y"
+#line 652 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(21) - (23)].string), atoi((yyvsp[(3) - (23)].string)), atoi((yyvsp[(5) - (23)].string)), atoi((yyvsp[(7) - (23)].string)), FALSE, (yyvsp[(9) - (23)].string), atoi((yyvsp[(11) - (23)].string)), atoi((yyvsp[(13) - (23)].string)), FALSE, (yyvsp[(15) - (23)].string), atoi((yyvsp[(17) - (23)].string)), atoi((yyvsp[(19) - (23)].string)), FALSE, atoi((yyvsp[(23) - (23)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 108:
-#line 658 "grm_parsegrammar.y"
+#line 659 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(25) - (27)].string), atoi((yyvsp[(3) - (27)].string)), atoi((yyvsp[(5) - (27)].string)), atoi((yyvsp[(7) - (27)].string)), FALSE, (yyvsp[(9) - (27)].string), atoi((yyvsp[(11) - (27)].string)), atoi((yyvsp[(13) - (27)].string)), TRUE, (yyvsp[(17) - (27)].string), atoi((yyvsp[(19) - (27)].string)), atoi((yyvsp[(21) - (27)].string)), TRUE, atoi((yyvsp[(27) - (27)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 110:
-#line 665 "grm_parsegrammar.y"
+#line 666 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(21) - (25)].string), atoi((yyvsp[(3) - (25)].string)), atoi((yyvsp[(5) - (25)].string)), atoi((yyvsp[(7) - (25)].string)), TRUE, (yyvsp[(9) - (25)].string), atoi((yyvsp[(11) - (25)].string)), atoi((yyvsp[(13) - (25)].string)), FALSE, (yyvsp[(15) - (25)].string), atoi((yyvsp[(17) - (25)].string)), atoi((yyvsp[(19) - (25)].string)), FALSE, atoi((yyvsp[(23) - (25)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 112:
-#line 672 "grm_parsegrammar.y"
+#line 673 "grm_parsegrammar.y"
     {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(25) - (29)].string), atoi((yyvsp[(3) - (29)].string)), atoi((yyvsp[(5) - (29)].string)), atoi((yyvsp[(7) - (29)].string)), TRUE, (yyvsp[(9) - (29)].string), atoi((yyvsp[(11) - (29)].string)), atoi((yyvsp[(13) - (29)].string)), TRUE, (yyvsp[(17) - (29)].string), atoi((yyvsp[(19) - (29)].string)), atoi((yyvsp[(21) - (29)].string)), TRUE, atoi((yyvsp[(27) - (29)].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 115:
-#line 683 "grm_parsegrammar.y"
+#line 684 "grm_parsegrammar.y"
     {
   rna_tdist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(5) - (5)].string), (int)((yyvsp[(3) - (5)].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 ;}
     break;
 
   case 122:
-#line 697 "grm_parsegrammar.y"
+#line 698 "grm_parsegrammar.y"
     { if (rna_tdist_tie(ntied, tied, ((struct yyparse_s *)yyparse_param)->Gr, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK)
     grammar_fatal("coud't tie parameters for tdist");
     ntied = 0; 
@@ -2793,12 +2799,12 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 125:
-#line 705 "grm_parsegrammar.y"
+#line 706 "grm_parsegrammar.y"
     { tied[ntied++] = atoi((yyvsp[(1) - (1)].string)); ;}
     break;
 
   case 135:
-#line 724 "grm_parsegrammar.y"
+#line 725 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%f]\n", (SCVAL)((yyvsp[(3) - (3)].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE) != eslOK) 
@@ -2807,7 +2813,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 136:
-#line 730 "grm_parsegrammar.y"
+#line 731 "grm_parsegrammar.y"
     {  
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), TRUE) != eslOK) 
     grammar_fatal("couldn't add specified emission default score %d for default %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2815,7 +2821,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 137:
-#line 736 "grm_parsegrammar.y"
+#line 737 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s]\n", (yyvsp[(3) - (3)].string));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (yyvsp[(3) - (3)].string), -1, -1, FALSE) != eslOK) 
@@ -2824,7 +2830,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 138:
-#line 742 "grm_parsegrammar.y"
+#line 743 "grm_parsegrammar.y"
     {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (yyvsp[(3) - (3)].string), -1, -1, TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[(3) - (3)].string), (yyvsp[(1) - (3)].string)); 
@@ -2832,7 +2838,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 139:
-#line 750 "grm_parsegrammar.y"
+#line 751 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s] : %d \n", (yyvsp[(3) - (5)].string), atoi((yyvsp[(5) - (5)].string)));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string), atoi((yyvsp[(5) - (5)].string)), -1, FALSE) != eslOK) 
@@ -2841,7 +2847,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 140:
-#line 756 "grm_parsegrammar.y"
+#line 757 "grm_parsegrammar.y"
     {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string), atoi((yyvsp[(5) - (5)].string)), -1, TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[(3) - (5)].string), (yyvsp[(1) - (5)].string)); 
@@ -2849,7 +2855,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 141:
-#line 764 "grm_parsegrammar.y"
+#line 765 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s] : %d : %d\n", (yyvsp[(3) - (7)].string), atoi((yyvsp[(5) - (7)].string)), atoi((yyvsp[(7) - (7)].string)));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (7)].string), (yyvsp[(3) - (7)].string), atoi((yyvsp[(5) - (7)].string)), atoi((yyvsp[(7) - (7)].string)), FALSE) != eslOK) 
@@ -2858,7 +2864,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 142:
-#line 770 "grm_parsegrammar.y"
+#line 771 "grm_parsegrammar.y"
     {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (7)].string), (yyvsp[(3) - (7)].string), atoi((yyvsp[(5) - (7)].string)), atoi((yyvsp[(7) - (7)].string)), TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[(3) - (7)].string), (yyvsp[(1) - (7)].string)); 
@@ -2866,7 +2872,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 143:
-#line 778 "grm_parsegrammar.y"
+#line 779 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %d for default length %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2874,7 +2880,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 144:
-#line 783 "grm_parsegrammar.y"
+#line 784 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default length %s,%s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2882,7 +2888,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 149:
-#line 794 "grm_parsegrammar.y"
+#line 795 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default sum length %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2890,7 +2896,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 150:
-#line 800 "grm_parsegrammar.y"
+#line 801 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default sum length %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2898,7 +2904,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 151:
-#line 806 "grm_parsegrammar.y"
+#line 807 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default t-score [%f]\n", (SCVAL)((yyvsp[(3) - (3)].dval)));
 
@@ -2908,7 +2914,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 152:
-#line 813 "grm_parsegrammar.y"
+#line 814 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default t-score [%f]\n", (SCVAL)((yyvsp[(6) - (6)].dval)));
 
@@ -2918,7 +2924,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 153:
-#line 823 "grm_parsegrammar.y"
+#line 824 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("get e-score [%f]\n",(SCVAL)((yyvsp[(3) - (3)].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE) != eslOK) 
@@ -2927,7 +2933,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 154:
-#line 829 "grm_parsegrammar.y"
+#line 830 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("add e-score [%f]\n",(SCVAL)((yyvsp[(3) - (3)].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), TRUE) != eslOK) 
@@ -2936,7 +2942,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 155:
-#line 837 "grm_parsegrammar.y"
+#line 838 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2944,7 +2950,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 156:
-#line 842 "grm_parsegrammar.y"
+#line 843 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (3)].string), (SCVAL)((yyvsp[(3) - (3)].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -2952,7 +2958,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 157:
-#line 847 "grm_parsegrammar.y"
+#line 848 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2960,7 +2966,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 158:
-#line 852 "grm_parsegrammar.y"
+#line 853 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2968,7 +2974,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 159:
-#line 857 "grm_parsegrammar.y"
+#line 858 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sum_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2976,7 +2982,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 160:
-#line 862 "grm_parsegrammar.y"
+#line 863 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sum_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2984,7 +2990,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 161:
-#line 867 "grm_parsegrammar.y"
+#line 868 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist dif_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -2992,7 +2998,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 162:
-#line 872 "grm_parsegrammar.y"
+#line 873 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist dif_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -3000,7 +3006,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 163:
-#line 877 "grm_parsegrammar.y"
+#line 878 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_sym(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sym_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -3008,7 +3014,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 164:
-#line 882 "grm_parsegrammar.y"
+#line 883 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_score_di_sym(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].string), (SCVAL)((yyvsp[(5) - (5)].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sym_score %f for length %s %s", (SCVAL)((yyvsp[(5) - (5)].dval)), (yyvsp[(1) - (5)].string), (yyvsp[(3) - (5)].string)); 
@@ -3016,7 +3022,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 166:
-#line 891 "grm_parsegrammar.y"
+#line 892 "grm_parsegrammar.y"
     { 
   if (rna_ldist_add_affine_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (9)].dval), (yyvsp[(5) - (9)].dval), (yyvsp[(7) - (9)].dval), (yyvsp[(9) - (9)].dval), ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist affine function for scores > %d", (yyvsp[(2) - (9)].string)); 
@@ -3025,7 +3031,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 167:
-#line 897 "grm_parsegrammar.y"
+#line 898 "grm_parsegrammar.y"
     {
   if (rna_ldist_add_linear_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[(3) - (5)].dval), (yyvsp[(5) - (5)].dval), ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist linear function for scores > %d", (yyvsp[(2) - (5)].string)); 
@@ -3033,7 +3039,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 168:
-#line 904 "grm_parsegrammar.y"
+#line 905 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[(1) - (3)].string)), (SCVAL)((yyvsp[(3) - (3)].dval)));
 
@@ -3043,7 +3049,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 169:
-#line 912 "grm_parsegrammar.y"
+#line 913 "grm_parsegrammar.y"
     {
   if (rna_tdist_add_score(((struct yyparse_s *)yyparse_param)->Gr, atoi((yyvsp[(1) - (3)].string)), (SCVAL)((yyvsp[(3) - (3)].dval)), TRUE) != eslOK) 
     grammar_fatal("couldn't add tdist score %d for transition %s", (SCVAL)((yyvsp[(3) - (3)].dval)), (yyvsp[(1) - (3)].string)); 
@@ -3052,7 +3058,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 170:
-#line 919 "grm_parsegrammar.y"
+#line 920 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[(1) - (6)].string)), (SCVAL)((yyvsp[(6) - (6)].dval)));
 
@@ -3062,7 +3068,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 171:
-#line 927 "grm_parsegrammar.y"
+#line 928 "grm_parsegrammar.y"
     {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[(1) - (6)].string)), (SCVAL)((yyvsp[(6) - (6)].dval)));
 
@@ -3072,7 +3078,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 174:
-#line 942 "grm_parsegrammar.y"
+#line 943 "grm_parsegrammar.y"
     {
   is_new_rule = TRUE;
   lexeme.l = 1;
@@ -3083,7 +3089,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 176:
-#line 951 "grm_parsegrammar.y"
+#line 952 "grm_parsegrammar.y"
     {
   is_new_rule = TRUE;
   lexeme.l = 2;
@@ -3095,7 +3101,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 178:
-#line 963 "grm_parsegrammar.y"
+#line 964 "grm_parsegrammar.y"
     { 
   is_new_rule = TRUE;
   rnr ++;
@@ -3103,7 +3109,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 179:
-#line 968 "grm_parsegrammar.y"
+#line 969 "grm_parsegrammar.y"
     { 
   is_new_rule = TRUE; 
   rnr ++;
@@ -3111,28 +3117,28 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 180:
-#line 976 "grm_parsegrammar.y"
+#line 977 "grm_parsegrammar.y"
     {  
   if (((struct yyparse_s *)yyparse_param)->verbose) rna_rule_print(nt_idx, ((struct yyparse_s *)yyparse_param)->Gr);
 ;}
     break;
 
   case 182:
-#line 984 "grm_parsegrammar.y"
+#line 985 "grm_parsegrammar.y"
     {
   is_new_rule = FALSE; 
 ;}
     break;
 
   case 183:
-#line 988 "grm_parsegrammar.y"
+#line 989 "grm_parsegrammar.y"
     {
   is_new_rule = FALSE; 
 ;}
     break;
 
   case 188:
-#line 1001 "grm_parsegrammar.y"
+#line 1002 "grm_parsegrammar.y"
     {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (3)].string));
@@ -3145,7 +3151,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 189:
-#line 1011 "grm_parsegrammar.y"
+#line 1012 "grm_parsegrammar.y"
     {
   lexeme.l = 3;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (4)].string));
@@ -3159,7 +3165,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 190:
-#line 1025 "grm_parsegrammar.y"
+#line 1026 "grm_parsegrammar.y"
     {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (4)].string));
@@ -3171,7 +3177,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 191:
-#line 1037 "grm_parsegrammar.y"
+#line 1038 "grm_parsegrammar.y"
     {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (4)].string));
@@ -3183,7 +3189,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 192:
-#line 1046 "grm_parsegrammar.y"
+#line 1047 "grm_parsegrammar.y"
     {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (5)].string));
@@ -3196,7 +3202,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 193:
-#line 1059 "grm_parsegrammar.y"
+#line 1060 "grm_parsegrammar.y"
     {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (8)].string));
@@ -3210,7 +3216,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 194:
-#line 1070 "grm_parsegrammar.y"
+#line 1071 "grm_parsegrammar.y"
     {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (9)].string));
@@ -3225,7 +3231,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 195:
-#line 1082 "grm_parsegrammar.y"
+#line 1083 "grm_parsegrammar.y"
     {
   lexeme.l = 3;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (10)].string));
@@ -3241,7 +3247,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 196:
-#line 1095 "grm_parsegrammar.y"
+#line 1096 "grm_parsegrammar.y"
     {
   lexeme.l = 4;
   strcpy(lexeme.lex[0], (yyvsp[(1) - (11)].string));
@@ -3258,7 +3264,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 209:
-#line 1132 "grm_parsegrammar.y"
+#line 1133 "grm_parsegrammar.y"
     {
   iatom.has_basepair = TRUE;
   iatom.bp[iatom.nbasepairs].basepair_coordl_idx = iatom.ncoords-2;
@@ -3268,7 +3274,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 210:
-#line 1141 "grm_parsegrammar.y"
+#line 1142 "grm_parsegrammar.y"
     {
   iatom.cbp[iatom.ncbasepairs].basepair_coordl_idx = iatom.ncontexts-2;
   iatom.cbp[iatom.ncbasepairs].basepair_coordr_idx = iatom.ncontexts-1;
@@ -3277,63 +3283,63 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 211:
-#line 1150 "grm_parsegrammar.y"
+#line 1151 "grm_parsegrammar.y"
     {
   add_coord(&iatom, (yyvsp[(1) - (1)].string), 0, ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 212:
-#line 1154 "grm_parsegrammar.y"
+#line 1155 "grm_parsegrammar.y"
     {
   add_coord(&iatom, (yyvsp[(1) - (2)].string), atoi((yyvsp[(2) - (2)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 213:
-#line 1158 "grm_parsegrammar.y"
+#line 1159 "grm_parsegrammar.y"
     {
   add_coord(&iatom, (yyvsp[(1) - (3)].string), atoi((yyvsp[(3) - (3)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 214:
-#line 1162 "grm_parsegrammar.y"
+#line 1163 "grm_parsegrammar.y"
     {
   add_coord(&iatom, (yyvsp[(1) - (3)].string), -atoi((yyvsp[(3) - (3)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 215:
-#line 1169 "grm_parsegrammar.y"
+#line 1170 "grm_parsegrammar.y"
     {
   add_context(&iatom, (yyvsp[(1) - (1)].string), 0, ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 216:
-#line 1173 "grm_parsegrammar.y"
+#line 1174 "grm_parsegrammar.y"
     {
   add_context(&iatom, (yyvsp[(1) - (2)].string), atoi((yyvsp[(2) - (2)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 217:
-#line 1177 "grm_parsegrammar.y"
+#line 1178 "grm_parsegrammar.y"
     {
   add_context(&iatom, (yyvsp[(1) - (3)].string), atoi((yyvsp[(3) - (3)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 218:
-#line 1181 "grm_parsegrammar.y"
+#line 1182 "grm_parsegrammar.y"
     {
   add_context(&iatom, (yyvsp[(1) - (3)].string), -atoi((yyvsp[(3) - (3)].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 ;}
     break;
 
   case 219:
-#line 1189 "grm_parsegrammar.y"
+#line 1190 "grm_parsegrammar.y"
     {
   ynr = 1;
   lexeme.l = 1;
@@ -3343,7 +3349,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 220:
-#line 1197 "grm_parsegrammar.y"
+#line 1198 "grm_parsegrammar.y"
     {
   ynr = 2;
   lexeme.l = 1;
@@ -3353,7 +3359,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 221:
-#line 1205 "grm_parsegrammar.y"
+#line 1206 "grm_parsegrammar.y"
     {
   ynr = 2;
   lexeme.l = 2;
@@ -3364,7 +3370,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 222:
-#line 1214 "grm_parsegrammar.y"
+#line 1215 "grm_parsegrammar.y"
     {     
   ynr = 3;
   lexeme.l = 1;
@@ -3374,7 +3380,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 223:
-#line 1222 "grm_parsegrammar.y"
+#line 1223 "grm_parsegrammar.y"
     {     
   ynr = 4;
   lexeme.l = 2;
@@ -3385,7 +3391,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 224:
-#line 1231 "grm_parsegrammar.y"
+#line 1232 "grm_parsegrammar.y"
     {     
   ynr = 4;
   lexeme.l = 3;
@@ -3397,7 +3403,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 225:
-#line 1241 "grm_parsegrammar.y"
+#line 1242 "grm_parsegrammar.y"
     {
   ynr = 5;
   lexeme.l = 2;
@@ -3408,7 +3414,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 226:
-#line 1250 "grm_parsegrammar.y"
+#line 1251 "grm_parsegrammar.y"
     {
   ynr = 5;
   lexeme.l = 3;
@@ -3420,7 +3426,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 227:
-#line 1260 "grm_parsegrammar.y"
+#line 1261 "grm_parsegrammar.y"
     {
   ynr = 6;
   lexeme.l = 2;
@@ -3431,7 +3437,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 228:
-#line 1269 "grm_parsegrammar.y"
+#line 1270 "grm_parsegrammar.y"
     {
   ynr = 6;
   lexeme.l = 3;
@@ -3443,7 +3449,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 229:
-#line 1279 "grm_parsegrammar.y"
+#line 1280 "grm_parsegrammar.y"
     {
   ynr = 7;
   lexeme.l = 2;
@@ -3454,7 +3460,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 230:
-#line 1288 "grm_parsegrammar.y"
+#line 1289 "grm_parsegrammar.y"
     {
   ynr = 8;
   lexeme.l = 3;
@@ -3466,7 +3472,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 231:
-#line 1298 "grm_parsegrammar.y"
+#line 1299 "grm_parsegrammar.y"
     {
   ynr = 8;
   lexeme.l = 4;
@@ -3479,7 +3485,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 232:
-#line 1309 "grm_parsegrammar.y"
+#line 1310 "grm_parsegrammar.y"
     {
   ynr = 9;
   lexeme.l = 3;
@@ -3491,7 +3497,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 233:
-#line 1319 "grm_parsegrammar.y"
+#line 1320 "grm_parsegrammar.y"
     {
   ynr = 9;
   lexeme.l = 4;
@@ -3504,7 +3510,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 234:
-#line 1330 "grm_parsegrammar.y"
+#line 1331 "grm_parsegrammar.y"
     {
   ynr = 10;
   lexeme.l = 3;
@@ -3516,7 +3522,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 235:
-#line 1340 "grm_parsegrammar.y"
+#line 1341 "grm_parsegrammar.y"
     {
   ynr = 10;
   lexeme.l = 4;
@@ -3529,7 +3535,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 236:
-#line 1351 "grm_parsegrammar.y"
+#line 1352 "grm_parsegrammar.y"
     {
   ynr = 11;
   lexeme.l = 3;
@@ -3541,7 +3547,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 237:
-#line 1361 "grm_parsegrammar.y"
+#line 1362 "grm_parsegrammar.y"
     {
   ynr = 11;
   lexeme.l = 4;
@@ -3554,7 +3560,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 238:
-#line 1372 "grm_parsegrammar.y"
+#line 1373 "grm_parsegrammar.y"
     {
   ynr = 12;
   lexeme.l = 3;
@@ -3566,7 +3572,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 239:
-#line 1381 "grm_parsegrammar.y"
+#line 1382 "grm_parsegrammar.y"
     {
   ynr = 12;
   lexeme.l = 4;
@@ -3579,7 +3585,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 240:
-#line 1392 "grm_parsegrammar.y"
+#line 1393 "grm_parsegrammar.y"
     {
   ynr = 12;
   lexeme.l = 5;
@@ -3593,7 +3599,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 241:
-#line 1404 "grm_parsegrammar.y"
+#line 1405 "grm_parsegrammar.y"
     {
   ynr = 13;
   lexeme.l = 3;
@@ -3605,7 +3611,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 242:
-#line 1414 "grm_parsegrammar.y"
+#line 1415 "grm_parsegrammar.y"
     {
   ynr = 13;
   lexeme.l = 4;
@@ -3618,7 +3624,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 243:
-#line 1425 "grm_parsegrammar.y"
+#line 1426 "grm_parsegrammar.y"
     {
   ynr = 13;
   lexeme.l = 5;
@@ -3632,7 +3638,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 244:
-#line 1437 "grm_parsegrammar.y"
+#line 1438 "grm_parsegrammar.y"
     {
   ynr = 14;
   lexeme.l = 3;
@@ -3644,7 +3650,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 245:
-#line 1447 "grm_parsegrammar.y"
+#line 1448 "grm_parsegrammar.y"
     {
   ynr = 14;
   lexeme.l = 4;
@@ -3657,7 +3663,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 246:
-#line 1459 "grm_parsegrammar.y"
+#line 1460 "grm_parsegrammar.y"
     {
   ynr = 14;
   lexeme.l = 5;
@@ -3671,7 +3677,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 247:
-#line 1471 "grm_parsegrammar.y"
+#line 1472 "grm_parsegrammar.y"
     {
   ynr = 15;
   lexeme.l = 4;
@@ -3684,7 +3690,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 248:
-#line 1482 "grm_parsegrammar.y"
+#line 1483 "grm_parsegrammar.y"
     {
   ynr = 15;
   lexeme.l = 5;
@@ -3698,7 +3704,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 249:
-#line 1494 "grm_parsegrammar.y"
+#line 1495 "grm_parsegrammar.y"
     {
   ynr = 16;
   lexeme.l = 4;
@@ -3711,7 +3717,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 250:
-#line 1505 "grm_parsegrammar.y"
+#line 1506 "grm_parsegrammar.y"
     {
   ynr = 16;
   lexeme.l = 5;
@@ -3725,7 +3731,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 251:
-#line 1517 "grm_parsegrammar.y"
+#line 1518 "grm_parsegrammar.y"
     {
   ynr = 16;
   lexeme.l = 6;
@@ -3740,7 +3746,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 252:
-#line 1530 "grm_parsegrammar.y"
+#line 1531 "grm_parsegrammar.y"
     {     
   ynr = 17;
   lexeme.l = 4;
@@ -3753,7 +3759,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 253:
-#line 1541 "grm_parsegrammar.y"
+#line 1542 "grm_parsegrammar.y"
     {
   ynr = 17;
   lexeme.l = 5;
@@ -3767,7 +3773,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 254:
-#line 1553 "grm_parsegrammar.y"
+#line 1554 "grm_parsegrammar.y"
     {
   ynr = 17;
   lexeme.l = 6;
@@ -3782,7 +3788,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 255:
-#line 1566 "grm_parsegrammar.y"
+#line 1567 "grm_parsegrammar.y"
     {
   ynr = 18;
   lexeme.l = 4;
@@ -3795,7 +3801,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 256:
-#line 1577 "grm_parsegrammar.y"
+#line 1578 "grm_parsegrammar.y"
     {
   ynr = 18;
   lexeme.l = 5;
@@ -3809,7 +3815,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 257:
-#line 1589 "grm_parsegrammar.y"
+#line 1590 "grm_parsegrammar.y"
     {        
   ynr = 18;
   lexeme.l = 6;
@@ -3824,7 +3830,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 258:
-#line 1602 "grm_parsegrammar.y"
+#line 1603 "grm_parsegrammar.y"
     {
   ynr = 19;
   lexeme.l = 5;
@@ -3838,7 +3844,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 259:
-#line 1614 "grm_parsegrammar.y"
+#line 1615 "grm_parsegrammar.y"
     {
   ynr = 19;
   lexeme.l = 6;
@@ -3853,7 +3859,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 260:
-#line 1627 "grm_parsegrammar.y"
+#line 1628 "grm_parsegrammar.y"
     {
   ynr = 20;
   lexeme.l = 5;
@@ -3867,7 +3873,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 261:
-#line 1639 "grm_parsegrammar.y"
+#line 1640 "grm_parsegrammar.y"
     {
   ynr = 20;
   lexeme.l = 6;
@@ -3882,7 +3888,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 262:
-#line 1652 "grm_parsegrammar.y"
+#line 1653 "grm_parsegrammar.y"
     {
   ynr = 21;
   lexeme.l = 5;
@@ -3896,7 +3902,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 263:
-#line 1664 "grm_parsegrammar.y"
+#line 1665 "grm_parsegrammar.y"
     {
   ynr = 21;
   lexeme.l = 6;
@@ -3911,7 +3917,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 264:
-#line 1677 "grm_parsegrammar.y"
+#line 1678 "grm_parsegrammar.y"
     {
   ynr = 22;
   lexeme.l = 5;
@@ -3925,7 +3931,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 265:
-#line 1689 "grm_parsegrammar.y"
+#line 1690 "grm_parsegrammar.y"
     {
   ynr = 22;
   lexeme.l = 6;
@@ -3940,7 +3946,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 266:
-#line 1702 "grm_parsegrammar.y"
+#line 1703 "grm_parsegrammar.y"
     {
   ynr = 22;
   lexeme.l = 7;
@@ -3956,7 +3962,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 267:
-#line 1716 "grm_parsegrammar.y"
+#line 1717 "grm_parsegrammar.y"
     {
   ynr = 23;
   lexeme.l = 4;
@@ -3969,7 +3975,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 268:
-#line 1727 "grm_parsegrammar.y"
+#line 1728 "grm_parsegrammar.y"
     {
   ynr = 23;
   lexeme.l = 5;
@@ -3983,7 +3989,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 269:
-#line 1739 "grm_parsegrammar.y"
+#line 1740 "grm_parsegrammar.y"
     {
   ynr = 24;
   lexeme.l = 4;
@@ -3996,7 +4002,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 270:
-#line 1750 "grm_parsegrammar.y"
+#line 1751 "grm_parsegrammar.y"
     {
   ynr = 24;
   lexeme.l = 5;
@@ -4010,7 +4016,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 271:
-#line 1762 "grm_parsegrammar.y"
+#line 1763 "grm_parsegrammar.y"
     {
   ynr = 25;
   lexeme.l = 5;
@@ -4024,7 +4030,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 272:
-#line 1774 "grm_parsegrammar.y"
+#line 1775 "grm_parsegrammar.y"
     {
   ynr = 25;
   lexeme.l = 6;
@@ -4039,7 +4045,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 273:
-#line 1787 "grm_parsegrammar.y"
+#line 1788 "grm_parsegrammar.y"
     {
   ynr = 26;
   lexeme.l = 6;
@@ -4054,7 +4060,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 274:
-#line 1800 "grm_parsegrammar.y"
+#line 1801 "grm_parsegrammar.y"
     {
   ynr = 26;
   lexeme.l = 7;
@@ -4070,7 +4076,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 275:
-#line 1814 "grm_parsegrammar.y"
+#line 1815 "grm_parsegrammar.y"
     {
   ynr = 27;
   lexeme.l = 7;
@@ -4086,7 +4092,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 276:
-#line 1828 "grm_parsegrammar.y"
+#line 1829 "grm_parsegrammar.y"
     {
   ynr = 27;
   lexeme.l = 8;
@@ -4103,7 +4109,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 277:
-#line 1843 "grm_parsegrammar.y"
+#line 1844 "grm_parsegrammar.y"
     {
   ynr = 28;
   lexeme.l = 1;
@@ -4113,7 +4119,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 278:
-#line 1851 "grm_parsegrammar.y"
+#line 1852 "grm_parsegrammar.y"
     {
   ynr = 28;
   lexeme.l = 2;
@@ -4124,7 +4130,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 279:
-#line 1860 "grm_parsegrammar.y"
+#line 1861 "grm_parsegrammar.y"
     {   
   ynr = 29;
   lexeme.l = 2;
@@ -4135,7 +4141,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 280:
-#line 1869 "grm_parsegrammar.y"
+#line 1870 "grm_parsegrammar.y"
     {   
   ynr = 29;
   lexeme.l = 3;
@@ -4147,7 +4153,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 281:
-#line 1879 "grm_parsegrammar.y"
+#line 1880 "grm_parsegrammar.y"
     {   
   ynr = 30;
   lexeme.l = 2;
@@ -4158,7 +4164,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 282:
-#line 1888 "grm_parsegrammar.y"
+#line 1889 "grm_parsegrammar.y"
     {   
   ynr = 30;
   lexeme.l = 3;
@@ -4170,7 +4176,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 283:
-#line 1898 "grm_parsegrammar.y"
+#line 1899 "grm_parsegrammar.y"
     {           
   ynr = 31;
   lexeme.l = 3;
@@ -4182,7 +4188,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 284:
-#line 1908 "grm_parsegrammar.y"
+#line 1909 "grm_parsegrammar.y"
     {           
   ynr = 31;
   lexeme.l = 4;
@@ -4195,7 +4201,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 285:
-#line 1919 "grm_parsegrammar.y"
+#line 1920 "grm_parsegrammar.y"
     {           
   ynr = 31;
   lexeme.l = 5;
@@ -4209,7 +4215,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 286:
-#line 1931 "grm_parsegrammar.y"
+#line 1932 "grm_parsegrammar.y"
     {           
   ynr = 31;
   lexeme.l = 6;
@@ -4224,7 +4230,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 287:
-#line 1944 "grm_parsegrammar.y"
+#line 1945 "grm_parsegrammar.y"
     {   
   ynr = 32;
   lexeme.l = 4;
@@ -4237,7 +4243,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 288:
-#line 1955 "grm_parsegrammar.y"
+#line 1956 "grm_parsegrammar.y"
     {   
   ynr = 32;
   lexeme.l = 5;
@@ -4251,7 +4257,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 289:
-#line 1967 "grm_parsegrammar.y"
+#line 1968 "grm_parsegrammar.y"
     {   
   ynr = 32;
   lexeme.l = 6;
@@ -4266,7 +4272,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 290:
-#line 1980 "grm_parsegrammar.y"
+#line 1981 "grm_parsegrammar.y"
     {   
   ynr = 33;
   lexeme.l = 4;
@@ -4279,7 +4285,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 291:
-#line 1991 "grm_parsegrammar.y"
+#line 1992 "grm_parsegrammar.y"
     {   
   ynr = 33;
   lexeme.l = 5;
@@ -4293,7 +4299,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 292:
-#line 2003 "grm_parsegrammar.y"
+#line 2004 "grm_parsegrammar.y"
     {   
   ynr = 33;
   lexeme.l = 6;
@@ -4308,7 +4314,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 293:
-#line 2016 "grm_parsegrammar.y"
+#line 2017 "grm_parsegrammar.y"
     {           
   ynr = 34;
   lexeme.l = 5;
@@ -4322,7 +4328,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 294:
-#line 2028 "grm_parsegrammar.y"
+#line 2029 "grm_parsegrammar.y"
     {           
   ynr = 34;   
   lexeme.l = 6;
@@ -4337,7 +4343,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 295:
-#line 2041 "grm_parsegrammar.y"
+#line 2042 "grm_parsegrammar.y"
     {           
   ynr = 34;
   lexeme.l = 7;
@@ -4353,7 +4359,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 296:
-#line 2055 "grm_parsegrammar.y"
+#line 2056 "grm_parsegrammar.y"
     {
   ynr = 35;
   lexeme.l = 3;
@@ -4365,7 +4371,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 297:
-#line 2065 "grm_parsegrammar.y"
+#line 2066 "grm_parsegrammar.y"
     {
   ynr = 35;
   lexeme.l = 4;
@@ -4378,7 +4384,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 298:
-#line 2076 "grm_parsegrammar.y"
+#line 2077 "grm_parsegrammar.y"
     {
   ynr = 35;
   lexeme.l = 5;
@@ -4392,7 +4398,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 299:
-#line 2088 "grm_parsegrammar.y"
+#line 2089 "grm_parsegrammar.y"
     {
   ynr = 35;
   lexeme.l = 6;
@@ -4407,7 +4413,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 300:
-#line 2101 "grm_parsegrammar.y"
+#line 2102 "grm_parsegrammar.y"
     {
   ynr = 36;
   lexeme.l = 4;
@@ -4420,7 +4426,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 301:
-#line 2112 "grm_parsegrammar.y"
+#line 2113 "grm_parsegrammar.y"
     {
   ynr = 36;
   lexeme.l = 5;
@@ -4434,7 +4440,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 302:
-#line 2124 "grm_parsegrammar.y"
+#line 2125 "grm_parsegrammar.y"
     {
   ynr = 36;
   lexeme.l = 6;
@@ -4449,7 +4455,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 303:
-#line 2137 "grm_parsegrammar.y"
+#line 2138 "grm_parsegrammar.y"
     {
   ynr = 36;
   lexeme.l = 7;
@@ -4465,7 +4471,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 304:
-#line 2151 "grm_parsegrammar.y"
+#line 2152 "grm_parsegrammar.y"
     {
   ynr = 37;
   lexeme.l = 4;
@@ -4478,7 +4484,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 305:
-#line 2162 "grm_parsegrammar.y"
+#line 2163 "grm_parsegrammar.y"
     {
   ynr = 37;
   lexeme.l = 5;
@@ -4492,7 +4498,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 306:
-#line 2174 "grm_parsegrammar.y"
+#line 2175 "grm_parsegrammar.y"
     {
   ynr = 37;
   lexeme.l = 6;
@@ -4507,7 +4513,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 307:
-#line 2187 "grm_parsegrammar.y"
+#line 2188 "grm_parsegrammar.y"
     {
   ynr = 37;
   lexeme.l = 7;
@@ -4523,7 +4529,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 308:
-#line 2201 "grm_parsegrammar.y"
+#line 2202 "grm_parsegrammar.y"
     {           
   ynr = 38;
   lexeme.l = 4;
@@ -4536,7 +4542,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 309:
-#line 2212 "grm_parsegrammar.y"
+#line 2213 "grm_parsegrammar.y"
     {           
   ynr = 38;
   lexeme.l = 5;
@@ -4550,7 +4556,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 310:
-#line 2224 "grm_parsegrammar.y"
+#line 2225 "grm_parsegrammar.y"
     {           
   ynr = 38;
   lexeme.l = 6;
@@ -4565,7 +4571,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 311:
-#line 2237 "grm_parsegrammar.y"
+#line 2238 "grm_parsegrammar.y"
     {           
   ynr = 38;
   lexeme.l = 7;
@@ -4581,7 +4587,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 312:
-#line 2251 "grm_parsegrammar.y"
+#line 2252 "grm_parsegrammar.y"
     {           
   ynr = 39;
   lexeme.l = 4;
@@ -4594,7 +4600,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 313:
-#line 2262 "grm_parsegrammar.y"
+#line 2263 "grm_parsegrammar.y"
     {           
   ynr = 39;
   lexeme.l = 5;
@@ -4608,7 +4614,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 314:
-#line 2274 "grm_parsegrammar.y"
+#line 2275 "grm_parsegrammar.y"
     {           
   ynr = 39;
   lexeme.l = 6;
@@ -4623,7 +4629,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 315:
-#line 2287 "grm_parsegrammar.y"
+#line 2288 "grm_parsegrammar.y"
     {           
   ynr = 39;
   lexeme.l = 7;
@@ -4639,7 +4645,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 316:
-#line 2301 "grm_parsegrammar.y"
+#line 2302 "grm_parsegrammar.y"
     {           
   ynr = 40;
   lexeme.l = 5;
@@ -4653,7 +4659,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 317:
-#line 2313 "grm_parsegrammar.y"
+#line 2314 "grm_parsegrammar.y"
     {           
   ynr = 40;
   lexeme.l = 6;
@@ -4668,7 +4674,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 318:
-#line 2326 "grm_parsegrammar.y"
+#line 2327 "grm_parsegrammar.y"
     {           
   ynr = 40;
   lexeme.l = 7;
@@ -4684,7 +4690,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 319:
-#line 2340 "grm_parsegrammar.y"
+#line 2341 "grm_parsegrammar.y"
     {           
   ynr = 40;
   lexeme.l = 8;
@@ -4701,7 +4707,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 320:
-#line 2355 "grm_parsegrammar.y"
+#line 2356 "grm_parsegrammar.y"
     {
   ynr = 41;
   lexeme.l = 5;
@@ -4715,7 +4721,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 321:
-#line 2367 "grm_parsegrammar.y"
+#line 2368 "grm_parsegrammar.y"
     {
   ynr = 41;
   lexeme.l = 6;
@@ -4730,7 +4736,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 322:
-#line 2380 "grm_parsegrammar.y"
+#line 2381 "grm_parsegrammar.y"
     {
   ynr = 42;
   lexeme.l = 5;
@@ -4744,7 +4750,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 323:
-#line 2392 "grm_parsegrammar.y"
+#line 2393 "grm_parsegrammar.y"
     {
   ynr = 42;
   lexeme.l = 6;
@@ -4759,7 +4765,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 324:
-#line 2405 "grm_parsegrammar.y"
+#line 2406 "grm_parsegrammar.y"
     {
   ynr = 43;
   lexeme.l = 6;
@@ -4774,7 +4780,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 325:
-#line 2418 "grm_parsegrammar.y"
+#line 2419 "grm_parsegrammar.y"
     {
   ynr = 43;
   lexeme.l = 7;
@@ -4790,7 +4796,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 326:
-#line 2432 "grm_parsegrammar.y"
+#line 2433 "grm_parsegrammar.y"
     {
   ynr = 44;
   lexeme.l = 6;
@@ -4805,7 +4811,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 327:
-#line 2445 "grm_parsegrammar.y"
+#line 2446 "grm_parsegrammar.y"
     {
   ynr = 44;
   lexeme.l = 7;
@@ -4821,7 +4827,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 328:
-#line 2459 "grm_parsegrammar.y"
+#line 2460 "grm_parsegrammar.y"
     {
   ynr = 45;
   lexeme.l = 6;
@@ -4836,7 +4842,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 329:
-#line 2472 "grm_parsegrammar.y"
+#line 2473 "grm_parsegrammar.y"
     {
   ynr = 45;
   lexeme.l = 7;
@@ -4852,7 +4858,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 330:
-#line 2486 "grm_parsegrammar.y"
+#line 2487 "grm_parsegrammar.y"
     {
   ynr = 46;
   lexeme.l = 6;
@@ -4867,7 +4873,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 331:
-#line 2499 "grm_parsegrammar.y"
+#line 2500 "grm_parsegrammar.y"
     {
   ynr = 46;
   lexeme.l = 7;
@@ -4883,7 +4889,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 332:
-#line 2513 "grm_parsegrammar.y"
+#line 2514 "grm_parsegrammar.y"
     {
   ynr = 47;
   lexeme.l = 7;
@@ -4899,7 +4905,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 333:
-#line 2527 "grm_parsegrammar.y"
+#line 2528 "grm_parsegrammar.y"
     {
   ynr = 47;
   lexeme.l = 8;
@@ -4916,7 +4922,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 334:
-#line 2542 "grm_parsegrammar.y"
+#line 2543 "grm_parsegrammar.y"
     {
   ynr = 48;
   lexeme.l = 7;
@@ -4932,7 +4938,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
     break;
 
   case 335:
-#line 2556 "grm_parsegrammar.y"
+#line 2557 "grm_parsegrammar.y"
     { 
   ynr = 48;
   lexeme.l = 8;
@@ -4950,7 +4956,7 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
 
 
 /* Line 1267 of yacc.c.  */
-#line 4954 "grm_parsegrammar.tab.c"
+#line 4960 "grm_parsegrammar.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -4986,7 +4992,7 @@ yyerrlab:
     {
       ++yynerrs;
 #if ! YYERROR_VERBOSE
-      yyerror (YY_("syntax error"));
+      yyerror (yyparse_param, YY_("syntax error"));
 #else
       {
 	YYSIZE_T yysize = yysyntax_error (0, yystate, yychar);
@@ -5010,11 +5016,11 @@ yyerrlab:
 	if (0 < yysize && yysize <= yymsg_alloc)
 	  {
 	    (void) yysyntax_error (yymsg, yystate, yychar);
-	    yyerror (yymsg);
+	    yyerror (yyparse_param, yymsg);
 	  }
 	else
 	  {
-	    yyerror (YY_("syntax error"));
+	    yyerror (yyparse_param, YY_("syntax error"));
 	    if (yysize != 0)
 	      goto yyexhaustedlab;
 	  }
@@ -5038,7 +5044,7 @@ yyerrlab:
       else
 	{
 	  yydestruct ("Error: discarding",
-		      yytoken, &yylval);
+		      yytoken, &yylval, yyparse_param);
 	  yychar = YYEMPTY;
 	}
     }
@@ -5094,7 +5100,7 @@ yyerrlab1:
 
 
       yydestruct ("Error: popping",
-		  yystos[yystate], yyvsp);
+		  yystos[yystate], yyvsp, yyparse_param);
       YYPOPSTACK (1);
       yystate = *yyssp;
       YY_STACK_PRINT (yyss, yyssp);
@@ -5132,7 +5138,7 @@ yyabortlab:
 | yyexhaustedlab -- memory exhaustion comes here.  |
 `-------------------------------------------------*/
 yyexhaustedlab:
-  yyerror (YY_("memory exhausted"));
+  yyerror (yyparse_param, YY_("memory exhausted"));
   yyresult = 2;
   /* Fall through.  */
 #endif
@@ -5140,7 +5146,7 @@ yyexhaustedlab:
 yyreturn:
   if (yychar != YYEOF && yychar != YYEMPTY)
      yydestruct ("Cleanup: discarding lookahead",
-		 yytoken, &yylval);
+		 yytoken, &yylval, yyparse_param);
   /* Do not reclaim the symbols of the rule which action triggered
      this YYABORT or YYACCEPT.  */
   YYPOPSTACK (yylen);
@@ -5148,7 +5154,7 @@ yyreturn:
   while (yyssp != yyss)
     {
       yydestruct ("Cleanup: popping",
-		  yystos[*yyssp], yyvsp);
+		  yystos[*yyssp], yyvsp, yyparse_param);
       YYPOPSTACK (1);
     }
 #ifndef yyoverflow
@@ -5164,14 +5170,14 @@ yyreturn:
 }
 
 
-#line 2572 "grm_parsegrammar.y"
+#line 2573 "grm_parsegrammar.y"
  /* user generated code */
 
 
 /*****************************************************************
  * 0. yacc-req'd functions
  *****************************************************************/
-void yyerror(char const *s)
+void yyerror(void *yyparse_param, char const *s)
 {
 #if 1
   grammar_fatal("yyerror: %s\n", s);

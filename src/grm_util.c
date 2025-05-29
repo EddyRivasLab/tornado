@@ -872,7 +872,7 @@ EmissionAtomEdistIndexMARGINAL(GRAMMAR *G, ESL_DSQ *dsq, int L, int c[4], ATOM *
   teofw  = (z <= -1)? edist->tedist_idx[0] : edist->tedist_idx[0] + z;
 
 #if 0
-  printf("MRGINAL\n---->x  %d z %d edist[%d] %s\n", x, z, eofw,  G->edist[eofw].ename);
+  printf("MARGINAL\n---->x  %d z %d edist[%d] %s\n", x, z, eofw,  G->edist[eofw].ename);
   printf("---->teofw %d \n", teofw);
 #endif
   

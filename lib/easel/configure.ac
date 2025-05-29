@@ -32,7 +32,7 @@
 #  13. AC_CONFIG_FILES
 #  14. AC_OUTPUT
 #
-# Order obeys autoconf manual, "standard configure.ac layout".
+# This order obeys autoconf manual, "standard configure.ac layout".
 #
 # To update config.guess and config.sub from GNU:
 #    wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
@@ -61,7 +61,7 @@ m4_include([m4/esl_avx512.m4])
 m4_include([m4/esl_neon.m4])
 m4_include([m4/esl_vmx.m4])
 
-m4_include([m4/ax_mpi.m4])
+m4_include([m4/ax_prog_cc_mpi.m4])
 m4_include([m4/ax_pthread.m4])
 
 m4_include([m4/esl_pic_flags.m4])
@@ -69,7 +69,7 @@ m4_include([m4/esl_pic_flags.m4])
 ################################################################
 # 2. AC_INIT
 ################################################################
-AC_INIT(Easel, 0.46, sean@eddylab.org, easel)
+AC_INIT(Easel, 0.49, sean@eddylab.org, easel)
 AC_MSG_NOTICE([Configuring the Easel library for your system.])
 
 # remember if the user is overriding CFLAGS
@@ -106,8 +106,8 @@ fi
 #     EASEL_VERSION    e.g. "1.9a"
 #
 
-EASEL_DATE="Nov 2019"
-EASEL_COPYRIGHT="Copyright (C) 2019 Howard Hughes Medical Institute"
+EASEL_DATE="Aug 2023"
+EASEL_COPYRIGHT="Copyright (C) 2023 Howard Hughes Medical Institute"
 EASEL_LICENSE="Freely distributed under the BSD open source license."
 EASEL_VERSION=$PACKAGE_VERSION
 EASEL_URL="http://bioeasel.org/"
@@ -166,7 +166,8 @@ esac
 
 AC_ARG_ENABLE(gcov,    [AS_HELP_STRING([--enable-gcov],    [compile for code coverage testing])],       enable_gcov=$enableval,    enable_gcov=no)
 AC_ARG_ENABLE(gprof,   [AS_HELP_STRING([--enable-gprof],   [compile for gcc code profiling])],          enable_gprof=$enableval,   enable_gprof=no)
-
+AC_ARG_ENABLE(asan,    [AS_HELP_STRING([--enable-asan],    [compile with address sanitizer]) ],         enable_asan=$enableval,    enable_asan=no)
+AC_ARG_ENABLE(tsan,    [AS_HELP_STRING([--enable-tsan],    [compile with thread sanitizer]) ],          enable_tsan=$enableval,    enable_tsan=no)
 AC_ARG_ENABLE(sse,     [AS_HELP_STRING([--enable-sse],     [enable our SSE vector code])],              enable_sse=$enableval,     enable_sse=check)
 AC_ARG_ENABLE(sse4,    [AS_HELP_STRING([--enable-sse4],    [enable our SSE4 vector code])],             enable_sse4=$enableval,    enable_sse4=check)
 AC_ARG_ENABLE(avx,     [AS_HELP_STRING([--enable-avx],     [enable our AVX vector code])],              enable_avx=$enableval,     enable_avx=check)
@@ -189,8 +190,16 @@ AC_ARG_WITH(gsl,       [AS_HELP_STRING([--with-gsl],       [use the GSL, GNU Sci
 # 5. Checks for programs, including ${CC} and its ${CFLAGS}
 ################################################################
 
+# Choose our compiler - which might be mpicc, if enable_mpi is "yes".
+#   AX_PROG_CC_MPI will call AC_PROG_CC if enable_mpi is "no".
+#
+AX_PROG_CC_MPI([test x"$enable_mpi" = xyes],
+    [AC_DEFINE(HAVE_MPI,  1, [Use MPI parallelization])],
+    [ if test x"$enable_mpi" = xyes; then
+        AC_MSG_ERROR([MPI library not found for --enable-mpi]);
+      fi])
 AC_PROG_CC
-AC_PROG_CC_STDC
+
 AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_RANLIB
@@ -219,14 +228,21 @@ elif test "$esl_cflags_env_set" != "yes"; then
 fi
 
 
-# MPI :  set @CC@ to mpicc;
-#        set @MPILIBS@ if needed (usually not; mpicc deals w/ it);
-#        defines HAVE_MPI. 
-if test "$enable_mpi" = "yes"; then
-   AX_MPI(,AC_MSG_ERROR([MPI library not found for --enable-mpi]))
-   CC=$MPICC
+# Turn on a sanitizer, if asked.
+#
+if test "$enable_asan" = "yes"; then
+  CFLAGS="$CFLAGS -fsanitize=address"
+  LDFLAGS="$LDFLAGS -fsanitize=address"
+  AC_DEFINE(eslENABLE_ASAN, 1, [Using address sanitizer])
 fi
-
+if test "$enable_tsan" = "yes"; then
+  if test "$enable_asan" = "yes"; then  
+    AC_MSG_FAILURE([The address and thread sanitizers are incompatible. Use only one of --enable-asan and --enable-tsan])
+  fi
+  CFLAGS="$CFLAGS -fsanitize=thread"
+  LDFLAGS="$LDFLAGS -fsanitize=thread"
+  AC_DEFINE(eslENABLE_TSAN, 1, [Using threads sanitizer])
+fi
 
 
 # PIC (position-independent code) for shared library support
@@ -550,6 +566,7 @@ AC_FUNC_FSEEKO
 #################################################################
 AC_SYS_LARGEFILE
 
+
 #################################################################
 # 13. Write out esl_config.h header and the Makefiles
 #################################################################
@@ -609,6 +626,7 @@ Host:           $host
 Compiler:
             CC= $CC
         CFLAGS= $CFLAGS
+       LDFLAGS= $LDFLAGS
 PTHREAD_CFLAGS= $PTHREAD_CFLAGS
     SSE_CFLAGS= $SSE_CFLAGS
    SSE4_CFLAGS= $SSE4_CFLAGS

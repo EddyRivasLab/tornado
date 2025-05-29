@@ -254,7 +254,7 @@ main(int argc, char **argv)
 			     cfg.paramtype, cfg.nparamfile, cfg.paramfile, NULL,
 			     cfg.backrules, cfg.force_min_loop, cfg.force_min_stem,
 			     cfg.force_wccomp, cfg.errbuf, FALSE)) == NULL) 
-    grammar_fatal("couldn't parse the grammar. %s", cfg.errbuf);  
+    grammar_fatal("couldn't parse the grammar. %s", cfg.errbuf);
   fclose(yyin);
   remove(grmtmpfile);
 

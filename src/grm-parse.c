@@ -149,6 +149,7 @@ main (int argc, char **argv)
   // Parse the Grammar 
   if ((yyin = fopen(grmtmpfile, "r")) == NULL)   /* open grmfile */
     grammar_fatal("couldn't open grammar file %s", grmtmpfile);
+  cfg.be_verbose = TRUE;
   if ((cfg.G = Grammar_Parse(yyin, cfg.grmfile, 
 			     cfg.paramtype, cfg.nparamfile, cfg.paramfile, cfg.cweight,
 			     cfg.backrules, FALSE, FALSE,
@@ -184,7 +185,6 @@ main (int argc, char **argv)
       fprintf(cfg.fp, "Cannot create paramfile %s. G specified by scores only.\n", cfg.paramsavefile);
     }
     fclose(cfg.fp); cfg.fp = NULL;
-    
   }
 
   /* save score if asked to */

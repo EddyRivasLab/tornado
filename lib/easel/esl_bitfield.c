@@ -5,7 +5,7 @@
  *   2. Unit tests
  *   3. Test driver
  */
-#include "esl_config.h"
+#include <esl_config.h>
 
 #include <string.h>
 
@@ -127,7 +127,7 @@ utest_randpattern(ESL_RANDOMNESS *rng)
 #endif // eslBITFIELD_TESTDRIVE
 
 /*****************************************************************
- * 2. Unit tests
+ * 3. Test driver
  *****************************************************************/
 #ifdef eslBITFIELD_TESTDRIVE
 

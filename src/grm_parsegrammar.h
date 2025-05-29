@@ -37,9 +37,10 @@ struct yyparse_s {
 };
 
 /* yacc-req'd declarations */
-extern int  yyparse(void *);
-extern int  yylex(void);
-extern void yyerror(char const *s);
+extern int  yyparse(void *yyparse_param);
+//extern int  yyparse();
+extern int  yylex();
+extern void yyerror(void *yyparse_param, char const *s);
 extern int  yywrap();
 
 /* my declarations */

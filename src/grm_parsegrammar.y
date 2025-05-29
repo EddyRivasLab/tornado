@@ -211,6 +211,7 @@
   static int   yacc_rule48_3at   (RULE *R, struct lexeme_s lexeme, GRAMMAR *G, int verbose);  
   %} 
 
+%parse-param { void *yyparse_param }
 
 %union { 
   char              *string; 
@@ -2575,7 +2576,7 @@ rule_enum:
 /*****************************************************************
  * 0. yacc-req'd functions
  *****************************************************************/
-void yyerror(char const *s)
+void yyerror(void *yyparse_param, char const *s)
 {
 #if 1
   grammar_fatal("yyerror: %s\n", s);

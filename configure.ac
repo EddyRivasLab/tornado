@@ -37,12 +37,12 @@
 ################################################################
 # 1. autoconf requirements
 ################################################################
-AC_PREREQ(2.63)
+AC_PREREQ([2.72])
 
 ################################################################
 # 2. AC_INIT
 ################################################################
-AC_INIT(TORNADO, 0.6.0, elenarivas@fas.harvard.edu, TORNADO)
+AC_INIT([TORNADO],[0.9.0],[elenarivas@fas.harvard.edu],[TORNADO])
 AC_MSG_NOTICE([Configuring TORNADO for your system.])
 
 # remember if the usexr is overriding CFLAGS
@@ -79,7 +79,7 @@ fi
 #     EASEL_VERSION    e.g. "1.9a"
 #
 TORNADO_NAME="TORNADO"
-TORNADO_DATE="May 2023"
+TORNADO_DATE="June 2025"
 TORNADO_COPYRIGHT="Copyright (C) 2016 Howard Hughes Medical Institute."
 TORNADO_LICENSE="Freely distributed under the GNU General Public License (GPLv3)."
 TORNADO_VERSION=$PACKAGE_VERSION
@@ -254,9 +254,9 @@ if test "$enable_mpi" = "yes"; then
 fi
 AC_PROG_CPP
 AX_COMPILER_VENDOR
-# AC_PROG_CC_STDC wants to append -c99 to icc; icc doesn't like this.
+# AC_PROG_CC wants to append -c99 to icc; icc doesn't like this.
 if test "$ax_cv_c_compiler_vendor" != "intel"; then
-  AC_PROG_CC_STDC
+  AC_PROG_CC
 fi
 AC_PROG_RANLIB
 AC_PATH_PROG([AR], [ar], [:], [$PATH:/usr/ccs/bin:/usr/xpg4/bin])

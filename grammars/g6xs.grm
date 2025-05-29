@@ -1,4 +1,4 @@
-# g6s  [Pfold grammar with stacking]
+# G6XS  [G6X grammar with stacking]
   
 # singlet emission
 #---------------------
@@ -7,6 +7,6 @@ edist : 2 : 0 : 1 : _WW_ : e1 # one cWW basepair distribution
 edist : 2 : 2 : 1 : _WW_ : e1 # one cWW basepair distribution with context 
 
 
-S --> L S | L | e                                             # Start nonterminal has three rules
+S --> L S | e                                                 # Start nonterminal has two rules
 L --> a:i&j         e1 F(i+1,j-1) | a:i&j         e1 | a:i e1 # helix starts    | helix start&ends no hairpin loop | one single emission
 F --> a:i&j:i-1,j+1 e1 F(i+1,j-1) | a:i&j:i-1,j+1 e1 | L S    # helix continues | helix ends no loop               | helix ends with loop

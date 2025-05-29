@@ -1,6 +1,6 @@
-# TORNADO 0.5.2 (September 2022);
+# TORNADO 0.6.0 (May 2023);
 # grm-train :: training an RNA grammar from individual RNA sequences
 # Copyright (C) 2016 Howard Hughes Medical Institute.
 # Freely distributed under the GNU General Public License (GPLv3).
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# CPU time: 750.02u 24.71s 00:12:54.73 Elapsed: 00:12:57.29
+# CPU time: 478.72u 0.27s 00:07:58.99 Elapsed: 00:07:59.83

@@ -93,7 +93,7 @@ Grammar_Read(FILE *fp, GRAMMAR *G, enum param_e param, double cweight,  char *er
    * and add the counts. It also checks that you have only one
    * file if parameters are given as probabilities or scores.
    * 
-   */
+   */ 
   while((status = esl_fileparser_NextLine(efp)) == eslOK) {
     nf ++;
     if ((status = grammar_read_onefile(efp, G, param, cweight, errbuf, verbose)) != eslOK) goto ERROR;
@@ -300,15 +300,8 @@ Grammar_WriteEmissions(FILE *fp, GRAMMAR *G, enum param_e sctype, int tedist_on,
     {
       edist = &(G->edist[i]);
 
-      if (edist->c > 0) { // a hack that works for RBG grammars
-	if      (!strcmp(edist->ename, "e1_2_2_0"))  fprintf(fp, "{ // e1_2_2_x\n");
-	if      (!strcmp(edist->ename, "e2_2_2_0"))  fprintf(fp, "{ // e2_2_2_x\n");
- 	else if (!strcmp(edist->ename, "e1_2_2_15")) fprintf(fp, "}\n");
-	else if (!strcmp(edist->ename, "e2_2_2_15")) fprintf(fp, "}\n");
-     }
-
       if (tedist_on == FALSE && edist->tiedtype != TIED_OFF) continue; /* write only the untied edists */
-
+      
       if ((status = Grammar_CalculateTiedEdist(edist, G, sctype, errbuf))              != eslOK) goto ERROR;
       if ((status = grammar_write_edist(fp, i, edist, sctype, preload_format, errbuf)) != eslOK) goto ERROR;
       
@@ -644,7 +637,7 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
   if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
   if (atoi(tok) != G->ntd ) 
     ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad ntd. Is %d should be %d", atoi(tok), G->ntd);
-   
+
   for (i = 0; i < G->ntd; i++)
     {
       tdist = &(G->tdist[i]);
@@ -677,7 +670,7 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
 	  }
 	}
     }
-
+  
   /* Emissions section.
    * <ned>
    * for each i=0..ned-1: (it not a tied distribution)
@@ -691,15 +684,19 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
 
   for (i = 0; i < G->ned; i++)
     {
+ 
       if ((status = Grammar_CalculateTiedEdist(&G->edist[i], G, param, errbuf)) != eslOK) goto ERROR;
       if (G->edist[i].tiedtype != TIED_OFF) continue;
 
       if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
+ 
       if (atoi(tok) != i) ESL_XFAIL(eslFAIL, errbuf, "Grammar_Read(): bad edist %s idx is %d should be %d ", G->edist[i].ename, atoi(tok), i);
       if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
       strcpy(G->edist[i].ename, tok);
+ 
       if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
       G->edist[i].n = atoi(tok);
+	   
       if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
       G->edist[i].c = atoi(tok);
       if ((status = esl_fileparser_GetToken(efp, &tok, &n)) != eslOK) goto ERROR;
@@ -716,7 +713,7 @@ grammar_read_onefile (ESL_FILEPARSER *efp, GRAMMAR *G, enum param_e param, doubl
 	  G->edist[i].bp[b].basepair_coordr_idx = atoi(tok);
 	}
       }
-
+ 
       nx = Integer_Power(4, G->edist[i].n);
       for (x = 0; x < nx; x++)
 	{

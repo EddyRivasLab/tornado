@@ -138,9 +138,7 @@ GRM_FoldOneSeq(ESL_RANDOMNESS *rng, GRAMMAR *G, GRAMMAR **ret_Ge, int null2, BG 
   /* fold */
   switch(foldtype) {
   case CYKSS:
-    verbose = TRUE;
     if ((status = fold_oneseq_cyk(G, sq, &bpt, &sc, &mb, priorify, wgt, fitlen, fitparam, fitbc, errbuf, verbose))              != eslOK) goto ERROR;
-    verbose = FALSE;
     break;
   case INSIDE: 
     if ((status = fold_oneseq_inside(rng, G, sq, &isc, &mb, priorify, wgt, fitlen, fitparam, fitbc, errbuf, verbose))          != eslOK) goto ERROR;
