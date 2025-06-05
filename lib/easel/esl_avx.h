@@ -8,6 +8,7 @@
  *    2. Inlined functions: horizontal max, sum
  *    3. Inlined functions: left and right shifts
  *    4. Inlined functions: any_gt
+ *    5. Inlined functions: select
  */
 #ifndef eslAVX_INCLUDED
 #define eslAVX_INCLUDED
@@ -25,8 +26,9 @@
  *****************************************************************/
 
 extern void esl_avx_dump_256i_hex4(__m256i v);
-
-
+extern void esl_avx_dump_ps(FILE *fp, __m256 v);
+extern __m256 esl_avx_logf(__m256 x);
+extern __m256 esl_avx_expf(__m256 x);
 
 /*****************************************************************
  * 2. Inlined functions: horizontal max, sum
@@ -78,6 +80,21 @@ esl_avx_hmax_epi16(__m256i a)
   a = _mm256_max_epi16(a, _mm256_shuffle_epi32     (a,    0xb1));
   a = _mm256_max_epi16(a, _mm256_shufflelo_epi16   (a,    0xb1));
   return _mm256_extract_epi16(a, 0);
+}
+
+/* Function:  esl_avx_hmax_epi16()
+ * Synopsis:  Return max of 16 int16_t elements in epi16 vector.
+ * 
+ * Note:      benchmark on wumpus, 0.6s (200M) => 3.0 ns/call    
+ */
+static inline void
+esl_avx_hmax_ps(__m256 a, float *ret_max)
+{
+  a = _mm256_max_ps(a, _mm256_permute2f128_ps(a, a, 0x01));
+  a = _mm256_max_ps(a, _mm256_shuffle_ps     (a, a,    0x4e));
+  a = _mm256_max_ps(a, _mm256_shuffle_ps     (a, a,    0xb1));
+  int *retint_ptr = (int *) ret_max; // Hack because AVX doesn't have an extract for floats
+  *retint_ptr = _mm256_extract_epi32((__m256i) a, 0);
 }
 
 /* Function:  esl_avx_hsum_ps()
@@ -170,6 +187,18 @@ static inline int
 esl_avx_any_gt_epi16(__m256i a, __m256i b)
 {
   return (_mm256_movemask_epi8(_mm256_cmpgt_epi16(a,b)) != 0); 
+}
+
+/* Function:  esl_avx_select_ps()
+ * Synopsis:  SSE equivalent of <vec_sel()>
+ *
+ * Purpose:   Vector select. Returns a vector <r[z] = a[z]> where <mask[z]>
+ *            is all 0's; <r[z] = b[z]> where <mask[z]> is all 1's.
+ */
+static inline __m256
+esl_avx_select_ps(__m256 a, __m256 b, __m256 mask)
+{
+  return _mm256_blendv_ps(a, b, mask);
 }
 
 #endif /*eslAVX_INCLUDED*/

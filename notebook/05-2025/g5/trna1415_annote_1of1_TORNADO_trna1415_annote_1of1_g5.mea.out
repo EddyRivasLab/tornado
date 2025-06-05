@@ -8494,4 +8494,4 @@ DG2520         GCAGAUGUAGCUCAGUGGUAGAGCGCAACCUUGCCAAGGUUGAUGCCAUGGGUUCGAGUCCCAUU
 //
 DG2520                              len =   72 inside = -106.5 mea =  -46.0 null =   -inf logoods =    inf RAM =    0.2 MB sen = 4.7619 ppv = 8.3333 F = 6.0606
 grm-fold: processed 1415 out of 1415 sequences
-# CPU time: 19.04u 0.03s 00:00:19.07 Elapsed: 00:00:19.11
+# CPU time: 19.00u 0.04s 00:00:19.04 Elapsed: 88:56:06.10

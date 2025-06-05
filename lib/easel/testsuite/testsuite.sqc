@@ -19,6 +19,7 @@
 1 exercise dirichlet-utest    @esl_dirichlet_utest@
 1 exercise distance-utest     @esl_distance_utest@
 1 exercise dmatrix-utest      @esl_dmatrix_utest@
+1 exercise dsq-utest          @esl_dsq_utest@
 1 exercise dsqdata-utest      @esl_dsqdata_utest@
 1 exercise exponential-utest  @esl_exponential_utest@
 1 exercise fileparser-utest   @esl_fileparser_utest@
@@ -58,6 +59,7 @@
 1 exercise msaweight-utest    @esl_msaweight_utest@
 1 exercise neon-utest	      @esl_neon_utest@
 1 exercise normal-utest       @esl_normal_utest@
+1 exercise orfreader-utest    @esl_orfreader_utest@
 # paml
 1 exercise quicksort-utest    @esl_quicksort_utest@
 1 exercise random-utest       @esl_random_utest@
@@ -94,8 +96,8 @@
 1 exercise blank-gf           !testsuite/i3-blank-gf.pl!       @@ !! %TESTPFX%
 1 exercise sindi              !testsuite/i4-alimanip-sindi.sh! @@ !! %TESTPFX%
 
-1 exercise esl-translate      !miniapps/esl-translate.itest.pl! @@ !! %TESTPFX%
-
+# Old style easel miniapps
+#
 1 exercise esl-afetch         !miniapps/esl-afetch.itest.pl!    @miniapps/esl-afetch@    %TESTPFX%
 1 exercise esl-alimanip       !miniapps/esl-alimanip.itest.pl!  @miniapps/esl-alimanip@  %TESTPFX%
 1 exercise esl-alimap         !miniapps/esl-alimap.itest.pl!    @miniapps/esl-alimap@    %TESTPFX%
@@ -106,9 +108,18 @@
 1 exercise esl-construct      !miniapps/esl-construct.itest.pl! @miniapps/esl-construct@ %TESTPFX%
 1 exercise esl-mask           !miniapps/esl-mask.itest.pl!      @miniapps/esl-mask@      %TESTPFX%
 1 exercise esl-seqrange       !miniapps/esl-seqrange.itest.pl!  @miniapps/esl-seqrange@  @miniapps/esl-sfetch@ %TESTPFX%
-1 exercise esl-shuffle        !miniapps/esl-shuffle.itest.py!   @@ !! %TESTPFX%
 1 exercise esl-ssdraw         !miniapps/esl-ssdraw.itest.pl!    @miniapps/esl-ssdraw@    !testsuite/trna-ssdraw.ps! !testsuite/trna-5.stk! %TESTPFX%
+1 exercise easel-afetch       !testsuite/easel-afetch-itest.py! @@ !! %TESTPFX%
 
+# New style easel miniapps
+#
+1 exercise easel-afetch       !testsuite/easel-afetch-itest.py!  @@ !! %TESTPFX%
+1 exercise easel-afetchn      !testsuite/easel-afetchn-itest.py! @@ !! %TESTPFX%
+1 exercise easel-aindex       !testsuite/easel-aindex-itest.py!  @@ !! %TESTPFX%
+1 exercise easel-sfetch       !testsuite/easel-sfetch-itest.py!  @@ !! %TESTPFX%
+1 exercise easel-sfetchn      !testsuite/easel-sfetchn-itest.py! @@ !! %TESTPFX%
+1 exercise easel-shuffle      !testsuite/easel-shuffle-itest.py! @@ !! %TESTPFX%
+1 exercise easel-sindex       !testsuite/easel-sindex-itest.py!  @@ !! %TESTPFX%
 
 # Still to do:
 # gev
@@ -140,6 +151,7 @@
 3 valgrind dirichlet-utest    @esl_dirichlet_utest@
 3 valgrind distance-utest     @esl_distance_utest@
 3 valgrind dmatrix-utest      @esl_dmatrix_utest@
+3 valgrind dsq-utest          @esl_dsq_utest@
 3 valgrind dsqdata-utest      @esl_dsqdata_utest@
 3 valgrind exponential-utest  @esl_exponential_utest@
 3 valgrind fileparser-utest   @esl_fileparser_utest@
@@ -179,6 +191,7 @@
 3 valgrind msaweight-utest    @esl_msaweight_utest@
 3 valgrind neon-utest         @esl_neon_utest@
 3 valgrind normal-utest       @esl_normal_utest@
+3 valgrind orfreader-utest    @esl_orfreader_utest@
 # paml
 3 valgrind quicksort-utest    @esl_quicksort_utest@
 3 valgrind random-utest       @esl_random_utest@
@@ -208,7 +221,15 @@
 # workqueue
 3 valgrind wuss-utest         @esl_wuss_utest@
 
-
+# New style easel miniapps
+#
+3 valgrind easel-afetch       !testsuite/easel-afetch-itest.py!  @@ !! %TESTPFX%
+3 valgrind easel-afetchn      !testsuite/easel-afetchn-itest.py! @@ !! %TESTPFX%
+3 valgrind easel-aindex       !testsuite/easel-aindex-itest.py!  @@ !! %TESTPFX%
+3 valgrind easel-sfetch       !testsuite/easel-sfetch-itest.py!  @@ !! %TESTPFX%
+3 valgrind easel-sfetchn      !testsuite/easel-sfetchn-itest.py! @@ !! %TESTPFX%
+3 valgrind easel-shuffle      !testsuite/easel-shuffle-itest.py! @@ !! %TESTPFX%
+3 valgrind easel-sindex       !testsuite/easel-sindex-itest.py!  @@ !! %TESTPFX%
 
 
 

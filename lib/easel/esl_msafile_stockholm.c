@@ -18,6 +18,7 @@
 
 #include "easel.h"
 #include "esl_alphabet.h"
+#include "esl_dsq.h"
 #include "esl_mem.h"
 #include "esl_msa.h"
 #include "esl_msafile.h"
@@ -665,11 +666,13 @@ stockholm_parse_gc(ESL_MSAFILE *afp, ESL_STOCKHOLM_PARSEDATA *pd, ESL_MSA *msa, 
   char      *gc,    *tag;
   esl_pos_t  gclen,  taglen;
   int        tagidx;
+  int        i;
   int        status;
 
   if (esl_memtok(&p, &n, " \t", &gc,   &gclen)    != eslOK) ESL_EXCEPTION(eslEINCONCEIVABLE, "EOL can't happen here.");
   if (esl_memtok(&p, &n, " \t", &tag,  &taglen)   != eslOK) ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GC line missing <tag>, annotation");
   while (n && strchr(" \t", p[n-1])) n--; /* skip backwards from eol, to delimit aligned text without going through it */
+  for (i = 0; i < n; i++) if (! isascii(p[i])) ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GC annotation must be ASCII text; seeing at least one (UTF-8?) wide char");
 
   if (! esl_memstrcmp(gc, gclen, "#=GC")) ESL_FAIL(eslEFORMAT, afp->errmsg, "faux #=GC line?");
   if (! n)                                ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GC line missing annotation?");
@@ -754,12 +757,14 @@ stockholm_parse_gr(ESL_MSAFILE *afp, ESL_STOCKHOLM_PARSEDATA *pd, ESL_MSA *msa, 
   esl_pos_t  grlen, namelen,  taglen;
   int        seqidx, tagidx;
   int        z;
+  int        i;
   int        status;
 
   if (esl_memtok(&p, &n, " \t", &gr,   &grlen)    != eslOK) ESL_EXCEPTION(eslEINCONCEIVABLE, "EOL can't happen here.");
   if (esl_memtok(&p, &n, " \t", &name, &namelen)  != eslOK) ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GR line missing <seqname>, <tag>, annotation");
   if (esl_memtok(&p, &n, " \t", &tag,  &taglen)   != eslOK) ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GR line missing <tag>, annotation");
   while (n && strchr(" \t", p[n-1])) n--; /* skip backwards from eol, to delimit aligned text without going through it */
+  for (i = 0; i < n; i++) if (! isascii(p[i])) ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GR annotation must be ASCII text; seeing at least one (UTF-8?) wide char");
 
   if (! esl_memstrcmp(gr, grlen, "#=GR")) ESL_FAIL(eslEFORMAT, afp->errmsg, "faux #=GR line?");
   if (! n)                                ESL_FAIL(eslEFORMAT, afp->errmsg, "#=GR line missing annotation?");
@@ -895,13 +900,13 @@ stockholm_parse_sq(ESL_MSAFILE *afp, ESL_STOCKHOLM_PARSEDATA *pd, ESL_MSA *msa, 
   if ( pd->bi > 0 && pd->sqlen[seqidx] == pd->alen + pd->alen_b) ESL_FAIL(eslEFORMAT, afp->errmsg, "duplicate seq name %.*s", (int) seqnamelen, seqname);
 
   if (  afp->abc ) {
-    status = esl_abc_dsqcat(afp->inmap, &(msa->ax[seqidx]),   &(pd->sqlen[seqidx]), p, n);
+    status = esl_dsq_Append(afp->inmap, &(msa->ax[seqidx]),   &(pd->sqlen[seqidx]), p, n);
     if      (status == eslEINVAL) ESL_FAIL(eslEFORMAT, afp->errmsg, "invalid sequence character(s) on line");
     else if (status != eslOK)     return status;
   }
 
   if (! afp->abc) {
-    status = esl_strmapcat (afp->inmap, &(msa->aseq[seqidx]), &(pd->sqlen[seqidx]), p, n);
+    status = esl_dsq_CAppend(afp->inmap, &(msa->aseq[seqidx]), &(pd->sqlen[seqidx]), p, n);
     if      (status == eslEINVAL) ESL_FAIL(eslEFORMAT, afp->errmsg, "invalid sequence character(s) on line");
     else if (status != eslOK)     return status;
   }
@@ -1228,7 +1233,7 @@ stockholm_write(FILE *fp, const ESL_MSA *msa, int64_t cpl)
 
       for (i = 0; i < msa->nseq; i++)
 	{
-	  if (msa->abc)   esl_abc_TextizeN(msa->abc, msa->ax[i] + currpos + 1, acpl, buf);
+	  if (msa->abc)   esl_dsq_TextizeN(msa->abc, msa->ax[i] + currpos + 1, acpl, buf);
 	  if (! msa->abc) strncpy(buf, msa->aseq[i] + currpos, acpl);
 	  if (make_uniquenames) { if (fprintf(fp, "%0*d|%-*s %s\n", uniqwidth-1, i, margin-uniqwidth-1, msa->sqname[i], buf) < 0) ESL_XEXCEPTION_SYS(eslEWRITE, "stockholm msa write failed"); }
 	  else                  { if (fprintf(fp, "%-*s %s\n",                      margin-1,           msa->sqname[i], buf) < 0) ESL_XEXCEPTION_SYS(eslEWRITE, "stockholm msa write failed"); }

@@ -102,14 +102,14 @@ typedef struct {
   int64_t  n;              /* length of seq (or dsq) and ss                    */
   /*::cexcerpt::sq_sq::end::*/
 
-  /* Source-tracking coordinate info for:                       seq       subseq     window     info */
-  /*                                                           ----       ------     ------    ----- */
-  int64_t  start;  /* coord of seq[0],dsq[1] on source  [1..L]    1      1<=i<=L    1<=i<=L      0   */
-  int64_t  end;    /* coord of seq[n-1],dsq[n] on source[1..L]    L      1<=j<=L    1<=j<=L      0   */
-  int64_t  C;      /* # of context residues for a window          0            0        n-W      0   */
-  int64_t  W;      /* window width                                L            n        n-C      0   */
-  int64_t  L;      /* source sequence length in residues          L     L (or -1)   L (or -1)    L   */
-  /* and   n: length of seq (or dsq) and ss actually stored:      L   abs(j-i)+1        C+W      0   */
+  /* Source-tracking coordinate info for:                       seq       subseq     window     info   orf         */
+  /*                                                           ----       ------     ------    -----   -----       */
+  int64_t  start;  /* coord of seq[0],dsq[1] on source  [1..L]    1      1<=i<=L    1<=i<=L      0      ia         */
+  int64_t  end;    /* coord of seq[n-1],dsq[n] on source[1..L]    L      1<=j<=L    1<=j<=L      0      ib         */
+  int64_t  C;      /* # of context residues for a window          0            0        n-W      0       0         */
+  int64_t  W;      /* window width                                L            n        n-C      0       0         */
+  int64_t  L;      /* source sequence length in residues          L     L (or -1)   L (or -1)    L      -1         */
+  /* and   n: length of seq (or dsq) and ss actually stored:      L   abs(j-i)+1        C+W      0   (ib-ia+1)/3   */
   /* In all the above bookkeeping, a -1 means "unknown" */
   char    *source; /* name of the source of a subseq/window; or MSA name; or ""*/
 
@@ -130,8 +130,8 @@ typedef struct {
   /* Optional information for extra residue markups.
    * The number of them, and their tags are arbitrary
    */
-  char  **xr_tag;          /* markup tags for extra residue markups [0..ntr-1][free-text], [0..ntr-1][free-text], or NULL */
-  char  **xr;              /* annotations for extra residue markups [0..ntr-1][0..n-1],    [0..ntr-1][1..n],      or NULL */
+  char  **xr_tag;          /* markup tags for extra residue markups [0..nxr-1][free-text], [0..nxr-1][free-text], or NULL */
+  char  **xr;              /* annotations for extra residue markups [0..nxr-1][0..n-1],    [0..nxr-1][1..n],      or NULL */
   int     nxr;             /* number of extra residue markups                                                             */
 
   /* Copy of a pointer to the alphabet, if digital mode */
@@ -185,6 +185,7 @@ extern ESL_SQ *esl_sq_CreateDigitalFrom(const ESL_ALPHABET *abc, const char *nam
 					int64_t L, const char *desc, const char *acc,  const char *ss);
 extern int     esl_sq_Digitize(const ESL_ALPHABET *abc, ESL_SQ *sq);
 extern int     esl_sq_Textize(ESL_SQ *sq);
+extern int     esl_sq_FetchText(ESL_SQ *sq, char **ret_s);
 extern int     esl_sq_GuessAlphabet(ESL_SQ *sq, int *ret_type);
 extern int     esl_sq_XAddResidue(ESL_SQ *sq, ESL_DSQ x);
 extern int     esl_sq_ConvertDegen2X(ESL_SQ *sq);
@@ -193,13 +194,14 @@ extern int     esl_sq_GetFromMSA  (const ESL_MSA *msa, int which, ESL_SQ *sq);
 extern int     esl_sq_FetchFromMSA(const ESL_MSA *msa, int which, ESL_SQ **ret_sq);
 
 extern ESL_SQ_BLOCK *esl_sq_CreateBlock(int count);
-extern int esl_sq_BlockGrowTo(ESL_SQ_BLOCK *sqblock, int newsize, int do_digital, const ESL_ALPHABET *abc);
+extern int           esl_sq_BlockGrowTo(ESL_SQ_BLOCK *sqblock, int newsize, int do_digital, const ESL_ALPHABET *abc);
 extern ESL_SQ_BLOCK *esl_sq_CreateDigitalBlock(int count, const ESL_ALPHABET *abc);
 extern void          esl_sq_DestroyBlock(ESL_SQ_BLOCK *sqBlock);
-extern int esl_sq_BlockReallocSequences(ESL_SQ_BLOCK *block);
+extern int           esl_sq_BlockReallocSequences(ESL_SQ_BLOCK *block);
 
 extern int esl_sq_Validate(ESL_SQ *sq, char *errmsg);
 extern int esl_sq_Sample(ESL_RANDOMNESS *rng, ESL_ALPHABET *abc, int maxL, ESL_SQ **ret_sq);
-
+extern int esl_sq_Serialize(const ESL_SQ *obj, uint8_t **buf, uint32_t *n, uint32_t *nalloc);
+extern int esl_sq_Deserialize(const uint8_t *buf, uint32_t *n, ESL_ALPHABET **byp_abc, ESL_SQ **byp_ret);
 #endif /*eslSQ_INCLUDED*/
 

@@ -20,6 +20,7 @@
 
 #include "easel.h"
 #include "esl_alphabet.h"	
+#include "esl_dsq.h"
 #include "esl_msa.h"		
 #include "esl_random.h"   
 #include "esl_randomseq.h"
@@ -28,12 +29,10 @@
 
 
 /* Shared parts of text/digital creation functions (defined in "internal functions" section) */
-static ESL_SQ *sq_create(int do_digital);
-static ESL_SQ *sq_create_from(const char *name, const char *desc, const char *acc);
-
+static ESL_SQ       *sq_create(int do_digital);
+static ESL_SQ       *sq_create_from(const char *name, const char *desc, const char *acc);
 static ESL_SQ_BLOCK *sq_createblock(int count, int do_digital);
-
-static int  sq_init(ESL_SQ *sq, int do_digital);
+static int           sq_init(ESL_SQ *sq, int do_digital);
 
 
 /*****************************************************************
@@ -121,6 +120,7 @@ esl_sq_CreateFrom(const char *name, const char *seq, const char *desc, const cha
   sq->xr_tag = NULL;
   sq->xr     = NULL;
 
+  sq->abc    = NULL;   // text mode. See esl_sq_CreateDigitalFrom() for digital version.
   return sq;
 
  ERROR:
@@ -264,7 +264,7 @@ esl_sq_GrowTo(ESL_SQ *sq, int64_t n)
 int
 esl_sq_Copy(const ESL_SQ *src, ESL_SQ *dst)
 {
-  int   x;        /* index for optional extra residue markups */
+  int x;        // index for optional extra residue markups
   int status;
 
   /* If <src> has structure annotation and <dst> does not, initialize an allocation in <dst> */
@@ -286,8 +286,8 @@ esl_sq_Copy(const ESL_SQ *src, ESL_SQ *dst)
     ESL_ALLOC(dst->xr,     sizeof(char *) * dst->nxr);
     
     for (x = 0; x < dst->nxr; x++) {
-      ESL_ALLOC(dst->xr_tag[x], sizeof(char) * src->nalloc);
-      ESL_ALLOC(dst->xr[x],     sizeof(char) * src->salloc);
+      if (src->xr[x]     != NULL) ESL_ALLOC(dst->xr[x],     sizeof(char) * src->salloc);                  else dst->xr[x]     = NULL;
+      if (src->xr_tag[x] != NULL) ESL_ALLOC(dst->xr_tag[x], sizeof(char) * (strlen(src->xr_tag[x]) + 1)); else dst->xr_tag[x] = NULL;
     }
   }
   
@@ -299,14 +299,14 @@ esl_sq_Copy(const ESL_SQ *src, ESL_SQ *dst)
 
   if (src->seq != NULL && dst->seq != NULL) /* text to text */
     {
-    strcpy(dst->seq, src->seq);
+      strcpy(dst->seq, src->seq);
       if (src->ss != NULL) strcpy(dst->ss, src->ss);
       for (x = 0; x < src->nxr; x++) 
 	if (src->xr[x] != NULL) strcpy(dst->xr[x], src->xr[x]);
     }
   else if (src->seq != NULL && dst->dsq != NULL) /* text to digital */
     {
-      if ((status = esl_abc_Digitize(dst->abc, src->seq, dst->dsq)) != eslOK) goto ERROR;      
+      if ((status = esl_dsq_Digitize(dst->abc, src->seq, dst->dsq)) != eslOK) goto ERROR;      
       if (src->ss != NULL) {
 	strcpy(dst->ss+1, src->ss);
 	dst->ss[0] = '\0';
@@ -316,7 +316,7 @@ esl_sq_Copy(const ESL_SQ *src, ESL_SQ *dst)
     }
   else if (src->dsq != NULL && dst->seq != NULL) /* digital to text */
     {
-      if ((status = esl_abc_Textize(src->abc, src->dsq, src->n, dst->seq)) != eslOK) goto ERROR;
+      if ((status = esl_dsq_Textize(src->abc, src->dsq, src->n, dst->seq)) != eslOK) goto ERROR;
       if (src->ss != NULL) strcpy(dst->ss, src->ss+1);
       for (x = 0; x < src->nxr; x++) 
 	if (src->xr[x] != NULL) strcpy(dst->xr[x], src->xr[x]+1);
@@ -325,7 +325,7 @@ esl_sq_Copy(const ESL_SQ *src, ESL_SQ *dst)
     {
       if (src->abc->type != dst->abc->type) 
 	ESL_XEXCEPTION(eslEINCOMPAT, "seq objects involved in Copy differ in digital alphabet");
-      if ((status = esl_abc_dsqcpy(src->dsq, src->n, dst->dsq)) != eslOK) goto ERROR;
+      if ((status = esl_dsq_Copy(src->dsq, src->n, dst->dsq)) != eslOK) goto ERROR;
       if (src->ss != NULL) {
 	strcpy(dst->ss+1, src->ss+1);
 	dst->ss[0] = '\0';
@@ -379,20 +379,59 @@ esl_sq_Compare(ESL_SQ *sq1, ESL_SQ *sq2)
   if (strcmp(sq1->acc,    sq2->acc)    != 0) return eslFAIL;
   if (strcmp(sq1->desc,   sq2->desc)   != 0) return eslFAIL;
   if (strcmp(sq1->source, sq2->source) != 0) return eslFAIL;
-  if (sq1->ss != NULL && sq2->ss != NULL) {
-    if (strcmp(sq1->ss, sq2->ss) != 0)       return eslFAIL;
-  } else
-    if (sq1->ss != NULL || sq2->ss != NULL)  return eslFAIL;
   if (sq1->n != sq2->n)                      return eslFAIL;
   
-  /* Sequence comparison */
-  if        (sq1->seq != NULL && sq2->seq != NULL) {
-    if (strcmp(sq1->seq, sq2->seq) != 0)     return eslFAIL;
-  } 
-  else if (sq1->dsq != NULL && sq2->dsq != NULL) {
-    if (memcmp(sq1->dsq, sq2->dsq, sizeof(ESL_DSQ) * (sq1->n+2)) != 0) return eslFAIL;
+  /* Optional ss annotation must be present for both or neither, whether digital or text mode */
+  if (sq1->ss && ! sq2->ss) return eslFAIL;
+  if (sq2->ss && ! sq1->ss) return eslFAIL;
+
+  /* Optional extra residue markups must match in presence and in tags, whether digital 1..n or text mode 0..n-1 strings */
+  if (sq1->nxr != sq2->nxr) return eslFAIL;
+  for (x = 0; x < sq1->nxr; x++) {
+    if (! sq1->xr_tag[x] || ! sq2->xr_tag[x])        return eslFAIL;
+    if (strcmp(sq1->xr_tag[x], sq2->xr_tag[x]) != 0) return eslFAIL;
   }
-  else return eslFAIL;
+
+  /* Sequence and per-residue annotation comparison (digital vs text mode) */
+  if (sq1->dsq)  // sq1 is digital? then sq2 must also be
+    {
+      if (! sq2->dsq || sq1->seq || sq2->seq) return eslFAIL;
+      if (sq1->dsq[0] != eslDSQ_SENTINEL || sq1->dsq[sq1->n+1] != eslDSQ_SENTINEL) return eslFAIL;  // validate sentinels at 0,n+1
+      if (sq2->dsq[0] != eslDSQ_SENTINEL || sq2->dsq[sq2->n+1] != eslDSQ_SENTINEL) return eslFAIL;
+      if (memcmp(sq1->dsq, sq2->dsq, sizeof(ESL_DSQ) * (sq1->n+2)) != 0) return eslFAIL;  // compare content for 1..n
+
+      if (sq1->ss) {  // in digital mode, ss[] text is 1..n, with \0 at 0,n+1
+        if (sq1->ss[0] != '\0' || sq1->ss[sq1->n+1] != '\0') return eslFAIL;              // validate "sentinels" on the ss annotation string at 1..n
+        if (sq2->ss[0] != '\0' || sq2->ss[sq2->n+1] != '\0') return eslFAIL;
+        if (strlen(sq1->ss+1) != sq1->n || strlen(sq2->ss+1) != sq2->n) return eslFAIL;   // after validation above, this only fails on \0 internal to the ss string
+        if (strcmp(sq1->ss+1, sq2->ss+1) != 0)                          return eslFAIL;
+      }
+
+      for (x = 0; x < sq1->nxr; x++)  // likewise xr[x][] annotations are 1..n with \0 at 0,n+1
+        {
+          if (sq1->xr[x][0] != '\0' || sq1->xr[x][sq1->n+1] != '\0') return eslFAIL;      // validate "sentinels" on the ss annotation string at 1..n
+          if (sq2->xr[x][0] != '\0' || sq2->xr[x][sq2->n+1] != '\0') return eslFAIL;
+          if (strlen(sq1->xr[x]+1) != sq1->n || strlen(sq2->xr[x]+1) != sq2->n) return eslFAIL;   // after validation above, this only fails on \0 internal to the ss string
+          if (strcmp(sq1->xr[x]+1, sq2->xr[x]+1) != 0)                          return eslFAIL;
+        }
+    }
+  else // text mode
+    {
+      if (! sq2->seq || sq1->dsq || sq2->dsq) return eslFAIL;
+      if (strlen(sq1->seq) != sq1->n || strlen(sq2->seq) != sq2->n) return eslFAIL;
+      if (strcmp(sq1->seq, sq2->seq) != 0)    return eslFAIL;
+      
+      if (sq1->ss) {
+        if (strlen(sq1->ss) != sq1->n || strlen(sq2->ss) != sq2->n) return eslFAIL;
+        if (strcmp(sq1->ss, sq2->ss) != 0)                          return eslFAIL;
+      } 
+
+      for (x = 0; x < sq1->nxr; x++)  // likewise xr[x][] annotations are 1..n with \0 at 0,n+1
+        {
+          if (strlen(sq1->xr[x]) != sq1->n || strlen(sq2->xr[x]) != sq2->n) return eslFAIL;   // after validation above, this only fails on \0 internal to the ss string
+          if (strcmp(sq1->xr[x], sq2->xr[x]) != 0)                        return eslFAIL;
+        }
+    }
 
   /* Coordinate comparison */
   if (sq1->start != sq2->start)              return eslFAIL;
@@ -406,20 +445,6 @@ esl_sq_Compare(ESL_SQ *sq1, ESL_SQ *sq2)
   if (sq1->doff != -1 && sq2->doff != -1 && sq1->doff != sq2->doff) return eslFAIL;
   if (sq1->hoff != -1 && sq2->hoff != -1 && sq1->hoff != sq2->hoff) return eslFAIL;
   if (sq1->eoff != -1 && sq2->eoff != -1 && sq1->eoff != sq2->eoff) return eslFAIL;
-  
-  /* optional extra residue markup comparison */
-  if (sq1->nxr != sq2->nxr) return eslFAIL;
-  for (x = 0; x < sq1->nxr; x++) {
-    if (sq1->xr_tag[x] != NULL && sq2->xr_tag[x] != NULL) {
-      if (strcmp(sq1->xr_tag[x], sq2->xr_tag[x]) != 0)      return eslFAIL;
-    } else
-      if (sq1->xr_tag[x] != NULL || sq2->xr_tag[x] != NULL) return eslFAIL;
-    
-    if (sq1->xr[x] != NULL && sq2->xr[x] != NULL) {
-      if (strcmp(sq1->xr[x], sq2->xr[x]) != 0)      return eslFAIL;
-    } else
-      if (sq1->xr[x] != NULL || sq2->xr[x] != NULL) return eslFAIL;
-  }
   
   /* alphabet comparison */
   if (sq1->abc != NULL && (sq1->abc->type != sq2->abc->type)) return eslFAIL;
@@ -449,21 +474,19 @@ esl_sq_Reuse(ESL_SQ *sq)
   sq->desc[0]   = '\0';
   sq->tax_id    = -1;
   sq->source[0] = '\0';
-  if (sq->seq != NULL) sq->seq[0] = '\0';
-  if (sq->dsq != NULL) sq->dsq[0] = sq->dsq[1] = eslDSQ_SENTINEL;
-  if (sq->ss  != NULL) {
-    if (sq->seq != NULL) sq->ss[0] = '\0';
-    else                 sq->ss[0] = sq->ss[1] = '\0'; /* in digital mode, ss string is 1..n; 0 is a dummy \0 byte*/
-  }
+  if (sq->seq) sq->seq[0] = '\0';
+  if (sq->dsq) sq->dsq[0] = sq->dsq[1] = eslDSQ_SENTINEL;
+  free(sq->ss);
+  sq->ss        = NULL;  // free optional secondary structure, rather than trying to re-use. NULL is our only flag for "no optional annotation present"
 
-  /* optional extra residue markup */
+  /* free optional extra residue markup */
   if (sq->nxr > 0) {
     for (x = 0; x < sq->nxr; x++) {
-      if (sq->xr[x]     != NULL) { free(sq->xr[x]);     sq->xr[x]     = NULL; }
-      if (sq->xr_tag[x] != NULL) { free(sq->xr_tag[x]); sq->xr_tag[x] = NULL; }
+      free(sq->xr[x]);   
+      free(sq->xr_tag[x]);
     }     
-    if (sq->xr     != NULL) { free(sq->xr);     sq->xr     = NULL; }
-    if (sq->xr_tag != NULL) { free(sq->xr_tag); sq->xr_tag = NULL; }
+    free(sq->xr);     sq->xr     = NULL; 
+    free(sq->xr_tag); sq->xr_tag = NULL; 
     sq->nxr = 0;
   }
 
@@ -517,9 +540,9 @@ esl_sq_IsText(const ESL_SQ *sq)
 static void
 sq_free_internals(ESL_SQ *sq)
 {
+  int   x;       
   if (sq)
     {
-      int   x;        /* index for optional extra residue markups */
       free(sq->name);  
       free(sq->acc);   
       free(sq->desc);  
@@ -527,14 +550,15 @@ sq_free_internals(ESL_SQ *sq)
       free(sq->dsq);   
       free(sq->ss);    
       free(sq->source);
-      if (sq->nxr) {  
-	for (x = 0; x < sq->nxr; x++) {
-	  free(sq->xr[x]);
-	  free(sq->xr_tag[x]);
-	}
-      }
-      free(sq->xr);
-      free(sq->xr_tag);
+      if (sq->nxr)
+        {  
+          for (x = 0; x < sq->nxr; x++) {
+            free(sq->xr[x]);
+            free(sq->xr_tag[x]);
+          }
+          free(sq->xr);
+          free(sq->xr_tag);
+        }
     }
   return;
 }
@@ -779,8 +803,8 @@ esl_sq_CreateDigitalFrom(const ESL_ALPHABET *abc, const char *name, const ESL_DS
   int     status;
 
   if((sq = sq_create_from(name, desc, acc)) == NULL) goto ERROR;
-  sq->n = (n == -1) ? esl_abc_dsqlen(dsq) : n;
-  if ((status = esl_abc_dsqdup(dsq, sq->n, &(sq->dsq))) != eslOK) goto ERROR;
+  sq->n = (n == -1) ? esl_dsq_GetLen(dsq) : n;
+  if ((status = esl_dsq_Clone(dsq, sq->n, &(sq->dsq))) != eslOK) goto ERROR;
 
   if (ss != NULL)
     {
@@ -849,27 +873,21 @@ esl_sq_Digitize(const ESL_ALPHABET *abc, ESL_SQ *sq)
   /* You can't just call Grow() here, because it would grow for old text mode, not new digital */
   if (sq->salloc < sq->n+2) {	/* it's possible (though unlikely) for salloc to be 1 residue too small */
     sq->salloc = sq->n+2;
-    if (sq->ss != NULL) {
-      void *tmp;
-      ESL_RALLOC(sq->ss, tmp, sizeof(char) * sq->salloc);
-    }
-    /* optional extra residue markups follow same convenctions as ss */
+    if (sq->ss) ESL_REALLOC(sq->ss, sizeof(char) * sq->salloc);
     for (x = 0; x < sq->nxr; x++) 
-      if (sq->xr[x] != NULL) {
-	void *tmp;
-	ESL_RALLOC(sq->xr[x], tmp, sizeof(char) * sq->salloc);
-      }
+      ESL_REALLOC(sq->xr[x], sizeof(char) * sq->salloc);
   }
+
   ESL_ALLOC(sq->dsq, (sq->salloc) * sizeof(ESL_DSQ));
 
   /* Now convert. */
-  if ((status = esl_abc_Digitize(abc, sq->seq, sq->dsq)) != eslOK) goto ERROR;
-  if (sq->ss != NULL) {
+  if ((status = esl_dsq_Digitize(abc, sq->seq, sq->dsq)) != eslOK) goto ERROR;
+  if (sq->ss) {
     memmove(sq->ss+1, sq->ss, sq->n+1);
     sq->ss[0] = '\0';
   }
   for (x = 0; x < sq->nxr; x++) 
-    if (sq->xr[x] != NULL) {
+    {
       memmove(sq->xr[x]+1, sq->xr[x], sq->n+1);
       sq->xr[x][0] = '\0';
     }
@@ -880,7 +898,7 @@ esl_sq_Digitize(const ESL_ALPHABET *abc, ESL_SQ *sq)
   return eslOK;
 
  ERROR:
-  if (sq->dsq != NULL) free(sq->dsq);
+  free(sq->dsq);
   return status;
 }
 
@@ -890,6 +908,8 @@ esl_sq_Digitize(const ESL_ALPHABET *abc, ESL_SQ *sq)
  *
  * Purpose:   Given a sequence <sq> in digital mode, convert it
  *            to text mode.
+ *
+ *            (If it's already in text mode, do nothing.)
  *            
  *            Internally, the <seq> text alignment field is filled, the
  *            <dsq> digital alignment field is destroyed and free'd, the
@@ -900,7 +920,9 @@ esl_sq_Digitize(const ESL_ALPHABET *abc, ESL_SQ *sq)
  * Returns:   <eslOK> on success.
  *
  * Throws:    <eslEMEM> on allocation failure.
- *            Throws <eslECORRUPT> if the digital sequence contains 
+ *            <eslEINVAL> if <sq> isn't in text mode, but isn't
+ *            in an internally correct digital mode either.
+ *            <eslECORRUPT> if the digital sequence contains 
  *            invalid codes.
  */
 int
@@ -918,12 +940,11 @@ esl_sq_Textize(ESL_SQ *sq)
   ESL_ALLOC(sq->seq, sq->salloc * sizeof(char));
   
   /* Convert. */
-  if ((status = esl_abc_Textize(sq->abc, sq->dsq, sq->n, sq->seq)) != eslOK) goto ERROR;
-  if (sq->ss != NULL) 
-    memmove(sq->ss, sq->ss+1, sq->n+1);	/* slide back to 0..n-1; +1 includes terminal \0 */
+  if ((status = esl_dsq_Textize(sq->abc, sq->dsq, sq->n, sq->seq)) != eslOK) goto ERROR;
+  if (sq->ss)
+    memmove(sq->ss, sq->ss+1, sq->n+1);	        // slide back to 0..n-1; +1 includes terminal \0
   for (x = 0; x < sq->nxr; x++) 
-    if (sq->xr[x] != NULL) 
-      memmove(sq->xr[x], sq->xr[x]+1, sq->n+1);	/* slide back to 0..n-1; +1 includes terminal \0 */
+    memmove(sq->xr[x], sq->xr[x]+1, sq->n+1);	// slide back to 0..n-1; +1 includes terminal \0 
   
   free(sq->dsq);
   sq->dsq = NULL;
@@ -931,7 +952,51 @@ esl_sq_Textize(ESL_SQ *sq)
   return eslOK;
 
  ERROR:
-  if (sq->seq != NULL) free(sq->seq);
+  free(sq->seq);
+  return status;
+}
+
+
+/* Function:  esl_sq_FetchText()
+ * Synopsis:  Return sequence of an <ESL_SQ> as a normal (C) string 
+ * Incept:    SRE, Sun 01 Oct 2023
+ *
+ * Purpose:   Given a <sq>, return its sequence as a text string in
+ *            <*ret_s>.
+ *
+ *            The text string is allocated here, and caller is
+ *            responsible for free'ing it.
+ *
+ *            Normally <sq> would be digital mode, if you needed this
+ *            function, but it works if <sq> is text mode too; in that
+ *            case it simply returns an allocated copy of the text
+ *            mode <sq->seq>.
+ *
+ *            An example of where I needed this: reading input
+ *            sequence data in digital mode, but using esl_regexp
+ *            functions on it; esl_regexp works on text strings.
+ *
+ * Args:      sq     - the <ESL_SQ>
+ *            *ret_s - RETURN: the sequence from <sq> as a text string
+ *
+ * Returns:   <eslOK> on success. Caller responsible for free'ing <*ret_s>.
+ *
+ * Throws:    <eslEMEM> on allocation failure
+ */
+int
+esl_sq_FetchText(ESL_SQ *sq, char **ret_s)
+{
+  char *s = NULL;
+  int   status;
+
+  ESL_ALLOC(s, sizeof(char) * (sq->n+1));
+  if (sq->dsq) esl_dsq_Textize(sq->abc, sq->dsq, sq->n, s);
+  else         strcpy(s, sq->seq);
+  *ret_s = s;
+  return eslOK;
+  
+ ERROR:
+  *ret_s = NULL;
   return status;
 }
 
@@ -1018,7 +1083,7 @@ int
 esl_sq_ConvertDegen2X(ESL_SQ *sq)
 {
   if (! esl_sq_IsDigital(sq)) ESL_EXCEPTION(eslEINVAL, "esl_sq_ConvertDegen2X() only works on digital sequences");
-  return esl_abc_ConvertDegen2X(sq->abc, sq->dsq);
+  return esl_dsq_Degen2X(sq->abc, sq->dsq);
 }
 
 /*---------- end of digitized ESL_SQ object functions -----------*/
@@ -1196,6 +1261,11 @@ esl_sq_SetSource(ESL_SQ *sq, const char *source)
  * 
  *            A copy of <name> is made, so if caller had <name> allocated, 
  *            it is still responsible for freeing it.
+ *
+ *            The function is writing <sq->name> so don't use the
+ *            existing <sq->name> as an argument; i.e. don't do
+ *            something like <esl_sq_FormatName(sq, "%s-modified",
+ *            sq->name)>.  If you try, behavior is undefined.
  *
  * Returns:   <eslOK> on success.
  *
@@ -1592,20 +1662,21 @@ esl_sq_ReverseComplement(ESL_SQ *sq)
     }
   else
     {
-      if ((status = esl_abc_revcomp(sq->abc, sq->dsq, sq->n)) != eslOK) goto ERROR;
+      if ((status = esl_dsq_Revcomp(sq->abc, sq->dsq, sq->n)) != eslOK) goto ERROR;
     }
 
   ESL_SWAP(sq->start, sq->end, int64_t);
 
   /* revcomp invalidates any secondary structure annotation */
-  if (sq->ss != NULL) { free(sq->ss); sq->ss = NULL; }
+  if (sq->ss) { free(sq->ss); sq->ss = NULL; }
   /* revcomp invalidates any extra residue markup */
-  if (sq->nxr > 0) {
-    for (x = 0; x < sq->nxr; x++) 
-      if (sq->xr[x] != NULL) { free(sq->xr_tag[x]); free(sq->xr[x]); sq->xr_tag[x] = NULL; sq->xr[x] = NULL; }  
-    free(sq->xr_tag); sq->xr_tag = NULL;
-    free(sq->xr);     sq->xr     = NULL;
-  }   
+  for (x = 0; x < sq->nxr; x++) 
+    {
+      free(sq->xr_tag[x]);
+      free(sq->xr[x]);
+    }
+  free(sq->xr_tag); sq->xr_tag = NULL;
+  free(sq->xr);     sq->xr     = NULL;
   return status;
 
  ERROR:
@@ -1706,7 +1777,451 @@ esl_sq_CountResidues(const ESL_SQ *sq, int start, int L, float *f)
   return eslOK;
 }
 
+#define ESL_SQ_HAS_SS 1
+#define ESL_SQ_DIGITAL_RNA 2
+#define ESL_SQ_DIGITAL_DNA 4
+#define ESL_SQ_DIGITAL_AMINO 8
+#define ESL_SQ_DIGITAL_COINS 16
+#define ESL_SQ_DIGITAL_DICE 32
 
+/* Function:  esl_sq_Serialize
+ * Synopsis:  Serialize an ESL_SQ object for transmission over sockets
+ *
+ * Purpose:   Given a digital ESL_SQ object whose alphabet is not eslNONSTANDARD,
+ *            serializes that object into the 
+ *            buffer buf, starting at position n.  If there is not enough
+ *            space in the buffer (nalloc-n < length of serialized ESL_SQ),
+ *            resizes the buffer to be large enough.  If *buf ==NULL, allocates 
+ *            a new buffer of sufficient size.  Attempting to serialize a text-mode 
+ *            sequence is an error.
+ *
+ * Returns:   <eslOK> on success, <eslEINVAL> if buf == NULL, obj == NULL, or n == NULL,
+ *            <eslEMEM> if unable to allocate memory.  Also returns eslEINVAL if the sequence
+ *            is in text mode, does not contain an ESL_ALPHABET object, or contains an ESL_ALPHABET
+ *            object whose type is eslNONSTANDARD
+ */
+
+extern int esl_sq_Serialize(const ESL_SQ *obj, uint8_t **buf, uint32_t *n, uint32_t *nalloc){
+  int status; 
+  if((obj == NULL) || (n == NULL) || (buf == NULL)){
+    return(eslEINVAL);
+  }
+  if(obj->seq != NULL){ // we don't support serializing text-mode sequences
+    return(eslEINVAL);
+  }
+  if(obj->abc == NULL || obj->abc->type == eslNONSTANDARD){ // need an alphabet of type != eslNONSTANDARD to serialize
+    return(eslEINVAL);
+  }
+
+  // If we get here, the ESL_SQ object is serializable and the only error condition we can generate is if
+  // we're unable to allocate memory
+  int8_t flags = 0;
+  // figure out how big the serialized object will be
+
+  uint64_t ser_size = 1;  // Presence and type flags
+  ser_size += sizeof(int32_t); // tax_id field
+  ser_size += 8* sizeof(int64_t); // n, start, end, C, W, L, salloc, idx fields
+  ser_size += 5 * sizeof(int); // nalloc, aaloc, dalloc, srcalloc, nxr
+  ser_size += strlen(obj->name)+1; // These fields are just end-of-string characters if not present
+  ser_size += strlen(obj->acc) +1;
+  ser_size += strlen(obj->desc) +1;
+  ser_size += strlen(obj->source) +1;
+
+  ser_size += obj->n + 2;  // The sequence itself
+  if(obj->ss != NULL){
+    flags |= ESL_SQ_HAS_SS;
+    ser_size+= obj->n +2;
+  }
+  for (int x = 0; x < obj->nxr; x ++) {
+    ser_size += strlen(obj->xr_tag[x]) +1;
+    ser_size += obj->n +2;
+  }
+  switch(obj->abc->type){
+    case eslRNA:
+      flags |= ESL_SQ_DIGITAL_RNA;
+      break;
+    case eslDNA:
+      flags |= ESL_SQ_DIGITAL_DNA;
+      break;
+    case eslAMINO:
+      flags |= ESL_SQ_DIGITAL_AMINO;
+      break;
+    case eslCOINS:
+      flags |= ESL_SQ_DIGITAL_COINS;
+      break;
+    case eslDICE:
+      flags |= ESL_SQ_DIGITAL_DICE;
+  }
+  if(*buf == NULL){
+    ESL_ALLOC(*buf, *n+ser_size);
+    *nalloc = *n + ser_size;
+  }
+  else if((*nalloc - *n) < ser_size){
+    ESL_REALLOC(*buf, *n + ser_size);
+    *nalloc = *n + ser_size;
+  }
+
+  // At this point, we know we have enough space in the buffer, and can proceed to serialize
+  uint32_t network32_bit;
+  uint64_t network_64bit;
+  uint8_t *ptr = *buf + *n;
+  memcpy((void *)ptr, (void *) &flags, sizeof(int8_t));
+  ptr+= sizeof(int8_t);
+
+  network_64bit = esl_hton64(obj->n);  // Put this at the beginning because we need the value of n to deserialize some of the variable-length fields
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->n));
+  ptr += sizeof(obj->n);
+
+  // These also go early because we need them to allocate memory for variable-length fields
+  // This has the potential to fail horribly on a machine where ints aren't 32 bits,
+  network32_bit = esl_hton32(obj->nalloc);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->nalloc));
+  ptr += sizeof(obj->nalloc);
+
+  network32_bit = esl_hton32(obj->aalloc);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->aalloc));
+  ptr += sizeof(obj->aalloc);
+
+  network32_bit = esl_hton32(obj->dalloc);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->dalloc));
+  ptr += sizeof(obj->dalloc);
+  
+  network_64bit = esl_hton64(obj->salloc);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->salloc));
+  ptr += sizeof(obj->salloc);
+
+  network32_bit = esl_hton32(obj->srcalloc);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->srcalloc));
+  ptr += sizeof(obj->srcalloc);
+// Strings don't have byte-order issues
+  strcpy((char *) ptr, obj->name);
+  ptr+= strlen(obj->name) +1;
+
+  strcpy((char *) ptr, obj->acc);
+  ptr+= strlen(obj->acc) +1;
+
+  strcpy((char *) ptr, obj->desc);
+  ptr+= strlen(obj->desc) +1;
+
+  network32_bit = esl_hton32(obj->tax_id);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->tax_id));
+  ptr += sizeof(obj->tax_id);
+
+  memcpy((void *) ptr, (void *) obj->dsq, obj->n +2);
+  ptr += obj->n +2;
+  if(obj->ss != NULL){
+    memcpy((void *) ptr, (void *) obj->ss, obj->n +2);
+    ptr += obj->n +2;
+  }
+  
+  network_64bit = esl_hton64(obj->start);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->start));
+  ptr += sizeof(obj->start);
+
+  network_64bit = esl_hton64(obj->end);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->end));
+  ptr += sizeof(obj->end);
+  
+  network_64bit = esl_hton64(obj->C);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->C));
+  ptr += sizeof(obj->C);
+  
+  network_64bit = esl_hton64(obj->W);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->W));
+  ptr += sizeof(obj->W);
+
+  network_64bit = esl_hton64(obj->L);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->L));
+  ptr += sizeof(obj->L);
+ 
+  strcpy((char *) ptr, obj->source);
+  ptr+= strlen(obj->source)+1;
+
+  // Skip the offset fields -- they aren't relevant on some other machine
+
+  network_64bit = esl_hton64(obj->idx);
+  memcpy((void *) ptr, (void *) &network_64bit, sizeof(obj->idx));
+  ptr += sizeof(obj->idx);
+
+  // Do this out-of-order because we need nxr to deserialize the xr_tag and xr fields
+  network32_bit = esl_hton32(obj->nxr);
+  memcpy((void *) ptr, (void *) &network32_bit, sizeof(obj->nxr));
+  ptr += sizeof(obj->nxr);
+
+  for (int x = 0; x < obj->nxr; x ++) {
+    strcpy((char *) ptr, obj->xr_tag[x]);
+    ptr += strlen(obj->xr_tag[x]) +1;
+    memcpy((void *) ptr, (void *) obj->xr[x], obj->n+2);
+    ptr += obj->n +2;
+  }
+
+
+  // Don't need to serialize the sequence's alphabet, as we can just create one during deserialization
+
+  // Update the location in the buffer for the next thing to be serialized
+  if((uint64_t) (ptr- (*buf + *n)) != ser_size){
+    printf("Difference between actual and pre-computed size of serialized object, %" PRIu64 " vs %" PRIu64 "\n", (uint64_t) (ptr- *buf), ser_size);
+  }
+  *n = (ptr- *buf);
+  return(eslOK);
+
+ERROR: // We only get here if memory (re)allocation failed, so no cleanup required.
+  return(eslEMEM);
+}
+
+
+/* Function:  esl_sq_Deserialize
+ * Synopsis:  Deserializes a serialized ESL_SQ object
+ *
+ * Purpose:   Given a serialized ESL_SQ digital-mode object that starts at position n in buf, deserializes it and 
+ *            returns the deserialized object in byp_ret.  
+ *            If *byp_ret != NULL, re-uses that object for the new sequencea and the type of its abc object must 
+ *            match the type of the sequence being deserialized, or an error will occur.  If *byp_ret == NULL,
+ *            creates a new ESL_SQ object to hold the deserialized sequence.
+ *            If an ESL_ALPHABET object is provided in byp_abc and no ESL_SQ object is provided in byp_ret, 
+ *            uses that in the new ESL_SQ object if its type matches the serialized sequence, 
+ *            and returns an error if it does not.
+ *            If byp_abc != NULL, returns the alphabet of the deserialized sequence in *byp_abc.
+ *              
+ *
+ * Returns:   <eslOK> on success, <eslEINVAL> if buf == NULL, byp_ret == NULL, or n == NULL.
+ *            Also returns eslEINVAL if *byp_ret != NULL and the type of its abc object does not match the serialized
+ *            sequence, or if byp_ret == NULL, byp_abc != null, and the type of byp_abc does not match the serialized sequence.
+ */
+extern int esl_sq_Deserialize(const uint8_t *buf, uint32_t *n, ESL_ALPHABET **byp_abc, ESL_SQ **byp_ret){
+  int status;
+  uint64_t network64_bit;
+  uint32_t network32_bit;
+  ESL_SQ *the_sq = NULL;
+  ESL_ALPHABET *abc = NULL;
+  int created_sq = 0;
+  int created_alphabet = 0;
+  if(byp_ret == NULL || buf == NULL || n==NULL){ // bad inputs
+    return(eslEINVAL);
+  }
+
+  uint8_t *ptr = (uint8_t *) buf + *n; // Get pointer to start of object
+  uint8_t flags = *ptr;
+  ptr++;
+
+  switch (flags & 254){//zero out the low bit, which tells us if we have an SS field.
+    case ESL_SQ_DIGITAL_RNA:
+      if(*byp_ret != NULL){
+        if((*byp_ret)->abc->type != eslRNA){
+          return(eslEINVAL); 
+        }
+        the_sq = *byp_ret;
+      }
+      else{
+        if(byp_abc == NULL ||((*byp_abc != NULL) && (*byp_abc)->type != eslRNA)){ // Can't use the provided alphabet for this sequence
+          return(eslEINVAL);
+        }
+        if(*byp_abc == NULL){ // no alphabet provided
+          *byp_abc = esl_alphabet_Create(eslRNA); 
+          created_alphabet = 1;
+        }
+        the_sq = esl_sq_CreateDigital(*byp_abc);
+        created_sq = 1;
+      }
+      break;
+    case ESL_SQ_DIGITAL_DNA:
+      if(*byp_ret != NULL){
+        if((*byp_ret)->abc->type != eslDNA){
+          return(eslEINVAL); 
+        }
+        the_sq = *byp_ret;
+      }
+      else{
+        if(byp_abc == NULL ||((*byp_abc != NULL) && (*byp_abc)->type != eslDNA)){ // Can't use the provided alphabet for this sequence
+          return(eslEINVAL);
+        }
+        if(*byp_abc == NULL){ // no alphabet provided
+          *byp_abc = esl_alphabet_Create(eslDNA);
+          created_alphabet = 1;
+        }
+        the_sq = esl_sq_CreateDigital(*byp_abc);
+        created_sq = 1;
+      }
+      break;
+    case ESL_SQ_DIGITAL_AMINO:
+      if(*byp_ret != NULL){
+        if((*byp_ret)->abc->type != eslAMINO){
+          return(eslEINVAL); 
+        }
+        the_sq = *byp_ret;
+      }
+      else{
+        if(byp_abc == NULL ||((*byp_abc != NULL) && (*byp_abc)->type != eslAMINO)){ // Can't use the provided alphabet for this sequence
+          return(eslEINVAL);
+        }
+        if(*byp_abc == NULL){ // no alphabet provided
+          *byp_abc = esl_alphabet_Create(eslAMINO); 
+          created_alphabet = 1;
+        }
+        the_sq = esl_sq_CreateDigital(*byp_abc);
+        created_sq = 1;
+      }
+      break;
+    case ESL_SQ_DIGITAL_COINS:
+      if(*byp_ret != NULL){
+        if((*byp_ret)->abc->type != eslCOINS){
+          return(eslEINVAL); 
+        }
+        the_sq = *byp_ret;
+      }
+      else{
+        if(byp_abc == NULL ||((*byp_abc != NULL) && (*byp_abc)->type != eslCOINS)){ // Can't use the provided alphabet for this sequence
+          return(eslEINVAL);
+        }
+        if(*byp_abc == NULL){ // no alphabet provided
+          *byp_abc = esl_alphabet_Create(eslCOINS); 
+          created_alphabet = 1;
+        }
+        the_sq = esl_sq_CreateDigital(*byp_abc);
+        created_sq = 1;
+      }
+      break;
+    case ESL_SQ_DIGITAL_DICE:
+      if(*byp_ret != NULL){
+        if((*byp_ret)->abc->type != eslDICE){
+          return(eslEINVAL); 
+        }
+        the_sq = *byp_ret;
+      }
+      else{
+        if(byp_abc == NULL ||((*byp_abc != NULL) && (*byp_abc)->type != eslDICE)){ // Can't use the provided alphabet for this sequence
+          return(eslEINVAL);
+        }
+        if(*byp_abc == NULL){ // no alphabet provided
+          *byp_abc = esl_alphabet_Create(eslDICE); 
+          created_alphabet = 1;
+        }
+        the_sq = esl_sq_CreateDigital(*byp_abc);
+        created_sq = 1;
+      }
+      break;
+    default:
+      return(eslEINVAL);
+  }
+
+  // n field is first because we need it to unpack some of the other fields
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+  the_sq->n = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+  
+  // Ditto for the *alloc fields
+  memcpy((void *) &network32_bit, ptr, sizeof(int32_t));
+  the_sq->nalloc = esl_ntoh32(network32_bit);
+  ptr += sizeof(int32_t);
+
+  memcpy((void *) &network32_bit, ptr, sizeof(int32_t));
+  the_sq->aalloc = esl_ntoh32(network32_bit);
+  ptr += sizeof(int32_t);
+
+  memcpy((void *) &network32_bit, ptr, sizeof(int32_t));
+  the_sq->dalloc = esl_ntoh32(network32_bit);
+  ptr += sizeof(int32_t);
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+  the_sq->salloc = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+
+  memcpy((void *) &network32_bit, ptr, sizeof(int32_t));
+  the_sq->srcalloc = esl_ntoh32(network32_bit);
+  ptr += sizeof(int32_t);
+
+  ESL_REALLOC(the_sq->name, the_sq->nalloc);
+  strcpy(the_sq->name, (char *) ptr);
+  ptr+= strlen(the_sq->name) +1;
+
+  ESL_REALLOC(the_sq->acc, the_sq->aalloc);
+  strcpy(the_sq->acc, (char *) ptr);
+  ptr+= strlen(the_sq->acc) +1;
+
+  ESL_REALLOC(the_sq->desc, the_sq->dalloc);
+  strcpy(the_sq->desc, (char *) ptr);
+  ptr+= strlen(the_sq->desc) +1;
+
+  memcpy((void *) &network32_bit, ptr, sizeof(int32_t));
+  the_sq->tax_id = esl_ntoh32(network32_bit);
+  ptr += sizeof(int32_t);
+
+  ESL_REALLOC(the_sq->dsq, the_sq->n +2);
+  memcpy((void *) the_sq->dsq, (void *) ptr, the_sq->n +2);
+  ptr += the_sq->n +2;
+
+  if(flags & ESL_SQ_HAS_SS){
+    ESL_REALLOC(the_sq->ss, the_sq->salloc);
+    memcpy((void *) the_sq->ss, (void *) ptr, the_sq->n +2);
+    ptr += the_sq->n +2;
+  }
+  else{
+    if(the_sq->ss){  // Clean up ss field if byp_ret had one
+      free(the_sq->ss);
+    }
+    the_sq->ss = NULL;
+  }
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+    the_sq->start = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+    the_sq->end = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+    the_sq->C = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+    the_sq->W = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+    the_sq->L = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+  
+  ESL_REALLOC(the_sq->source, the_sq->srcalloc);
+  strcpy(the_sq->source, (char *) ptr);
+  ptr += strlen(the_sq->source) +1;
+
+  memcpy((void *) &network64_bit, ptr, sizeof(int64_t));
+  the_sq->idx = esl_ntoh64(network64_bit);
+  ptr += sizeof(int64_t);
+  
+  memcpy((void *) &network32_bit, ptr, sizeof(int));
+  the_sq->nxr = esl_ntoh32(network32_bit);
+  ptr += sizeof(the_sq->nxr);
+  if(the_sq->nxr >0){
+    ESL_ALLOC(the_sq->xr_tag, the_sq->nxr * sizeof(char *));
+    ESL_ALLOC(the_sq->xr, the_sq->nxr * sizeof(char *));
+  }
+  for (int x = 0; x < the_sq->nxr; x ++) {
+    ESL_ALLOC(the_sq->xr_tag[x], strlen((char *) ptr)+1);
+    strcpy(the_sq->xr_tag[x], (char *) ptr);
+    ptr += strlen(the_sq->xr_tag[x]) +1;
+    ESL_ALLOC(the_sq->xr[x], the_sq->n +2);
+    memcpy((void *) the_sq->xr[x], (void *) ptr, the_sq->n+2);
+    ptr += the_sq->n +2;
+  }
+
+  the_sq->roff = -1;  // offsets are invalid for deserialized sequences
+  the_sq->hoff = -1;
+  the_sq->doff = -1;
+  the_sq->eoff = -1;
+
+  *byp_ret = the_sq;
+  return(eslOK);
+ERROR:  // Free any structures we created before we go
+  if(created_alphabet && abc != NULL){
+    esl_alphabet_Destroy(abc);
+  }
+  if (created_sq && the_sq != NULL){
+    esl_sq_Destroy(the_sq); // this doesn't free the alphabet object, so no danger of double-freeing; 
+  }
+  return(eslEMEM);
+}
 
 /*----------------------  end, other functions -------------------*/
 
@@ -1814,7 +2329,7 @@ esl_sq_GetFromMSA(const ESL_MSA *msa, int which, ESL_SQ *sq)
      }
   else
     {
-      esl_abc_dsqcpy(msa->ax[which], msa->alen, sq->dsq);
+      esl_dsq_Copy(msa->ax[which], msa->alen, sq->dsq);
       if (ss != NULL) { 
 	if (sq->ss == NULL) { /* even in digital mode, msa->ss is [0.alen-1] */
 	  ESL_ALLOC(sq->ss, sizeof(char) * (strlen(ss)+2));
@@ -1822,16 +2337,16 @@ esl_sq_GetFromMSA(const ESL_MSA *msa, int which, ESL_SQ *sq)
 	  strcpy(sq->ss+1, ss);
 	}
 	else  { strcpy(sq->ss+1, ss); sq->ss[0] = '\0'; }
-	esl_abc_CDealign(sq->abc, sq->ss+1, sq->dsq, NULL);
+	esl_dsq_DealignAnnotation(sq->abc, sq->ss+1, sq->dsq, NULL);
       }
       for (x = 0; x < sq->nxr; x ++) { /* even in digital mode, msa->gr are [0.alen-1] */
 	ESL_ALLOC(sq->xr[x], sizeof(char) * (strlen(xr[x])+2));
 	sq->xr[x][0] = '\0'; 
 	strcpy(sq->xr[x]+1, xr[x]);
-	esl_abc_CDealign(sq->abc, sq->xr[x]+1, sq->dsq, NULL);	
+	esl_dsq_DealignAnnotation(sq->abc, sq->xr[x]+1, sq->dsq, NULL);	
 	esl_strdup(xr_tag[x], -1, &(sq->xr_tag[x]));
       }
-      esl_abc_XDealign(sq->abc, sq->dsq,  sq->dsq, &(sq->n)); /* sq->n gets set as side effect */
+      esl_dsq_Dealign(sq->abc, sq->dsq, &(sq->n)); /* sq->n gets set as side effect */
   }
   
   /* This is a complete sequence; set bookkeeping accordingly */
@@ -1942,7 +2457,7 @@ esl_sq_FetchFromMSA(const ESL_MSA *msa, int which, ESL_SQ **ret_sq)
   else				/* digital mode MSA to digital mode sequence */
     {
       if ((sq = esl_sq_CreateDigitalFrom(msa->abc, msa->sqname[which], msa->ax[which], msa->alen, desc, acc, ss)) == NULL) goto ERROR; 
-      if (sq->ss != NULL) esl_abc_CDealign(sq->abc, sq->ss+1, sq->dsq, NULL);
+      if (sq->ss != NULL) esl_dsq_DealignAnnotation(sq->abc, sq->ss+1, sq->dsq, NULL);
       if (nxr > 0) {
 	sq->nxr = nxr;
 	ESL_ALLOC(sq->xr_tag, sizeof(char *) * sq->nxr); for (x = 0; x < sq->nxr; x ++) sq->xr_tag[x] = NULL;
@@ -1960,7 +2475,7 @@ esl_sq_FetchFromMSA(const ESL_MSA *msa, int which, ESL_SQ **ret_sq)
                 strcpy(sq->xr[x]+1, xr[x]); 
                 sq->xr[x][0] = '\0'; 	    
               }
-	    esl_abc_CDealign(sq->abc, sq->xr[x]+1, sq->dsq, NULL);
+	    esl_dsq_DealignAnnotation(sq->abc, sq->xr[x]+1, sq->dsq, NULL);
 	  }
 	  if (xr_tag[x] != NULL) {
 	    if (sq->xr_tag[x] == NULL) esl_strdup(xr_tag[x], -1, &(sq->xr_tag[x]));
@@ -1968,7 +2483,7 @@ esl_sq_FetchFromMSA(const ESL_MSA *msa, int which, ESL_SQ **ret_sq)
 	  }
 	}
       }
-      esl_abc_XDealign(sq->abc, sq->dsq,  sq->dsq, &(sq->n));
+      esl_dsq_Dealign(sq->abc, sq->dsq, &(sq->n));
     }
 
   if ((status = esl_sq_SetSource(sq, msa->name)) != eslOK) goto ERROR;
@@ -2009,34 +2524,49 @@ esl_sq_FetchFromMSA(const ESL_MSA *msa, int which, ESL_SQ **ret_sq)
 int
 esl_sq_Validate(ESL_SQ *sq, char *errmsg)
 {
+  int x;
+
   if (sq->name == NULL) ESL_FAIL(eslFAIL, errmsg, "seq name can't be NULL");
   if (sq->acc  == NULL) ESL_FAIL(eslFAIL, errmsg, "optional accession must be '\0' empty string if missing, not NULL");
   if (sq->desc == NULL) ESL_FAIL(eslFAIL, errmsg, "optional desc line must be '\0' empty string if missing, not NULL");
   if (sq->tax_id < -1)  ESL_FAIL(eslFAIL, errmsg, "optional tax_id must be -1 or an NCBI taxid");
 
-  if (sq->dsq != NULL)
+  for (x = 0; x < sq->nxr; x++)
+    {
+      if (! sq->xr_tag || ! sq->xr_tag[x]) ESL_FAIL(eslFAIL, errmsg, "All <nxr> xr_tag strings must be valid non-NULL");
+      if (! sq->xr     || ! sq->xr[x])     ESL_FAIL(eslFAIL, errmsg, "All <nxr> xr annotation lines must be valid non-NULL");
+    }
+
+  if (sq->dsq)
     { // digital seq
       if (sq->seq                 != NULL)  ESL_FAIL(eslFAIL, errmsg, "seq must be digital or text, not both");
-      if (esl_abc_dsqlen(sq->dsq) != sq->n) ESL_FAIL(eslFAIL, errmsg, "digital seq length doesn't agree with sq->n");
+      if (sq->salloc <  sq->n+2)            ESL_FAIL(eslFAIL, errmsg, "bad dsq/ss/xr[] allocation length");
+      if (esl_dsq_GetLen(sq->dsq) != sq->n) ESL_FAIL(eslFAIL, errmsg, "digital seq length doesn't agree with sq->n");
       if (sq->ss ) {
         if (sq->ss[0]             != '\0')  ESL_FAIL(eslFAIL, errmsg, "ss annotation for a digital seq is 1..n with \0 at 0,n+1");
         if (strlen(sq->ss+1)      != sq->n) ESL_FAIL(eslFAIL, errmsg, "ss annotation length (for digital seq) doesn't agree with sq->n");
       }
+      for (x = 0; x < sq->nxr; x++)
+        {
+          if (sq->xr[x][0] != '\0')        ESL_FAIL(eslFAIL, errmsg, "bad [0] sentinel on digital-mode optional xr[%d]", x);
+          if (strlen(sq->xr[x]+1) != sq->n) ESL_FAIL(eslFAIL, errmsg, "bad optional xr[%d] annotation length (digital mode)", x);
+        }
       if (!sq->abc)                         ESL_FAIL(eslFAIL, errmsg, "digital seq needs a non-NULL alphabet");
     }
   else
     { // text seq
       if (sq->dsq                  != NULL)  ESL_FAIL(eslFAIL, errmsg, "seq must be digital or text, not both");
+      if (sq->salloc <  sq->n+1)             ESL_FAIL(eslFAIL, errmsg, "bad dsq/ss/xr[] allocation length");
       if (strlen(sq->seq)          != sq->n) ESL_FAIL(eslFAIL, errmsg, "text seq length doesn't agree with sq->n");
       if (sq->ss && strlen(sq->ss) != sq->n) ESL_FAIL(eslFAIL, errmsg, "ss annotation length (for text seq) doesn't agree with sq->n");
+      for (x = 0; x < sq->nxr; x++)
+        if (strlen(sq->xr[x])      != sq->n) ESL_FAIL(eslFAIL, errmsg, "bad optional xr[%d] annotation length (text mode)", x);
       if (sq->abc)                           ESL_FAIL(eslFAIL, errmsg, "text seq mustn't have a digital alphabet");
     }
 
   // TK TK TK
   //  ... should check source-tracking info 
-  //  ... and memory allocation
   //  ... and disk offset bookkeeping
-  //  ... and optional residue markup
   return eslOK;
 }
 
@@ -2477,7 +3007,7 @@ utest_CreateDigital()
   ESL_SQ       *sq2  = NULL;
   ESL_SQ       *sq3  = NULL;
 
-  if (esl_abc_CreateDsq(abc, seq, &dsq)                                     != eslOK) esl_fatal(msg);
+  if (esl_dsq_Build(abc, seq, &dsq)                                         != eslOK) esl_fatal(msg);
   if ((sq1 = esl_sq_CreateDigitalFrom(abc, name, dsq, n, desc, acc, ss))    == NULL)  esl_fatal(msg);
 
   if ((sq2 = esl_sq_CreateDigital(abc))                                        == NULL)  esl_fatal(msg);
@@ -2488,7 +3018,7 @@ utest_CreateDigital()
   if (esl_sq_FormatSource   (sq2, "%s", "source-unknown")                      != eslOK) esl_fatal(msg);
   if ((sq2->ss    = malloc(sizeof(char) * (n+2)))                              == NULL)  esl_fatal(msg);
   strcpy(sq2->ss+1, ss);   sq2->ss[0] = '\0';
-  if (esl_abc_Digitize(abc, seq, sq2->dsq)                                  != eslOK) esl_fatal(msg);
+  if (esl_dsq_Digitize(abc, seq, sq2->dsq)                                    != eslOK) esl_fatal(msg);
   sq2->n = n;
 
   if ((sq3 = esl_sq_Create()) == NULL)   esl_fatal(msg);
@@ -2665,7 +3195,34 @@ ERROR:
   return;
 }
 
-
+static void utest_SerializeDeserialize(){
+  ESL_RANDOMNESS *rng = esl_randomness_Create(0);
+  uint8_t *buf = NULL;
+  uint32_t pos  = 0;
+  uint32_t nalloc = 0;
+  ESL_ALPHABET *ret_abc = NULL;
+  for(int i = eslRNA; i <=eslDICE; i++){  // This is bad form, as it counts on the values of these enums not changing
+    ESL_ALPHABET *abc=esl_alphabet_Create(i);
+    ESL_SQ *source_sq = esl_sq_CreateDigital(abc);
+    ESL_SQ *dest_sq = NULL;
+    esl_sq_Sample(rng, abc, 100, &source_sq);
+    esl_sq_Serialize(source_sq, &buf, &pos, &nalloc);
+    pos =0;
+    esl_sq_Deserialize(buf, &pos, &ret_abc, &dest_sq);
+    if(esl_sq_Compare(source_sq, dest_sq) != eslOK){
+        char         *msg  = "failure in utest_SerializeDeserialize()";
+        esl_fatal(msg);
+    }
+    esl_sq_Destroy(source_sq);
+    esl_sq_Destroy(dest_sq);
+    dest_sq = NULL;
+    esl_alphabet_Destroy(abc);
+    esl_alphabet_Destroy(ret_abc);
+    ret_abc = NULL;
+  }
+  esl_randomness_Destroy(rng);
+  free(buf);
+}
 #endif /* eslSQ_TESTDRIVE*/
 /*--------------------- end, unit tests -------------------------*/
 
@@ -2713,7 +3270,7 @@ main(int argc, char **argv)
   utest_CreateDigital();
 
   utest_ExtraResMarkups();
-
+  utest_SerializeDeserialize();
   esl_randomness_Destroy(r);
   esl_getopts_Destroy(go);
   return 0;
@@ -2805,7 +3362,7 @@ int main(void)
   abc = esl_alphabet_Create(eslRNA);
 
   /* Creating a digital ESL_SQ from text info: */
-  esl_abc_CreateDsq(abc, testseq, &dsq);
+  esl_dsq_Build(abc, testseq, &dsq);
   sq1 = esl_sq_CreateDigitalFrom(abc, name, dsq, n, desc, acc, ss); 
   free(dsq);
   
@@ -2815,7 +3372,7 @@ int main(void)
   esl_sq_FormatAccession(sq2, "XX%05d", 1);
   esl_sq_FormatDesc     (sq2, "This %s a test", "is");
   esl_sq_GrowTo         (sq2, n);
-  esl_abc_Digitize(abc, testseq, sq2->dsq);
+  esl_dsq_Digitize(abc, testseq, sq2->dsq);
   sq2->n = n;
 
   /* a "digital" ss isn't so pretty, but just so you know: */

@@ -32,6 +32,7 @@
 
 #include "easel.h"
 #include "esl_alphabet.h"
+#include "esl_dsq.h"
 #include "esl_msa.h"
 #include "esl_msafile.h"
 #include "esl_sqio.h"
@@ -386,7 +387,7 @@ esl_sqio_ReadInfo(ESL_SQFILE *sqfp, ESL_SQ *sq)
  *
  * Purpose:   Read the next sequence from open sequence file <sqfp>,
  *            skipping over the header data.  Upon successful return, 
- *            <s> holds just the sequece data.  File offsets will be
+ *            <s> holds just the sequence data.  File offsets will be
  *            filled in.
  *            
  *            This is useful fast reads of binary formats where the
@@ -1127,7 +1128,7 @@ esl_sqfile_Cache(const ESL_ALPHABET *abc, const char *seqfile, int fmt, const ch
   /* if we can't rewind the database, stop now.  */
   if (!esl_sqfile_IsRewindable(sqfp)) return eslFAIL;
 
-  /* loop through the database reading all the sequnces */
+  /* loop through the database reading all the sequences */
   max = 0;
   count = 0;
   sq  = esl_sq_CreateDigital(abc);
@@ -1397,7 +1398,7 @@ convert_sq_to_msa(ESL_SQ *sq, ESL_MSA **ret_msa)
       if ((status = esl_strdup(sq->desc, -1, &(msa->sqdesc[0]))) != eslOK) goto ERROR;
     }
 
-  if (sq->dsq != NULL) esl_abc_dsqcpy(sq->dsq, sq->n, msa->ax[0]);
+  if (sq->dsq != NULL) esl_dsq_Copy(sq->dsq, sq->n, msa->ax[0]);
   else                 strcpy(msa->aseq[0], sq->seq);
   
   if (sq->ss != NULL)
@@ -1694,6 +1695,7 @@ benchmark_mmap(char *filename, int bufsize, int64_t *ret_magic)
  *#  10. Unit tests
  *****************************************************************/ 
 #ifdef eslSQIO_TESTDRIVE
+
 #include "esl_keyhash.h"
 #include "esl_random.h"
 #include "esl_randomseq.h"
@@ -1801,7 +1803,7 @@ write_ugly_fasta(ESL_RANDOMNESS *r, FILE *fp, ESL_SQ *sq)
   for (pos = 1; pos <= sq->n; pos+=60)
     {
       while (esl_rnd_Roll(r, 10) == 0) fputc(' ', fp);
-      esl_abc_TextizeN(sq->abc, sq->dsq+pos, 60, buf);
+      esl_dsq_TextizeN(sq->abc, sq->dsq+pos, 60, buf);
       fputs(buf, fp);
       fputc('\n', fp);
     }
@@ -1826,7 +1828,7 @@ write_spaced_fasta(FILE *fp, ESL_SQ *sq)
   buf[10]  = '\0';
   for (pos = 1; pos <= sq->n; pos += 10)
     {
-      esl_abc_TextizeN(sq->abc, sq->dsq+pos, 10, buf);
+      esl_dsq_TextizeN(sq->abc, sq->dsq+pos, 10, buf);
       fputs(buf, fp);
       if (pos+9 >= sq->n || (pos+9) % 60 == 0) fputc('\n',  fp);
       else                                     fputc(' ', fp);
@@ -2441,7 +2443,7 @@ main(int argc, char **argv)
   int           status;
 
   if (esl_opt_IsOn(go, "--informat")) {
-    if ((infmt = esl_sqio_EncodeFormat(esl_opt_GetString(go, "--informat")))==eslSQFILE_UNKNOWN)
+    if ((infmt = esl_sqio_EncodeFormat(esl_opt_GetString(go, "--informat"))) == eslSQFILE_UNKNOWN)
       esl_fatal("%s is not a valid input sequence file format for --informat"); 
   }
 
@@ -2456,8 +2458,7 @@ main(int argc, char **argv)
   else {
     status = esl_sqfile_GuessAlphabet(sqfp, &alphatype);
     if      (status == eslENOALPHABET)  esl_fatal("Couldn't guess alphabet");
-    else if (status == eslEFORMAT)      esl_fatal("Parse failed\n  %s",
-						  esl_sqfile_GetErrorBuf(sqfp));     
+    else if (status == eslEFORMAT)      esl_fatal("Parse failed\n  %s", esl_sqfile_GetErrorBuf(sqfp));     
     else if (status == eslENODATA)      esl_fatal("Sequence file empty?");
     else if (status != eslOK)           esl_fatal("Unexpected error guessing alphabet");
   }

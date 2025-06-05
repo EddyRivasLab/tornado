@@ -19,6 +19,7 @@
 #include <esl_config.h>
 #include <easel.h>
 #include <esl_alphabet.h>
+#include <esl_dsq.h>
 #include <esl_regexp.h>
 #include <esl_vectorops.h>
 
@@ -3883,8 +3884,8 @@ rna_edist_add_edist(GRAMMAR *G, char *atom, char *edistname, int c1, int c2, int
    */
   if ((a = esl_alphabet_Create(eslRNA)) == NULL) grammar_fatal(msg);
   if ((dsq = malloc(sizeof(ESL_DSQ) * (edist.n+2))) == NULL) grammar_fatal(msg);
-  if (esl_abc_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
-  if (esl_abc_dsqlen(dsq) != edist.n) grammar_fatal(msg);
+  if (esl_dsq_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
+  if (esl_dsq_GetLen(dsq) != edist.n) grammar_fatal(msg);
 
   /* Find the previously defined edist we are going to use */
   found = FALSE;
@@ -3990,8 +3991,8 @@ rna_edist_add_score(GRAMMAR *G, char *atom, SCVAL sc, int add)
    */
   if ((a = esl_alphabet_Create(eslRNA)) == NULL) grammar_fatal(msg);
   if ((dsq = malloc(sizeof(ESL_DSQ) * (edist.n+2))) == NULL) grammar_fatal(msg);
-  if (esl_abc_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
-  if (esl_abc_dsqlen(dsq) != edist.n) grammar_fatal(msg);
+  if (esl_dsq_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
+  if (esl_dsq_GetLen(dsq) != edist.n) grammar_fatal(msg);
 
   /* Add the score to the edist.
    */

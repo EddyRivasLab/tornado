@@ -7,6 +7,7 @@
 #define TORNADO_NUSSINOV_INCLUDED
 
 #include <easel.h>
+#include <esl_dsq.h>
 
 extern float TestMatrixSize(int L);
 extern int   TestNussinovCYK(ESL_DSQ *dsq, int L, int **ret_ct, int allow_gu, int minloop);

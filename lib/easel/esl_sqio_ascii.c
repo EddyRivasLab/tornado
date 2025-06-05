@@ -29,6 +29,7 @@
 
 #include "easel.h"
 #include "esl_alphabet.h"
+#include "esl_dsq.h"
 #include "esl_msa.h"
 #include "esl_msafile.h"
 #include "esl_sqio.h"
@@ -1877,7 +1878,7 @@ sqascii_Fetch(ESL_SQFILE *sqfp, const char *key, ESL_SQ *sq)
 
   ESL_SQASCII_DATA *ascii = &sqfp->data.ascii;
 
-  if (ascii->ssi == NULL) ESL_FAIL(eslEINVAL, ascii->errbuf, "No SSI index for %s; can't fetch subsequences", sqfp->filename);
+  if (ascii->ssi == NULL) ESL_FAIL(eslEINVAL, ascii->errbuf, "No SSI index for %s; can't fetch sequences", sqfp->filename);
   if ((status = sqascii_PositionByKey(sqfp, key)) != eslOK) return status;
   if ((status = sqascii_Read(sqfp, sq))           != eslOK) return status;
   return eslOK;
@@ -1923,14 +1924,16 @@ sqascii_FetchInfo(ESL_SQFILE *sqfp, const char *key, ESL_SQ *sq)
  *            The open <sqfp> must have an SSI index. Put the
  *            subsequence in <sq>. 
  *            
- *            As a special case, if <end> is 0, the subsequence is
- *            fetched all the way to the end, so you don't need to
- *            look up the sequence length <L> to fetch a suffix.
+ *            The <start> and <end> coords are 1..L, with <end> >=
+ *            <start> except in one special case: <end> may be 0, in
+ *            which case the subsequence is fetched all the way to the
+ *            end, so you don't need to look up the sequence length
+ *            <L> to fetch a suffix.
  *            
  *            The caller may want to rename/reaccession/reannotate the
  *            subsequence.  Upon successful return, <sq->name> is set
  *            to <source/start-end>, and <sq->source> is set to
- *            <source> The accession and description <sq->acc> and
+ *            <source>. The accession and description <sq->acc> and
  *            <sq->desc> are set to the accession and description of
  *            the source sequence.
  *            
@@ -1996,7 +1999,7 @@ sqascii_FetchSubseq(ESL_SQFILE *sqfp, const char *source, int64_t start, int64_t
    * start of the sequence anyway, because we parsed the full header 
    */
   nskip = start - actual_start; /* how many residues do we still need to skip to reach start       */
-  nres  = end - start + 1;   /* how many residues do we need to read as subseq                  */
+  nres  = end - start + 1;      /* how many residues do we need to read as subseq                  */
 
   if ((status = esl_sq_GrowTo(sq, nres)) != eslOK) return status;
   status = read_nres(sqfp, sq, nskip, nres, &n);
@@ -3143,7 +3146,7 @@ end_fasta(ESL_SQFILE *sqfp, ESL_SQ *sq)
 
 
 /* Function:  esl_sqascii_WriteFasta()
- * Synopsis:  Write a sequence in FASTA foramt
+ * Synopsis:  Write a sequence in FASTA format
  *
  * Purpose:   Write sequence <sq> in FASTA format to the open stream <fp>.
  * 
@@ -3172,7 +3175,7 @@ esl_sqascii_WriteFasta(FILE *fp, ESL_SQ *sq, int save_offsets)
   if (save_offsets) sq->doff = ftello(fp);
   for (pos = 0; pos < sq->n; pos += 60)
   {
-      if (sq->dsq != NULL) esl_abc_TextizeN(sq->abc, sq->dsq+pos+1, 60, buf);
+      if (sq->dsq != NULL) esl_dsq_TextizeN(sq->abc, sq->dsq+pos+1, 60, buf);
       else                 strncpy(buf, sq->seq+pos, 60);
       if (fprintf(fp, "%s\n", buf) < 0) ESL_EXCEPTION_SYS(eslEWRITE, "fasta seq write failed");
   }

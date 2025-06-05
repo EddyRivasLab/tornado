@@ -89,6 +89,7 @@
 #include <esl_config.h>
 #include <easel.h>
 #include <esl_alphabet.h>
+#include <esl_dsq.h>
 #include <esl_regexp.h>
 #include <esl_vectorops.h>
 
@@ -281,7 +282,7 @@
   static int   yacc_rule48_3at   (RULE *R, struct lexeme_s lexeme, GRAMMAR *G, int verbose);  
   
 
-#line 285 "grm_parsegrammar.tab.c"
+#line 286 "grm_parsegrammar.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -858,40 +859,40 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   276,   276,   276,   295,   296,   301,   302,   303,   304,
-     309,   310,   313,   327,   328,   329,   330,   331,   332,   333,
-     334,   335,   336,   337,   338,   339,   340,   341,   342,   343,
-     344,   350,   351,   352,   353,   354,   355,   356,   359,   360,
-     362,   363,   365,   366,   369,   370,   371,   373,   374,   376,
-     377,   382,   388,   394,   400,   406,   412,   418,   428,   427,
-     435,   434,   442,   441,   449,   448,   456,   455,   463,   462,
-     470,   469,   482,   491,   506,   514,   520,   526,   532,   538,
-     544,   552,   557,   562,   567,   573,   582,   581,   589,   588,
-     596,   595,   603,   602,   610,   609,   617,   616,   624,   623,
-     631,   630,   638,   637,   645,   644,   652,   651,   659,   658,
-     666,   665,   673,   672,   680,   684,   683,   690,   691,   692,
-     695,   695,   697,   703,   703,   705,   709,   711,   713,   716,
-     716,   718,   718,   720,   720,   724,   730,   736,   742,   750,
-     756,   764,   770,   778,   783,   788,   789,   790,   791,   794,
-     800,   806,   813,   823,   829,   837,   842,   847,   852,   857,
-     862,   867,   872,   877,   882,   887,   891,   897,   904,   912,
-     919,   927,   937,   938,   943,   942,   952,   951,   963,   968,
-     976,   980,   984,   988,   995,   996,   997,   998,  1001,  1011,
-    1025,  1037,  1046,  1059,  1070,  1082,  1095,  1111,  1111,  1114,
-    1115,  1116,  1117,  1121,  1122,  1126,  1127,  1128,  1129,  1132,
-    1141,  1150,  1154,  1158,  1162,  1169,  1173,  1177,  1181,  1189,
-    1197,  1205,  1214,  1222,  1231,  1241,  1250,  1260,  1269,  1279,
-    1288,  1298,  1309,  1319,  1330,  1340,  1351,  1361,  1372,  1381,
-    1392,  1404,  1414,  1425,  1437,  1447,  1459,  1471,  1482,  1494,
-    1505,  1517,  1530,  1541,  1553,  1566,  1577,  1589,  1602,  1614,
-    1627,  1639,  1652,  1664,  1677,  1689,  1702,  1716,  1727,  1739,
-    1750,  1762,  1774,  1787,  1800,  1814,  1828,  1843,  1851,  1860,
-    1869,  1879,  1888,  1898,  1908,  1919,  1931,  1944,  1955,  1967,
-    1980,  1991,  2003,  2016,  2028,  2041,  2055,  2065,  2076,  2088,
-    2101,  2112,  2124,  2137,  2151,  2162,  2174,  2187,  2201,  2212,
-    2224,  2237,  2251,  2262,  2274,  2287,  2301,  2313,  2326,  2340,
-    2355,  2367,  2380,  2392,  2405,  2418,  2432,  2445,  2459,  2472,
-    2486,  2499,  2513,  2527,  2542,  2556
+       0,   277,   277,   277,   296,   297,   302,   303,   304,   305,
+     310,   311,   314,   328,   329,   330,   331,   332,   333,   334,
+     335,   336,   337,   338,   339,   340,   341,   342,   343,   344,
+     345,   351,   352,   353,   354,   355,   356,   357,   360,   361,
+     363,   364,   366,   367,   370,   371,   372,   374,   375,   377,
+     378,   383,   389,   395,   401,   407,   413,   419,   429,   428,
+     436,   435,   443,   442,   450,   449,   457,   456,   464,   463,
+     471,   470,   483,   492,   507,   515,   521,   527,   533,   539,
+     545,   553,   558,   563,   568,   574,   583,   582,   590,   589,
+     597,   596,   604,   603,   611,   610,   618,   617,   625,   624,
+     632,   631,   639,   638,   646,   645,   653,   652,   660,   659,
+     667,   666,   674,   673,   681,   685,   684,   691,   692,   693,
+     696,   696,   698,   704,   704,   706,   710,   712,   714,   717,
+     717,   719,   719,   721,   721,   725,   731,   737,   743,   751,
+     757,   765,   771,   779,   784,   789,   790,   791,   792,   795,
+     801,   807,   814,   824,   830,   838,   843,   848,   853,   858,
+     863,   868,   873,   878,   883,   888,   892,   898,   905,   913,
+     920,   928,   938,   939,   944,   943,   953,   952,   964,   969,
+     977,   981,   985,   989,   996,   997,   998,   999,  1002,  1012,
+    1026,  1038,  1047,  1060,  1071,  1083,  1096,  1112,  1112,  1115,
+    1116,  1117,  1118,  1122,  1123,  1127,  1128,  1129,  1130,  1133,
+    1142,  1151,  1155,  1159,  1163,  1170,  1174,  1178,  1182,  1190,
+    1198,  1206,  1215,  1223,  1232,  1242,  1251,  1261,  1270,  1280,
+    1289,  1299,  1310,  1320,  1331,  1341,  1352,  1362,  1373,  1382,
+    1393,  1405,  1415,  1426,  1438,  1448,  1460,  1472,  1483,  1495,
+    1506,  1518,  1531,  1542,  1554,  1567,  1578,  1590,  1603,  1615,
+    1628,  1640,  1653,  1665,  1678,  1690,  1703,  1717,  1728,  1740,
+    1751,  1763,  1775,  1788,  1801,  1815,  1829,  1844,  1852,  1861,
+    1870,  1880,  1889,  1899,  1909,  1920,  1932,  1945,  1956,  1968,
+    1981,  1992,  2004,  2017,  2029,  2042,  2056,  2066,  2077,  2089,
+    2102,  2113,  2125,  2138,  2152,  2163,  2175,  2188,  2202,  2213,
+    2225,  2238,  2252,  2263,  2275,  2288,  2302,  2314,  2327,  2341,
+    2356,  2368,  2381,  2393,  2406,  2419,  2433,  2446,  2460,  2473,
+    2487,  2500,  2514,  2528,  2543,  2557
 };
 #endif
 
@@ -1892,15 +1893,15 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* $@1: %empty  */
-#line 276 "grm_parsegrammar.y"
+#line 277 "grm_parsegrammar.y"
 {  
 if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");  
 }
-#line 1900 "grm_parsegrammar.tab.c"
+#line 1901 "grm_parsegrammar.tab.c"
     break;
 
   case 3: /* start: $@1 rna_grammar  */
-#line 280 "grm_parsegrammar.y"
+#line 281 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("END_GRAMMAR\n\n"); 
   if (((struct yyparse_s *)yyparse_param)->verbose) printf ("#n-parameters: %d \n", nparam); 
@@ -1909,795 +1910,795 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
       if (param[p].used == FALSE) printf ("#parameter[%d]: %s=%f NOT USED\n", p, param[p].name, param[p].value); 
   } 
 }
-#line 1913 "grm_parsegrammar.tab.c"
+#line 1914 "grm_parsegrammar.tab.c"
     break;
 
   case 12: /* param_decl: PARAM_DECL SEP PARAM_NAME SEP expression  */
-#line 314 "grm_parsegrammar.y"
+#line 315 "grm_parsegrammar.y"
 { 
   (yyvsp[-2].param)->value = (yyvsp[0].dval); 
   (yyvsp[-2].param)->used  = FALSE; 
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("param[%d] %s=%f\n", nparam, (yyvsp[-2].param)->name, (yyvsp[-2].param)->value); 
   nparam ++; 
 }
-#line 1924 "grm_parsegrammar.tab.c"
+#line 1925 "grm_parsegrammar.tab.c"
     break;
 
   case 13: /* expression: expression PLUS expression  */
-#line 327 "grm_parsegrammar.y"
+#line 328 "grm_parsegrammar.y"
                                                { (yyval.dval) = (yyvsp[-2].dval) + (yyvsp[0].dval);  }
-#line 1930 "grm_parsegrammar.tab.c"
+#line 1931 "grm_parsegrammar.tab.c"
     break;
 
   case 14: /* expression: expression MINUS expression  */
-#line 328 "grm_parsegrammar.y"
+#line 329 "grm_parsegrammar.y"
                                                { (yyval.dval) = (yyvsp[-2].dval) - (yyvsp[0].dval);  }
-#line 1936 "grm_parsegrammar.tab.c"
+#line 1937 "grm_parsegrammar.tab.c"
     break;
 
   case 15: /* expression: expression MULTIPLY expression  */
-#line 329 "grm_parsegrammar.y"
+#line 330 "grm_parsegrammar.y"
                                                { (yyval.dval) = (yyvsp[-2].dval) * (yyvsp[0].dval);  }
-#line 1942 "grm_parsegrammar.tab.c"
+#line 1943 "grm_parsegrammar.tab.c"
     break;
 
   case 16: /* expression: expression DIVIDE expression  */
-#line 330 "grm_parsegrammar.y"
+#line 331 "grm_parsegrammar.y"
                                                { if ((yyvsp[0].dval) == 0.0) { grammar_fatal("divide by zero"); } else { (yyval.dval) = (yyvsp[-2].dval) / (yyvsp[0].dval); } }
-#line 1948 "grm_parsegrammar.tab.c"
+#line 1949 "grm_parsegrammar.tab.c"
     break;
 
   case 17: /* expression: MINUS expression  */
-#line 331 "grm_parsegrammar.y"
+#line 332 "grm_parsegrammar.y"
                                                { (yyval.dval) = -(yyvsp[0].dval);      }
-#line 1954 "grm_parsegrammar.tab.c"
+#line 1955 "grm_parsegrammar.tab.c"
     break;
 
   case 18: /* expression: OPEN expression CLOSE  */
-#line 332 "grm_parsegrammar.y"
+#line 333 "grm_parsegrammar.y"
                                                { (yyval.dval) = (yyvsp[-1].dval);       }
-#line 1960 "grm_parsegrammar.tab.c"
+#line 1961 "grm_parsegrammar.tab.c"
     break;
 
   case 19: /* expression: SQRT OPEN expression CLOSE  */
-#line 333 "grm_parsegrammar.y"
+#line 334 "grm_parsegrammar.y"
                                                { (yyval.dval) = sqrt((yyvsp[-1].dval)); }
-#line 1966 "grm_parsegrammar.tab.c"
+#line 1967 "grm_parsegrammar.tab.c"
     break;
 
   case 20: /* expression: LOG OPEN expression CLOSE  */
-#line 334 "grm_parsegrammar.y"
+#line 335 "grm_parsegrammar.y"
                                                { (yyval.dval) = log((yyvsp[-1].dval));  }
-#line 1972 "grm_parsegrammar.tab.c"
+#line 1973 "grm_parsegrammar.tab.c"
     break;
 
   case 21: /* expression: EXP OPEN expression CLOSE  */
-#line 335 "grm_parsegrammar.y"
+#line 336 "grm_parsegrammar.y"
                                                { (yyval.dval) = exp((yyvsp[-1].dval));  }
-#line 1978 "grm_parsegrammar.tab.c"
+#line 1979 "grm_parsegrammar.tab.c"
     break;
 
   case 22: /* expression: SIN OPEN expression CLOSE  */
-#line 336 "grm_parsegrammar.y"
+#line 337 "grm_parsegrammar.y"
                                                { (yyval.dval) = sin((yyvsp[-1].dval));  }
-#line 1984 "grm_parsegrammar.tab.c"
+#line 1985 "grm_parsegrammar.tab.c"
     break;
 
   case 23: /* expression: COS OPEN expression CLOSE  */
-#line 337 "grm_parsegrammar.y"
+#line 338 "grm_parsegrammar.y"
                                                { (yyval.dval) = cos((yyvsp[-1].dval));  }
-#line 1990 "grm_parsegrammar.tab.c"
+#line 1991 "grm_parsegrammar.tab.c"
     break;
 
   case 24: /* expression: INTEGER  */
-#line 338 "grm_parsegrammar.y"
+#line 339 "grm_parsegrammar.y"
                                                { (yyval.dval) = atof((yyvsp[0].string)); }
-#line 1996 "grm_parsegrammar.tab.c"
+#line 1997 "grm_parsegrammar.tab.c"
     break;
 
   case 25: /* expression: REAL  */
-#line 339 "grm_parsegrammar.y"
+#line 340 "grm_parsegrammar.y"
                                                { (yyval.dval) = atof((yyvsp[0].string)); }
-#line 2002 "grm_parsegrammar.tab.c"
+#line 2003 "grm_parsegrammar.tab.c"
     break;
 
   case 26: /* expression: MAX OPEN expression COMMA expression CLOSE  */
-#line 340 "grm_parsegrammar.y"
+#line 341 "grm_parsegrammar.y"
                                                                                        { (yyval.dval) = ((yyvsp[-3].dval) > (yyvsp[-1].dval))? (yyvsp[-3].dval) : (yyvsp[-1].dval); }
-#line 2008 "grm_parsegrammar.tab.c"
+#line 2009 "grm_parsegrammar.tab.c"
     break;
 
   case 27: /* expression: MIN OPEN expression COMMA expression CLOSE  */
-#line 341 "grm_parsegrammar.y"
+#line 342 "grm_parsegrammar.y"
                                                                                        { (yyval.dval) = ((yyvsp[-3].dval) > (yyvsp[-1].dval))? (yyvsp[-1].dval) : (yyvsp[-3].dval); }
-#line 2014 "grm_parsegrammar.tab.c"
+#line 2015 "grm_parsegrammar.tab.c"
     break;
 
   case 28: /* expression: MAXCOND OPEN expression COMMA expression COMMA expression COMMA expression CLOSE  */
-#line 342 "grm_parsegrammar.y"
+#line 343 "grm_parsegrammar.y"
                                                                                        { (yyval.dval) = ((yyvsp[-7].dval) > (yyvsp[-5].dval))? (yyvsp[-3].dval) : (yyvsp[-1].dval); }
-#line 2020 "grm_parsegrammar.tab.c"
+#line 2021 "grm_parsegrammar.tab.c"
     break;
 
   case 29: /* expression: MINCOND OPEN expression COMMA expression COMMA expression COMMA expression CLOSE  */
-#line 343 "grm_parsegrammar.y"
+#line 344 "grm_parsegrammar.y"
                                                                                        { (yyval.dval) = ((yyvsp[-7].dval) < (yyvsp[-5].dval))? (yyvsp[-3].dval) : (yyvsp[-1].dval); }
-#line 2026 "grm_parsegrammar.tab.c"
+#line 2027 "grm_parsegrammar.tab.c"
     break;
 
   case 30: /* expression: PARAM_NAME  */
-#line 344 "grm_parsegrammar.y"
+#line 345 "grm_parsegrammar.y"
                                                { if (isnan((yyvsp[0].param)->value)) grammar_fatal("param %s value is nan", (yyvsp[0].param)->name); else { (yyval.dval) = (yyvsp[0].param)->value; (yyvsp[0].param)->used = TRUE; } }
-#line 2032 "grm_parsegrammar.tab.c"
+#line 2033 "grm_parsegrammar.tab.c"
     break;
 
   case 51: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP DIST_NAME  */
-#line 383 "grm_parsegrammar.y"
+#line 384 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), "", 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2040 "grm_parsegrammar.tab.c"
+#line 2041 "grm_parsegrammar.tab.c"
     break;
 
   case 52: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP DIST_NAME  */
-#line 389 "grm_parsegrammar.y"
+#line 390 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), (yyvsp[-2].string), 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2048 "grm_parsegrammar.tab.c"
+#line 2049 "grm_parsegrammar.tab.c"
     break;
 
   case 53: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP FORCEWC SEP DIST_NAME  */
-#line 395 "grm_parsegrammar.y"
+#line 396 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), (yyvsp[-4].string), 0, 1, TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2056 "grm_parsegrammar.tab.c"
+#line 2057 "grm_parsegrammar.tab.c"
     break;
 
   case 54: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP INTEGER SEP INTEGER SEP DIST_NAME  */
-#line 401 "grm_parsegrammar.y"
+#line 402 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), (yyvsp[-6].string), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2064 "grm_parsegrammar.tab.c"
+#line 2065 "grm_parsegrammar.tab.c"
     break;
 
   case 55: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP INTEGER SEP INTEGER SEP FORCEWC SEP DIST_NAME  */
-#line 407 "grm_parsegrammar.y"
+#line 408 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), (yyvsp[-8].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2072 "grm_parsegrammar.tab.c"
+#line 2073 "grm_parsegrammar.tab.c"
     break;
 
   case 56: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP INTEGER SEP INTEGER SEP BPTYPE SEP INTEGER SEP INTEGER SEP DIST_NAME  */
-#line 413 "grm_parsegrammar.y"
+#line 414 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-18].string)), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), (yyvsp[-12].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), FALSE, (yyvsp[-6].string), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2080 "grm_parsegrammar.tab.c"
+#line 2081 "grm_parsegrammar.tab.c"
     break;
 
   case 57: /* edist_decl_only: EDIST_DECL SEP INTEGER SEP INTEGER SEP INTEGER SEP BPTYPE SEP INTEGER SEP INTEGER SEP FORCEWC SEP BPTYPE SEP INTEGER SEP INTEGER SEP FORCEWC SEP DIST_NAME  */
-#line 419 "grm_parsegrammar.y"
+#line 420 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-22].string)), atoi((yyvsp[-20].string)), atoi((yyvsp[-18].string)), (yyvsp[-16].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), TRUE, (yyvsp[-8].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2088 "grm_parsegrammar.tab.c"
+#line 2089 "grm_parsegrammar.tab.c"
     break;
 
   case 58: /* $@2: %empty  */
-#line 428 "grm_parsegrammar.y"
+#line 429 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), "", 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2096 "grm_parsegrammar.tab.c"
+#line 2097 "grm_parsegrammar.tab.c"
     break;
 
   case 60: /* $@3: %empty  */
-#line 435 "grm_parsegrammar.y"
+#line 436 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), (yyvsp[-2].string), 0, 1, FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2104 "grm_parsegrammar.tab.c"
+#line 2105 "grm_parsegrammar.tab.c"
     break;
 
   case 62: /* $@4: %empty  */
-#line 442 "grm_parsegrammar.y"
+#line 443 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), (yyvsp[-4].string), 0, 1, TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2112 "grm_parsegrammar.tab.c"
+#line 2113 "grm_parsegrammar.tab.c"
     break;
 
   case 64: /* $@5: %empty  */
-#line 449 "grm_parsegrammar.y"
+#line 450 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), (yyvsp[-6].string), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), FALSE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2120 "grm_parsegrammar.tab.c"
+#line 2121 "grm_parsegrammar.tab.c"
     break;
 
   case 66: /* $@6: %empty  */
-#line 456 "grm_parsegrammar.y"
+#line 457 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), (yyvsp[-8].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), TRUE, "", -1, -1, FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2128 "grm_parsegrammar.tab.c"
+#line 2129 "grm_parsegrammar.tab.c"
     break;
 
   case 68: /* $@7: %empty  */
-#line 463 "grm_parsegrammar.y"
+#line 464 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-18].string)), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), (yyvsp[-12].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), FALSE, (yyvsp[-6].string), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2136 "grm_parsegrammar.tab.c"
+#line 2137 "grm_parsegrammar.tab.c"
     break;
 
   case 70: /* $@8: %empty  */
-#line 470 "grm_parsegrammar.y"
+#line 471 "grm_parsegrammar.y"
 { 
   rna_edist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), atoi((yyvsp[-22].string)), atoi((yyvsp[-20].string)), atoi((yyvsp[-18].string)), (yyvsp[-16].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), TRUE, (yyvsp[-10].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose);  
 }
-#line 2144 "grm_parsegrammar.tab.c"
+#line 2145 "grm_parsegrammar.tab.c"
     break;
 
   case 72: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP JOINT  */
-#line 483 "grm_parsegrammar.y"
+#line 484 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_joint(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-8].string), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), (yyvsp[0].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2152 "grm_parsegrammar.tab.c"
+#line 2153 "grm_parsegrammar.tab.c"
     break;
 
   case 73: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP BAYES  */
-#line 492 "grm_parsegrammar.y"
+#line 493 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_bayes(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-8].string), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), (yyvsp[0].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2160 "grm_parsegrammar.tab.c"
+#line 2161 "grm_parsegrammar.tab.c"
     break;
 
   case 74: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP INTEGER SEP MARGINAL  */
-#line 507 "grm_parsegrammar.y"
+#line 508 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_marginal(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].string), atoi((yyvsp[-4].string)), atoi((yyvsp[-2].string)), (yyvsp[0].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2168 "grm_parsegrammar.tab.c"
+#line 2169 "grm_parsegrammar.tab.c"
     break;
 
   case 75: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP INTEGER SEP DIST_NAME SEP INTEGER SEP CONDITIONAL  */
-#line 515 "grm_parsegrammar.y"
+#line 516 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_conditional(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-10].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), (yyvsp[0].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2176 "grm_parsegrammar.tab.c"
+#line 2177 "grm_parsegrammar.tab.c"
     break;
 
   case 76: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP CONDMARG  */
-#line 521 "grm_parsegrammar.y"
+#line 522 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_condmarg(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-8].string), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), (yyvsp[0].string), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2184 "grm_parsegrammar.tab.c"
+#line 2185 "grm_parsegrammar.tab.c"
     break;
 
   case 77: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP ROTATE SEP INTEGER  */
-#line 527 "grm_parsegrammar.y"
+#line 528 "grm_parsegrammar.y"
 {  
   rna_edist_declare_tied_rotate_simple(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].string), atoi((yyvsp[-4].string)), (yyvsp[-2].string), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2192 "grm_parsegrammar.tab.c"
+#line 2193 "grm_parsegrammar.tab.c"
     break;
 
   case 78: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP ROTATE  */
-#line 533 "grm_parsegrammar.y"
+#line 534 "grm_parsegrammar.y"
 { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-12].string), atoi((yyvsp[-10].string)), (yyvsp[-8].string), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), (yyvsp[0].string), -1, -1, ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2200 "grm_parsegrammar.tab.c"
+#line 2201 "grm_parsegrammar.tab.c"
     break;
 
   case 79: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP ROTATE SEP INTEGER  */
-#line 539 "grm_parsegrammar.y"
+#line 540 "grm_parsegrammar.y"
 { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-14].string), atoi((yyvsp[-12].string)), (yyvsp[-10].string), atoi((yyvsp[-8].string)), (yyvsp[-6].string), atoi((yyvsp[-4].string)), (yyvsp[-2].string), atoi((yyvsp[0].string)), -1, ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2208 "grm_parsegrammar.tab.c"
+#line 2209 "grm_parsegrammar.tab.c"
     break;
 
   case 80: /* edist_tied: ETIED SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP DIST_NAME SEP INTEGER SEP ROTATE SEP INTEGER SEP INTEGER  */
-#line 545 "grm_parsegrammar.y"
+#line 546 "grm_parsegrammar.y"
 { 
   rna_edist_declare_tied_rotate_context(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-16].string), atoi((yyvsp[-14].string)), (yyvsp[-12].string), atoi((yyvsp[-10].string)), (yyvsp[-8].string), atoi((yyvsp[-6].string)), (yyvsp[-4].string), atoi((yyvsp[-2].string)), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2216 "grm_parsegrammar.tab.c"
+#line 2217 "grm_parsegrammar.tab.c"
     break;
 
   case 81: /* ldist_decl_only: LDIST_DECL SEP expression SEP expression SEP DIST_NAME  */
-#line 553 "grm_parsegrammar.y"
+#line 554 "grm_parsegrammar.y"
 {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].string), (yyvsp[0].string), (int)((yyvsp[-4].dval)), (int)((yyvsp[-2].dval)), (int)((yyvsp[-2].dval)), 0, 0, ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2224 "grm_parsegrammar.tab.c"
+#line 2225 "grm_parsegrammar.tab.c"
     break;
 
   case 82: /* ldist_decl_only: LDIST_DECL SEP expression SEP expression SEP expression SEP DIST_NAME  */
-#line 558 "grm_parsegrammar.y"
+#line 559 "grm_parsegrammar.y"
 {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-8].string), (yyvsp[0].string), (int)((yyvsp[-6].dval)), (int)((yyvsp[-4].dval)), (int)((yyvsp[-2].dval)), 0, 0, ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2232 "grm_parsegrammar.tab.c"
+#line 2233 "grm_parsegrammar.tab.c"
     break;
 
   case 83: /* ldist_decl_only: LDIST_DECL SEP expression SEP expression SEP expression SEP expression SEP DIST_NAME  */
-#line 563 "grm_parsegrammar.y"
+#line 564 "grm_parsegrammar.y"
 {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-10].string), (yyvsp[0].string), (int)((yyvsp[-4].dval)), (int)((yyvsp[-2].dval)), (int)((yyvsp[-2].dval)), (int)((yyvsp[-8].dval)), (int)((yyvsp[-6].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2240 "grm_parsegrammar.tab.c"
+#line 2241 "grm_parsegrammar.tab.c"
     break;
 
   case 84: /* ldist_decl_only: LDIST_DECL SEP expression SEP expression SEP expression SEP expression SEP expression SEP DIST_NAME  */
-#line 568 "grm_parsegrammar.y"
+#line 569 "grm_parsegrammar.y"
 {
   rna_ldist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-12].string), (yyvsp[0].string), (int)((yyvsp[-6].dval)), (int)((yyvsp[-4].dval)), (int)((yyvsp[-2].dval)), (int)((yyvsp[-10].dval)), (int)((yyvsp[-8].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2248 "grm_parsegrammar.tab.c"
+#line 2249 "grm_parsegrammar.tab.c"
     break;
 
   case 85: /* tdist_decl_only: TDIST_DECL SEP expression SEP TDIST_NAME  */
-#line 574 "grm_parsegrammar.y"
+#line 575 "grm_parsegrammar.y"
 {
   rna_tdist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), (int)((yyvsp[-2].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2256 "grm_parsegrammar.tab.c"
+#line 2257 "grm_parsegrammar.tab.c"
     break;
 
   case 86: /* $@9: %empty  */
-#line 582 "grm_parsegrammar.y"
+#line 583 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), FALSE, "", 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2264 "grm_parsegrammar.tab.c"
+#line 2265 "grm_parsegrammar.tab.c"
     break;
 
   case 88: /* $@10: %empty  */
-#line 589 "grm_parsegrammar.y"
+#line 590 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), TRUE, "", 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2272 "grm_parsegrammar.tab.c"
+#line 2273 "grm_parsegrammar.tab.c"
     break;
 
   case 90: /* $@11: %empty  */
-#line 596 "grm_parsegrammar.y"
+#line 597 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), FALSE, (yyvsp[-4].string), 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2280 "grm_parsegrammar.tab.c"
+#line 2281 "grm_parsegrammar.tab.c"
     break;
 
   case 92: /* $@12: %empty  */
-#line 603 "grm_parsegrammar.y"
+#line 604 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), FALSE, (yyvsp[-6].string), 0, 1, TRUE, "", -1, -1, FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2288 "grm_parsegrammar.tab.c"
+#line 2289 "grm_parsegrammar.tab.c"
     break;
 
   case 94: /* $@13: %empty  */
-#line 610 "grm_parsegrammar.y"
+#line 611 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), TRUE, (yyvsp[-6].string), 0, 1, FALSE, "", -1, -1, FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2296 "grm_parsegrammar.tab.c"
+#line 2297 "grm_parsegrammar.tab.c"
     break;
 
   case 96: /* $@14: %empty  */
-#line 617 "grm_parsegrammar.y"
+#line 618 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), TRUE, (yyvsp[-8].string), 0, 1, TRUE, "", -1, -1, FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2304 "grm_parsegrammar.tab.c"
+#line 2305 "grm_parsegrammar.tab.c"
     break;
 
   case 98: /* $@15: %empty  */
-#line 624 "grm_parsegrammar.y"
+#line 625 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), FALSE, (yyvsp[-8].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), FALSE, "", -1, -1, FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2312 "grm_parsegrammar.tab.c"
+#line 2313 "grm_parsegrammar.tab.c"
     break;
 
   case 100: /* $@16: %empty  */
-#line 631 "grm_parsegrammar.y"
+#line 632 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), FALSE, (yyvsp[-10].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), TRUE, "", -1, -1, FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2320 "grm_parsegrammar.tab.c"
+#line 2321 "grm_parsegrammar.tab.c"
     break;
 
   case 102: /* $@17: %empty  */
-#line 638 "grm_parsegrammar.y"
+#line 639 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), TRUE, (yyvsp[-10].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), FALSE, "", -1, -1, FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2328 "grm_parsegrammar.tab.c"
+#line 2329 "grm_parsegrammar.tab.c"
     break;
 
   case 104: /* $@18: %empty  */
-#line 645 "grm_parsegrammar.y"
+#line 646 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-18].string)), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), TRUE, (yyvsp[-12].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), TRUE, "", -1, -1, FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2336 "grm_parsegrammar.tab.c"
+#line 2337 "grm_parsegrammar.tab.c"
     break;
 
   case 106: /* $@19: %empty  */
-#line 652 "grm_parsegrammar.y"
+#line 653 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-20].string)), atoi((yyvsp[-18].string)), atoi((yyvsp[-16].string)), FALSE, (yyvsp[-14].string), atoi((yyvsp[-12].string)), atoi((yyvsp[-10].string)), FALSE, (yyvsp[-8].string), atoi((yyvsp[-6].string)), atoi((yyvsp[-4].string)), FALSE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2344 "grm_parsegrammar.tab.c"
+#line 2345 "grm_parsegrammar.tab.c"
     break;
 
   case 108: /* $@20: %empty  */
-#line 659 "grm_parsegrammar.y"
+#line 660 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), atoi((yyvsp[-24].string)), atoi((yyvsp[-22].string)), atoi((yyvsp[-20].string)), FALSE, (yyvsp[-18].string), atoi((yyvsp[-16].string)), atoi((yyvsp[-14].string)), TRUE, (yyvsp[-10].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), TRUE, atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2352 "grm_parsegrammar.tab.c"
+#line 2353 "grm_parsegrammar.tab.c"
     break;
 
   case 110: /* $@21: %empty  */
-#line 666 "grm_parsegrammar.y"
+#line 667 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-22].string)), atoi((yyvsp[-20].string)), atoi((yyvsp[-18].string)), TRUE, (yyvsp[-16].string), atoi((yyvsp[-14].string)), atoi((yyvsp[-12].string)), FALSE, (yyvsp[-10].string), atoi((yyvsp[-8].string)), atoi((yyvsp[-6].string)), FALSE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2360 "grm_parsegrammar.tab.c"
+#line 2361 "grm_parsegrammar.tab.c"
     break;
 
   case 112: /* $@22: %empty  */
-#line 673 "grm_parsegrammar.y"
+#line 674 "grm_parsegrammar.y"
 {
   rna_edist_declare_one(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), atoi((yyvsp[-26].string)), atoi((yyvsp[-24].string)), atoi((yyvsp[-22].string)), TRUE, (yyvsp[-20].string), atoi((yyvsp[-18].string)), atoi((yyvsp[-16].string)), TRUE, (yyvsp[-12].string), atoi((yyvsp[-10].string)), atoi((yyvsp[-8].string)), TRUE, atoi((yyvsp[-2].string)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2368 "grm_parsegrammar.tab.c"
+#line 2369 "grm_parsegrammar.tab.c"
     break;
 
   case 115: /* $@23: %empty  */
-#line 684 "grm_parsegrammar.y"
+#line 685 "grm_parsegrammar.y"
 {
   rna_tdist_declare(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[0].string), (int)((yyvsp[-2].dval)), ((struct yyparse_s *)yyparse_param)->verbose); 
 }
-#line 2376 "grm_parsegrammar.tab.c"
+#line 2377 "grm_parsegrammar.tab.c"
     break;
 
   case 122: /* ttied_one: TTIED SEP ttied_one_rhs  */
-#line 698 "grm_parsegrammar.y"
+#line 699 "grm_parsegrammar.y"
 { if (rna_tdist_tie(ntied, tied, ((struct yyparse_s *)yyparse_param)->Gr, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK)
     grammar_fatal("coud't tie parameters for tdist");
     ntied = 0; 
 }
-#line 2385 "grm_parsegrammar.tab.c"
+#line 2386 "grm_parsegrammar.tab.c"
     break;
 
   case 125: /* ttied_idx: INTEGER  */
-#line 706 "grm_parsegrammar.y"
+#line 707 "grm_parsegrammar.y"
 { tied[ntied++] = atoi((yyvsp[0].string)); }
-#line 2391 "grm_parsegrammar.tab.c"
+#line 2392 "grm_parsegrammar.tab.c"
     break;
 
   case 135: /* default_escore: DEFAULT_EMIT GETS expression  */
-#line 725 "grm_parsegrammar.y"
+#line 726 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%f]\n", (SCVAL)((yyvsp[0].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE) != eslOK) 
     grammar_fatal("couldn't set specified emission default score %d for default %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2401 "grm_parsegrammar.tab.c"
+#line 2402 "grm_parsegrammar.tab.c"
     break;
 
   case 136: /* default_escore: DEFAULT_EMIT ADDS expression  */
-#line 731 "grm_parsegrammar.y"
+#line 732 "grm_parsegrammar.y"
 {  
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE) != eslOK) 
     grammar_fatal("couldn't add specified emission default score %d for default %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2410 "grm_parsegrammar.tab.c"
+#line 2411 "grm_parsegrammar.tab.c"
     break;
 
   case 137: /* default_escore: DEFAULT_EMIT GETS DIST_NAME  */
-#line 737 "grm_parsegrammar.y"
+#line 738 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s]\n", (yyvsp[0].string));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (yyvsp[0].string), -1, -1, FALSE) != eslOK) 
     grammar_fatal("couldn't set pre-specified emission default edist %s for default %s", (yyvsp[0].string), (yyvsp[-2].string)); 
 }
-#line 2420 "grm_parsegrammar.tab.c"
+#line 2421 "grm_parsegrammar.tab.c"
     break;
 
   case 138: /* default_escore: DEFAULT_EMIT ADDS DIST_NAME  */
-#line 743 "grm_parsegrammar.y"
+#line 744 "grm_parsegrammar.y"
 {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (yyvsp[0].string), -1, -1, TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[0].string), (yyvsp[-2].string)); 
 }
-#line 2429 "grm_parsegrammar.tab.c"
+#line 2430 "grm_parsegrammar.tab.c"
     break;
 
   case 139: /* default_escore: DEFAULT_EMIT GETS DIST_NAME SEP INTEGER  */
-#line 751 "grm_parsegrammar.y"
+#line 752 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s] : %d \n", (yyvsp[-2].string), atoi((yyvsp[0].string)));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), (yyvsp[-2].string), atoi((yyvsp[0].string)), -1, FALSE) != eslOK) 
     grammar_fatal("couldn't set pre-specified emission default edist %s for default %s", (yyvsp[-2].string), (yyvsp[-4].string)); 
 }
-#line 2439 "grm_parsegrammar.tab.c"
+#line 2440 "grm_parsegrammar.tab.c"
     break;
 
   case 140: /* default_escore: DEFAULT_EMIT ADDS DIST_NAME SEP INTEGER  */
-#line 757 "grm_parsegrammar.y"
+#line 758 "grm_parsegrammar.y"
 {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), (yyvsp[-2].string), atoi((yyvsp[0].string)), -1, TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[-2].string), (yyvsp[-4].string)); 
 }
-#line 2448 "grm_parsegrammar.tab.c"
+#line 2449 "grm_parsegrammar.tab.c"
     break;
 
   case 141: /* default_escore: DEFAULT_EMIT GETS DIST_NAME SEP INTEGER SEP INTEGER  */
-#line 765 "grm_parsegrammar.y"
+#line 766 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default e-score [%s] : %d : %d\n", (yyvsp[-4].string), atoi((yyvsp[-2].string)), atoi((yyvsp[0].string)));
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].string), (yyvsp[-4].string), atoi((yyvsp[-2].string)), atoi((yyvsp[0].string)), FALSE) != eslOK) 
     grammar_fatal("couldn't set pre-specified emission default edist %s for default %s", (yyvsp[-4].string), (yyvsp[-6].string)); 
 }
-#line 2458 "grm_parsegrammar.tab.c"
+#line 2459 "grm_parsegrammar.tab.c"
     break;
 
   case 142: /* default_escore: DEFAULT_EMIT ADDS DIST_NAME SEP INTEGER SEP INTEGER  */
-#line 771 "grm_parsegrammar.y"
+#line 772 "grm_parsegrammar.y"
 {  
   if (rna_edist_add_edist(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].string), (yyvsp[-4].string), atoi((yyvsp[-2].string)), atoi((yyvsp[0].string)), TRUE) != eslOK) 
     grammar_fatal("couldn't add pre-specified emission default edist %s for default %s", (yyvsp[-4].string), (yyvsp[-6].string)); 
 }
-#line 2467 "grm_parsegrammar.tab.c"
+#line 2468 "grm_parsegrammar.tab.c"
     break;
 
   case 143: /* default_lscore: DEFAULT_LDIST GETS expression  */
-#line 779 "grm_parsegrammar.y"
+#line 780 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %d for default length %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2476 "grm_parsegrammar.tab.c"
+#line 2477 "grm_parsegrammar.tab.c"
     break;
 
   case 144: /* default_lscore: DEFAULT_LDIST COMMA DEFAULT_LDIST GETS expression  */
-#line 784 "grm_parsegrammar.y"
+#line 785 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default length %s,%s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2485 "grm_parsegrammar.tab.c"
+#line 2486 "grm_parsegrammar.tab.c"
     break;
 
   case 149: /* default_lscore_sum: DEFAULT_LDIST_SUM GETS expression  */
-#line 795 "grm_parsegrammar.y"
+#line 796 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default sum length %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2494 "grm_parsegrammar.tab.c"
+#line 2495 "grm_parsegrammar.tab.c"
     break;
 
   case 150: /* default_lscore_dif: DEFAULT_LDIST_DIF GETS expression  */
-#line 801 "grm_parsegrammar.y"
+#line 802 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist default score %f for default sum length %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2503 "grm_parsegrammar.tab.c"
+#line 2504 "grm_parsegrammar.tab.c"
     break;
 
   case 151: /* default_tscore: DEFAULT_TDIST GETS expression  */
-#line 807 "grm_parsegrammar.y"
+#line 808 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default t-score [%f]\n", (SCVAL)((yyvsp[0].dval)));
 
   if (rna_tdist_add_score_default(((struct yyparse_s *)yyparse_param)->Gr, (SCVAL)((yyvsp[0].dval))) != eslOK) 
     grammar_fatal("couldn't add tdist score %f for default transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2514 "grm_parsegrammar.tab.c"
+#line 2515 "grm_parsegrammar.tab.c"
     break;
 
   case 152: /* default_tscore: DEFAULT_TDIST OPEN XVARIABLE CLOSE GETS expression  */
-#line 814 "grm_parsegrammar.y"
+#line 815 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("default t-score [%f]\n", (SCVAL)((yyvsp[0].dval)));
 
   if (rna_tdist_add_score_default(((struct yyparse_s *)yyparse_param)->Gr, (SCVAL)((yyvsp[0].dval))) != eslOK) 
     grammar_fatal("couldn't add tdist score %f for default transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-5].string)); 
 }
-#line 2525 "grm_parsegrammar.tab.c"
+#line 2526 "grm_parsegrammar.tab.c"
     break;
 
   case 153: /* one_escore: EMIT GETS expression  */
-#line 824 "grm_parsegrammar.y"
+#line 825 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("get e-score [%f]\n",(SCVAL)((yyvsp[0].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE) != eslOK) 
      grammar_fatal("couldn't set specified single-base score %f for singlet %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string));  
 }
-#line 2535 "grm_parsegrammar.tab.c"
+#line 2536 "grm_parsegrammar.tab.c"
     break;
 
   case 154: /* one_escore: EMIT ADDS expression  */
-#line 830 "grm_parsegrammar.y"
+#line 831 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("add e-score [%f]\n",(SCVAL)((yyvsp[0].dval)));
   if (rna_edist_add_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE) != eslOK) 
      grammar_fatal("couldn't add specified single-base score %f for singlet %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string));  
 }
-#line 2545 "grm_parsegrammar.tab.c"
+#line 2546 "grm_parsegrammar.tab.c"
     break;
 
   case 155: /* one_lscore: INTEGER GETS expression  */
-#line 838 "grm_parsegrammar.y"
+#line 839 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2554 "grm_parsegrammar.tab.c"
+#line 2555 "grm_parsegrammar.tab.c"
     break;
 
   case 156: /* one_lscore: INTEGER ADDS expression  */
-#line 843 "grm_parsegrammar.y"
+#line 844 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_mono(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2563 "grm_parsegrammar.tab.c"
+#line 2564 "grm_parsegrammar.tab.c"
     break;
 
   case 157: /* one_lscore: INTEGER COMMA INTEGER GETS expression  */
-#line 848 "grm_parsegrammar.y"
+#line 849 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2572 "grm_parsegrammar.tab.c"
+#line 2573 "grm_parsegrammar.tab.c"
     break;
 
   case 158: /* one_lscore: INTEGER COMMA INTEGER ADDS expression  */
-#line 853 "grm_parsegrammar.y"
+#line 854 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-4].string), (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2581 "grm_parsegrammar.tab.c"
+#line 2582 "grm_parsegrammar.tab.c"
     break;
 
   case 159: /* one_lscore: SUM_LDIST GETS INTEGER GETS expression  */
-#line 858 "grm_parsegrammar.y"
+#line 859 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sum_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2590 "grm_parsegrammar.tab.c"
+#line 2591 "grm_parsegrammar.tab.c"
     break;
 
   case 160: /* one_lscore: SUM_LDIST GETS INTEGER ADDS expression  */
-#line 863 "grm_parsegrammar.y"
+#line 864 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_sum(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sum_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2599 "grm_parsegrammar.tab.c"
+#line 2600 "grm_parsegrammar.tab.c"
     break;
 
   case 161: /* one_lscore: DIF_LDIST GETS INTEGER GETS expression  */
-#line 868 "grm_parsegrammar.y"
+#line 869 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist dif_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2608 "grm_parsegrammar.tab.c"
+#line 2609 "grm_parsegrammar.tab.c"
     break;
 
   case 162: /* one_lscore: DIF_LDIST GETS INTEGER ADDS expression  */
-#line 873 "grm_parsegrammar.y"
+#line 874 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_dif(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist dif_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2617 "grm_parsegrammar.tab.c"
+#line 2618 "grm_parsegrammar.tab.c"
     break;
 
   case 163: /* one_lscore: SYM_LDIST GETS INTEGER GETS expression  */
-#line 878 "grm_parsegrammar.y"
+#line 879 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_sym(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), FALSE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sym_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2626 "grm_parsegrammar.tab.c"
+#line 2627 "grm_parsegrammar.tab.c"
     break;
 
   case 164: /* one_lscore: SYM_LDIST GETS INTEGER ADDS expression  */
-#line 883 "grm_parsegrammar.y"
+#line 884 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_score_di_sym(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].string), (SCVAL)((yyvsp[0].dval)), TRUE, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add specified ldist sym_score %f for length %s %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-4].string), (yyvsp[-2].string)); 
 }
-#line 2635 "grm_parsegrammar.tab.c"
+#line 2636 "grm_parsegrammar.tab.c"
     break;
 
   case 166: /* function: AFFINE SEP expression SEP expression SEP expression SEP expression  */
-#line 892 "grm_parsegrammar.y"
+#line 893 "grm_parsegrammar.y"
 { 
   if (rna_ldist_add_affine_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-6].dval), (yyvsp[-4].dval), (yyvsp[-2].dval), (yyvsp[0].dval), ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist affine function for scores > %d", (yyvsp[-7].string)); 
 
 }
-#line 2645 "grm_parsegrammar.tab.c"
+#line 2646 "grm_parsegrammar.tab.c"
     break;
 
   case 167: /* function: LINEAR SEP expression SEP expression  */
-#line 898 "grm_parsegrammar.y"
+#line 899 "grm_parsegrammar.y"
 {
   if (rna_ldist_add_linear_score(((struct yyparse_s *)yyparse_param)->Gr, (yyvsp[-2].dval), (yyvsp[0].dval), ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("couldn't add ldist linear function for scores > %d", (yyvsp[-3].string)); 
 }
-#line 2654 "grm_parsegrammar.tab.c"
+#line 2655 "grm_parsegrammar.tab.c"
     break;
 
   case 168: /* one_tscore: INTEGER GETS expression  */
-#line 905 "grm_parsegrammar.y"
+#line 906 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[-2].string)), (SCVAL)((yyvsp[0].dval)));
 
   if (rna_tdist_add_score(((struct yyparse_s *)yyparse_param)->Gr, atoi((yyvsp[-2].string)), (SCVAL)((yyvsp[0].dval)), FALSE) != eslOK) 
     grammar_fatal("couldn't add tdist score %d for transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
 }
-#line 2665 "grm_parsegrammar.tab.c"
+#line 2666 "grm_parsegrammar.tab.c"
     break;
 
   case 169: /* one_tscore: INTEGER ADDS expression  */
-#line 913 "grm_parsegrammar.y"
+#line 914 "grm_parsegrammar.y"
 {
   if (rna_tdist_add_score(((struct yyparse_s *)yyparse_param)->Gr, atoi((yyvsp[-2].string)), (SCVAL)((yyvsp[0].dval)), TRUE) != eslOK) 
     grammar_fatal("couldn't add tdist score %d for transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-2].string)); 
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d +=[%f]\n", atoi((yyvsp[-2].string)), (SCVAL)((yyvsp[0].dval)));
 }
-#line 2675 "grm_parsegrammar.tab.c"
+#line 2676 "grm_parsegrammar.tab.c"
     break;
 
   case 170: /* one_tscore: INTEGER OPEN XVARIABLE CLOSE GETS expression  */
-#line 920 "grm_parsegrammar.y"
+#line 921 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[-5].string)), (SCVAL)((yyvsp[0].dval)));
 
   if (rna_tdist_add_score(((struct yyparse_s *)yyparse_param)->Gr, atoi((yyvsp[-5].string)), (SCVAL)((yyvsp[0].dval)), FALSE) != eslOK) 
     grammar_fatal("couldn't add tdist score %d for transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-5].string)); 
 }
-#line 2686 "grm_parsegrammar.tab.c"
+#line 2687 "grm_parsegrammar.tab.c"
     break;
 
   case 171: /* one_tscore: INTEGER OPEN XVARIABLE CLOSE ADDS expression  */
-#line 928 "grm_parsegrammar.y"
+#line 929 "grm_parsegrammar.y"
 {
   if (((struct yyparse_s *)yyparse_param)->verbose) printf("t=%d [%f]\n", atoi((yyvsp[-5].string)), (SCVAL)((yyvsp[0].dval)));
 
   if (rna_tdist_add_score(((struct yyparse_s *)yyparse_param)->Gr, atoi((yyvsp[-5].string)), (SCVAL)((yyvsp[0].dval)), TRUE) != eslOK) 
     grammar_fatal("couldn't add tdist score %d for transition %s", (SCVAL)((yyvsp[0].dval)), (yyvsp[-5].string)); 
 }
-#line 2697 "grm_parsegrammar.tab.c"
+#line 2698 "grm_parsegrammar.tab.c"
     break;
 
   case 174: /* $@24: %empty  */
-#line 943 "grm_parsegrammar.y"
+#line 944 "grm_parsegrammar.y"
 {
   is_new_rule = TRUE;
   lexeme.l = 1;
@@ -2705,11 +2706,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_lhs_write(((struct yyparse_s *)yyparse_param)->Gr, lexeme, errbuf, &nt_idx, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("cannot rewrite LHS %s.\n%s\n", lexeme.lex[0], errbuf);
 }
-#line 2709 "grm_parsegrammar.tab.c"
+#line 2710 "grm_parsegrammar.tab.c"
     break;
 
   case 176: /* $@25: %empty  */
-#line 952 "grm_parsegrammar.y"
+#line 953 "grm_parsegrammar.y"
 {
   is_new_rule = TRUE;
   lexeme.l = 2;
@@ -2718,53 +2719,53 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_lhs_write(((struct yyparse_s *)yyparse_param)->Gr, lexeme, errbuf, &nt_idx, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("cannot rewrite LHS %s.\n%s\n", lexeme.lex[0], errbuf);
 }
-#line 2722 "grm_parsegrammar.tab.c"
+#line 2723 "grm_parsegrammar.tab.c"
     break;
 
   case 178: /* rhs_list: rule  */
-#line 964 "grm_parsegrammar.y"
+#line 965 "grm_parsegrammar.y"
 { 
   is_new_rule = TRUE;
   rnr ++;
 }
-#line 2731 "grm_parsegrammar.tab.c"
+#line 2732 "grm_parsegrammar.tab.c"
     break;
 
   case 179: /* rhs_list: rhs_list OR rule  */
-#line 969 "grm_parsegrammar.y"
+#line 970 "grm_parsegrammar.y"
 { 
   is_new_rule = TRUE; 
   rnr ++;
 }
-#line 2740 "grm_parsegrammar.tab.c"
+#line 2741 "grm_parsegrammar.tab.c"
     break;
 
   case 180: /* rule: rule_atomlist  */
-#line 977 "grm_parsegrammar.y"
+#line 978 "grm_parsegrammar.y"
 {  
   if (((struct yyparse_s *)yyparse_param)->verbose) rna_rule_print(nt_idx, ((struct yyparse_s *)yyparse_param)->Gr);
 }
-#line 2748 "grm_parsegrammar.tab.c"
+#line 2749 "grm_parsegrammar.tab.c"
     break;
 
   case 182: /* rule_atomlist: atom  */
-#line 985 "grm_parsegrammar.y"
+#line 986 "grm_parsegrammar.y"
 {
   is_new_rule = FALSE; 
 }
-#line 2756 "grm_parsegrammar.tab.c"
+#line 2757 "grm_parsegrammar.tab.c"
     break;
 
   case 183: /* rule_atomlist: rule_atomlist atom  */
-#line 989 "grm_parsegrammar.y"
+#line 990 "grm_parsegrammar.y"
 {
   is_new_rule = FALSE; 
 }
-#line 2764 "grm_parsegrammar.tab.c"
+#line 2765 "grm_parsegrammar.tab.c"
     break;
 
   case 188: /* emission_atom: EMISSION SEP list  */
-#line 1002 "grm_parsegrammar.y"
+#line 1003 "grm_parsegrammar.y"
 {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[-2].string));
@@ -2774,11 +2775,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d emision_atom\n", rnr);
 }
-#line 2778 "grm_parsegrammar.tab.c"
+#line 2779 "grm_parsegrammar.tab.c"
     break;
 
   case 189: /* emission_atom: EMISSION SEP list DIST_NAME  */
-#line 1012 "grm_parsegrammar.y"
+#line 1013 "grm_parsegrammar.y"
 {
   lexeme.l = 3;
   strcpy(lexeme.lex[0], (yyvsp[-3].string));
@@ -2789,11 +2790,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d emision_atom\n", rnr);
 }
-#line 2793 "grm_parsegrammar.tab.c"
+#line 2794 "grm_parsegrammar.tab.c"
     break;
 
   case 190: /* nonterm_atom: NONTERM OPEN coordrange CLOSE  */
-#line 1026 "grm_parsegrammar.y"
+#line 1027 "grm_parsegrammar.y"
 {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[-3].string));
@@ -2802,11 +2803,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d nonterminal_atom\n", rnr);
 }
-#line 2806 "grm_parsegrammar.tab.c"
+#line 2807 "grm_parsegrammar.tab.c"
     break;
 
   case 191: /* monoseg_atom: MONOSEGMENT OPEN coordrange CLOSE  */
-#line 1038 "grm_parsegrammar.y"
+#line 1039 "grm_parsegrammar.y"
 {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[-3].string));
@@ -2815,11 +2816,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d monosegment_atom\n", rnr);
 }
-#line 2819 "grm_parsegrammar.tab.c"
+#line 2820 "grm_parsegrammar.tab.c"
     break;
 
   case 192: /* monoseg_atom: MONOSEGMENT OPEN coordrange CLOSE DIST_NAME  */
-#line 1047 "grm_parsegrammar.y"
+#line 1048 "grm_parsegrammar.y"
 {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[-4].string));
@@ -2829,11 +2830,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d monosegment_atom\n", rnr);
 }
-#line 2833 "grm_parsegrammar.tab.c"
+#line 2834 "grm_parsegrammar.tab.c"
     break;
 
   case 193: /* diseg_atom: LDISEGMENT OPEN coordrange CLOSE RDISEGMENT OPEN coordrange CLOSE  */
-#line 1060 "grm_parsegrammar.y"
+#line 1061 "grm_parsegrammar.y"
 {
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[-7].string));
@@ -2844,11 +2845,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d disegment_atom\n", rnr);
 }
-#line 2848 "grm_parsegrammar.tab.c"
+#line 2849 "grm_parsegrammar.tab.c"
     break;
 
   case 194: /* diseg_atom: LDISEGMENT OPEN coordrange CLOSE RDISEGMENT OPEN coordrange CLOSE DIST_NAME  */
-#line 1071 "grm_parsegrammar.y"
+#line 1072 "grm_parsegrammar.y"
 {
   lexeme.l = 2;
   strcpy(lexeme.lex[0], (yyvsp[-8].string));
@@ -2860,11 +2861,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d disegment_atom\n", rnr);
 }
-#line 2864 "grm_parsegrammar.tab.c"
+#line 2865 "grm_parsegrammar.tab.c"
     break;
 
   case 195: /* diseg_atom: LDISEGMENT OPEN coordrange CLOSE RDISEGMENT OPEN coordrange CLOSE DIST_NAME DIST_NAME  */
-#line 1083 "grm_parsegrammar.y"
+#line 1084 "grm_parsegrammar.y"
 {
   lexeme.l = 3;
   strcpy(lexeme.lex[0], (yyvsp[-9].string));
@@ -2877,11 +2878,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d disegment_atom\n", rnr);
 }
-#line 2881 "grm_parsegrammar.tab.c"
+#line 2882 "grm_parsegrammar.tab.c"
     break;
 
   case 196: /* diseg_atom: LDISEGMENT OPEN coordrange CLOSE RDISEGMENT OPEN coordrange CLOSE DIST_NAME DIST_NAME DIST_NAME  */
-#line 1096 "grm_parsegrammar.y"
+#line 1097 "grm_parsegrammar.y"
 {
   lexeme.l = 4;
   strcpy(lexeme.lex[0], (yyvsp[-10].string));
@@ -2895,118 +2896,118 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   if (rna_atom_add_to_rule(rnr, nt_idx, &iatom, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) 
     grammar_fatal("error in rna_rule %d disegment_atom\n", rnr);
 }
-#line 2899 "grm_parsegrammar.tab.c"
+#line 2900 "grm_parsegrammar.tab.c"
     break;
 
   case 209: /* paircoord: coord AND coord  */
-#line 1133 "grm_parsegrammar.y"
+#line 1134 "grm_parsegrammar.y"
 {
   iatom.has_basepair = TRUE;
   iatom.bp[iatom.nbasepairs].basepair_coordl_idx = iatom.ncoords-2;
   iatom.bp[iatom.nbasepairs].basepair_coordr_idx = iatom.ncoords-1;
   iatom.nbasepairs ++;
 }
-#line 2910 "grm_parsegrammar.tab.c"
+#line 2911 "grm_parsegrammar.tab.c"
     break;
 
   case 210: /* paircontext: context AND context  */
-#line 1142 "grm_parsegrammar.y"
+#line 1143 "grm_parsegrammar.y"
 {
   iatom.cbp[iatom.ncbasepairs].basepair_coordl_idx = iatom.ncontexts-2;
   iatom.cbp[iatom.ncbasepairs].basepair_coordr_idx = iatom.ncontexts-1;
   iatom.ncbasepairs ++;
 }
-#line 2920 "grm_parsegrammar.tab.c"
+#line 2921 "grm_parsegrammar.tab.c"
     break;
 
   case 211: /* coord: COORDBASE  */
-#line 1151 "grm_parsegrammar.y"
+#line 1152 "grm_parsegrammar.y"
 {
   add_coord(&iatom, (yyvsp[0].string), 0, ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2928 "grm_parsegrammar.tab.c"
+#line 2929 "grm_parsegrammar.tab.c"
     break;
 
   case 212: /* coord: COORDBASE INTEGER  */
-#line 1155 "grm_parsegrammar.y"
+#line 1156 "grm_parsegrammar.y"
 {
   add_coord(&iatom, (yyvsp[-1].string), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2936 "grm_parsegrammar.tab.c"
+#line 2937 "grm_parsegrammar.tab.c"
     break;
 
   case 213: /* coord: COORDBASE PLUS INTEGER  */
-#line 1159 "grm_parsegrammar.y"
+#line 1160 "grm_parsegrammar.y"
 {
   add_coord(&iatom, (yyvsp[-2].string), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2944 "grm_parsegrammar.tab.c"
+#line 2945 "grm_parsegrammar.tab.c"
     break;
 
   case 214: /* coord: COORDBASE MINUS INTEGER  */
-#line 1163 "grm_parsegrammar.y"
+#line 1164 "grm_parsegrammar.y"
 {
   add_coord(&iatom, (yyvsp[-2].string), -atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2952 "grm_parsegrammar.tab.c"
+#line 2953 "grm_parsegrammar.tab.c"
     break;
 
   case 215: /* context: COORDBASE  */
-#line 1170 "grm_parsegrammar.y"
+#line 1171 "grm_parsegrammar.y"
 {
   add_context(&iatom, (yyvsp[0].string), 0, ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2960 "grm_parsegrammar.tab.c"
+#line 2961 "grm_parsegrammar.tab.c"
     break;
 
   case 216: /* context: COORDBASE INTEGER  */
-#line 1174 "grm_parsegrammar.y"
+#line 1175 "grm_parsegrammar.y"
 {
   add_context(&iatom, (yyvsp[-1].string), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2968 "grm_parsegrammar.tab.c"
+#line 2969 "grm_parsegrammar.tab.c"
     break;
 
   case 217: /* context: COORDBASE PLUS INTEGER  */
-#line 1178 "grm_parsegrammar.y"
+#line 1179 "grm_parsegrammar.y"
 {
   add_context(&iatom, (yyvsp[-2].string), atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2976 "grm_parsegrammar.tab.c"
+#line 2977 "grm_parsegrammar.tab.c"
     break;
 
   case 218: /* context: COORDBASE MINUS INTEGER  */
-#line 1182 "grm_parsegrammar.y"
+#line 1183 "grm_parsegrammar.y"
 {
   add_context(&iatom, (yyvsp[-2].string), -atoi((yyvsp[0].string)), ((struct yyparse_s *)yyparse_param)->verbose);
 }
-#line 2984 "grm_parsegrammar.tab.c"
+#line 2985 "grm_parsegrammar.tab.c"
     break;
 
   case 219: /* rule_enum: EPSILON  */
-#line 1190 "grm_parsegrammar.y"
+#line 1191 "grm_parsegrammar.y"
 {
   ynr = 1;
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 2995 "grm_parsegrammar.tab.c"
+#line 2996 "grm_parsegrammar.tab.c"
     break;
 
   case 220: /* rule_enum: EMISSION  */
-#line 1198 "grm_parsegrammar.y"
+#line 1199 "grm_parsegrammar.y"
 {
   ynr = 2;
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3006 "grm_parsegrammar.tab.c"
+#line 3007 "grm_parsegrammar.tab.c"
     break;
 
   case 221: /* rule_enum: EMISSION DIST_NAME  */
-#line 1206 "grm_parsegrammar.y"
+#line 1207 "grm_parsegrammar.y"
 {
   ynr = 2;
   lexeme.l = 2;
@@ -3014,22 +3015,22 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3018 "grm_parsegrammar.tab.c"
+#line 3019 "grm_parsegrammar.tab.c"
     break;
 
   case 222: /* rule_enum: NONTERM  */
-#line 1215 "grm_parsegrammar.y"
+#line 1216 "grm_parsegrammar.y"
 {     
   ynr = 3;
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3029 "grm_parsegrammar.tab.c"
+#line 3030 "grm_parsegrammar.tab.c"
     break;
 
   case 223: /* rule_enum: EMISSION EMISSION  */
-#line 1223 "grm_parsegrammar.y"
+#line 1224 "grm_parsegrammar.y"
 {     
   ynr = 4;
   lexeme.l = 2;
@@ -3037,11 +3038,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3041 "grm_parsegrammar.tab.c"
+#line 3042 "grm_parsegrammar.tab.c"
     break;
 
   case 224: /* rule_enum: EMISSION EMISSION DIST_NAME  */
-#line 1232 "grm_parsegrammar.y"
+#line 1233 "grm_parsegrammar.y"
 {     
   ynr = 4;
   lexeme.l = 3;
@@ -3050,11 +3051,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3054 "grm_parsegrammar.tab.c"
+#line 3055 "grm_parsegrammar.tab.c"
     break;
 
   case 225: /* rule_enum: EMISSION NONTERM  */
-#line 1242 "grm_parsegrammar.y"
+#line 1243 "grm_parsegrammar.y"
 {
   ynr = 5;
   lexeme.l = 2;
@@ -3062,11 +3063,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3066 "grm_parsegrammar.tab.c"
+#line 3067 "grm_parsegrammar.tab.c"
     break;
 
   case 226: /* rule_enum: EMISSION NONTERM DIST_NAME  */
-#line 1251 "grm_parsegrammar.y"
+#line 1252 "grm_parsegrammar.y"
 {
   ynr = 5;
   lexeme.l = 3;
@@ -3075,11 +3076,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3079 "grm_parsegrammar.tab.c"
+#line 3080 "grm_parsegrammar.tab.c"
     break;
 
   case 227: /* rule_enum: NONTERM EMISSION  */
-#line 1261 "grm_parsegrammar.y"
+#line 1262 "grm_parsegrammar.y"
 {
   ynr = 6;
   lexeme.l = 2;
@@ -3087,11 +3088,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3091 "grm_parsegrammar.tab.c"
+#line 3092 "grm_parsegrammar.tab.c"
     break;
 
   case 228: /* rule_enum: NONTERM EMISSION DIST_NAME  */
-#line 1270 "grm_parsegrammar.y"
+#line 1271 "grm_parsegrammar.y"
 {
   ynr = 6;
   lexeme.l = 3;
@@ -3100,11 +3101,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3104 "grm_parsegrammar.tab.c"
+#line 3105 "grm_parsegrammar.tab.c"
     break;
 
   case 229: /* rule_enum: NONTERM NONTERM  */
-#line 1280 "grm_parsegrammar.y"
+#line 1281 "grm_parsegrammar.y"
 {
   ynr = 7;
   lexeme.l = 2;
@@ -3112,11 +3113,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3116 "grm_parsegrammar.tab.c"
+#line 3117 "grm_parsegrammar.tab.c"
     break;
 
   case 230: /* rule_enum: EMISSION EMISSION EMISSION  */
-#line 1289 "grm_parsegrammar.y"
+#line 1290 "grm_parsegrammar.y"
 {
   ynr = 8;
   lexeme.l = 3;
@@ -3125,11 +3126,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3129 "grm_parsegrammar.tab.c"
+#line 3130 "grm_parsegrammar.tab.c"
     break;
 
   case 231: /* rule_enum: EMISSION EMISSION EMISSION DIST_NAME  */
-#line 1299 "grm_parsegrammar.y"
+#line 1300 "grm_parsegrammar.y"
 {
   ynr = 8;
   lexeme.l = 4;
@@ -3139,11 +3140,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3143 "grm_parsegrammar.tab.c"
+#line 3144 "grm_parsegrammar.tab.c"
     break;
 
   case 232: /* rule_enum: NONTERM NONTERM EMISSION  */
-#line 1310 "grm_parsegrammar.y"
+#line 1311 "grm_parsegrammar.y"
 {
   ynr = 9;
   lexeme.l = 3;
@@ -3152,11 +3153,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3156 "grm_parsegrammar.tab.c"
+#line 3157 "grm_parsegrammar.tab.c"
     break;
 
   case 233: /* rule_enum: NONTERM NONTERM EMISSION DIST_NAME  */
-#line 1320 "grm_parsegrammar.y"
+#line 1321 "grm_parsegrammar.y"
 {
   ynr = 9;
   lexeme.l = 4;
@@ -3166,11 +3167,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3170 "grm_parsegrammar.tab.c"
+#line 3171 "grm_parsegrammar.tab.c"
     break;
 
   case 234: /* rule_enum: EMISSION NONTERM NONTERM  */
-#line 1331 "grm_parsegrammar.y"
+#line 1332 "grm_parsegrammar.y"
 {
   ynr = 10;
   lexeme.l = 3;
@@ -3179,11 +3180,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3183 "grm_parsegrammar.tab.c"
+#line 3184 "grm_parsegrammar.tab.c"
     break;
 
   case 235: /* rule_enum: EMISSION NONTERM NONTERM DIST_NAME  */
-#line 1341 "grm_parsegrammar.y"
+#line 1342 "grm_parsegrammar.y"
 {
   ynr = 10;
   lexeme.l = 4;
@@ -3193,11 +3194,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3197 "grm_parsegrammar.tab.c"
+#line 3198 "grm_parsegrammar.tab.c"
     break;
 
   case 236: /* rule_enum: NONTERM EMISSION NONTERM  */
-#line 1352 "grm_parsegrammar.y"
+#line 1353 "grm_parsegrammar.y"
 {
   ynr = 11;
   lexeme.l = 3;
@@ -3206,11 +3207,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3210 "grm_parsegrammar.tab.c"
+#line 3211 "grm_parsegrammar.tab.c"
     break;
 
   case 237: /* rule_enum: NONTERM EMISSION NONTERM DIST_NAME  */
-#line 1362 "grm_parsegrammar.y"
+#line 1363 "grm_parsegrammar.y"
 {
   ynr = 11;
   lexeme.l = 4;
@@ -3220,11 +3221,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3224 "grm_parsegrammar.tab.c"
+#line 3225 "grm_parsegrammar.tab.c"
     break;
 
   case 238: /* rule_enum: EMISSION NONTERM EMISSION  */
-#line 1373 "grm_parsegrammar.y"
+#line 1374 "grm_parsegrammar.y"
 {
   ynr = 12;
   lexeme.l = 3;
@@ -3233,11 +3234,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3237 "grm_parsegrammar.tab.c"
+#line 3238 "grm_parsegrammar.tab.c"
     break;
 
   case 239: /* rule_enum: EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1382 "grm_parsegrammar.y"
+#line 1383 "grm_parsegrammar.y"
 {
   ynr = 12;
   lexeme.l = 4;
@@ -3247,11 +3248,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3251 "grm_parsegrammar.tab.c"
+#line 3252 "grm_parsegrammar.tab.c"
     break;
 
   case 240: /* rule_enum: EMISSION NONTERM EMISSION DIST_NAME DIST_NAME  */
-#line 1393 "grm_parsegrammar.y"
+#line 1394 "grm_parsegrammar.y"
 {
   ynr = 12;
   lexeme.l = 5;
@@ -3262,11 +3263,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3266 "grm_parsegrammar.tab.c"
+#line 3267 "grm_parsegrammar.tab.c"
     break;
 
   case 241: /* rule_enum: NONTERM EMISSION EMISSION  */
-#line 1405 "grm_parsegrammar.y"
+#line 1406 "grm_parsegrammar.y"
 {
   ynr = 13;
   lexeme.l = 3;
@@ -3275,11 +3276,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3279 "grm_parsegrammar.tab.c"
+#line 3280 "grm_parsegrammar.tab.c"
     break;
 
   case 242: /* rule_enum: NONTERM EMISSION EMISSION DIST_NAME  */
-#line 1415 "grm_parsegrammar.y"
+#line 1416 "grm_parsegrammar.y"
 {
   ynr = 13;
   lexeme.l = 4;
@@ -3289,11 +3290,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3293 "grm_parsegrammar.tab.c"
+#line 3294 "grm_parsegrammar.tab.c"
     break;
 
   case 243: /* rule_enum: NONTERM EMISSION EMISSION DIST_NAME DIST_NAME  */
-#line 1426 "grm_parsegrammar.y"
+#line 1427 "grm_parsegrammar.y"
 {
   ynr = 13;
   lexeme.l = 5;
@@ -3304,11 +3305,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3308 "grm_parsegrammar.tab.c"
+#line 3309 "grm_parsegrammar.tab.c"
     break;
 
   case 244: /* rule_enum: EMISSION EMISSION NONTERM  */
-#line 1438 "grm_parsegrammar.y"
+#line 1439 "grm_parsegrammar.y"
 {
   ynr = 14;
   lexeme.l = 3;
@@ -3317,11 +3318,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3321 "grm_parsegrammar.tab.c"
+#line 3322 "grm_parsegrammar.tab.c"
     break;
 
   case 245: /* rule_enum: EMISSION EMISSION NONTERM DIST_NAME  */
-#line 1448 "grm_parsegrammar.y"
+#line 1449 "grm_parsegrammar.y"
 {
   ynr = 14;
   lexeme.l = 4;
@@ -3331,11 +3332,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3335 "grm_parsegrammar.tab.c"
+#line 3336 "grm_parsegrammar.tab.c"
     break;
 
   case 246: /* rule_enum: EMISSION EMISSION NONTERM DIST_NAME DIST_NAME  */
-#line 1460 "grm_parsegrammar.y"
+#line 1461 "grm_parsegrammar.y"
 {
   ynr = 14;
   lexeme.l = 5;
@@ -3346,11 +3347,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3350 "grm_parsegrammar.tab.c"
+#line 3351 "grm_parsegrammar.tab.c"
     break;
 
   case 247: /* rule_enum: EMISSION EMISSION EMISSION EMISSION  */
-#line 1472 "grm_parsegrammar.y"
+#line 1473 "grm_parsegrammar.y"
 {
   ynr = 15;
   lexeme.l = 4;
@@ -3360,11 +3361,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3364 "grm_parsegrammar.tab.c"
+#line 3365 "grm_parsegrammar.tab.c"
     break;
 
   case 248: /* rule_enum: EMISSION EMISSION EMISSION EMISSION DIST_NAME  */
-#line 1483 "grm_parsegrammar.y"
+#line 1484 "grm_parsegrammar.y"
 {
   ynr = 15;
   lexeme.l = 5;
@@ -3375,11 +3376,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3379 "grm_parsegrammar.tab.c"
+#line 3380 "grm_parsegrammar.tab.c"
     break;
 
   case 249: /* rule_enum: EMISSION NONTERM NONTERM EMISSION  */
-#line 1495 "grm_parsegrammar.y"
+#line 1496 "grm_parsegrammar.y"
 {
   ynr = 16;
   lexeme.l = 4;
@@ -3389,11 +3390,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3393 "grm_parsegrammar.tab.c"
+#line 3394 "grm_parsegrammar.tab.c"
     break;
 
   case 250: /* rule_enum: EMISSION NONTERM NONTERM EMISSION DIST_NAME  */
-#line 1506 "grm_parsegrammar.y"
+#line 1507 "grm_parsegrammar.y"
 {
   ynr = 16;
   lexeme.l = 5;
@@ -3404,11 +3405,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3408 "grm_parsegrammar.tab.c"
+#line 3409 "grm_parsegrammar.tab.c"
     break;
 
   case 251: /* rule_enum: EMISSION NONTERM NONTERM EMISSION DIST_NAME DIST_NAME  */
-#line 1518 "grm_parsegrammar.y"
+#line 1519 "grm_parsegrammar.y"
 {
   ynr = 16;
   lexeme.l = 6;
@@ -3420,11 +3421,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3424 "grm_parsegrammar.tab.c"
+#line 3425 "grm_parsegrammar.tab.c"
     break;
 
   case 252: /* rule_enum: EMISSION NONTERM EMISSION NONTERM  */
-#line 1531 "grm_parsegrammar.y"
+#line 1532 "grm_parsegrammar.y"
 {     
   ynr = 17;
   lexeme.l = 4;
@@ -3434,11 +3435,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3438 "grm_parsegrammar.tab.c"
+#line 3439 "grm_parsegrammar.tab.c"
     break;
 
   case 253: /* rule_enum: EMISSION NONTERM EMISSION NONTERM DIST_NAME  */
-#line 1542 "grm_parsegrammar.y"
+#line 1543 "grm_parsegrammar.y"
 {
   ynr = 17;
   lexeme.l = 5;
@@ -3449,11 +3450,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3453 "grm_parsegrammar.tab.c"
+#line 3454 "grm_parsegrammar.tab.c"
     break;
 
   case 254: /* rule_enum: EMISSION NONTERM EMISSION NONTERM DIST_NAME DIST_NAME  */
-#line 1554 "grm_parsegrammar.y"
+#line 1555 "grm_parsegrammar.y"
 {
   ynr = 17;
   lexeme.l = 6;
@@ -3465,11 +3466,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3469 "grm_parsegrammar.tab.c"
+#line 3470 "grm_parsegrammar.tab.c"
     break;
 
   case 255: /* rule_enum: NONTERM EMISSION NONTERM EMISSION  */
-#line 1567 "grm_parsegrammar.y"
+#line 1568 "grm_parsegrammar.y"
 {
   ynr = 18;
   lexeme.l = 4;
@@ -3479,11 +3480,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3483 "grm_parsegrammar.tab.c"
+#line 3484 "grm_parsegrammar.tab.c"
     break;
 
   case 256: /* rule_enum: NONTERM EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1578 "grm_parsegrammar.y"
+#line 1579 "grm_parsegrammar.y"
 {
   ynr = 18;
   lexeme.l = 5;
@@ -3494,11 +3495,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3498 "grm_parsegrammar.tab.c"
+#line 3499 "grm_parsegrammar.tab.c"
     break;
 
   case 257: /* rule_enum: NONTERM EMISSION NONTERM EMISSION DIST_NAME DIST_NAME  */
-#line 1590 "grm_parsegrammar.y"
+#line 1591 "grm_parsegrammar.y"
 {        
   ynr = 18;
   lexeme.l = 6;
@@ -3510,11 +3511,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3514 "grm_parsegrammar.tab.c"
+#line 3515 "grm_parsegrammar.tab.c"
     break;
 
   case 258: /* rule_enum: EMISSION NONTERM EMISSION NONTERM EMISSION  */
-#line 1603 "grm_parsegrammar.y"
+#line 1604 "grm_parsegrammar.y"
 {
   ynr = 19;
   lexeme.l = 5;
@@ -3525,11 +3526,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3529 "grm_parsegrammar.tab.c"
+#line 3530 "grm_parsegrammar.tab.c"
     break;
 
   case 259: /* rule_enum: EMISSION NONTERM EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1615 "grm_parsegrammar.y"
+#line 1616 "grm_parsegrammar.y"
 {
   ynr = 19;
   lexeme.l = 6;
@@ -3541,11 +3542,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3545 "grm_parsegrammar.tab.c"
+#line 3546 "grm_parsegrammar.tab.c"
     break;
 
   case 260: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM  */
-#line 1628 "grm_parsegrammar.y"
+#line 1629 "grm_parsegrammar.y"
 {
   ynr = 20;
   lexeme.l = 5;
@@ -3556,11 +3557,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3560 "grm_parsegrammar.tab.c"
+#line 3561 "grm_parsegrammar.tab.c"
     break;
 
   case 261: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM DIST_NAME  */
-#line 1640 "grm_parsegrammar.y"
+#line 1641 "grm_parsegrammar.y"
 {
   ynr = 20;
   lexeme.l = 6;
@@ -3572,11 +3573,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3576 "grm_parsegrammar.tab.c"
+#line 3577 "grm_parsegrammar.tab.c"
     break;
 
   case 262: /* rule_enum: NONTERM EMISSION EMISSION NONTERM EMISSION  */
-#line 1653 "grm_parsegrammar.y"
+#line 1654 "grm_parsegrammar.y"
 {
   ynr = 21;
   lexeme.l = 5;
@@ -3587,11 +3588,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3591 "grm_parsegrammar.tab.c"
+#line 3592 "grm_parsegrammar.tab.c"
     break;
 
   case 263: /* rule_enum: NONTERM EMISSION EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1665 "grm_parsegrammar.y"
+#line 1666 "grm_parsegrammar.y"
 {
   ynr = 21;
   lexeme.l = 6;
@@ -3603,11 +3604,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3607 "grm_parsegrammar.tab.c"
+#line 3608 "grm_parsegrammar.tab.c"
     break;
 
   case 264: /* rule_enum: NONTERM EMISSION NONTERM EMISSION NONTERM  */
-#line 1678 "grm_parsegrammar.y"
+#line 1679 "grm_parsegrammar.y"
 {
   ynr = 22;
   lexeme.l = 5;
@@ -3618,11 +3619,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3622 "grm_parsegrammar.tab.c"
+#line 3623 "grm_parsegrammar.tab.c"
     break;
 
   case 265: /* rule_enum: NONTERM EMISSION NONTERM EMISSION NONTERM DIST_NAME  */
-#line 1690 "grm_parsegrammar.y"
+#line 1691 "grm_parsegrammar.y"
 {
   ynr = 22;
   lexeme.l = 6;
@@ -3634,11 +3635,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3638 "grm_parsegrammar.tab.c"
+#line 3639 "grm_parsegrammar.tab.c"
     break;
 
   case 266: /* rule_enum: NONTERM EMISSION NONTERM EMISSION NONTERM DIST_NAME DIST_NAME  */
-#line 1703 "grm_parsegrammar.y"
+#line 1704 "grm_parsegrammar.y"
 {
   ynr = 22;
   lexeme.l = 7;
@@ -3651,11 +3652,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3655 "grm_parsegrammar.tab.c"
+#line 3656 "grm_parsegrammar.tab.c"
     break;
 
   case 267: /* rule_enum: EMISSION NONTERM EMISSION EMISSION  */
-#line 1717 "grm_parsegrammar.y"
+#line 1718 "grm_parsegrammar.y"
 {
   ynr = 23;
   lexeme.l = 4;
@@ -3665,11 +3666,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3669 "grm_parsegrammar.tab.c"
+#line 3670 "grm_parsegrammar.tab.c"
     break;
 
   case 268: /* rule_enum: EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 1728 "grm_parsegrammar.y"
+#line 1729 "grm_parsegrammar.y"
 {
   ynr = 23;
   lexeme.l = 5;
@@ -3680,11 +3681,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3684 "grm_parsegrammar.tab.c"
+#line 3685 "grm_parsegrammar.tab.c"
     break;
 
   case 269: /* rule_enum: EMISSION EMISSION NONTERM EMISSION  */
-#line 1740 "grm_parsegrammar.y"
+#line 1741 "grm_parsegrammar.y"
 {
   ynr = 24;
   lexeme.l = 4;
@@ -3694,11 +3695,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3698 "grm_parsegrammar.tab.c"
+#line 3699 "grm_parsegrammar.tab.c"
     break;
 
   case 270: /* rule_enum: EMISSION EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1751 "grm_parsegrammar.y"
+#line 1752 "grm_parsegrammar.y"
 {
   ynr = 24;
   lexeme.l = 5;
@@ -3709,11 +3710,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3713 "grm_parsegrammar.tab.c"
+#line 3714 "grm_parsegrammar.tab.c"
     break;
 
   case 271: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION  */
-#line 1763 "grm_parsegrammar.y"
+#line 1764 "grm_parsegrammar.y"
 {
   ynr = 25;
   lexeme.l = 5;
@@ -3724,11 +3725,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3728 "grm_parsegrammar.tab.c"
+#line 3729 "grm_parsegrammar.tab.c"
     break;
 
   case 272: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 1775 "grm_parsegrammar.y"
+#line 1776 "grm_parsegrammar.y"
 {
   ynr = 25;
   lexeme.l = 6;
@@ -3740,11 +3741,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3744 "grm_parsegrammar.tab.c"
+#line 3745 "grm_parsegrammar.tab.c"
     break;
 
   case 273: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION  */
-#line 1788 "grm_parsegrammar.y"
+#line 1789 "grm_parsegrammar.y"
 {
   ynr = 26;
   lexeme.l = 6;
@@ -3756,11 +3757,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3760 "grm_parsegrammar.tab.c"
+#line 3761 "grm_parsegrammar.tab.c"
     break;
 
   case 274: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1801 "grm_parsegrammar.y"
+#line 1802 "grm_parsegrammar.y"
 {
   ynr = 26;
   lexeme.l = 7;
@@ -3773,11 +3774,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3777 "grm_parsegrammar.tab.c"
+#line 3778 "grm_parsegrammar.tab.c"
     break;
 
   case 275: /* rule_enum: EMISSION NONTERM EMISSION EMISSION EMISSION NONTERM EMISSION  */
-#line 1815 "grm_parsegrammar.y"
+#line 1816 "grm_parsegrammar.y"
 {
   ynr = 27;
   lexeme.l = 7;
@@ -3790,11 +3791,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3794 "grm_parsegrammar.tab.c"
+#line 3795 "grm_parsegrammar.tab.c"
     break;
 
   case 276: /* rule_enum: EMISSION NONTERM EMISSION EMISSION EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1829 "grm_parsegrammar.y"
+#line 1830 "grm_parsegrammar.y"
 {
   ynr = 27;
   lexeme.l = 8;
@@ -3808,22 +3809,22 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[7], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3812 "grm_parsegrammar.tab.c"
+#line 3813 "grm_parsegrammar.tab.c"
     break;
 
   case 277: /* rule_enum: MONOSEGMENT  */
-#line 1844 "grm_parsegrammar.y"
+#line 1845 "grm_parsegrammar.y"
 {
   ynr = 28;
   lexeme.l = 1;
   strcpy(lexeme.lex[0], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3823 "grm_parsegrammar.tab.c"
+#line 3824 "grm_parsegrammar.tab.c"
     break;
 
   case 278: /* rule_enum: MONOSEGMENT DIST_NAME  */
-#line 1852 "grm_parsegrammar.y"
+#line 1853 "grm_parsegrammar.y"
 {
   ynr = 28;
   lexeme.l = 2;
@@ -3831,11 +3832,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3835 "grm_parsegrammar.tab.c"
+#line 3836 "grm_parsegrammar.tab.c"
     break;
 
   case 279: /* rule_enum: MONOSEGMENT NONTERM  */
-#line 1861 "grm_parsegrammar.y"
+#line 1862 "grm_parsegrammar.y"
 {   
   ynr = 29;
   lexeme.l = 2;
@@ -3843,11 +3844,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3847 "grm_parsegrammar.tab.c"
+#line 3848 "grm_parsegrammar.tab.c"
     break;
 
   case 280: /* rule_enum: MONOSEGMENT NONTERM DIST_NAME  */
-#line 1870 "grm_parsegrammar.y"
+#line 1871 "grm_parsegrammar.y"
 {   
   ynr = 29;
   lexeme.l = 3;
@@ -3856,11 +3857,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3860 "grm_parsegrammar.tab.c"
+#line 3861 "grm_parsegrammar.tab.c"
     break;
 
   case 281: /* rule_enum: NONTERM MONOSEGMENT  */
-#line 1880 "grm_parsegrammar.y"
+#line 1881 "grm_parsegrammar.y"
 {   
   ynr = 30;
   lexeme.l = 2;
@@ -3868,11 +3869,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[1], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3872 "grm_parsegrammar.tab.c"
+#line 3873 "grm_parsegrammar.tab.c"
     break;
 
   case 282: /* rule_enum: NONTERM MONOSEGMENT DIST_NAME  */
-#line 1889 "grm_parsegrammar.y"
+#line 1890 "grm_parsegrammar.y"
 {   
   ynr = 30;
   lexeme.l = 3;
@@ -3881,11 +3882,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3885 "grm_parsegrammar.tab.c"
+#line 3886 "grm_parsegrammar.tab.c"
     break;
 
   case 283: /* rule_enum: LDISEGMENT NONTERM RDISEGMENT  */
-#line 1899 "grm_parsegrammar.y"
+#line 1900 "grm_parsegrammar.y"
 {           
   ynr = 31;
   lexeme.l = 3;
@@ -3894,11 +3895,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3898 "grm_parsegrammar.tab.c"
+#line 3899 "grm_parsegrammar.tab.c"
     break;
 
   case 284: /* rule_enum: LDISEGMENT NONTERM RDISEGMENT DIST_NAME  */
-#line 1909 "grm_parsegrammar.y"
+#line 1910 "grm_parsegrammar.y"
 {           
   ynr = 31;
   lexeme.l = 4;
@@ -3908,11 +3909,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3912 "grm_parsegrammar.tab.c"
+#line 3913 "grm_parsegrammar.tab.c"
     break;
 
   case 285: /* rule_enum: LDISEGMENT NONTERM RDISEGMENT DIST_NAME DIST_NAME  */
-#line 1920 "grm_parsegrammar.y"
+#line 1921 "grm_parsegrammar.y"
 {           
   ynr = 31;
   lexeme.l = 5;
@@ -3923,11 +3924,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3927 "grm_parsegrammar.tab.c"
+#line 3928 "grm_parsegrammar.tab.c"
     break;
 
   case 286: /* rule_enum: LDISEGMENT NONTERM RDISEGMENT DIST_NAME DIST_NAME DIST_NAME  */
-#line 1932 "grm_parsegrammar.y"
+#line 1933 "grm_parsegrammar.y"
 {           
   ynr = 31;
   lexeme.l = 6;
@@ -3939,11 +3940,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3943 "grm_parsegrammar.tab.c"
+#line 3944 "grm_parsegrammar.tab.c"
     break;
 
   case 287: /* rule_enum: MONOSEGMENT EMISSION NONTERM EMISSION  */
-#line 1945 "grm_parsegrammar.y"
+#line 1946 "grm_parsegrammar.y"
 {   
   ynr = 32;
   lexeme.l = 4;
@@ -3953,11 +3954,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3957 "grm_parsegrammar.tab.c"
+#line 3958 "grm_parsegrammar.tab.c"
     break;
 
   case 288: /* rule_enum: MONOSEGMENT EMISSION NONTERM EMISSION DIST_NAME  */
-#line 1956 "grm_parsegrammar.y"
+#line 1957 "grm_parsegrammar.y"
 {   
   ynr = 32;
   lexeme.l = 5;
@@ -3968,11 +3969,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3972 "grm_parsegrammar.tab.c"
+#line 3973 "grm_parsegrammar.tab.c"
     break;
 
   case 289: /* rule_enum: MONOSEGMENT EMISSION NONTERM EMISSION DIST_NAME DIST_NAME  */
-#line 1968 "grm_parsegrammar.y"
+#line 1969 "grm_parsegrammar.y"
 {   
   ynr = 32;
   lexeme.l = 6;
@@ -3984,11 +3985,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 3988 "grm_parsegrammar.tab.c"
+#line 3989 "grm_parsegrammar.tab.c"
     break;
 
   case 290: /* rule_enum: EMISSION NONTERM EMISSION MONOSEGMENT  */
-#line 1981 "grm_parsegrammar.y"
+#line 1982 "grm_parsegrammar.y"
 {   
   ynr = 33;
   lexeme.l = 4;
@@ -3998,11 +3999,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4002 "grm_parsegrammar.tab.c"
+#line 4003 "grm_parsegrammar.tab.c"
     break;
 
   case 291: /* rule_enum: EMISSION NONTERM EMISSION MONOSEGMENT DIST_NAME  */
-#line 1992 "grm_parsegrammar.y"
+#line 1993 "grm_parsegrammar.y"
 {   
   ynr = 33;
   lexeme.l = 5;
@@ -4013,11 +4014,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4017 "grm_parsegrammar.tab.c"
+#line 4018 "grm_parsegrammar.tab.c"
     break;
 
   case 292: /* rule_enum: EMISSION NONTERM EMISSION MONOSEGMENT DIST_NAME DIST_NAME  */
-#line 2004 "grm_parsegrammar.y"
+#line 2005 "grm_parsegrammar.y"
 {   
   ynr = 33;
   lexeme.l = 6;
@@ -4029,11 +4030,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4033 "grm_parsegrammar.tab.c"
+#line 4034 "grm_parsegrammar.tab.c"
     break;
 
   case 293: /* rule_enum: LDISEGMENT EMISSION NONTERM EMISSION RDISEGMENT  */
-#line 2017 "grm_parsegrammar.y"
+#line 2018 "grm_parsegrammar.y"
 {           
   ynr = 34;
   lexeme.l = 5;
@@ -4044,11 +4045,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4048 "grm_parsegrammar.tab.c"
+#line 4049 "grm_parsegrammar.tab.c"
     break;
 
   case 294: /* rule_enum: LDISEGMENT EMISSION NONTERM EMISSION RDISEGMENT DIST_NAME  */
-#line 2029 "grm_parsegrammar.y"
+#line 2030 "grm_parsegrammar.y"
 {           
   ynr = 34;   
   lexeme.l = 6;
@@ -4060,11 +4061,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4064 "grm_parsegrammar.tab.c"
+#line 4065 "grm_parsegrammar.tab.c"
     break;
 
   case 295: /* rule_enum: LDISEGMENT EMISSION NONTERM EMISSION RDISEGMENT DIST_NAME DIST_NAME  */
-#line 2042 "grm_parsegrammar.y"
+#line 2043 "grm_parsegrammar.y"
 {           
   ynr = 34;
   lexeme.l = 7;
@@ -4077,11 +4078,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4081 "grm_parsegrammar.tab.c"
+#line 4082 "grm_parsegrammar.tab.c"
     break;
 
   case 296: /* rule_enum: EMISSION MONOSEGMENT EMISSION  */
-#line 2056 "grm_parsegrammar.y"
+#line 2057 "grm_parsegrammar.y"
 {
   ynr = 35;
   lexeme.l = 3;
@@ -4090,11 +4091,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[2], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4094 "grm_parsegrammar.tab.c"
+#line 4095 "grm_parsegrammar.tab.c"
     break;
 
   case 297: /* rule_enum: EMISSION MONOSEGMENT EMISSION DIST_NAME  */
-#line 2066 "grm_parsegrammar.y"
+#line 2067 "grm_parsegrammar.y"
 {
   ynr = 35;
   lexeme.l = 4;
@@ -4104,11 +4105,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4108 "grm_parsegrammar.tab.c"
+#line 4109 "grm_parsegrammar.tab.c"
     break;
 
   case 298: /* rule_enum: EMISSION MONOSEGMENT EMISSION DIST_NAME DIST_NAME  */
-#line 2077 "grm_parsegrammar.y"
+#line 2078 "grm_parsegrammar.y"
 {
   ynr = 35;
   lexeme.l = 5;
@@ -4119,11 +4120,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4123 "grm_parsegrammar.tab.c"
+#line 4124 "grm_parsegrammar.tab.c"
     break;
 
   case 299: /* rule_enum: EMISSION MONOSEGMENT EMISSION DIST_NAME DIST_NAME DIST_NAME  */
-#line 2089 "grm_parsegrammar.y"
+#line 2090 "grm_parsegrammar.y"
 {
   ynr = 35;
   lexeme.l = 6;
@@ -4135,11 +4136,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4139 "grm_parsegrammar.tab.c"
+#line 4140 "grm_parsegrammar.tab.c"
     break;
 
   case 300: /* rule_enum: EMISSION MONOSEGMENT NONTERM EMISSION  */
-#line 2102 "grm_parsegrammar.y"
+#line 2103 "grm_parsegrammar.y"
 {
   ynr = 36;
   lexeme.l = 4;
@@ -4149,11 +4150,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4153 "grm_parsegrammar.tab.c"
+#line 4154 "grm_parsegrammar.tab.c"
     break;
 
   case 301: /* rule_enum: EMISSION MONOSEGMENT NONTERM EMISSION DIST_NAME  */
-#line 2113 "grm_parsegrammar.y"
+#line 2114 "grm_parsegrammar.y"
 {
   ynr = 36;
   lexeme.l = 5;
@@ -4164,11 +4165,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4168 "grm_parsegrammar.tab.c"
+#line 4169 "grm_parsegrammar.tab.c"
     break;
 
   case 302: /* rule_enum: EMISSION MONOSEGMENT NONTERM EMISSION DIST_NAME DIST_NAME  */
-#line 2125 "grm_parsegrammar.y"
+#line 2126 "grm_parsegrammar.y"
 {
   ynr = 36;
   lexeme.l = 6;
@@ -4180,11 +4181,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4184 "grm_parsegrammar.tab.c"
+#line 4185 "grm_parsegrammar.tab.c"
     break;
 
   case 303: /* rule_enum: EMISSION MONOSEGMENT NONTERM EMISSION DIST_NAME DIST_NAME DIST_NAME  */
-#line 2138 "grm_parsegrammar.y"
+#line 2139 "grm_parsegrammar.y"
 {
   ynr = 36;
   lexeme.l = 7;
@@ -4197,11 +4198,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4201 "grm_parsegrammar.tab.c"
+#line 4202 "grm_parsegrammar.tab.c"
     break;
 
   case 304: /* rule_enum: EMISSION NONTERM MONOSEGMENT EMISSION  */
-#line 2152 "grm_parsegrammar.y"
+#line 2153 "grm_parsegrammar.y"
 {
   ynr = 37;
   lexeme.l = 4;
@@ -4211,11 +4212,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4215 "grm_parsegrammar.tab.c"
+#line 4216 "grm_parsegrammar.tab.c"
     break;
 
   case 305: /* rule_enum: EMISSION NONTERM MONOSEGMENT EMISSION DIST_NAME  */
-#line 2163 "grm_parsegrammar.y"
+#line 2164 "grm_parsegrammar.y"
 {
   ynr = 37;
   lexeme.l = 5;
@@ -4226,11 +4227,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4230 "grm_parsegrammar.tab.c"
+#line 4231 "grm_parsegrammar.tab.c"
     break;
 
   case 306: /* rule_enum: EMISSION NONTERM MONOSEGMENT EMISSION DIST_NAME DIST_NAME  */
-#line 2175 "grm_parsegrammar.y"
+#line 2176 "grm_parsegrammar.y"
 {
   ynr = 37;
   lexeme.l = 6;
@@ -4242,11 +4243,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4246 "grm_parsegrammar.tab.c"
+#line 4247 "grm_parsegrammar.tab.c"
     break;
 
   case 307: /* rule_enum: EMISSION NONTERM MONOSEGMENT EMISSION DIST_NAME DIST_NAME DIST_NAME  */
-#line 2188 "grm_parsegrammar.y"
+#line 2189 "grm_parsegrammar.y"
 {
   ynr = 37;
   lexeme.l = 7;
@@ -4259,11 +4260,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4263 "grm_parsegrammar.tab.c"
+#line 4264 "grm_parsegrammar.tab.c"
     break;
 
   case 308: /* rule_enum: EMISSION MONOSEGMENT EMISSION NONTERM  */
-#line 2202 "grm_parsegrammar.y"
+#line 2203 "grm_parsegrammar.y"
 {           
   ynr = 38;
   lexeme.l = 4;
@@ -4273,11 +4274,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4277 "grm_parsegrammar.tab.c"
+#line 4278 "grm_parsegrammar.tab.c"
     break;
 
   case 309: /* rule_enum: EMISSION MONOSEGMENT EMISSION NONTERM DIST_NAME  */
-#line 2213 "grm_parsegrammar.y"
+#line 2214 "grm_parsegrammar.y"
 {           
   ynr = 38;
   lexeme.l = 5;
@@ -4288,11 +4289,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4292 "grm_parsegrammar.tab.c"
+#line 4293 "grm_parsegrammar.tab.c"
     break;
 
   case 310: /* rule_enum: EMISSION MONOSEGMENT EMISSION NONTERM DIST_NAME DIST_NAME  */
-#line 2225 "grm_parsegrammar.y"
+#line 2226 "grm_parsegrammar.y"
 {           
   ynr = 38;
   lexeme.l = 6;
@@ -4304,11 +4305,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4308 "grm_parsegrammar.tab.c"
+#line 4309 "grm_parsegrammar.tab.c"
     break;
 
   case 311: /* rule_enum: EMISSION MONOSEGMENT EMISSION NONTERM DIST_NAME DIST_NAME DIST_NAME  */
-#line 2238 "grm_parsegrammar.y"
+#line 2239 "grm_parsegrammar.y"
 {           
   ynr = 38;
   lexeme.l = 7;
@@ -4321,11 +4322,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4325 "grm_parsegrammar.tab.c"
+#line 4326 "grm_parsegrammar.tab.c"
     break;
 
   case 312: /* rule_enum: NONTERM EMISSION MONOSEGMENT EMISSION  */
-#line 2252 "grm_parsegrammar.y"
+#line 2253 "grm_parsegrammar.y"
 {           
   ynr = 39;
   lexeme.l = 4;
@@ -4335,11 +4336,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[3], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4339 "grm_parsegrammar.tab.c"
+#line 4340 "grm_parsegrammar.tab.c"
     break;
 
   case 313: /* rule_enum: NONTERM EMISSION MONOSEGMENT EMISSION DIST_NAME  */
-#line 2263 "grm_parsegrammar.y"
+#line 2264 "grm_parsegrammar.y"
 {           
   ynr = 39;
   lexeme.l = 5;
@@ -4350,11 +4351,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4354 "grm_parsegrammar.tab.c"
+#line 4355 "grm_parsegrammar.tab.c"
     break;
 
   case 314: /* rule_enum: NONTERM EMISSION MONOSEGMENT EMISSION DIST_NAME DIST_NAME  */
-#line 2275 "grm_parsegrammar.y"
+#line 2276 "grm_parsegrammar.y"
 {           
   ynr = 39;
   lexeme.l = 6;
@@ -4366,11 +4367,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4370 "grm_parsegrammar.tab.c"
+#line 4371 "grm_parsegrammar.tab.c"
     break;
 
   case 315: /* rule_enum: NONTERM EMISSION MONOSEGMENT EMISSION DIST_NAME DIST_NAME DIST_NAME  */
-#line 2288 "grm_parsegrammar.y"
+#line 2289 "grm_parsegrammar.y"
 {           
   ynr = 39;
   lexeme.l = 7;
@@ -4383,11 +4384,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4387 "grm_parsegrammar.tab.c"
+#line 4388 "grm_parsegrammar.tab.c"
     break;
 
   case 316: /* rule_enum: EMISSION LDISEGMENT NONTERM RDISEGMENT EMISSION  */
-#line 2302 "grm_parsegrammar.y"
+#line 2303 "grm_parsegrammar.y"
 {           
   ynr = 40;
   lexeme.l = 5;
@@ -4398,11 +4399,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4402 "grm_parsegrammar.tab.c"
+#line 4403 "grm_parsegrammar.tab.c"
     break;
 
   case 317: /* rule_enum: EMISSION LDISEGMENT NONTERM RDISEGMENT EMISSION DIST_NAME  */
-#line 2314 "grm_parsegrammar.y"
+#line 2315 "grm_parsegrammar.y"
 {           
   ynr = 40;
   lexeme.l = 6;
@@ -4414,11 +4415,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4418 "grm_parsegrammar.tab.c"
+#line 4419 "grm_parsegrammar.tab.c"
     break;
 
   case 318: /* rule_enum: EMISSION LDISEGMENT NONTERM RDISEGMENT EMISSION DIST_NAME DIST_NAME  */
-#line 2327 "grm_parsegrammar.y"
+#line 2328 "grm_parsegrammar.y"
 {           
   ynr = 40;
   lexeme.l = 7;
@@ -4431,11 +4432,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4435 "grm_parsegrammar.tab.c"
+#line 4436 "grm_parsegrammar.tab.c"
     break;
 
   case 319: /* rule_enum: EMISSION LDISEGMENT NONTERM RDISEGMENT EMISSION DIST_NAME DIST_NAME DIST_NAME  */
-#line 2341 "grm_parsegrammar.y"
+#line 2342 "grm_parsegrammar.y"
 {           
   ynr = 40;
   lexeme.l = 8;
@@ -4449,11 +4450,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[7], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4453 "grm_parsegrammar.tab.c"
+#line 4454 "grm_parsegrammar.tab.c"
     break;
 
   case 320: /* rule_enum: EMISSION EMISSION NONTERM EMISSION NONTERM  */
-#line 2356 "grm_parsegrammar.y"
+#line 2357 "grm_parsegrammar.y"
 {
   ynr = 41;
   lexeme.l = 5;
@@ -4464,11 +4465,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4468 "grm_parsegrammar.tab.c"
+#line 4469 "grm_parsegrammar.tab.c"
     break;
 
   case 321: /* rule_enum: EMISSION EMISSION NONTERM EMISSION NONTERM DIST_NAME  */
-#line 2368 "grm_parsegrammar.y"
+#line 2369 "grm_parsegrammar.y"
 {
   ynr = 41;
   lexeme.l = 6;
@@ -4480,11 +4481,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4484 "grm_parsegrammar.tab.c"
+#line 4485 "grm_parsegrammar.tab.c"
     break;
 
   case 322: /* rule_enum: NONTERM EMISSION NONTERM EMISSION EMISSION  */
-#line 2381 "grm_parsegrammar.y"
+#line 2382 "grm_parsegrammar.y"
 {
   ynr = 42;
   lexeme.l = 5;
@@ -4495,11 +4496,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[4], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4499 "grm_parsegrammar.tab.c"
+#line 4500 "grm_parsegrammar.tab.c"
     break;
 
   case 323: /* rule_enum: NONTERM EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 2393 "grm_parsegrammar.y"
+#line 2394 "grm_parsegrammar.y"
 {
   ynr = 42;
   lexeme.l = 6;
@@ -4511,11 +4512,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4515 "grm_parsegrammar.tab.c"
+#line 4516 "grm_parsegrammar.tab.c"
     break;
 
   case 324: /* rule_enum: EMISSION EMISSION NONTERM EMISSION NONTERM EMISSION  */
-#line 2406 "grm_parsegrammar.y"
+#line 2407 "grm_parsegrammar.y"
 {
   ynr = 43;
   lexeme.l = 6;
@@ -4527,11 +4528,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4531 "grm_parsegrammar.tab.c"
+#line 4532 "grm_parsegrammar.tab.c"
     break;
 
   case 325: /* rule_enum: EMISSION EMISSION NONTERM EMISSION NONTERM EMISSION DIST_NAME  */
-#line 2419 "grm_parsegrammar.y"
+#line 2420 "grm_parsegrammar.y"
 {
   ynr = 43;
   lexeme.l = 7;
@@ -4544,11 +4545,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4548 "grm_parsegrammar.tab.c"
+#line 4549 "grm_parsegrammar.tab.c"
     break;
 
   case 326: /* rule_enum: EMISSION NONTERM EMISSION NONTERM EMISSION EMISSION  */
-#line 2433 "grm_parsegrammar.y"
+#line 2434 "grm_parsegrammar.y"
 {
   ynr = 44;
   lexeme.l = 6;
@@ -4560,11 +4561,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4564 "grm_parsegrammar.tab.c"
+#line 4565 "grm_parsegrammar.tab.c"
     break;
 
   case 327: /* rule_enum: EMISSION NONTERM EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 2446 "grm_parsegrammar.y"
+#line 2447 "grm_parsegrammar.y"
 {
   ynr = 44;
   lexeme.l = 7;
@@ -4577,11 +4578,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4581 "grm_parsegrammar.tab.c"
+#line 4582 "grm_parsegrammar.tab.c"
     break;
 
   case 328: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION NONTERM  */
-#line 2460 "grm_parsegrammar.y"
+#line 2461 "grm_parsegrammar.y"
 {
   ynr = 45;
   lexeme.l = 6;
@@ -4593,11 +4594,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4597 "grm_parsegrammar.tab.c"
+#line 4598 "grm_parsegrammar.tab.c"
     break;
 
   case 329: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION NONTERM DIST_NAME  */
-#line 2473 "grm_parsegrammar.y"
+#line 2474 "grm_parsegrammar.y"
 {
   ynr = 45;
   lexeme.l = 7;
@@ -4610,11 +4611,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4614 "grm_parsegrammar.tab.c"
+#line 4615 "grm_parsegrammar.tab.c"
     break;
 
   case 330: /* rule_enum: NONTERM EMISSION EMISSION NONTERM EMISSION EMISSION  */
-#line 2487 "grm_parsegrammar.y"
+#line 2488 "grm_parsegrammar.y"
 {
   ynr = 46;
   lexeme.l = 6;
@@ -4626,11 +4627,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[5], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4630 "grm_parsegrammar.tab.c"
+#line 4631 "grm_parsegrammar.tab.c"
     break;
 
   case 331: /* rule_enum: NONTERM EMISSION EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 2500 "grm_parsegrammar.y"
+#line 2501 "grm_parsegrammar.y"
 {
   ynr = 46;
   lexeme.l = 7;
@@ -4643,11 +4644,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4647 "grm_parsegrammar.tab.c"
+#line 4648 "grm_parsegrammar.tab.c"
     break;
 
   case 332: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION  */
-#line 2514 "grm_parsegrammar.y"
+#line 2515 "grm_parsegrammar.y"
 {
   ynr = 47;
   lexeme.l = 7;
@@ -4660,11 +4661,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4664 "grm_parsegrammar.tab.c"
+#line 4665 "grm_parsegrammar.tab.c"
     break;
 
   case 333: /* rule_enum: EMISSION EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION DIST_NAME  */
-#line 2528 "grm_parsegrammar.y"
+#line 2529 "grm_parsegrammar.y"
 {
   ynr = 47;
   lexeme.l = 8;
@@ -4678,11 +4679,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[7], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4682 "grm_parsegrammar.tab.c"
+#line 4683 "grm_parsegrammar.tab.c"
     break;
 
   case 334: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION EMISSION  */
-#line 2543 "grm_parsegrammar.y"
+#line 2544 "grm_parsegrammar.y"
 {
   ynr = 48;
   lexeme.l = 7;
@@ -4695,11 +4696,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[6], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4699 "grm_parsegrammar.tab.c"
+#line 4700 "grm_parsegrammar.tab.c"
     break;
 
   case 335: /* rule_enum: EMISSION NONTERM EMISSION EMISSION NONTERM EMISSION EMISSION DIST_NAME  */
-#line 2557 "grm_parsegrammar.y"
+#line 2558 "grm_parsegrammar.y"
 { 
   ynr = 48;
   lexeme.l = 8;
@@ -4713,11 +4714,11 @@ if (((struct yyparse_s *)yyparse_param)->verbose) printf("\nCREATE GRAMMAR\n");
   strcpy(lexeme.lex[7], (yyvsp[0].string));
   if (rna_rule_enum_write(rnr, ynr, nt_idx, ((struct yyparse_s *)yyparse_param)->Gr, lexeme, ((struct yyparse_s *)yyparse_param)->verbose) != eslOK) grammar_fatal("error in rule %d\n", ynr);
 }
-#line 4717 "grm_parsegrammar.tab.c"
+#line 4718 "grm_parsegrammar.tab.c"
     break;
 
 
-#line 4721 "grm_parsegrammar.tab.c"
+#line 4722 "grm_parsegrammar.tab.c"
 
       default: break;
     }
@@ -4910,7 +4911,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 2573 "grm_parsegrammar.y"
+#line 2574 "grm_parsegrammar.y"
  /* user generated code */
 
 
@@ -6224,8 +6225,8 @@ rna_edist_add_edist(GRAMMAR *G, char *atom, char *edistname, int c1, int c2, int
    */
   if ((a = esl_alphabet_Create(eslRNA)) == NULL) grammar_fatal(msg);
   if ((dsq = malloc(sizeof(ESL_DSQ) * (edist.n+2))) == NULL) grammar_fatal(msg);
-  if (esl_abc_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
-  if (esl_abc_dsqlen(dsq) != edist.n) grammar_fatal(msg);
+  if (esl_dsq_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
+  if (esl_dsq_GetLen(dsq) != edist.n) grammar_fatal(msg);
 
   /* Find the previously defined edist we are going to use */
   found = FALSE;
@@ -6331,8 +6332,8 @@ rna_edist_add_score(GRAMMAR *G, char *atom, SCVAL sc, int add)
    */
   if ((a = esl_alphabet_Create(eslRNA)) == NULL) grammar_fatal(msg);
   if ((dsq = malloc(sizeof(ESL_DSQ) * (edist.n+2))) == NULL) grammar_fatal(msg);
-  if (esl_abc_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
-  if (esl_abc_dsqlen(dsq) != edist.n) grammar_fatal(msg);
+  if (esl_dsq_Digitize(a, atom, dsq) != eslOK) grammar_fatal(msg);
+  if (esl_dsq_GetLen(dsq) != edist.n) grammar_fatal(msg);
 
   /* Add the score to the edist.
    */

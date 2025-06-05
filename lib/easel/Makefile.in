@@ -110,6 +110,7 @@ HDRS = 	easel.h\
 	esl_dirichlet.h\
 	esl_distance.h\
 	esl_dmatrix.h\
+	esl_dsq.h\
 	esl_dsqdata.h\
 	esl_exponential.h\
 	esl_fileparser.h\
@@ -149,6 +150,7 @@ HDRS = 	easel.h\
 	esl_msaweight.h\
 	esl_neon.h\
 	esl_normal.h\
+	esl_orfreader.h\
 	esl_paml.h\
 	esl_quicksort.h\
 	esl_random.h\
@@ -193,6 +195,7 @@ OBJS =	easel.o\
 	esl_dirichlet.o\
 	esl_distance.o\
 	esl_dmatrix.o\
+	esl_dsq.o\
 	esl_dsqdata.o\
 	esl_exponential.o\
 	esl_fileparser.o\
@@ -231,6 +234,7 @@ OBJS =	easel.o\
 	esl_msashuffle.o\
 	esl_msaweight.o\
 	esl_normal.o\
+	esl_orfreader.o\
 	esl_paml.o\
 	esl_quicksort.o\
 	esl_random.o\
@@ -288,6 +292,7 @@ UTESTS =\
 	esl_buffer_utest\
 	esl_cluster_utest\
 	esl_cpu_utest\
+	esl_dsq_utest\
 	esl_dirichlet_utest\
 	esl_distance_utest\
 	esl_dmatrix_utest\
@@ -325,6 +330,7 @@ UTESTS =\
 	esl_msafile_stockholm_utest\
 	esl_msaweight_utest\
 	esl_normal_utest\
+	esl_orfreader_utest\
 	esl_quicksort_utest\
 	esl_random_utest\
 	esl_rand64_utest\
@@ -432,6 +438,7 @@ EXAMPLES = \
         esl_dirichlet_example\
 	esl_distance_example\
         esl_dmatrix_example\
+	esl_dsq_example\
         esl_dsqdata_example\
         esl_dsqdata_example2\
         esl_exponential_example\
@@ -477,6 +484,7 @@ EXAMPLES = \
         esl_msashuffle_example\
         esl_msaweight_example\
         esl_normal_example\
+	esl_orfreader_example\
         esl_random_example\
         esl_rand64_example\
 	esl_regexp_example\
@@ -580,7 +588,7 @@ ${ALL_UTESTS}:  libeasel.a
 	   else DFILE=${srcdir}/esl_$${BASENAME}.c ;\
         fi;\
 	if test ${V} ;\
-	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${UTEST_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
+	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
 	   else echo '    ' GEN $@ ;\
 	fi ;\
 	${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}
@@ -594,10 +602,10 @@ ${ALL_BENCHMARKS}: libeasel.a
 	   else DFILE=${srcdir}/esl_$${BASENAME}.c ;\
         fi;\
 	if test ${V} ;\
-	   then echo "${CC} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMDFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
+	   then echo "${CC} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${CPPFLAGS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
 	   else echo '    ' GEN $@ ;\
 	fi ;\
-	${CC} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}
+	${CC} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${CPPFLAGS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}
 
 ${ALL_EXPERIMENTS}: libeasel.a
 	@BASENAME=`echo $@ | sed -e 's/_experiment//'| sed -e 's/^esl_//'` ;\
@@ -608,7 +616,7 @@ ${ALL_EXPERIMENTS}: libeasel.a
 	   else DFILE=${srcdir}/esl_$${BASENAME}.c ;\
         fi;\
 	if test ${V} ;\
-	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMDFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
+	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
 	   else echo '    ' GEN $@ ;\
 	fi ;\
 	${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}
@@ -621,7 +629,7 @@ ${ALL_EXAMPLES}: libeasel.a
            else DFILE=${srcdir}/esl_$${BASENAME}.c ;\
         fi ;\
 	if test ${V}; \
-	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMDFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
+	   then echo "${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}" ;\
 	   else echo '    ' GEN $@ ;\
 	fi ;\
 	${CC} ${CPPFLAGS} ${CFLAGS} ${PTHREAD_CFLAGS} ${PIC_CFLAGS} ${SIMD_CFLAGS} ${DEFS} ${LDFLAGS} -o $@ -I. -I${srcdir} -L. -D$${DFLAG} $${DFILE} -leasel -lm ${LIBS}

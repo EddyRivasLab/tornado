@@ -167,6 +167,7 @@ esac
 AC_ARG_ENABLE(gcov,    [AS_HELP_STRING([--enable-gcov],    [compile for code coverage testing])],       enable_gcov=$enableval,    enable_gcov=no)
 AC_ARG_ENABLE(gprof,   [AS_HELP_STRING([--enable-gprof],   [compile for gcc code profiling])],          enable_gprof=$enableval,   enable_gprof=no)
 AC_ARG_ENABLE(asan,    [AS_HELP_STRING([--enable-asan],    [compile with address sanitizer]) ],         enable_asan=$enableval,    enable_asan=no)
+AC_ARG_ENABLE(msan,    [AS_HELP_STRING([--enable-msan],    [compile with memory sanitizer]) ],          enable_msan=$enableval,    enable_msan=no)
 AC_ARG_ENABLE(tsan,    [AS_HELP_STRING([--enable-tsan],    [compile with thread sanitizer]) ],          enable_tsan=$enableval,    enable_tsan=no)
 AC_ARG_ENABLE(sse,     [AS_HELP_STRING([--enable-sse],     [enable our SSE vector code])],              enable_sse=$enableval,     enable_sse=check)
 AC_ARG_ENABLE(sse4,    [AS_HELP_STRING([--enable-sse4],    [enable our SSE4 vector code])],             enable_sse4=$enableval,    enable_sse4=check)
@@ -213,7 +214,7 @@ if test "$enable_gcov" = "yes"; then
    if test "$sre_cflags_env_set" = "yes"; then 
      AC_MSG_ERROR([--enable-gcov overrides CFLAGS, so don't set CFLAGS])
    fi
-   CFLAGS="-g -Wall -fprofile-arcs -ftest-coverage"
+   CFLAGS="-g -Wall --coverage"
 elif test "$enable_gprof" = "yes"; then
    if test "$sre_cflags_env_set" = "yes"; then 
      AC_MSG_ERROR([--enable-gprof overrides CFLAGS, so don't set CFLAGS])
@@ -243,7 +244,14 @@ if test "$enable_tsan" = "yes"; then
   LDFLAGS="$LDFLAGS -fsanitize=thread"
   AC_DEFINE(eslENABLE_TSAN, 1, [Using threads sanitizer])
 fi
-
+if test "$enable_msan" = "yes"; then
+  if test "$enable_asan" = "yes" || test "$enable_tsan" = "yes"; then  
+    AC_MSG_FAILURE([Only one sanitizer at a time. Use only one of --enable-{asan,msan,tsan}])
+  fi
+  CFLAGS="$CFLAGS -fsanitize=memory -fsanitize-memory-track-origins -fPIE -pie"
+  LDFLAGS="$LDFLAGS -fsanitize=memory -fsanitize-memory-track-origins -fPIE -pie"
+  AC_DEFINE(eslENABLE_MSAN, 1, [Using memory sanitizer])
+fi
 
 # PIC (position-independent code) for shared library support
 #
@@ -601,10 +609,9 @@ AC_CONFIG_FILES([ \
   miniapps/esl-seqrange.man    \
   miniapps/esl-seqstat.man     \
   miniapps/esl-sfetch.man      \
-  miniapps/esl-shuffle.man     \
   miniapps/esl-ssdraw.man      \
-  miniapps/esl-translate.man   \
   miniapps/esl-weight.man      \
+  miniapps/easel-translate.man \
  ])
 
 AC_CONFIG_HEADERS([decoy_config.h])   # This keeps gnu 'autoheader' from overwriting our esl_config.h.in

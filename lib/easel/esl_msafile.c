@@ -738,6 +738,9 @@ esl_msafile_EncodeFormat(char *fmtstring)
  *            (<eslMSAFILE_STOCKHOLM>, for example), returns
  *            a string suitable for printing ("Stockholm",
  *            for example).
+ *
+ *            These must be one-word names. We use this call when
+ *            making some space-delimited tabular outputs.
  *            
  * Returns:   a pointer to a static description string.
  * 
@@ -753,14 +756,14 @@ esl_msafile_DecodeFormat(int fmt)
   case eslMSAFILE_UNKNOWN:     return "unknown";
   case eslMSAFILE_STOCKHOLM:   return "Stockholm";
   case eslMSAFILE_PFAM:        return "Pfam";
-  case eslMSAFILE_A2M:         return "UCSC A2M";
+  case eslMSAFILE_A2M:         return "UCSC_A2M";
   case eslMSAFILE_PSIBLAST:    return "PSI-BLAST";
   case eslMSAFILE_SELEX:       return "SELEX";
-  case eslMSAFILE_AFA:         return "aligned FASTA";
+  case eslMSAFILE_AFA:         return "aligned_FASTA";
   case eslMSAFILE_CLUSTAL:     return "Clustal";
   case eslMSAFILE_CLUSTALLIKE: return "Clustal-like";
-  case eslMSAFILE_PHYLIP:      return "PHYLIP (interleaved)";
-  case eslMSAFILE_PHYLIPS:     return "PHYLIP (sequential)";
+  case eslMSAFILE_PHYLIP:      return "PHYLIP(interleaved)";
+  case eslMSAFILE_PHYLIPS:     return "PHYLIP(sequential)";
   default:                     break;
   }
   esl_exception(eslEINVAL, FALSE, __FILE__, __LINE__, "no such msa format code %d\n", fmt);
@@ -1247,7 +1250,7 @@ esl_msafile_GetLine(ESL_MSAFILE *afp, char **opt_p, esl_pos_t *opt_n)
  *            
  * Args:      afp  - the open input stream
  *
- * Returns:   <eslOK> on succes
+ * Returns:   <eslOK> on success
  *
  * Throws:    <eslEMEM>, <eslESYS>, <eslEINCONCEIVABLE> if the
  *            <esl_buffer_Set()> call fails.
