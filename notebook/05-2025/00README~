@@ -1,0 +1,112 @@
+Sun May 25 07:21:18 EDT 2025
+
+
+# ----------------------------------------------------------------------------------------------------------------------------------------
+# train grammars
+#----------------------------------------------------------------------------------------------------------------------------------------
+cd ~/src/Mysrc/tornado
+
+#--------------------------------------------------------------------------------------
+# train: tRNAs
+# data/tRNAs/tRNA1415/tornado/trna1415_annote_1of1
+#--------------------------------------------------------------------------------------
+cd ~/src/Mysrc/tornado
+for train in trna1415_annote_1of1 ; do \
+for grm in g5 g5s g6 g6x g6s g6xs basic_grammar RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+data/tRNAs/tRNA1415/tornado/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+bin/grm-parse --count --preload \
+--paramsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".preload.param \
+grammars/"$grm".grm \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
+
+done
+done
+
+
+
+#--------------------------------------------------------------------------------------
+# train: TrATrBTrB (standard for CaCoFold)
+# data/TORNADO/RNA2011_benchmark/TORNADO_TrATrBTrB.sto
+#--------------------------------------------------------------------------------------
+cd ~/src/Mysrc/tornado
+for train in TORNADO_TrATrBTrB TORNADO_TrATrB TORNADO_TrA ; do \
+for grm  in g5 g5s g6 g6x g6s g6xs basic_grammar  RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+data/TORNADO/RNA2011_benchmark//"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+bin/grm-parse --count --preload \
+--paramsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".preload.param \
+grammars/"$grm".grm \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
+
+done
+done
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+save param in preload format ready to import into R-scape src/covgrammars.c
+----------------------------------------------------------------------------------------------------------------------------------------
+cd ~/src/Mysrc/tornado
+
+bin/grm-parse --count --preload --paramsavefile notebook/05-2025/g5/TORNADO_trna1415_annote_1of2_g5.preload.param      grammars/g5.grm    notebook/05-2025/g5/TORNADO_trna1415_annote_1of2_g5.counts
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+fold
+----------------------------------------------------------------------------------------------------------------------------------------
+cd ~/src/Mysrc/tornado
+
+for method in cyk ; do \
+for grm    in g5 ; do \
+for train  in trna1415_annote_1of1 ; do \
+for test   in trna1415_annote_1of1 ; do \
+
+    bin/grm-fold --"$method" \
+    --gpostfile grammars/"$grm".grm \
+    grammars/"$grm".grm \
+    data/tRNAs/tRNA1415/tornado/"$test".sto \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ;\
+done
+done
+done
+done
+
+
+for method in mea ; do \
+for grm    in g6 ; do \
+for train  in trna1415_annote_1of1 TORNADO_TrA ; do \
+for test   in trna1415_annote_1of1 ; do \
+
+    bin/grm-fold --"$method" \
+    grammars/"$grm".grm \
+    data/tRNAs/tRNA1415/tornado/"$test".sto \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ;\
+done
+done
+done
+done
+

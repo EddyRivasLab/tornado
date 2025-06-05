@@ -1,0 +1,24 @@
+
+# Transition counts.
+# <ntd>
+#   <#> <nr> <p_1>..<p_n> for each 1..<ntd>.
+1
+  0  3  45913.000000 29469.000000 30884.000000 
+# Emission counts.
+# <ned>
+#   <#> <name> <nemit> <ncontext> <has_baspair> (<basepairtype> <coordl_idx> <coordr_idx> ) <p_1> .. <p_{4^n}> for each 1..<ned>
+2
+   0 e1_1_0_0 1 0 0 
+    14909.000000 6752.000000 9306.000000 14927.000000 
+   1 e1_2_0_0 2 0 1 (WW_C 0 1)
+    0.000000 0.000000 0.000000 5266.000000 
+    0.000000 0.000000 6474.000000 0.000000 
+    0.000000 10275.000000 0.000000 1270.000000 
+    5413.000000 0.000000 771.000000 0.000000 
+
+# Length counts.
+# <nld>
+#    <#> <min> <max> <meanL> <fit> <minL> <minR> <alpha> <bernoulli> <type>
+#    <emissions>
+#       <len>  <lp[len]>
+0
