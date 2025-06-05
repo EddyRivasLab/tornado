@@ -1,14 +1,14 @@
-/* A Bison parser, made by GNU Bison 2.3.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
-/* Skeleton interface for Bison's Yacc-like parsers in C
+/* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
-   Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Inc.
 
-   This program is free software; you can redistribute it and/or modify
+   This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,9 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -33,170 +31,124 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* Tokens.  */
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
+
+#ifndef YY_YY_GRM_PARSEGRAMMAR_TAB_H_INCLUDED
+# define YY_YY_GRM_PARSEGRAMMAR_TAB_H_INCLUDED
+/* Debug traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 0
+#endif
+#if YYDEBUG
+extern int yydebug;
+#endif
+
+/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-   /* Put the tokens into the symbol table, so that GDB and other debuggers
-      know about them.  */
-   enum yytokentype {
-     INTEGER = 258,
-     REAL = 259,
-     PLUS = 260,
-     MINUS = 261,
-     SQRT = 262,
-     LOG = 263,
-     EXP = 264,
-     MULTIPLY = 265,
-     DIVIDE = 266,
-     MAX = 267,
-     MIN = 268,
-     MAXCOND = 269,
-     MINCOND = 270,
-     SIN = 271,
-     COS = 272,
-     OR = 273,
-     AND = 274,
-     GETS = 275,
-     ADDS = 276,
-     SEP = 277,
-     COMMA = 278,
-     GREATER = 279,
-     LESS = 280,
-     OPEN = 281,
-     CLOSE = 282,
-     XVARIABLE = 283,
-     LHS = 284,
-     REWRITE = 285,
-     NONTERM = 286,
-     NONTERMLDISEGMENT = 287,
-     NONTERMRDISEGMENT = 288,
-     EMISSION = 289,
-     EPSILON = 290,
-     EMIT = 291,
-     DEFAULT_EMIT = 292,
-     BPTYPE = 293,
-     FORCEWC = 294,
-     EDIST_SILENT = 295,
-     PARAM_DECL = 296,
-     EDIST_DECL = 297,
-     LDIST_DECL = 298,
-     DEFAULT_LDIST = 299,
-     DEFAULT_LDIST_SUM = 300,
-     DEFAULT_LDIST_DIF = 301,
-     SUM_LDIST = 302,
-     DIF_LDIST = 303,
-     SYM_LDIST = 304,
-     TDIST_DECL = 305,
-     DEFAULT_TDIST = 306,
-     DIST_NAME = 307,
-     TDIST_NAME = 308,
-     TTIED = 309,
-     ETIED = 310,
-     JOINT = 311,
-     BAYES = 312,
-     MARGINAL = 313,
-     CONDITIONAL = 314,
-     ROTATE = 315,
-     CONDMARG = 316,
-     MONOSEGMENT = 317,
-     LDISEGMENT = 318,
-     RDISEGMENT = 319,
-     COORDBASE = 320,
-     FIT = 321,
-     AFFINE = 322,
-     LINEAR = 323,
-     PARAM_NAME = 324,
-     UMINUS = 325
-   };
+  enum yytokentype
+  {
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    INTEGER = 258,                 /* INTEGER  */
+    REAL = 259,                    /* REAL  */
+    PLUS = 260,                    /* PLUS  */
+    MINUS = 261,                   /* MINUS  */
+    SQRT = 262,                    /* SQRT  */
+    LOG = 263,                     /* LOG  */
+    EXP = 264,                     /* EXP  */
+    MULTIPLY = 265,                /* MULTIPLY  */
+    DIVIDE = 266,                  /* DIVIDE  */
+    MAX = 267,                     /* MAX  */
+    MIN = 268,                     /* MIN  */
+    MAXCOND = 269,                 /* MAXCOND  */
+    MINCOND = 270,                 /* MINCOND  */
+    SIN = 271,                     /* SIN  */
+    COS = 272,                     /* COS  */
+    OR = 273,                      /* OR  */
+    AND = 274,                     /* AND  */
+    GETS = 275,                    /* GETS  */
+    ADDS = 276,                    /* ADDS  */
+    SEP = 277,                     /* SEP  */
+    COMMA = 278,                   /* COMMA  */
+    GREATER = 279,                 /* GREATER  */
+    LESS = 280,                    /* LESS  */
+    OPEN = 281,                    /* OPEN  */
+    CLOSE = 282,                   /* CLOSE  */
+    XVARIABLE = 283,               /* XVARIABLE  */
+    LHS = 284,                     /* LHS  */
+    REWRITE = 285,                 /* REWRITE  */
+    NONTERM = 286,                 /* NONTERM  */
+    NONTERMLDISEGMENT = 287,       /* NONTERMLDISEGMENT  */
+    NONTERMRDISEGMENT = 288,       /* NONTERMRDISEGMENT  */
+    EMISSION = 289,                /* EMISSION  */
+    EPSILON = 290,                 /* EPSILON  */
+    EMIT = 291,                    /* EMIT  */
+    DEFAULT_EMIT = 292,            /* DEFAULT_EMIT  */
+    BPTYPE = 293,                  /* BPTYPE  */
+    FORCEWC = 294,                 /* FORCEWC  */
+    EDIST_SILENT = 295,            /* EDIST_SILENT  */
+    PARAM_DECL = 296,              /* PARAM_DECL  */
+    EDIST_DECL = 297,              /* EDIST_DECL  */
+    LDIST_DECL = 298,              /* LDIST_DECL  */
+    DEFAULT_LDIST = 299,           /* DEFAULT_LDIST  */
+    DEFAULT_LDIST_SUM = 300,       /* DEFAULT_LDIST_SUM  */
+    DEFAULT_LDIST_DIF = 301,       /* DEFAULT_LDIST_DIF  */
+    SUM_LDIST = 302,               /* SUM_LDIST  */
+    DIF_LDIST = 303,               /* DIF_LDIST  */
+    SYM_LDIST = 304,               /* SYM_LDIST  */
+    TDIST_DECL = 305,              /* TDIST_DECL  */
+    DEFAULT_TDIST = 306,           /* DEFAULT_TDIST  */
+    DIST_NAME = 307,               /* DIST_NAME  */
+    TDIST_NAME = 308,              /* TDIST_NAME  */
+    TTIED = 309,                   /* TTIED  */
+    ETIED = 310,                   /* ETIED  */
+    JOINT = 311,                   /* JOINT  */
+    BAYES = 312,                   /* BAYES  */
+    MARGINAL = 313,                /* MARGINAL  */
+    CONDITIONAL = 314,             /* CONDITIONAL  */
+    ROTATE = 315,                  /* ROTATE  */
+    CONDMARG = 316,                /* CONDMARG  */
+    MONOSEGMENT = 317,             /* MONOSEGMENT  */
+    LDISEGMENT = 318,              /* LDISEGMENT  */
+    RDISEGMENT = 319,              /* RDISEGMENT  */
+    COORDBASE = 320,               /* COORDBASE  */
+    FIT = 321,                     /* FIT  */
+    AFFINE = 322,                  /* AFFINE  */
+    LINEAR = 323,                  /* LINEAR  */
+    PARAM_NAME = 324,              /* PARAM_NAME  */
+    UMINUS = 325                   /* UMINUS  */
+  };
+  typedef enum yytokentype yytoken_kind_t;
 #endif
-/* Tokens.  */
-#define INTEGER 258
-#define REAL 259
-#define PLUS 260
-#define MINUS 261
-#define SQRT 262
-#define LOG 263
-#define EXP 264
-#define MULTIPLY 265
-#define DIVIDE 266
-#define MAX 267
-#define MIN 268
-#define MAXCOND 269
-#define MINCOND 270
-#define SIN 271
-#define COS 272
-#define OR 273
-#define AND 274
-#define GETS 275
-#define ADDS 276
-#define SEP 277
-#define COMMA 278
-#define GREATER 279
-#define LESS 280
-#define OPEN 281
-#define CLOSE 282
-#define XVARIABLE 283
-#define LHS 284
-#define REWRITE 285
-#define NONTERM 286
-#define NONTERMLDISEGMENT 287
-#define NONTERMRDISEGMENT 288
-#define EMISSION 289
-#define EPSILON 290
-#define EMIT 291
-#define DEFAULT_EMIT 292
-#define BPTYPE 293
-#define FORCEWC 294
-#define EDIST_SILENT 295
-#define PARAM_DECL 296
-#define EDIST_DECL 297
-#define LDIST_DECL 298
-#define DEFAULT_LDIST 299
-#define DEFAULT_LDIST_SUM 300
-#define DEFAULT_LDIST_DIF 301
-#define SUM_LDIST 302
-#define DIF_LDIST 303
-#define SYM_LDIST 304
-#define TDIST_DECL 305
-#define DEFAULT_TDIST 306
-#define DIST_NAME 307
-#define TDIST_NAME 308
-#define TTIED 309
-#define ETIED 310
-#define JOINT 311
-#define BAYES 312
-#define MARGINAL 313
-#define CONDITIONAL 314
-#define ROTATE 315
-#define CONDMARG 316
-#define MONOSEGMENT 317
-#define LDISEGMENT 318
-#define RDISEGMENT 319
-#define COORDBASE 320
-#define FIT 321
-#define AFFINE 322
-#define LINEAR 323
-#define PARAM_NAME 324
-#define UMINUS 325
 
-
-
-
+/* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
+union YYSTYPE
+{
 #line 216 "grm_parsegrammar.y"
-{ 
+ 
   char              *string; 
   double             dval; 
   struct param_s    *param; 
-}
-/* Line 1529 of yacc.c.  */
-#line 195 "grm_parsegrammar.tab.h"
-	YYSTYPE;
-# define yystype YYSTYPE /* obsolescent; will be withdrawn */
-# define YYSTYPE_IS_DECLARED 1
+
+#line 140 "grm_parsegrammar.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
 #endif
+
 
 extern YYSTYPE yylval;
 
+
+int yyparse (void *yyparse_param);
+
+
+#endif /* !YY_YY_GRM_PARSEGRAMMAR_TAB_H_INCLUDED  */
