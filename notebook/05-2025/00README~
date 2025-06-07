@@ -78,9 +78,9 @@ fold
 ----------------------------------------------------------------------------------------------------------------------------------------
 cd ~/src/Mysrc/tornado
 
-for method in cyk ; do \
-for grm    in g5 ; do \
-for train  in trna1415_annote_1of1 ; do \
+for method in cyk mea ; do \
+for grm    in g5 g6 g6x; do \
+for train  in trna1415_annote_1of1 TORNADO_TrATrBTrB ; do \
 for test   in trna1415_annote_1of1 ; do \
 
     bin/grm-fold --"$method" \
@@ -88,23 +88,67 @@ for test   in trna1415_annote_1of1 ; do \
     grammars/"$grm".grm \
     data/tRNAs/tRNA1415/tornado/"$test".sto \
     notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
-    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ;\
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
+
+    lib/easel/miniapps/esl-compstruct data/tRNAs/tRNA1415/tornado/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+
+    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
 done
 done
 done
 done
 
+more notebook/05-2025/g5/trna1415_annote_1of1_TORNADO_trna1415_annote_1of1_g5.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   1912/29469 trusted pairs predicted (6.49% sensitivity)
+   1912/17565 predicted pairs correct (10.89% PPV)
 
-for method in mea ; do \
-for grm    in g6 ; do \
-for train  in trna1415_annote_1of1 TORNADO_TrA ; do \
+more notebook/05-2025/g6/trna1415_annote_1of1_TORNADO_trna1415_annote_1of1_g6.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   21300/29469 trusted pairs predicted (72.28% sensitivity)
+   21300/25900 predicted pairs correct (82.24% PPV)
+
+more notebook/05-2025/g6x/trna1415_annote_1of1_TORNADO_trna1415_annote_1of1_g6x.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   16597/29469 trusted pairs predicted (56.32% sensitivity)
+   16597/27855 predicted pairs correct (59.58% PPV)
+
+more notebook/05-2025/g5/trna1415_annote_1of1_TORNADO_TORNADO_TrATrBTrB_g5.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   468/29469 trusted pairs predicted (1.59% sensitivity)
+   468/12611 predicted pairs correct (3.71% PPV)
+
+more notebook/05-2025/g6/trna1415_annote_1of1_TORNADO_TORNADO_TrATrBTrB_g6.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   19665/29469 trusted pairs predicted (66.73% sensitivity)
+   19665/24545 predicted pairs correct (80.12% PPV)
+
+more notebook/05-2025/g6x/trna1415_annote_1of1_TORNADO_TORNADO_TrATrBTrB_g6x.mea.stats
+Overall prediction accuracy (1415 sequences, 104851 positions)
+   14930/29469 trusted pairs predicted (50.66% sensitivity)
+   14930/21902 predicted pairs correct (68.17% PPV)
+
+
+
+for method in cyk mea ; do \
+for grm    in g6x ; do \
+for train  in trna1415_annote_1of1 TORNADO_TrATrBTrB ; do \
 for test   in trna1415_annote_1of1 ; do \
 
     bin/grm-fold --"$method" \
+    --gpostfile grammars/"$grm".grm \
     grammars/"$grm".grm \
     data/tRNAs/tRNA1415/tornado/"$test".sto \
     notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
-    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ;\
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
+
+    lib/easel/miniapps/esl-compstruct data/tRNAs/tRNA1415/tornado/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+
+    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
 done
 done
 done

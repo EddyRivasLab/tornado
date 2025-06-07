@@ -11,7 +11,7 @@ cd ~/src/Mysrc/tornado
 # data/tRNAs/tRNA1415/tornado/trna1415_annote_1of1
 #--------------------------------------------------------------------------------------
 cd ~/src/Mysrc/tornado
-for train in trna1415_annote_1of1 ; do \
+for train in trna1415_annote_1of2 ; do \
 for grm in g5 g5s g6 g6x g6s g6xs basic_grammar RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
 
 echo "train:   $train" ;\
@@ -43,6 +43,30 @@ done
 cd ~/src/Mysrc/tornado
 for train in TORNADO_TrATrBTrB TORNADO_TrATrB TORNADO_TrA ; do \
 for grm  in g5 g5s g6 g6x g6s g6xs basic_grammar  RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+data/TORNADO/RNA2011_benchmark//"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+bin/grm-parse --count --preload \
+--paramsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".preload.param \
+grammars/"$grm".grm \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
+
+done
+done
+
+cd ~/src/Mysrc/tornado
+for train in TORNADO_TrATrBTrB  ; do \
+for grm  in RBG_J3J4 ViennaRNAG ContrafoldG ; do \
 
 echo "train:   $train" ;\
 echo "grammar: $grm" ;\
@@ -131,26 +155,4 @@ Overall prediction accuracy (1415 sequences, 104851 positions)
    14930/21902 predicted pairs correct (68.17% PPV)
 
 
-
-for method in cyk mea ; do \
-for grm    in g6x ; do \
-for train  in trna1415_annote_1of1 TORNADO_TrATrBTrB ; do \
-for test   in trna1415_annote_1of1 ; do \
-
-    bin/grm-fold --"$method" \
-    --gpostfile grammars/"$grm".grm \
-    grammars/"$grm".grm \
-    data/tRNAs/tRNA1415/tornado/"$test".sto \
-    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
-    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
-    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
-
-    lib/easel/miniapps/esl-compstruct data/tRNAs/tRNA1415/tornado/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
-    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
-
-    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
-done
-done
-done
-done
 
