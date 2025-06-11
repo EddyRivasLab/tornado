@@ -62,29 +62,6 @@ notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
 done
 done
 
-cd ~/src/Mysrc/tornado
-for train in conus_rnabench_srp conus_rnabench_tmRNA ; do \
-for grm in g5 g6 ; do \
-
-echo "train:   $train" ;\
-echo "grammar: $grm" ;\
-
-bin/grm-train --ml \
---margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
---null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
---countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
-grammars/"$grm".grm \
-data/conus/"$train".sto \
-notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
-notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
-
-bin/grm-parse --count --preload \
---paramsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".preload.param \
-grammars/"$grm".grm \
-notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
-
-done
-done
 
 
 
@@ -95,7 +72,7 @@ done
 #--------------------------------------------------------------------------------------
 cd ~/src/Mysrc/tornado
 for train in TORNADO_TrATrBTrB TORNADO_TrATrB TORNADO_TrA ; do \
-for grm  in g5 g5s g6 g6x g6s g6xs basic_grammar  RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
+for grm in g5 g5s g6 g6x g6s g6xs  ; do \
 
 echo "train:   $train" ;\
 echo "grammar: $grm" ;\
@@ -118,8 +95,8 @@ done
 done
 
 cd ~/src/Mysrc/tornado
-for train in TORNADO_TrATrBTrB  ; do \
-for grm  in RBG_J3J4 ViennaRNAG ContrafoldG ; do \
+for train in TORNADO_TrATrBTrB TORNADO_TrATrB TORNADO_TrA ; do \
+for grm in basic_grammar  RBG RBG_J3J4 ViennaRNAG ContrafoldG ; do \
 
 echo "train:   $train" ;\
 echo "grammar: $grm" ;\
@@ -142,8 +119,9 @@ done
 done
 
 
+
 ----------------------------------------------------------------------------------------------------------------------------------------
-save param in preload format ready to import into R-scape src/covgrammars.c
+Save param in preload format ready to import into R-scape src/covgrammars.c
 ----------------------------------------------------------------------------------------------------------------------------------------
 cd ~/src/Mysrc/tornado
 
