@@ -1063,7 +1063,7 @@ esl_scorematrix_Read(ESL_FILEPARSER *efp, const ESL_ALPHABET *abc, ESL_SCOREMATR
   /* Look for the first non-blank, non-comment line in the file.  That line
    * gives us the single-letter codes in the order that the file's using.
    */
-  if ((status = esl_fileparser_NextLine(efp)) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "file appears to be empty");
+  if ( esl_fileparser_NextLine(efp) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "file appears to be empty");
 
   /* Read the characters: count them and store them in order in label[0..nc-1].
    * nc cannot exceed Kp+1 in our expected alphabet (+1, for the stop character *)
@@ -1103,17 +1103,17 @@ esl_scorematrix_Read(ESL_FILEPARSER *efp, const ESL_ALPHABET *abc, ESL_SCOREMATR
    */
   for (row = 0; row < S->nc; row++)
     {
-      if ((status = esl_fileparser_NextLine(efp)) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Unexpectedly ran out of lines in file");
+      if ( esl_fileparser_NextLine(efp) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Unexpectedly ran out of lines in file");
       for (col = 0; col < S->nc; col++)
 	{
-	  if ((status = esl_fileparser_GetTokenOnLine(efp, &tok, &toklen)) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Unexpectedly ran out of fields on line");
+	  if ( esl_fileparser_GetTokenOnLine(efp, &tok, &toklen) != eslOK) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Unexpectedly ran out of fields on line");
 	  if (col == 0 && *tok == S->outorder[row]) { col--; continue; } /* skip leading label */
 
 	  S->s[map[row]][map[col]] = atoi(tok);
 	}
-      if ((status = esl_fileparser_GetTokenOnLine(efp, &tok, &toklen)) != eslEOL)  ESL_XFAIL(eslEFORMAT, efp->errbuf, "Too many fields on line");
+      if ( esl_fileparser_GetTokenOnLine(efp, &tok, &toklen) != eslEOL)  ESL_XFAIL(eslEFORMAT, efp->errbuf, "Too many fields on line");
     }
-  if ((status = esl_fileparser_NextLine(efp)) != eslEOF) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Too many lines in file. (Make sure it's square & symmetric. E.g. use NUC.4.4 not NUC.4.2)");
+  if ( esl_fileparser_NextLine(efp) != eslEOF) ESL_XFAIL(eslEFORMAT, efp->errbuf, "Too many lines in file. (Make sure it's square & symmetric. E.g. use NUC.4.4 not NUC.4.2)");
   
 
   /* Annotate the score matrix */
@@ -1810,7 +1810,7 @@ main(int argc, char **argv)
   ESL_ALPHABET    *abc     = esl_alphabet_Create(eslAMINO);             /* protein matrices 20x20 */
   ESL_DMATRIX     *Q       = esl_dmatrix_Create(abc->K, abc->K);	/* WAG rate matrix */
   ESL_DMATRIX     *P0      = esl_dmatrix_Create(abc->K, abc->K);	/* p_ij joint probabilities calculated from WAG */
-  double          *wagpi   = malloc(sizeof(double) * abc->K);  
+  double          *wagpi   = NULL;
   ESL_SCOREMATRIX *S0      = esl_scorematrix_Create(abc);	        /* score matrix calculated from WAG p_ij's */
   double           lambda0 = esl_opt_GetReal(go, "-l");
   double           t       = esl_opt_GetReal(go, "-t");
@@ -1823,6 +1823,8 @@ main(int argc, char **argv)
   double           lambda;
   double           D;
   int              status;
+
+  if ((wagpi = malloc(sizeof(double) * abc->K)) == NULL) esl_fatal("malloc failed");
   
   /* Calculate an integer score matrix from a probabilistic rate matrix (WAG) */
   esl_scorematrix_SetWAG(S0, lambda0/scale, t);

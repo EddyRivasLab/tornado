@@ -37,12 +37,30 @@
 ################################################################
 # 1. autoconf requirements
 ################################################################
-AC_PREREQ([2.72])
+AC_PREREQ([2.71])
+
+# Our extra macros are with Easel, in easel/m4
+# Though it's sort of standard to expect them in m4/. Hope nobody gets confused.
+#
+m4_include([lib/easel/m4/ax_check_gnu_make.m4])
+
+m4_include([lib/easel/m4/ax_compiler_vendor.m4])
+m4_include([lib/easel/m4/ax_check_compile_flag.m4])
+m4_include([lib/easel/m4/ax_gcc_func_attribute.m4])
+
+m4_include([lib/easel/m4/esl_neon.m4])
+m4_include([lib/easel/m4/esl_sse.m4])
+m4_include([lib/easel/m4/esl_vmx.m4])
+
+m4_include([lib/easel/m4/ax_prog_cc_mpi.m4])
+m4_include([lib/easel/m4/ax_pthread.m4])
+
+m4_include([lib/easel/m4/esl_pic_flags.m4])
 
 ################################################################
 # 2. AC_INIT
 ################################################################
-AC_INIT([TORNADO],[0.9.0],[elenarivas@fas.harvard.edu],[TORNADO])
+AC_INIT([TORNADO],[0.9.1],[elenarivas@fas.harvard.edu],[TORNADO])
 AC_MSG_NOTICE([Configuring TORNADO for your system.])
 
 # remember if the usexr is overriding CFLAGS
@@ -79,7 +97,7 @@ fi
 #     EASEL_VERSION    e.g. "1.9a"
 #
 TORNADO_NAME="TORNADO"
-TORNADO_DATE="June 2025"
+TORNADO_DATE="July 2025"
 TORNADO_COPYRIGHT="Copyright (C) 2016 Howard Hughes Medical Institute."
 TORNADO_LICENSE="Freely distributed under the GNU General Public License (GPLv3)."
 TORNADO_VERSION=$PACKAGE_VERSION
@@ -160,20 +178,22 @@ AC_MSG_NOTICE([TORNADO source distribution])
 # --enable-debugging=x    - set debugging level to <x> (1-3)
 #
 # At all levels, including 0, replaces CFLAGS w/ "-g -Wall" (so it assumes gcc).
-# Sets p7_DEBUGGING preprocessor symbol, which compiles in debugging support.
-# Also sets eslDEBUGLEVEL level, 0-3.
+# Sets eslDEBUGLEVEL preprocessor symbol, which compiles in debugging support, to 0..3.
 #
 AC_ARG_ENABLE(debugging,
-[AS_HELP_STRING([--enable-debugging],[include debugging code])
-AS_HELP_STRING([--enable-debugging=x],[also set diagnostics verbosity level to <x> (1-3)])],
-enable_debugging=$enableval, enable_debugging=no)
+  [
+    AS_HELP_STRING([--enable-debugging],[include debugging code])
+    AS_HELP_STRING([--enable-debugging=x],[also set diagnostics verbosity level to <x> (1-3)])
+  ],
+  enable_debugging=$enableval, 
+  enable_debugging=no)
 
 case $enable_debugging in
-   yes)  AC_DEFINE(eslDEBUGLEVEL, 0);;
-     1)  AC_DEFINE(eslDEBUGLEVEL, 1);;
-     2)  AC_DEFINE(eslDEBUGLEVEL, 2);;
-     3)  AC_DEFINE(eslDEBUGLEVEL, 3);;
-    no)  AC_DEFINE(eslDEBUGLEVEL, 0);;
+   yes)  AC_DEFINE(eslDEBUGLEVEL, 1, [debugging on (low verbosity)]);;
+     1)  AC_DEFINE(eslDEBUGLEVEL, 1, [debugging on (low verbosity)]);;
+     2)  AC_DEFINE(eslDEBUGLEVEL, 2, [debugging on (moderate verbosity)]);;
+     3)  AC_DEFINE(eslDEBUGLEVEL, 3, [debugging on (high verbosity)]);;
+    no)  AC_DEFINE(eslDEBUGLEVEL, 0, [debugging off]);;
      *)  AC_MSG_ERROR([Unknown argument to --enable-debugging: $enable_debugging]);;
 esac
 
@@ -190,239 +210,257 @@ case $enable_gapaschar in
      *)  AC_MSG_ERROR([Unknown argument to --enable-gapaschar: $enable_gapaschar]);;
 esac
 
-# --enable-mpi       Enable MPI parallelization
-AC_ARG_ENABLE(mpi,[AS_HELP_STRING([--enable-mpi],[enable MPI parallelization])], enable_mpi=$enableval, enable_mpi=no)
+
+AC_ARG_ENABLE(gcov,    [AS_HELP_STRING([--enable-gcov],    [compile for code coverage testing])],        enable_gcov=$enableval,    enable_gcov=no)
+AC_ARG_ENABLE(gprof,   [AS_HELP_STRING([--enable-gprof],   [compile for gcc code profiling])],           enable_gprof=$enableval,   enable_gprof=no)
+AC_ARG_ENABLE(asan,    [AS_HELP_STRING([--enable-asan],    [compile with address sanitizer]) ],          enable_asan=$enableval,    enable_asan=no)
+AC_ARG_ENABLE(tsan,    [AS_HELP_STRING([--enable-tsan],    [compile with thread sanitizer]) ],           enable_tsan=$enableval,    enable_tsan=no)
+AC_ARG_ENABLE(fortify, [AS_HELP_STRING([--enable-fortify=x],[compile with -D_FORTIFY_SOURCE=x]) ],       enable_fortify=$enableval, enable_fortify=no)
+
+AC_ARG_ENABLE(neon,    [AS_HELP_STRING([--enable-neon],    [enable our ARM Neon vector code])],          enable_neon=$enableval,    enable_neon=check)
+AC_ARG_ENABLE(sse,     [AS_HELP_STRING([--enable-sse],     [enable our SSE vector code])],               enable_sse=$enableval,     enable_sse=check)
+AC_ARG_ENABLE(vmx,     [AS_HELP_STRING([--enable-vmx],     [enable our Altivec/VMX vector code])],       enable_vmx=$enableval,     enable_vmx=check)
+
+AC_ARG_ENABLE(threads, [AS_HELP_STRING([--enable-threads], [enable POSIX threads parallelization])],     enable_threads=$enableval, enable_threads=check)
+AC_ARG_ENABLE(mpi,     [AS_HELP_STRING([--enable-mpi],     [enable MPI parallelization])],               enable_mpi=$enableval,     enable_mpi=no)
+
+AC_ARG_ENABLE(pic,     [AS_HELP_STRING([--enable-pic],     [enable position-independent code])],         enable_pic=$enableval,     enable_pic=no)
+
+AC_ARG_WITH(gsl,       [AS_HELP_STRING([--with-gsl],       [use the GSL, GNU Scientific Library])],      with_gsl=$withval,         with_gsl=no)
 
 
-# --enable-threads      Enable POSIX multithreading
-#
-# Uses ACX_PTHREAD macro from the GNU macro archive.
-# Back to my code to finish enabling pthreads...
-# Define these preprocessor variables:
-#     HAVE_PTHREAD
-#     HAVE_PTHREAD_SETCONCURRENCY
-#     HAVE_PTHREAD_ATTR_SETSCOPE
-#
-AC_ARG_ENABLE([threads],
-              [AS_HELP_STRING([--enable-threads],
-                 [enable POSIX multithreading support (default is check)])],
-	      [],
-              [enable_threads=check])
-
-case $enable_threads in 
-   yes)   check_threads=yes
-          ;;
-   no)    check_threads=no
-          ;;
-   check) check_threads=yes
-          ;;
-   *)     check_threads=no
-          AC_MSG_NOTICE([Ignoring unknown argument to --enable-threads: $enable_threads])
-          ;;
-esac
- 
-AS_IF([test "x$check_threads" != xno],
-      [ACX_PTHREAD([AC_DEFINE(HAVE_PTHREAD)
-                    AC_SUBST(PTHREAD_LIBS)
-                    AC_SUBST(PTHREAD_CFLAGS)],
-                   [if test "x$enable_threads" != xcheck; then
-                      AC_MSG_FAILURE([POSIX multithreading failed])
-                    fi])])
-
-AC_ARG_ENABLE(gcov,[AS_HELP_STRING([--enable-gcov],[compile for code coverage testing])], enable_gcov=$enableval,  enable_gcov=no)
-AC_ARG_ENABLE(gprof,[AS_HELP_STRING([--enable-gprof],[compile for gcc code profiling])],  enable_gprof=$enableval, enable_gprof=no)
-AC_ARG_ENABLE(sse,[AS_HELP_STRING([--enable-sse],[enable SSE optimizations])] ,           enable_sse=$enableval,   enable_sse=check)
-AC_ARG_ENABLE(vmx,[AS_HELP_STRING([--enable-vmx],[enable Altivec/VMX optimizations])],    enable_vmx=$enableval,   enable_vmx=check)
-AC_ARG_WITH(gsl,[AS_HELP_STRING([--with-gsl],[use the GSL, GNU Scientific Library])],     with_gsl=$withval,       with_gsl=no)
-AC_ARG_ENABLE(mpi,[AS_HELP_STRING([--enable-mpi],[enable MPI parallelization])],          enable_mpi=$enableval,   enable_mpi=no)
-
+# If a vector implementation is force-selected, make sure only one is,
+# and turn off checking for the others.
+vecsel=0
+if test "$enable_neon"    = "yes"; then vecsel=$((vecsel+1)); fi
+if test "$enable_sse"     = "yes"; then vecsel=$((vecsel+1)); fi
+if test "$enable_vmx"     = "yes"; then vecsel=$((vecsel+1)); fi
+if   [[ $vecsel -gt 1 ]]; then
+  AC_MSG_ERROR([Select only one implementation: sse, neon or vmx])
+elif [[ $vecsel -eq 1 ]]; then
+  if test "$enable_neon"  = "check"; then enable_neon="no";  fi
+  if test "$enable_sse"   = "check"; then enable_sse="no";   fi
+  if test "$enable_vmx"   = "check"; then enable_vmx="no";   fi
+fi
 
 
 ################################################################
 # 5. Checks for programs, including ${CC} and its ${CFLAGS}
 ################################################################
 
+# Choose our compiler - which might be mpicc, if enable_mpi is "yes".
+#   AX_PROG_CC_MPI will call AC_PROG_CC if enable_mpi is "no".
+#
+AX_PROG_CC_MPI([test x"$enable_mpi" = xyes],
+    [AC_DEFINE(HAVE_MPI,  1, [Use MPI parallelization])
+     AC_DEFINE(HMMER_MPI, 1, [Use MPI parallelization])
+     AC_SUBST([MPI_UTESTS],     ["mpi_utest"])
+     AC_SUBST([MPI_BENCHMARKS], ["mpi_benchmark"])],
+    [ if test x"$enable_mpi" = xyes; then
+        AC_MSG_ERROR([MPI library not found for --enable-mpi]);
+      fi])
 AC_PROG_CC
-AC_PROG_INSTALL
-# MPI :  set @CC@ to mpicc, sets @MPILIBS@, defines HAVE_MPI. 
-if test "$enable_mpi" = "yes"; then
-   ACX_MPI([AC_DEFINE(HAVE_MPI)
-            AC_SUBST([MPI_UTESTS], ["mpi_utest"])
-            AC_SUBST([MPI_BENCHMARKS], ["mpi_benchmark"])],
-           AC_MSG_ERROR([MPI library not found for --enable-mpi]))
-   CC=$MPICC
-fi
 AC_PROG_CPP
-AX_COMPILER_VENDOR
-# AC_PROG_CC wants to append -c99 to icc; icc doesn't like this.
-if test "$ax_cv_c_compiler_vendor" != "intel"; then
-  AC_PROG_CC
-fi
+AC_PROG_INSTALL
 AC_PROG_RANLIB
 AC_PATH_PROG([AR], [ar], [:], [$PATH:/usr/ccs/bin:/usr/xpg4/bin])
-CHECK_GNU_MAKE
+AC_PROG_LN_S
 
-# Select our optimization level in CFLAGS.
-if test "$enable_debugging" != "no"; then
-   AC_DEFINE(p7_DEBUGGING,  1)
-   if test "$GCC" = "yes" && test "$sre_cflags_env_set" = "no"; then
+
+# Select our default optimization flags in CFLAGS.
+#  --enable-gcov, --enable-gprof, and --enable-debugging are mutually exclusive.
+#
+if test "$enable_gcov" = "yes"; then
+   if test "$esl_cflags_env_set" = "yes"; then 
+     AC_MSG_ERROR([--enable-gcov overrides CFLAGS, so don't set CFLAGS])
+   fi
+   CFLAGS="-g -Wall -fprofile-arcs -ftest-coverage"
+elif test "$enable_gprof" = "yes"; then
+   if test "$esl_cflags_env_set" = "yes"; then 
+     AC_MSG_ERROR([--enable-gprof overrides CFLAGS, so don't set CFLAGS])
+   fi
+   CFLAGS="-O -g -pg"
+elif test "$enable_debugging" != "no"; then
+   if test "$GCC" = "yes"; then
       CFLAGS="-g -Wall"
    fi
 else
-   sre_save_ac_test_cflags="$ac_test_CFLAGS"
-   if test "$sre_cflags_env_set" = "no"; then
-     ac_test_CFLAGS=""
-   fi
-   AX_CC_MAXOPT
-   ac_test_CFLAGS="$sre_save_ac_test_cflags"
-   # That was a workaround. AX_CC_MAXOPT apparently thinks that
-   # $ac_test_CFLAGS only gets set if ${CFLAGS} was set by the
-   # user (in the environment), but that's not so; it gets set
-   # by AC_PROG_CC. Instead of rewriting AX_CC_MAXOPT, we fool
-   # it.
+   CFLAGS="${CFLAGS} -O3"
 fi
 
-# Figure out how to generate PIC code for shared libraries
-# This sets @PIC_FLAGS@ output variable for Easel.
-ESL_PIC_FLAGS
 
-# If we're using SSE, figure out our @SIMD_CFLAGS@
-if test "$impl_choice" = "sse" && test "x$SIMD_CFLAGS" = x; then
-   case $ax_cv_c_compiler_vendor in
-   gnu)   AX_CHECK_COMPILER_FLAGS(-msse2,[SIMD_CFLAGS="-msse2"],[impl_choice=dummy]);;
-   intel) ;;
-   *)     ;;
-   esac
-fi
-if test "$enable_sse" = "yes" && test "$impl_choice" = dummy; then
-   AC_MSG_ERROR([SSE instructions are apparently not available; --enable-sse failed])
+# See if we should be passing -D_ENABLE_FORTIFY
+if test "$enable_fortify" != "no"; then
+  CFLAGS="${CFLAGS} -D_FORTIFY_SOURCE=$enable_fortify"
 fi
 
-# If we're using VMX/Altivec, figure out our @SIMD_CFLAGS@
-if test "$impl_choice" = "vmx"; then
-   if test "x$SIMD_CFLAGS" = x; then
-      if test "$GCC" = "yes"; then
-       	# -DFAKE__VEC__ is a workaround because gcc-3.3 does not
-	# #define __VEC__ with -maltivec.
-        AX_CHECK_COMPILER_FLAGS(-faltivec, [SIMD_CFLAGS="-faltivec"],
-	    [AX_CHECK_COMPILER_FLAGS(-maltivec -mabi=altivec,
-		[SIMD_CFLAGS="-maltivec -mabi=altivec"],
-#		[SIMD_CFLAGS="-maltivec -mabi=altivec -DFAKE__VEC__"],
-	        [AX_CHECK_COMPILER_FLAGS(-fvec, [SIMD_CFLAGS="-fvec"],
-		   [AC_MSG_ERROR([Need a version of gcc with -maltivec])])])])
-      elif test "${ax_cv_c_compiler_vendor}" = "ibm"; then
-        SIMD_CFLAGS=""
-        # if debugging is enabled and the xlc_arch flag is set, we need to
-        # set the qarch flag here.  if debugging is NOT enabled, the arch
-        # flag is set in AX_CC_MAXOPT.
-        if test "x$XLC_ARCH" != x; then
-           if test "x$enable_debugging" = xyes; then
-              AX_CHECK_COMPILER_FLAGS(-qarch=$XLC_ARCH, [SIMD_CFLAGS="-qarch=$XLC_ARCH"],[])
-           fi
-        fi
-        AX_CHECK_COMPILER_FLAGS(-qenablevmx, [SIMD_CFLAGS="$SIMD_CFLAGS -qenablevmx"],[])
-        AX_CHECK_COMPILER_FLAGS(-qaltivec, [SIMD_CFLAGS="$SIMD_CFLAGS -qaltivec"],[])
-      else
-        AX_CHECK_COMPILER_FLAGS(-faltivec, [SIMD_CFLAGS="-faltivec"],[])
-      fi
-   fi
-fi
 
-# check if the SSE2 implementation support cast functions
-if test "$impl_choice" = "sse"; then
-  AC_MSG_CHECKING([compiler support for sse2 cast functions])
-  ssecast=no
-  sre_save_cflags="$CFLAGS"
-  CFLAGS="$CFLAGS $SIMD_CFLAGS"
-  AC_LANG(C)
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <emmintrin.h>]],
-                                     [[__m128 a;
-                                       __m128i b;
-                                       b = _mm_castps_si128(a);
-                                       a = _mm_castsi128_ps(b);]])],
-                    [AC_DEFINE([HAVE_SSE2_CAST])
-                     ssecast=yes])
-  AC_MSG_RESULT([$ssecast])
-  CFLAGS="$sre_save_cflags"
-fi
-
-# Verify that we can actually build the chosen implementation; else
-# default to dummy.
-# (For example, Athlon reports as i686-*, so will get assigned to 
-# sse impl, but does not support SSE2 instructions.)
-# The test here is cribbed from the Apache configure.ac file.
+# Turn on a sanitizer, if asked.
 #
-if test "$impl_choice" = "sse"; then
-  AC_MSG_CHECKING([whether SSE2 is supported])
-  sre_save_cflags="$CFLAGS"
-  CFLAGS="$CFLAGS $SIMD_CFLAGS"
-  AC_COMPILE_IFELSE(  [AC_LANG_PROGRAM([[#include <emmintrin.h>]],
- 				 [[__m128i* one=(__m128i*)_mm_malloc(4, 16);
-				   __m128i* two=(__m128i*)_mm_malloc(4, 16);
-				   __m128i xmm1 = _mm_load_si128(one);
-				   __m128i xmm2 = _mm_load_si128(two);
-				   __m128i xmm3 = _mm_or_si128(xmm1, xmm2);
-				   _mm_store_si128(one, xmm3);
-				   _mm_free(one);
-				   _mm_free(two);
-				 ]])],
-	[ AC_MSG_RESULT([yes])],
-	[ AC_MSG_RESULT([no; reverting to dummy implementation])
-	  impl_choice=dummy
-	]
-  )
-  CFLAGS="$sre_save_cflags"
+if test "$enable_asan" = "yes"; then
+  CFLAGS="$CFLAGS -fsanitize=address"
+  LDFLAGS="$LDFLAGS -fsanitize=address"
+fi
+if test "$enable_tsan" = "yes"; then
+  if test "$enable_asan" = "yes"; then  
+    AC_MSG_FAILURE([The address and thread sanitizers are incompatible. Use only one of --enable-asan and --enable-tsan])
+  fi
+  CFLAGS="$CFLAGS -fsanitize=threads"
+  LDFLAGS="$LDFLAGS -fsanitize=threads"
 fi
 
-if test "$impl_choice" = "vmx"; then
-  AC_MSG_CHECKING([whether Altivec/VMX is supported])
-  sre_save_cflags="$CFLAGS"
-  CFLAGS="$CFLAGS $SIMD_CFLAGS"
-  AC_COMPILE_IFELSE(  [AC_LANG_PROGRAM([[#include <altivec.h>]],
- 				 [[vector unsigned char zerov;
-                                   vector unsigned char onev;
-                                   zerov = vec_splat_u8(0);
-                                   onev = vec_splat_u8(1);
-                                   onev = vec_adds(onev, zerov);
-				 ]])],
-	[ AC_MSG_RESULT([yes])],
-	[ AC_MSG_RESULT([no; reverting to dummy implementation])
-	  impl_choice=dummy
-          if test "${ax_cv_c_compiler_vendor}" = "ibm"; then
-             echo "******************************************************"
-             echo "*  You seem to have the IBM  C compiler.  If your    *"
-             echo "*  processor supports vector instructions it is      *"
-             echo "*  possible specifying an architecture would enable  *"
-             echo "*  vector support, i.e.                              *"
-             echo "*                                                    *"
-             echo "*    --with-xlc-arch=XXX                             *"
-             echo "*                                                    *"
-             echo "*  where XXX is pwr6, auto or whatever kind of CPU   *"
-             echo "*  you have.                                         *"
-             echo "******************************************************"
-          fi
- 	]
-  )
-  CFLAGS="$sre_save_cflags"
+
+# PIC (position-independent code) for shared library support
+#
+if test "$enable_pic" = "yes"; then
+   ESL_PIC_FLAGS
 fi
+
+
+# Support for POSIX multithreading (we should generally have this)
+#
+if test "$enable_threads" != "no"; then
+  AX_PTHREAD([
+      AC_DEFINE(HAVE_PTHREAD,  1, [Use POSIX threads])
+      AC_DEFINE(HMMER_THREADS, 1, [Use POSIX threads])
+      AC_SUBST(PTHREAD_LIBS)
+      AC_SUBST(PTHREAD_CFLAGS)
+    ],[
+      if test "$enable_threads" = "yes"; then
+        AC_MSG_FAILURE([Unable to compile with POSIX multithreading.])
+      fi
+      enable_threads=no
+    ])
+fi
+
+
+# Support for vector implementations 
+#
+# If we were explicitly told to enable one ($enable_foo="yes") and we
+# can't, fail with an error. 
+#
+# If we're autodetecting ($enable_foo="check"), set $enable_foo to the
+# result ("yes" or "no").
+#
+# If vector support "foo" is enabled:
+#    - define preprocessor symbol eslENABLE_FOO (*config.h.in)
+#    - set output variable FOO_CFLAGS, if needed (Makefile.in)
+#    - set shell variable $enable_foo to "yes"
+#    - set shell variable $impl_choice to "foo"
+# and if vector support is available (regardless of whether we
+# decide to enable it), the autoconf macros:
+#    - set shell variable $esl_have_foo to "yes"
+#    - set shell var $esl_foo_cflags to any necessary compiler flags
+#
+if test "$enable_neon" = "yes" || test "$enable_neon" = "check"; then
+  ESL_NEON([
+    AC_DEFINE(eslENABLE_NEON, 1, [Enable ARM Neon vector implementation])
+    AS_VAR_IF([esl_have_neon_aarch64],[yes],[AC_DEFINE(eslHAVE_NEON_AARCH64, 1, [Set to enable the ARM AARCH64 version of NEON])])
+    AC_SUBST([HMMERIMPLLIB], ["impl_neon/libhmmerimpl.a"])
+    NEON_CFLAGS="$esl_neon_cflags"
+    AC_SUBST(NEON_CFLAGS)
+    enable_neon=yes
+    impl_choice=neon
+    ],[
+    if test "$enable_neon" = "yes"; then
+      AC_MSG_FAILURE([Unable to compile our ARM Neon implementations. Try another compiler?])
+    fi
+    enable_neon=no
+    ])
+fi
+
+if test "$enable_vmx" = "yes" || test "$enable_vmx" = "check"; then
+  ESL_VMX([
+    AC_DEFINE(eslENABLE_VMX, 1, [Enable Altivec/VMX vector implementation])
+    AC_SUBST([HMMERIMPLLIB], ["impl_vmx/libhmmerimpl.a"])
+    VMX_CFLAGS=$esl_vmx_cflags
+    RSCAPE_IMPLDIR=""
+    enable_vmx=yes
+    impl_choice=vmx
+    ],[
+    if test "$enable_vmx" = "yes"; then
+      AC_MSG_FAILURE([Unable to compile our Altivec/VMX implementations. Try another compiler?])
+    fi
+    enable_vmx=no
+    ])
+fi
+
+if test "$enable_sse" = "yes" || test "$enable_sse" = "check"; then
+  ESL_SSE([
+    AC_DEFINE(eslENABLE_SSE, 1, [Enable SSE vector implementation])
+    AC_SUBST([HMMERIMPLLIB], ["impl_sse/libhmmerimpl.a"])
+    SSE_CFLAGS=$esl_sse_cflags
+    RSCAPE_IMPLDIR="impl_sse"
+    enable_sse=yes
+    impl_choice=sse
+    ],[
+    if test "$enable_sse" = "yes"; then
+      AC_MSG_FAILURE([Unable to compile our SSE implementations. Try another compiler?])
+    fi
+    enable_sse=no
+    ])
+fi
+
+# R-scape has to have either SSE, Neon or VMX.
+case "$impl_choice" in 
+neon) AC_MSG_NOTICE([Activating ARM Neon vector DP implementation])
+      ;;
+sse)  AC_MSG_NOTICE([Activating Intel/AMD SSE vector DP implementation]) 
+      ;;
+vmx)  AC_MSG_NOTICE([Activating Altivec/VMX vector DP implementation])   
+      ;;
+*)    AC_MSG_NOTICE([::::::::::--- no vector instruction set ---::::::::::])
+      AC_MSG_NOTICE([R-scape requires SSE, NEON or VMX vector instructions.])
+      AC_MSG_NOTICE([Supported platforms are x86 (Intel/AMD), ARM (v7 or later) and PowerPC.])
+      AC_MSG_ERROR([No supported vectorization found for your machine.])
+      ;;
+esac
+IMPL_CHOICE=$impl_choice
+AC_SUBST(IMPL_CHOICE)
+AC_SUBST(RSCAPE_IMPLDIR)
+
+# Easel has additional vector implementations that R-scape and HMMER3 do not
+# support. Provide blank config for those CFLAGS.
+AC_SUBST(SSE_CFLAGS)
+AC_SUBST(SSE4_CFLAGS)
+AC_SUBST(AVX_CFLAGS)
+AC_SUBST(AVX512_CFLAGS)
+AC_SUBST(VMX_CFLAGS)
+AC_SUBST(NEON_CFLAGS)
+
+
 
 # For x86 processors check if the flush to zero macro is available
 # in order to avoid the performance penalty dealing with sub-normal
 # values in the floating point calculations.
 if test "$impl_choice" = "sse"; then
   AC_MSG_CHECKING([whether _MM_SET_FLUSH_ZERO_MODE is supported])
-  sre_save_cflags="$CFLAGS"
-  CFLAGS="$CFLAGS $SIMD_CFLAGS"
+  esl_save_cflags="$CFLAGS"
+  CFLAGS="$CFLAGS $SSE_CFLAGS"
   AC_COMPILE_IFELSE(  [AC_LANG_PROGRAM([[#include <xmmintrin.h>]],
  				 [[_MM_SET_FLUSH_ZERO_MODE (_MM_FLUSH_ZERO_ON);
 				 ]])],
 	[ AC_MSG_RESULT([yes])
-          AC_DEFINE([HAVE_FLUSH_ZERO_MODE])],
+          AC_DEFINE([HAVE_FLUSH_ZERO_MODE], 1, [Processor supports flush-to-zero mode])],
 	[ AC_MSG_RESULT([no])]
   )
-  CFLAGS="$sre_save_cflags"
+  CFLAGS="$esl_save_cflags"
 fi
 
+
+
+# Check if the linker supports library groups for recursive libraries
+AS_IF([test "x$impl_choice" != xno],
+      [AC_MSG_CHECKING([compiler support --start-group])
+       LDFLAGS_save=$LDFLAGS
+       LDFLAGS="-Wl,--start-group -Wl,--end-group $LDFLAGS"
+       AC_LINK_IFELSE([AC_LANG_PROGRAM([],[])],
+           [AC_MSG_RESULT([yes])
+            AC_SUBST([GROUPHMMERLIBS], ["-Wl,--start-group -lhmmer -lhmmerimpl -Wl,--end-group"])],
+           [AC_MSG_RESULT([no])
+            AC_SUBST([GROUPHMMERLIBS], ["-lhmmer -lhmmerimpl"])])
+       LDFLAGS=$LDFLAGS_save],
+      [AC_SUBST([GROUPHMMERLIBS], ["-lhmmer"])])
 
 
 # Define HAVE_GZIP if gzip is in $PATH (or if HAVE_GZIP is already set)
@@ -430,8 +468,17 @@ AC_PATH_PROG(HAVE_GZIP, "gzip", "no")
 if test "${HAVE_GZIP}" = "no"; then
   AC_MSG_WARN([gzip not found])
 else
-  AC_DEFINE(HAVE_GZIP)
+  AC_DEFINE(HAVE_GZIP, 1, [Support external gzip decompression])
 fi
+
+
+# We need python, specifically python3, for 'make check' and
+# some dev tools. Makefiles check for themselves, but we 
+# also check in ./configure, so we don't recommend
+# 'make check' to the user if they can't use it.
+# 
+AC_PATH_PROG([PYTHON3], [python3])
+
 
 ################################################################
 # 6. Checks for libraries
@@ -546,6 +593,7 @@ src/grm_config.h
 ])
 
 AC_CONFIG_SUBDIRS(lib/easel)
+AC_CONFIG_SUBDIRS(lib/easel/miniapps)
 
 AC_CONFIG_FILES([
 Makefile
@@ -554,6 +602,7 @@ documentation/Makefile
 documentation/titlepage.tex
 documentation/copyright.tex
 lib/easel/Makefile
+lib/easel/miniapps/Makefile
 ])
 
 #################################################################

@@ -157,7 +157,7 @@ esl_msafile_phylip_GuessAlphabet(ESL_MSAFILE *afp, int *ret_type)
   for (x = 0; x < 26; x++) ct[x] = 0;
 
   anchor = esl_buffer_GetOffset(afp->bf);
-  if ((status = esl_buffer_SetAnchor(afp->bf, anchor)) != eslOK) { status = eslEINCONCEIVABLE; goto ERROR; } /* [eslINVAL] can't happen here */
+  if ( esl_buffer_SetAnchor(afp->bf, anchor) != eslOK) { status = eslEINCONCEIVABLE; goto ERROR; } /* [eslINVAL] can't happen here */
 
   /* Find the first nonblank line, which says " <nseq> <alen>" and may also have options. we ignore this header */
   while ( (status = esl_buffer_GetLine(afp->bf, &p, &n)) == eslOK  && esl_memspn(p, n, " \t") == n) ;
@@ -860,7 +860,7 @@ phylip_check_sequential_unknown(ESL_BUFFER *bf, int *ret_namewidth)
   esl_buffer_SetOffset(bf, anchor); /* rewind */
 
   /* pass 2: first, parse the <nseq> <alen> line */
-  if ((status = phylip_parse_header(bf, &nseq, &alen, &p, &n)) != eslOK) { status = eslFAIL; goto ERROR; }
+  if ( phylip_parse_header(bf, &nseq, &alen, &p, &n) != eslOK) { status = eslFAIL; goto ERROR; }
   if (nlines % nseq != 0) { status = eslFAIL; goto ERROR; } 
   nblocks = nlines / nseq;
 
@@ -1147,10 +1147,10 @@ utest_write_good1(FILE *ofp, int *ret_format, int *ret_alphatype, int *ret_nseq,
   fputs("AAACCGAGGC CGGGACACTC AT\n", ofp);
   fputs("AAACCATTGC CGGTACGCTT AA\n", ofp);
 
-  *ret_format   = eslMSAFILE_PHYLIP;
+  *ret_format    = eslMSAFILE_PHYLIP;
   *ret_alphatype = eslDNA;
-  *ret_nseq     = 5;
-  *ret_alen     = 42;
+  *ret_nseq      = 5;
+  *ret_alen      = 42;
 }
 
 static void
@@ -1600,21 +1600,20 @@ utest_ambigfile(char *filename, int testnumber)
 static void
 utest_seqboot(void)
 {
-  char  msg[] = "seqboot unit test failed";
+  char  msg[]                = "seqboot unit test failed";
   char  tmpfile[32];
-  FILE *ofp;
-  int   expected_fmt;
-  int   expected_alphatype;
-  int   expected_nseq;
-  int   expected_alen;
-  int   expected_nali;
+  FILE *ofp                  = NULL;
+  int   expected_fmt         = eslMSAFILE_UNKNOWN;  // initialize these to silence overzealous static analyzers
+  int   expected_alphatype   = eslUNKNOWN;
+  int   expected_nseq        = -1;
+  int   expected_alen        = -1;
+  int   expected_nali        = 3;                   // we'll concatenate good1 MSA three times in this utest
   int   i;
   ESL_ALPHABET *abc = NULL;
   ESL_MSAFILE  *afp = NULL;
   ESL_MSA      *msa = NULL;
 
   /* Write a tmp testfile with good1 concatenated 3 times. */
-  expected_nali = 3;
   strcpy(tmpfile, "esltmpXXXXXX");
   if (esl_tmpfile_named(tmpfile, &ofp) != eslOK) esl_fatal(msg);
   for (i = 0; i < expected_nali; i++)

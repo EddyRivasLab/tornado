@@ -188,9 +188,6 @@ OBJS     = \
         basecomposition.o\
         logsum.o	
 
-EASEL     = \
-        esl-afetch \
-        esl-reformat \
 
 
 all:  ${YPROGS}

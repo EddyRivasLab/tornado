@@ -1426,7 +1426,8 @@ esl_rsq_markov_Build(const ESL_ALPHABET *abc, const double *wmerct, int W, doubl
   int      status;
 
   /* 2D array allocation (compact: and in same order as <wmerct> itself */
-  ESL_ALLOC(pmarkov,    sizeof(double *) * ysize);
+  ESL_ALLOC(pmarkov, sizeof(double *) * ysize);
+  pmarkov[0] = NULL;
   ESL_ALLOC(pmarkov[0], sizeof(double)   * nwmers);
   for (y = 1; y < ysize; y++) pmarkov[y] = pmarkov[0] + abc->K * y;
   ESL_ALLOC(pw,         sizeof(double)   * nwmers);
@@ -1442,6 +1443,8 @@ esl_rsq_markov_Build(const ESL_ALPHABET *abc, const double *wmerct, int W, doubl
   return eslOK;
 
  ERROR:
+  if (pmarkov) { free(pmarkov[0]); free(pmarkov); }
+  free(pw);
   *ret_pmarkov = NULL;
   *ret_pwmer   = NULL;
   return status;
@@ -1590,13 +1593,19 @@ main(int argc, char **argv)
   int             minL     = esl_opt_GetInteger(go, "--minL");
   int             maxL     = esl_opt_GetInteger(go, "--maxL");
   int             stepL    = esl_opt_GetInteger(go, "--stepL");
-  ESL_DSQ        *dsq1     = malloc(sizeof(ESL_DSQ) * (maxL+2));
-  ESL_DSQ        *dsq2     = malloc(sizeof(ESL_DSQ) * (maxL+2));
-  double         *fq       = malloc(sizeof(double) * abc->K);
-  double         *pid      = malloc(sizeof(double) * N);
+  ESL_DSQ        *dsq1     = NULL;
+  ESL_DSQ        *dsq2     = NULL;
+  double         *fq       = NULL;
+  double         *pid      = NULL;
   double          mean, var;
   int             L;
   int             i;
+
+  if ((dsq1 = malloc(sizeof(ESL_DSQ) * (maxL+2))) == NULL) esl_fatal("malloc failed");
+  if ((dsq2 = malloc(sizeof(ESL_DSQ) * (maxL+2))) == NULL) esl_fatal("malloc failed");
+  if ((fq   = malloc(sizeof(double) * abc->K))    == NULL) esl_fatal("malloc failed");
+  if ((pid  = malloc(sizeof(double) * N))         == NULL) esl_fatal("malloc failed");
+
 
   esl_vec_DSet(fq, abc->K, 1.0 / (double) abc->K );
 

@@ -143,6 +143,45 @@ notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
 done
 done
 
+cd ~/src/Mysrc/tornado
+for train in TORNADO_TrA.len60_400.nsq200 ; do \
+for grm in g6  ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
+
+cd ~/src/Mysrc/tornado
+for train in TORNADO_7Fam.len0_400.nsq400 ; do \
+for grm in g6  ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
+
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 Save param in preload format ready to import into R-scape src/covgrammars.c
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -209,4 +248,57 @@ Overall prediction accuracy (1415 sequences, 104851 positions)
    14930/21902 predicted pairs correct (68.17% PPV)
 
 
+
+for method in mea ; do \
+for grm    in g6 ; do \
+for train  in TORNADO_TrA.len60_400.nsq200 ; do \
+for test   in TORNADO_TestB.len60_400.nsq100 ; do \
+
+    bin/grm-fold --"$method" \
+    --gpostfile grammars/"$grm".grm \
+    grammars/"$grm".grm \
+    ~/projects/d-SCFG_June2025/data/"$test".sto \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
+
+    lib/easel/miniapps/esl-compstruct ~/projects/d-SCFG_June2025/data/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+
+    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+done
+done
+done
+done
+
+Overall prediction accuracy (100 sequences, 12228 positions)
+   1035/2752 trusted pairs predicted (37.61% sensitivity)
+   1035/2210 predicted pairs correct (46.83% PPV)
+
+
+for method in mea ; do \
+for grm    in g6 ; do \
+for train  in TORNADO_7Fam.len0_400.nsq400 ; do \
+for test   in trna1415_annote_2of2 ; do \
+
+    bin/grm-fold --"$method" \
+    --gpostfile grammars/"$grm".grm \
+    grammars/"$grm".grm \
+    ~/projects/d-SCFG_June2025/data/"$test".sto \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
+
+    lib/easel/miniapps/esl-compstruct ~/projects/d-SCFG_June2025/data/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+
+    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+done
+done
+done
+done
+
+Overall prediction accuracy (707 sequences, 52219 positions)
+   9665/14676 trusted pairs predicted (65.86% sensitivity)
+   9665/11996 predicted pairs correct (80.57% PPV)
 

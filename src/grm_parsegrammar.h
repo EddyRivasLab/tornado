@@ -25,11 +25,12 @@ struct lexeme_s {
   char lex[MAXSTR][MAXSTR];
 };
 
-struct param_s {
+extern struct param_s {
   char     name[MAXSPARAM];
   double   value;
   int      used;
 } param[NPARAM];
+
 
 struct yyparse_s {
   GRAMMAR *Gr;

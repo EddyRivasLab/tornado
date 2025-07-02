@@ -29,8 +29,10 @@
 #include "grm_gmx.h"
 #include "grm_parsegrammar.h" 
 #include "grm_util.h"
-   
- /* static variables */
+
+struct param_s param[NPARAM];
+  
+/* static variables */
   static char              errbuf[eslERRBUFSIZE]; 
   static struct lexeme_s   lexeme;      /* lexeme at hand */
   static ATOM              iatom;       /* incomplete atom */
