@@ -58,11 +58,12 @@ YACC     = bison -d
 YLIBS    = -ll -ly
 LIBS      = -leasel -lm
 
-IFLAGS   = -I../lib/easel -I../src 
-LFLAGS   = -L../lib/easel -L../src 
+ESLDIR   = ../lib/easel
+IFLAGS   = -I${ESLDIR} -I../src 
+LFLAGS   = -L${ESLDIR} -L../src 
 
-MYLIBDIR = -L../lib/easel
-MYINCDIR = -I../lib/easel
+MYLIBDIR = -L${ESLDIR}
+MYINCDIR = -I${ESLDIR}
 
 # beautification magic stolen from git
 #
