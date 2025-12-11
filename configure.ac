@@ -60,7 +60,7 @@ m4_include([lib/easel/m4/esl_pic_flags.m4])
 ################################################################
 # 2. AC_INIT
 ################################################################
-AC_INIT([TORNADO],[0.9.1],[elenarivas@fas.harvard.edu],[TORNADO])
+AC_INIT([TORNADO],[0.9.2],[elenarivas@fas.harvard.edu],[TORNADO])
 AC_MSG_NOTICE([Configuring TORNADO for your system.])
 
 # remember if the usexr is overriding CFLAGS
@@ -97,7 +97,7 @@ fi
 #     EASEL_VERSION    e.g. "1.9a"
 #
 TORNADO_NAME="TORNADO"
-TORNADO_DATE="July 2025"
+TORNADO_DATE="December 2025"
 TORNADO_COPYRIGHT="Copyright (C) 2016 Howard Hughes Medical Institute."
 TORNADO_LICENSE="Freely distributed under the GNU General Public License (GPLv3)."
 TORNADO_VERSION=$PACKAGE_VERSION
@@ -135,15 +135,15 @@ AC_SUBST(TORNADO_SHARE)
 
 
 # Preprocessor symbols (replace #undefs in tornado_config.h)
-AC_DEFINE_UNQUOTED(TORNADO_NAME,      "$TORNADO_NAME")
-AC_DEFINE_UNQUOTED(TORNADO_DATE,      "$TORNADO_DATE")
-AC_DEFINE_UNQUOTED(TORNADO_COPYRIGHT, "$TORNADO_COPYRIGHT")
-AC_DEFINE_UNQUOTED(TORNADO_LICENSE,   "$TORNADO_LICENSE")
-AC_DEFINE_UNQUOTED(TORNADO_VERSION,   "$TORNADO_VERSION")
-AC_DEFINE_UNQUOTED(TORNADO_URL,       "$TORNADO_URL")
-AC_DEFINE_UNQUOTED(TORNADO_HOME,      "$TORNADO_HOME")
-AC_DEFINE_UNQUOTED(TORNADO_BIN,       "$TORNADO_BIN")
-AC_DEFINE_UNQUOTED(TORNADO_SHARE,     "$TORNADO_SHARE")
+AC_DEFINE_UNQUOTED(TORNADO_NAME,      "$TORNADO_NAME",      [tornado_name])
+AC_DEFINE_UNQUOTED(TORNADO_DATE,      "$TORNADO_DATE",      [tornado_date])
+AC_DEFINE_UNQUOTED(TORNADO_COPYRIGHT, "$TORNADO_COPYRIGHT", [tornado_copyright])
+AC_DEFINE_UNQUOTED(TORNADO_LICENSE,   "$TORNADO_LICENSE",   [tornado_license])
+AC_DEFINE_UNQUOTED(TORNADO_VERSION,   "$TORNADO_VERSION",   [tornado_version])
+AC_DEFINE_UNQUOTED(TORNADO_URL,       "$TORNADO_URL",       [tornado_url])
+AC_DEFINE_UNQUOTED(TORNADO_HOME,      "$TORNADO_HOME",      [tornado_home])
+AC_DEFINE_UNQUOTED(TORNADO_BIN,       "$TORNADO_BIN",       [tornado_bin])
+AC_DEFINE_UNQUOTED(TORNADO_SHARE,     "$TORNADO_SHARE",     [tornado_share])
 
 
 # Figure out what host we're compiling on.
@@ -200,16 +200,17 @@ esac
 # --enable-gapaschar=no   - Ignore gaps in columns
 # --enable-gapaschar=yes  - Enable gaps as an extra character
 AC_ARG_ENABLE(gapaschar,
-[AS_HELP_STRING([--enable-gapaschar],[enable gaps as an extra character])
-AS_HELP_STRING([--enable-gapsaschar=x],[also set diagnostics verbosity level to <x> (1-3)])],
-enable_gapaschar=$enableval, enable_gapaschar=no)
+[
+  AS_HELP_STRING([--enable-gapaschar=x],[enable gaps as an extra character x=yes,no])
+],
+enable_gapaschar=$enableval,
+enable_gapaschar=no)
 
 case $enable_gapaschar in
-   yes)  AC_DEFINE(GAPASCHAR, 1);;
-    no)  AC_DEFINE(GAPASCHAR, 0);;
+   yes)  AC_DEFINE(GAPASCHAR, 1, [allow gap as character]);;
+    no)  AC_DEFINE(GAPASCHAR, 0, [do not allow gap as character]);;
      *)  AC_MSG_ERROR([Unknown argument to --enable-gapaschar: $enable_gapaschar]);;
 esac
-
 
 AC_ARG_ENABLE(gcov,    [AS_HELP_STRING([--enable-gcov],    [compile for code coverage testing])],        enable_gcov=$enableval,    enable_gcov=no)
 AC_ARG_ENABLE(gprof,   [AS_HELP_STRING([--enable-gprof],   [compile for gcc code profiling])],           enable_gprof=$enableval,   enable_gprof=no)
@@ -595,6 +596,10 @@ src/grm_config.h
 AC_CONFIG_SUBDIRS(lib/easel)
 AC_CONFIG_SUBDIRS(lib/easel/miniapps)
 
+AC_CHECK_PROG([BISON],[bison],[bison],[no])
+if test "$BISON" = "no"; then
+AC_MSG_ERROR([bison not found])
+else
 AC_CONFIG_FILES([
 Makefile
 src/Makefile
@@ -604,6 +609,9 @@ documentation/copyright.tex
 lib/easel/Makefile
 lib/easel/miniapps/Makefile
 ])
+fi
+
+
 
 #################################################################
 # 14. et voila!

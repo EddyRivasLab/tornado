@@ -62,7 +62,63 @@ notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts ; \
 done
 done
 
+cd ~/src/Mysrc/tornado
+for train in conus_rnabench_RNaseP.50.C ; do \
+for grm in g6 ; do \
 
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
+
+cd ~/src/Mysrc/tornado
+for train in conus_rnabench_RNaseP.25.C ; do \
+for grm in g6 ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
+
+
+cd ~/src/Mysrc/tornado
+for train in conus_rnabench_RNaseP.100.C ; do \
+for grm in g6 ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
 
 
 
@@ -164,6 +220,25 @@ done
 
 cd ~/src/Mysrc/tornado
 for train in TORNADO_7Fam.len0_400.nsq400 ; do \
+for grm in g6  ; do \
+
+echo "train:   $train" ;\
+echo "grammar: $grm" ;\
+
+bin/grm-train --ml \
+--margsavefile  notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_marginal.param \
+--null          notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm"_null.param \
+--countsavefile notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts \
+grammars/"$grm".grm \
+~/projects/d-SCFG_June2025/data/"$train".sto \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".param > \
+notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".train ; \
+
+done
+done
+
+cd ~/src/Mysrc/tornado
+for train in TORNADO_7Fam.len0_400.nsq200 ; do \
 for grm in g6  ; do \
 
 echo "train:   $train" ;\
@@ -302,3 +377,29 @@ Overall prediction accuracy (707 sequences, 52219 positions)
    9665/14676 trusted pairs predicted (65.86% sensitivity)
    9665/11996 predicted pairs correct (80.57% PPV)
 
+
+for method in mea ; do \
+for grm    in g6 ; do \
+for train  in TORNADO_7Fam.len0_400.nsq200 ; do \
+for test   in trna1415_annote_2of2 ; do \
+
+    bin/grm-fold --"$method" \
+    --gpostfile grammars/"$grm".grm \
+    grammars/"$grm".grm \
+    ~/projects/d-SCFG_June2025/data/"$test".sto \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" \
+    notebook/05-2025/"$grm"/TORNADO_"$train"_"$grm".counts > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".out ;\
+
+    lib/easel/miniapps/easel compstruct ~/projects/d-SCFG_June2025/data/"$test".sto notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method" > \
+    notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+
+    more notebook/05-2025/"$grm"/"$test"_TORNADO_"$train"_"$grm"."$method".stats ;\
+done
+done
+done
+done
+
+Overall prediction accuracy (707 sequences, 52219 positions)
+   9653/14676 trusted pairs predicted (65.77% sensitivity)
+   9653/12070 predicted pairs correct (79.98% PPV)
